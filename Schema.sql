@@ -58,8 +58,7 @@ timesheet_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 days_worked VARCHAR(100) NOT NULL,
 overtime int NOT NULL,
 start_date DATE NOT NULL,
-agency_id int,
-contractor_id int
+status VARCHAR(10)
  )
 ENGINE = InnoDB;
 
