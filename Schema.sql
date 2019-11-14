@@ -1,6 +1,7 @@
 SHOW DATABASES;
-DROP SCHEMA IF EXISTS ManagingTimeSheet;
+
 CREATE SCHEMA IF NOT EXISTS ManagingTimeSheet;
+
 USE ManagingTimeSheet;
 
 CREATE TABLE IF NOT EXISTS Login(
