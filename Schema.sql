@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Logins(
 login_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 email VARCHAR(150) NOT NULL,
 password VARCHAR(12) NOT NULL,
-access_level int(1) NOT NULL)
+access_level int(1) NOT NULL DEFAULT 0)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS Agencies(
@@ -57,8 +57,8 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS TimeSheets(
 timesheet_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-days_worked VARCHAR(100) NOT NULL,
-overtime int NOT NULL,
+days_worked BOOLEAN NOT NULL DEFAULT FALSE,
+overtime int NOT NULL DEFAULT 0,
 start_date DATE NOT NULL,
 status VARCHAR(10)
  )
