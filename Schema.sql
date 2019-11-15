@@ -1,9 +1,9 @@
  SHOW DATABASES;
 
-DROP SCHEMA IF EXISTS ManagingTimeSheet;
-CREATE SCHEMA IF NOT EXISTS ManagingTimeSheet;
+DROP SCHEMA IF EXISTS ManagingTimeSheets;
+CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
 
-USE ManagingTimeSheet;
+USE ManagingTimeSheets;
 
 CREATE TABLE IF NOT EXISTS Logins(
 login_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
