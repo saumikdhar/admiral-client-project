@@ -392,7 +392,11 @@
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="18427000" />
+=======
+    <option name="totallyTimeSpent" value="18801000" />
+>>>>>>> ad853949559a26619c257dd89419370d47cc92d1
 =======
     <option name="totallyTimeSpent" value="18801000" />
 >>>>>>> ad853949559a26619c257dd89419370d47cc92d1
