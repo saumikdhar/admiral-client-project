@@ -6,7 +6,7 @@
     <title>TimeSheet</title>
 </head>
 <body>
-
+<h3>TimeSheet</h3>
 <form>
     <div class="form-group">
         <label th:for="Start Date">Start Date</label>
@@ -71,7 +71,7 @@
                 type="number" min="0" max="20"/>
     </div>
 
-    <button  id="time_sheet_submit" type="submit">Submit time sheet</button>
+    <button  th:href="@{/TimeSheetConfirmation}" id="time_sheet_submit" type="submit">Submit time sheet</button>
 
 
 </form>
