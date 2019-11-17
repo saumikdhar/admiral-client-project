@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="255">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,8 +121,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/timesheet_confirmation.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/domain/TimeSheet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/TimeSheetForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java" />
       </list>
     </option>
   </component>
@@ -347,12 +347,12 @@
       <workItem from="1573829457718" duration="938000" />
       <workItem from="1573831706079" duration="2643000" />
       <workItem from="1573916052624" duration="347000" />
-      <workItem from="1573997327610" duration="7542000" />
+      <workItem from="1573997327610" duration="7828000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26343000" />
+    <option name="totallyTimeSpent" value="26629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -368,7 +368,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8987854" visible="true" weight="0.3285968" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8987854" visible="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -586,8 +586,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
