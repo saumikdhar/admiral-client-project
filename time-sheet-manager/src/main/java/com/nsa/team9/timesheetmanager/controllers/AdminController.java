@@ -10,7 +10,6 @@ public class AdminController {
 @GetMapping("admin")
 public String showtimesheets(){
 
-    return "admin";
+    return "adminshowtimesheets";
 }
-
 }

@@ -25,22 +25,26 @@ body{
 .nav {
     height: 55px;
     width: 100%;
-    background-color: #025B30; /*#4d4d4d;*/
+    background-color: #f2f2f2; /*#4d4d4d;*/
     position: relative;
     font-family: "Impact W01", "Arial Black", Gadget, sans-serif;
     /* color: #FFF; */
     font-size: 18px;
-
+    border-bottom: 1px solid #aaaaaa;
+    z-index: auto;
+}
+.nav > a{
+box-sizing: border-box;
 }
 
 .nav > .nav-header {
-    display: inline;
+    /*display: inline;*/
 }
 
 .nav > .nav-header > .nav-title {
-    display: inline-block;
+    /*display: inline-block;*/
     font-size: 22px;
-    color: #fff;
+    color: #2350a0;
     padding: 10px 10px 10px 10px;
 }
 
@@ -58,18 +62,17 @@ body{
     display: inline-block;
     padding: 13px 10px 13px 10px;
     text-decoration: none;
-    color: #efefef;
+    color: #2350a0;
+    box-sizing: border-box;
 }
 
 .nav > .nav-links > a:hover {
-    background-color:#8dc63f; /*rgba(0, 0, 0, 0.3);*/
+    background-color:#FFF; /*rgba(0, 0, 0, 0.3);*/
 }
 
 .nav > #nav-check {
     display: none;
 }
-
-
 .container{
     margin-top: 10%;
 }
