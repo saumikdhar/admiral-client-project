@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+</head>
+<body>
+<div th:replace="fragments/header :: navbar"></div>
+<main role="main" class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <div class="row">
+                    <p>Test Column Nav</p>
+                </div>
+            </div>
+            <div class="col">
+<!--                <div class="row no-gutters">-->
+<!--                    <p>Table Headers</p>-->
+<!--                </div>-->
+                <div class="row no-gutters">
+                    <div class="col">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Table Headers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="test:${tests}">
+                                    <td th:text="${test}"></td>
+                                    <td align="right" width="10%">
+                                        <div class="btn-group" role="group">
+                                            <button type="button"
+                                                    class="btn btn-success"
+                                                    href="/">Y</button>
+                                            <button type="button"
+                                                    class="btn btn-danger"
+                                                    href="/">N</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>
