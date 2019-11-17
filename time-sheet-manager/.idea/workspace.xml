@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/nsa/team9/timesheetmanager/controllers/ContractorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/nsa/team9/timesheetmanager/controllers/ContractorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html" afterDir="false" />
-    </list>
+    <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -73,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+            <state relative-caret-position="269">
+              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
             </state>
           </provider>
         </entry>
@@ -136,8 +133,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="width" value="1941" />
+    <option name="x" value="642" />
+    <option name="width" value="1290" />
     <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -350,12 +347,12 @@
       <workItem from="1573829457718" duration="938000" />
       <workItem from="1573831706079" duration="2643000" />
       <workItem from="1573916052624" duration="347000" />
-      <workItem from="1573997327610" duration="7216000" />
+      <workItem from="1573997327610" duration="7542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26017000" />
+    <option name="totallyTimeSpent" value="26343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -599,8 +596,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+        <state relative-caret-position="269">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
         </state>
       </provider>
     </entry>

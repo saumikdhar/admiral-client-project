@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ContractorController {
 
-@RequestMapping(path = "/TimeSheetConfirmation", method = RequestMethod.GET)
-public String TimeSheetConfirmation(){
+@GetMapping("/TimeSheetForm")
+public String ReturnTimeSheet(){
 
-    return "timesheet_confirmation";
+    return "contractor_timesheet";
 };
 
 
