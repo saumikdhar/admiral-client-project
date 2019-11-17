@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/nsa/team9/timesheetmanager/controllers/ContractorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/nsa/team9/timesheetmanager/controllers/ContractorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/contractor_timesheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/contractor_timesheet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="170">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="201">
+              <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -353,12 +350,12 @@
       <workItem from="1573829457718" duration="938000" />
       <workItem from="1573831706079" duration="2643000" />
       <workItem from="1573916052624" duration="347000" />
-      <workItem from="1573997327610" duration="6876000" />
+      <workItem from="1573997327610" duration="7216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25677000" />
+    <option name="totallyTimeSpent" value="26017000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -374,7 +371,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8987854" visible="true" weight="0.3285968" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8987854" visible="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -592,8 +589,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ContractorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        <state relative-caret-position="170">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -602,8 +599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/contractor_timesheet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="201">
+          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
         </state>
       </provider>
     </entry>
