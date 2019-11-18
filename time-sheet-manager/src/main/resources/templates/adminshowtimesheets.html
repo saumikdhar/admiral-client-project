@@ -5,36 +5,53 @@
 <div th:replace="fragments/header :: navbar"></div>
 <body>
 <main role="main" class="container">
-    <div class="container">
-
-        <h1>under construction admin</h1>
-
-        <div class="row mt-4">
-            <div id=missingTimesheetMessage th:if="${#lists.isEmpty(top5Donations)}">
-                <div>No time sheets found</div>
-            </div>
+<!--            <div id=missingTimesheetMessage th:if="${#lists.isEmpty(top5Donations)}">-->
+<!--                <div>No time sheets found</div>-->
+<!--            </div>-->
             <div class="container">
-                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">
+<!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
                     <table class ="table">
                         <thead>
                         <tr>
-                            <th scope="col">Donor Name</th>
-                            <th scope="col">Donation Amount</th>
-                            <th scope="col">Donation Amount With GiftAid</th>
+                            <th scope="col">Agency Name</th>
+                            <th scope="col">Contractor name</th>
+                            <th scope="col">Monday</th>
+                            <th scope="col">Tuesday</th>
+                            <th scope="col">Wednesday</th>
+                            <th scope="col">Thursday</th>
+                            <th scope="col">Friday</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Manager Name</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="top5Donation,iter : ${top5Donations}">
-                            <td th:text="${top5Donation.donor.firstName}">&nbsp</td>
-                            <td th:text="${'£' + #numbers.formatDecimal(top5Donation.amountInPence*1.000001/100,0,2)}"></td>
-                            <td th:text="${'£' + top5DonationsWithGiftAid.get(iter.index)}">&nbsp</td>
+                        <tr>
+<!--                        <tr th:each="top5Donation,iter : ${top5Donations}">-->
+                            <td>Co</td>
+                            <td>Gavin Meredith</td>
+                            <td>worked</td>
+                            <td>worked</td>
+                            <td>not worked</td>
+                            <td>not worked</td>
+                            <td>worked</td>
+                            <td><span style="color: green">approved</span></td>
+                            <td>Ben Davies</td>
+                        </tr>
+                        <tr>
+                            <td>Co</td>
+                            <td>John Smith</td>
+                            <td>worked</td>
+                            <td>worked</td>
+                            <td>not worked</td>
+                            <td>not worked</td>
+                            <td>worked</td>
+                            <td><span style="color: red">rejected</span></td>
+                            <td>Ben Davies</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
 </main>
 <div th:replace="fragments/footer :: footer">
 </div>

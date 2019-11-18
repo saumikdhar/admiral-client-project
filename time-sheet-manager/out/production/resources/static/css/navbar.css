@@ -37,7 +37,7 @@ body{
     padding-right: 17px;
     font-size: 1.6rem;
     font-weight: 600;
-
+    overflow: hidden;
 }
 .nav > a{
 box-sizing: border-box;
