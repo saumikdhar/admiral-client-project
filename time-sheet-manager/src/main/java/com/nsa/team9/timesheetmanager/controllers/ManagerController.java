@@ -1,7 +1,7 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 
-import com.nsa.team9.timesheetmanager.util.ManagerNotes;
+import com.nsa.team9.timesheetmanager.controllers.util.ManagerNotes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
