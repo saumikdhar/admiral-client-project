@@ -7,21 +7,22 @@
 </head>
 <body>
 <h3>TimeSheet</h3>
-<form>
+<form id="TimeSheet" >
     <div class="form-group">
         <label >Start Date</label>
         <input aria-describedby="Enter the date of your working week"
                class="form-control"
                placeholder="Start date"
-               type="date" id="e"/>
+               type="date" id="e" onchange="TDate()" />
         <script>
             document.getElementById('e').value = new Date().toISOString().substring(0, 10);
         </script>
     </div>
-
+    <fieldset>
     <div class="form-group">
         <label>Monday</label>
         <input
+               name = "list"
                class="form-control"
                placeholder="Monday"
                type="checkbox"/>
@@ -30,6 +31,7 @@
     <div class="form-group">
         <label>Tuesday</label>
         <input
+                name = "list"
                 class="form-control"
                 placeholder="Tuesday"
                 type="checkbox"/>
@@ -38,6 +40,7 @@
     <div class="form-group">
         <label>Wednesday</label>
         <input
+                name = "list"
                 class="form-control"
                 placeholder="Wednesday"
                 type="checkbox"/>
@@ -46,6 +49,7 @@
     <div class="form-group">
         <label>Thursday</label>
         <input
+                name = "list"
                 class="form-control"
                 placeholder="Thursday"
                 type="checkbox"/>
@@ -54,14 +58,17 @@
     <div class="form-group">
         <label>Friday</label>
         <input
+                name = "list"
                 class="form-control"
                 placeholder="Friday"
                 type="checkbox"/>
     </div>
+    </fieldset>
 
     <div class="form-group">
         <label>Overtime</label>
         <input
+                name = "list"
                 class="form-control"
                 placeholder="Overtime"
                 type="number" min="0" max="20"/>
@@ -75,5 +82,29 @@
 
 <div th:replace="fragments/footer :: footer">
 </div>
+<script>
+    $(document).ready(function() {
+        $('#TimeSheet').submit(function() {
+            var $fields = $(this).find('input[name="list"]:checked');
+            if (!$fields.length) {
+                alert('You must check at least one box!');
+                return false; // The form will *not* submit
+            }
+        });
+    });
+</script>
+
+<script>
+function TDate() {
+var UserDate = document.getElementById("e").value;
+var ToDate = new Date();
+
+if (new Date(UserDate).getTime() > ToDate.getTime()) {
+alert("The Date must be less than today's date");
+return false;
+}
+return true;
+}
+</script>
 </body>
 </html>
