@@ -13,7 +13,6 @@
         <input aria-describedby="Enter the date of your working week"
                class="form-control"
                placeholder="Start date"
-               th:field="*{Start date}"
                type="date" id="e"/>
         <script>
             document.getElementById('e').value = new Date().toISOString().substring(0, 10);
@@ -25,7 +24,6 @@
         <input
                class="form-control"
                placeholder="Monday"
-               th:field="*{Monday}"
                type="checkbox"/>
     </div>
 

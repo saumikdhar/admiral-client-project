@@ -13,7 +13,6 @@
         <input aria-describedby="Enter the date of your working week"
                class="form-control"
                placeholder="Start date"
-               th:field="*{Start date}"
                type="date" id="e"/>
         <script>
             document.getElementById('e').value = new Date().toISOString().substring(0, 10);
@@ -25,7 +24,6 @@
         <input
                class="form-control"
                placeholder="Monday"
-               th:field="*{Monday}"
                type="checkbox"/>
     </div>
 
@@ -34,7 +32,6 @@
         <input
                 class="form-control"
                 placeholder="Tuesday"
-                th:field="*{Tuesday}"
                 type="checkbox"/>
     </div>
 
@@ -43,7 +40,6 @@
         <input
                 class="form-control"
                 placeholder="Wednesday"
-                th:field="*{Wednesday}"
                 type="checkbox"/>
     </div>
 
@@ -52,7 +48,6 @@
         <input
                 class="form-control"
                 placeholder="Thursday"
-                th:field="*{Thursday}"
                 type="checkbox"/>
     </div>
 
@@ -61,7 +56,6 @@
         <input
                 class="form-control"
                 placeholder="Friday"
-                th:field="*{Friday}"
                 type="checkbox"/>
     </div>
 
@@ -70,7 +64,6 @@
         <input
                 class="form-control"
                 placeholder="Overtime"
-                th:field="*{Overtime}"
                 type="number" min="0" max="20"/>
     </div>
 
