@@ -6,9 +6,10 @@
     <title>TimeSheet</title>
 </head>
 <body>
-<h3>TimeSheet</h3>
+<div th:replace="fragments/header :: navbar"></div>
+<h5>TimeSheet</h5>
 <form id="TimeSheet" >
-    <div class="form-group">
+    <div class="form-control">
         <label>Start Date</label>
         <input aria-describedby="Enter the date of your working week"
                class="form-control"
@@ -18,54 +19,54 @@
             document.getElementById('e').value = new Date().toISOString().substring(0, 10);
         </script>
     </div>
-    <fieldset>
-    <div class="form-group" >
-        <label>Monday</label>
+    <fieldset class="form-check form-check-inline">
+    <div >
+        <label class="form-check-label">Monday</label>
         <input
                name = "list"
-               class="form-control"
+               class="form-check-input"
                placeholder="Monday"
                type="checkbox"/>
     </div>
 
-    <div class="form-group">
-        <label>Tuesday</label>
+    <div >
+        <label class="form-check-label">Tuesday</label>
         <input
                 name = "list"
-                class="form-control"
+                class="form-check-input"
                 placeholder="Tuesday"
                 type="checkbox"/>
     </div>
 
-    <div class="form-group">
-        <label>Wednesday</label>
+    <div>
+        <label class="form-check-label">Wednesday</label>
         <input
                 name = "list"
-                class="form-control"
+                class="form-check-input"
                 placeholder="Wednesday"
                 type="checkbox"/>
     </div>
 
-    <div class="form-group">
-        <label>Thursday</label>
+    <div >
+        <label class="form-check-label">Thursday</label>
         <input
                 name = "list"
-                class="form-control"
+                class="form-check-input"
                 placeholder="Thursday"
                 type="checkbox"/>
     </div>
 
-    <div class="form-group">
-        <label>Friday</label>
+    <div>
+        <label class="form-check-label">Friday</label>
         <input
                 name = "list"
-                class="form-control"
+                class="form-check-input"
                 placeholder="Friday"
                 type="checkbox"/>
     </div>
     </fieldset>
 
-    <div class="form-group">
+    <div class="form-control">
         <label>Overtime</label>
         <input
                 name = "list"
@@ -74,7 +75,7 @@
                 type="number" min="0" max="20"/>
     </div>
 
-    <button  th:href="@{/TimeSheetForm}" id="time_sheet_submit" type="submit">Submit time sheet</button>
+    <button  class="btn btn-primary" th:href="@{/TimeSheetForm}" id="time_sheet_submit" type="submit">Submit time sheet</button>
 
 
 </form>
