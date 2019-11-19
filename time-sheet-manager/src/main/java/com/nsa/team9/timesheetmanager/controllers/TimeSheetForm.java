@@ -15,7 +15,7 @@ import java.util.Date;
 public class TimeSheetForm {
 
     @NotNull
-    @Past(message = "Date needs to be in the past")
+    @Past(message = "Start date cannot be present or in the future")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date start_date;
 
