@@ -2,18 +2,17 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head th:replace="fragments/header :: head">
 </head>
-<div th:replace="fragments/header :: navbar"></div>
-<nav class="nav">
-    <input type="checkbox" id="nav-check">
-    <div class="nav-links"><a href="#" th:href="@{/}">find agency</a></div>
-    <div class="nav-links"><a href="#" th:href="@{/}">find contractor</a></div>
-
-</nav>
+<div th:replace="fragments/header :: navbar-admin"></div>
 <body>
-<main role="main" class="container">
+<main role="main" class="box">
 <!--            <div id=missingTimesheetMessage th:if="${#lists.isEmpty(top5Donations)}">-->
 <!--                <div>No time sheets found</div>-->
 <!--            </div>-->
+<!--    <label>Monday</label>-->
+<!--    <label class="switch">-->
+<!--        <input id="myCheck" type="checkbox">-->
+<!--        <span class="slider round"></span>-->
+<!--    </label>-->
             <div class="container">
 <!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
                     <table class ="table">
@@ -31,8 +30,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-<!--                        <tr th:each="top5Donation,iter : ${top5Donations}">-->
+<!--                        <tr>-->
+                        <tr th:each="top5Donation,iter : ${top5Donations}">
                             <td>Co</td>
                             <td>Gavin Meredith</td>
                             <td>worked</td>

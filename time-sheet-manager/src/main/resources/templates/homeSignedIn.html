@@ -2,13 +2,15 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: head">
 </head>
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<div th:replace="fragments/header :: navbar"></div>
+<div th:replace="fragments/header :: navbar">
+    <div class="nav">
+    <div class="nav-links">
+        <a href="#" th:href="@{/}">Home</a>
+    </div>
+    </div>
+</div>
 <body>
-<main role="main" class="container">
+<main role="main" class="box">
     <div class="container">
 
         <h1>home page signed in under construction</h1>

@@ -25,7 +25,7 @@ body{
 /* nav bar css ================================================================================ */
 
 .nav {
-    height: 70px;
+    height: 60px;
     max-width: 1400px;
     background-color: #f2f2f2; /*#4d4d4d;*/
     position: relative;
@@ -35,7 +35,7 @@ body{
     margin: auto;
     padding-left: 17px;
     padding-right: 17px;
-    font-size: 1.6rem;
+    font-size: 20px;
     font-weight: 600;
 }
 .nav > a{
@@ -43,13 +43,14 @@ box-sizing: border-box;
 }
 
 .nav > .nav-header {
-    display: inline;
+    display: inline-block;
+    height: inherit;
 }
 
 .nav > .nav-header > .nav-title {
     display: inline-block;
     color: #2350a0;
-    padding: 12px 20px 13px 10px;
+    padding: 9px 10px 9px 10px;
 }
 
 .nav > .nav-btn {
@@ -61,9 +62,6 @@ box-sizing: border-box;
     border-left-color: rgb(214,214,214);
     border-left-width: 1px;
     border-left-style: solid;
-    border-right-color: rgb(214,214,214);
-    border-right-width: 1px;
-    border-right-style: solid;
 }
 
 .nav > .nav-links > a {
@@ -71,7 +69,7 @@ box-sizing: border-box;
     padding: 12px 20px 13px 20px;
     text-decoration: none;
     color: #2350a0;
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
 }
 
 .nav > .nav_right > a {
@@ -105,7 +103,7 @@ box-sizing: border-box;
     }
 }
 
-@media (max-width:700px){
+@media (max-width:900px){
     .nav-links{
         position: absolute;
         display: block;
