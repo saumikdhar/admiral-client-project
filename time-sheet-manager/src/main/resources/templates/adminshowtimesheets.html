@@ -15,6 +15,7 @@
 <!--    </label>-->
             <div class="container">
 <!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
+                <div style="overflow-x:auto;">
                     <table class ="table">
                         <thead>
                         <tr>
@@ -56,9 +57,10 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+                </div>
+    <div th:replace="fragments/footer :: footer">
+    </div>
+    </div>
 </main>
-<div th:replace="fragments/footer :: footer">
-</div>
 </body>
 </html>
