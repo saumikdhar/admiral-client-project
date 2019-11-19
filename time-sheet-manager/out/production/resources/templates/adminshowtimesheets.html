@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head th:replace="fragments/header :: head">
+</head>
+<div th:replace="fragments/header :: navbar"></div>
+<nav class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-links"><a href="#" th:href="@{/}">find agency</a></div>
+    <div class="nav-links"><a href="#" th:href="@{/}">find contractor</a></div>
+
+</nav>
+<body>
+<main role="main" class="container">
+<!--            <div id=missingTimesheetMessage th:if="${#lists.isEmpty(top5Donations)}">-->
+<!--                <div>No time sheets found</div>-->
+<!--            </div>-->
+            <div class="container">
+<!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
+                    <table class ="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Agency Name</th>
+                            <th scope="col">Contractor name</th>
+                            <th scope="col">Monday</th>
+                            <th scope="col">Tuesday</th>
+                            <th scope="col">Wednesday</th>
+                            <th scope="col">Thursday</th>
+                            <th scope="col">Friday</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Manager Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+<!--                        <tr th:each="top5Donation,iter : ${top5Donations}">-->
+                            <td>Co</td>
+                            <td>Gavin Meredith</td>
+                            <td>worked</td>
+                            <td>worked</td>
+                            <td>not worked</td>
+                            <td>not worked</td>
+                            <td>worked</td>
+                            <td><span style="color: green">approved</span></td>
+                            <td>Ben Davies</td>
+                        </tr>
+                        <tr>
+                            <td>Co</td>
+                            <td>John Smith</td>
+                            <td>worked</td>
+                            <td>worked</td>
+                            <td>not worked</td>
+                            <td>not worked</td>
+                            <td>worked</td>
+                            <td><span style="color: red">rejected</span></td>
+                            <td>Ben Davies</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+</main>
+<div th:replace="fragments/footer :: footer">
+</div>
+</body>
+</html>
