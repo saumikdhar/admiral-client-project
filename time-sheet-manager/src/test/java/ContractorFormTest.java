@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import static org.hamcrest.Matchers.containsString;
@@ -36,14 +38,14 @@ public class ContractorFormTest {
     @Test
     public void makeTimeSheetAndCheckIfFormSubmits() throws Exception {
 
-        String sDate1="13/11/2019";
-        Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+        LocalDate inputDate = LocalDate.of(2019,11,13);
 
-        TimeSheetForm TestTimeSheetForm = new TimeSheetForm(date1,Boolean.TRUE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,2);
+
+        TimeSheetForm TestTimeSheetForm = new TimeSheetForm(inputDate,Boolean.TRUE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,Boolean.FALSE,2);
 
         mvc.perform
                 (get
-                        ("/TimeSheetDetails") 
+                        ("/TimeSheetDetails")
                         .sessionAttr("TimeSheetForm", TestTimeSheetForm)
                 )
                 .andDo(

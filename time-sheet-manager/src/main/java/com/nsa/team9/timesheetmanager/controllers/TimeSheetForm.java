@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.validation.constraints.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -17,7 +18,7 @@ public class TimeSheetForm {
     @NotNull
     @Past(message = "Start date cannot be present or in the future")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date start_date;
+    private LocalDate start_date;
 
 
     private Boolean monday_worked;

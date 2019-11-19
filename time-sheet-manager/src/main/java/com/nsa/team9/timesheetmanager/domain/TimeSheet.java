@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -43,7 +44,7 @@ public class TimeSheet {
     private int overtime;
 
     @Column(name = "start_date")
-    private Date start_date;
+    private LocalDate start_date;
 
     @Column(name = "status")
     private String status;
