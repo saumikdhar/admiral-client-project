@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/ContractorFormTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ContractorFormTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -89,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ContractorFormTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="81" column="56" lean-forward="true" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+            <state relative-caret-position="240">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -273,7 +271,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ContractorFormTest.makeDonationAndCheckId">
+  <component name="RunManager" selected="JUnit.ContractorFormTest.makeTimeSheetAndCheckIfFormSubmits">
     <configuration name="time-sheet-manager [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -286,25 +284,6 @@
         <option name="taskNames">
           <list>
             <option value="bootRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="time-sheet-manager [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -341,6 +320,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ContractorFormTest.makeTimeSheetAndCheckIfFormSubmits" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="time-sheet-manager.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ContractorFormTest" />
+      <option name="METHOD_NAME" value="makeTimeSheetAndCheckIfFormSubmits" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TimeSheetManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="time-sheet-manager.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.nsa.team9.timesheetmanager.TimeSheetManagerApplication" />
@@ -350,11 +339,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContractorFormTest.makeTimeSheetAndCheckIfFormSubmits" />
         <item itemvalue="JUnit.ContractorFormTest.makeDonationAndCheckId" />
         <item itemvalue="JUnit.ContractorFormTest.CheckIfTimeSheetDetailsAreOk" />
         <item itemvalue="JUnit.ContractorFormTest" />
         <item itemvalue="Gradle.time-sheet-manager [bootRun]" />
-        <item itemvalue="Gradle.time-sheet-manager [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -372,7 +361,7 @@
       <workItem from="1573831706079" duration="2643000" />
       <workItem from="1573916052624" duration="347000" />
       <workItem from="1573997327610" duration="8933000" />
-      <workItem from="1574072892226" duration="25754000" />
+      <workItem from="1574072892226" duration="25986000" />
     </task>
     <servers />
   </component>
@@ -409,7 +398,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53488000" />
+    <option name="totallyTimeSpent" value="53720000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -736,8 +725,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ContractorFormTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="81" column="56" lean-forward="true" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+        <state relative-caret-position="240">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

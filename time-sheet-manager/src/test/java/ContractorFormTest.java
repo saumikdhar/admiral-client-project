@@ -43,7 +43,7 @@ public class ContractorFormTest {
 
         mvc.perform
                 (get
-                        ("/TimeSheetDetails") //final click in journey is a get.  everything is on the session at this point
+                        ("/TimeSheetDetails") 
                         .sessionAttr("TimeSheetForm", TestTimeSheetForm)
                 )
                 .andDo(
@@ -53,7 +53,7 @@ public class ContractorFormTest {
                         status().isOk()
                 )
                 .andExpect(
-                        content().string(containsString("Thank you for submitting your time sheet")) //check for text from receipt page
+                        content().string(containsString("Thank you for submitting your time sheet"))
                 )
         ;
     }
