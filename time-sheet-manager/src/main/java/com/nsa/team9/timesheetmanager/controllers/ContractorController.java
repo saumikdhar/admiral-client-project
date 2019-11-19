@@ -12,8 +12,9 @@ import java.sql.Time;
 public class ContractorController {
 
 @GetMapping("/TimeSheetForm")
-public String ReturnTimeSheet(){
+public String ReturnTimeSheet(Model model){
 
+    model.addAttribute("TimeSheet", new TimeSheetForm());
     return "contractor_timesheet";
 };
 
