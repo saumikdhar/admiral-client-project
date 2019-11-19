@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
+<head th:replace="fragments/header :: head">
+    <meta charset="UTF-8">
+    <title>TimeSheet</title>
+</head>
+<body>
+<div th:replace="fragments/header :: navbar"></div>
+<h5>Contractor TimeSheet</h5>
+<form id="TimeSheet" >
+    <div class="form-control">
+        <label>Start Date</label>
+        <input aria-describedby="Enter the date of your working week"
+               class="form-control"
+               placeholder="Start date"
+               type="date" id="e" onchange="TDate()" />
+        <script>
+            document.getElementById('e').value = new Date().toISOString().substring(0, 10);
+        </script>
+    </div>
+    <fieldset class="form-check form-check-inline">
+    <div >
+        <label class="form-check-label">Monday</label>
+        <input
+               name = "list"
+               class="form-check-input"
+               placeholder="Monday"
+               type="checkbox"/>
+    </div>
+
+    <div >
+        <label class="form-check-label">Tuesday</label>
+        <input
+                name = "list"
+                class="form-check-input"
+                placeholder="Tuesday"
+                type="checkbox"/>
+    </div>
+
+    <div>
+        <label class="form-check-label">Wednesday</label>
+        <input
+                name = "list"
+                class="form-check-input"
+                placeholder="Wednesday"
+                type="checkbox"/>
+    </div>
+
+    <div >
+        <label class="form-check-label">Thursday</label>
+        <input
+                name = "list"
+                class="form-check-input"
+                placeholder="Thursday"
+                type="checkbox"/>
+    </div>
+
+    <div>
+        <label class="form-check-label">Friday</label>
+        <input
+                name = "list"
+                class="form-check-input"
+                placeholder="Friday"
+                type="checkbox"/>
+    </div>
+    </fieldset>
+
+    <div class="form-control">
+        <label>Overtime</label>
+        <input
+                name = "list"
+                class="form-control"
+                placeholder="Overtime"
+                type="number" min="0" max="20"/>
+    </div>
+
+    <button  class="btn btn-primary" th:href="@{/TimeSheetForm}" id="time_sheet_submit" type="submit">Submit time sheet</button>
+
+
+</form>
+
+
+<div th:replace="fragments/footer :: footer">
+</div>
+<script>
+    $(document).ready(function() {
+        $('#TimeSheet').submit(function() {
+            var $fields = $(this).find('input[name="list"]:checked');
+            if (!$fields.length) {
+                alert('You must check at least one box!');
+                return false; // The form will *not* submit
+            }
+        });
+    });
+</script>
+
+<script>
+function TDate() {
+var UserDate = document.getElementById("e").value;
+var ToDate = new Date();
+
+if (new Date(UserDate).getTime() > ToDate.getTime()) {
+alert("The Date must be less than today's date");
+return false;
+}
+return true;
+}
+</script>
+</body>
+</html>
