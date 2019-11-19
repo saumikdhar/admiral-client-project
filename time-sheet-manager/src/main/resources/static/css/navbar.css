@@ -31,16 +31,18 @@ body{
     position: relative;
     /* color: #FFF; */
     border-bottom: 1px solid #aaaaaa;
-    display: flex;
     margin: auto;
     padding-left: 17px;
     padding-right: 17px;
     font-size: 1.6rem;
     font-weight: 600;
-    overflow: hidden;
 }
 .nav > a{
 box-sizing: border-box;
+}
+
+.nav > .nav-header {
+    display: inline;
 }
 
 .nav > .nav-header > .nav-title {
@@ -63,18 +65,23 @@ box-sizing: border-box;
     border-right-style: solid;
 }
 
-@media screen and (min-width: 768px) {
-    .nav-links > a {
-        padding-left: 20px;
-        background-image: none;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        position: relative;
-
-    }
+.nav > .nav-links > a {
+    display: inline-block;
+    padding: 12px 20px 13px 20px;
+    text-decoration: none;
+    color: #2350a0;
+    /*box-sizing: border-box;*/
 }
-    .nav > .nav_right{
+
+.nav > .nav_right > a {
+    display: inline-block;
+    padding: 13px 20px 13px 20px;
+    text-decoration: none;
+    color: #2350a0;
+    /*box-sizing: border-box;*/
+}
+
+.nav > .nav_right{
     margin-left: auto;
     display: flex;
     border-left-color: rgb(214,214,214);
@@ -86,21 +93,51 @@ box-sizing: border-box;
 
 }
 
-.nav > .nav-links > a {
-    display: inline-block;
-    padding: 12px 20px 13px 20px;
-    text-decoration: none;
-    color: #2350a0;
-    box-sizing: border-box;
+@media screen and (min-width: 768px) {
+    .nav-links > a {
+        padding-left: 20px;
+        background-image: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+    }
 }
 
-.nav > .nav_right > a {
-    display: inline-block;
-    padding: 13px 20px 13px 20px;
-    text-decoration: none;
-    color: #2350a0;
-    box-sizing: border-box;
+@media (max-width:700px){
+    .nav-links{
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #006838;
+        height: 0px;
+        transition: all 0.7s ease-in;
+        overflow-y: hidden;
+        top: 55px;
+        left: 0px;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .nav_right{
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #006838;
+        height: 0px;
+        transition: all 0.7s ease-in;
+        overflow-y: hidden;
+        top: 55px;
+        left: 0px;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .nav > .nav-links > a {
+        display: block;
+        width: 100%;
+    }
 }
+
 
 .nav > .nav_right > a:hover {
     background-color:#FFF; /*rgba(0, 0, 0, 0.3);*/
