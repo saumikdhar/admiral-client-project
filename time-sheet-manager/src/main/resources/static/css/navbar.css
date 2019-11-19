@@ -29,6 +29,7 @@ body{
     max-width: 1400px;
     background-color: #f2f2f2; /*#4d4d4d;*/
     position: relative;
+    display: flex;
     /* color: #FFF; */
     border-bottom: 1px solid #aaaaaa;
     margin: auto;
@@ -90,7 +91,6 @@ box-sizing: border-box;
     border-right-color: rgb(214,214,214);
     border-right-width: 1px;
     border-right-style: solid;
-
 }
 
 @media screen and (min-width: 768px) {
