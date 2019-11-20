@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/controllers/ManagerControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/util/ManagerNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/util/ManagerNotes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/manager.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -88,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/manager.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="70" column="38" lean-forward="true" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+            <state relative-caret-position="872">
+              <caret line="69" column="59" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -103,11 +105,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ManagerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+            <state relative-caret-position="17">
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ManagerControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,6 +137,7 @@
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -161,8 +176,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/util/ManagerNotes.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/domain/Manager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/util/ManagerNotes.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/manager.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/manager.html" />
+        <option value="$PROJECT_DIR$/src/test/java/com/nsa/team9/timesheetmanager/controllers/ManagerControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/controllers/ManagerControllerTest.java" />
       </list>
     </option>
   </component>
@@ -190,6 +207,32 @@
             <path>
               <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
               <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
@@ -277,6 +320,27 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="fragments" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="time-sheet-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="time-sheet-manager" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -291,6 +355,8 @@
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -302,8 +368,14 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.nsa.team9.timesheetmanager.controllers" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.nsa.team9.timesheetmanager.controllers" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\c1824227\Desktop\team-9-admiral-client-project\time-sheet-manager\src\main\resources" />
@@ -425,10 +497,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50557000" />
+    <option name="totallyTimeSpent" value="53518000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16032389" />
@@ -681,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/manager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="70" column="38" lean-forward="true" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/util/ManagerNotes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
@@ -695,10 +760,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build/reports/tests/test/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/ManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+        <state relative-caret-position="17">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/manager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="872">
+          <caret line="69" column="59" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/controllers/ManagerControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

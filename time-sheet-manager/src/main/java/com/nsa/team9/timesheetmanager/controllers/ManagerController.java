@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -27,6 +29,9 @@ public class ManagerController {
         tests.add("Test2");
         model.addAttribute("tests",tests);
         //
+        List<String> rejectOptions = Arrays.asList("Bank Holiday", "Incorrect Days Selected", "Incorrect Overtime recorded");
+        System.out.println(rejectOptions);
+        model.addAttribute("rejectOptions",rejectOptions);
         model.addAttribute("note", new ManagerNotes());
         return "manager";
     }

@@ -63,7 +63,14 @@
 
                             <div class="form-group">
                                 <label class="col-form-label" th:for="notes">Notes:</label>
-                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>
+
+<!--                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>-->
+
+                                <select class="row form-control" th:field="*{notes}">
+                                    <option th:each="i : ${rejectOptions}" th:value="${i}" th:text="${i}">
+                                    </option>
+                                </select>
+
                                 <div class="alert alert-danger"
                                      th:errors="*{notes}"
                                      th:if="${#fields.hasErrors('notes')}">
