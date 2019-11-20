@@ -41,7 +41,7 @@ public class TimeSheet {
     private boolean friday_worked;
 
     @Column(name = "overtime")
-    private int overtime;
+    private Double overtime;
 
     @Column(name = "start_date")
     private LocalDate start_date;

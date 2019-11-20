@@ -41,7 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             LocalDate inputDate = LocalDate.of(2019, 11, 13);
 
 
-            TimeSheetForm TestTimeSheetForm = new TimeSheetForm(inputDate, Boolean.TRUE, Boolean.FALSE, Boolean.FALSE, Boolean.FALSE, Boolean.FALSE, 2);
+            TimeSheetForm TestTimeSheetForm = new TimeSheetForm(inputDate, Boolean.TRUE, Boolean.FALSE, Boolean.FALSE, Boolean.FALSE, Boolean.FALSE, 2.0);
 
             mvc.perform
                     (post
