@@ -20,17 +20,19 @@
 body{
     margin: 0;
     padding: 0;
-    border:0;}
+    border:0;
+    font-family: Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
 /* nav bar css ================================================================================ */
 
 .nav {
     height: 60px;
-    max-width: 1400px;
+    max-width: 100%;
     background-color: #f2f2f2; /*#4d4d4d;*/
     position: relative;
     display: flex;
-    /* color: #FFF; */
     border-bottom: 1px solid #aaaaaa;
     margin: auto;
     padding-left: 17px;
@@ -38,33 +40,33 @@ body{
     font-size: 20px;
     font-weight: 600;
 }
-.nav > a{
+.nav  a{
 box-sizing: border-box;
 }
 
-.nav > .nav-header {
+nav .nav-header {
     display: inline-block;
     height: inherit;
 }
 
-.nav > .nav-header > .nav-title {
+.nav .nav-header .nav-title {
     display: inline-block;
     color: #2350a0;
     padding: 9px 10px 9px 10px;
 }
 
-.nav > .nav-btn {
+.nav .nav-btn {
     display: none;
 }
 
-.nav > .nav-links {
+.nav .nav-links {
     display: flex;
     border-left-color: rgb(214,214,214);
     border-left-width: 1px;
     border-left-style: solid;
 }
 
-.nav > .nav-links > a {
+.nav .nav-links  a {
     display: inline-block;
     padding: 12px 20px 13px 20px;
     text-decoration: none;
@@ -72,7 +74,7 @@ box-sizing: border-box;
     box-sizing: border-box;
 }
 
-.nav > .nav_right > a {
+.nav .nav_right a {
     display: inline-block;
     padding: 13px 20px 13px 20px;
     text-decoration: none;
@@ -80,7 +82,7 @@ box-sizing: border-box;
     /*box-sizing: border-box;*/
 }
 
-.nav > .nav_right{
+.nav .nav_right{
     margin-left: auto;
     display: flex;
     border-left-color: rgb(214,214,214);
@@ -92,7 +94,7 @@ box-sizing: border-box;
 }
 
 @media screen and (min-width: 768px) {
-    .nav-links > a {
+    .nav-links  a {
         padding-left: 20px;
         background-image: none;
         height: 100%;
@@ -105,19 +107,19 @@ box-sizing: border-box;
 
 @media (max-width:900px){
 
-    .nav > .nav-btn {
+    .nav .nav-btn {
         display: inherit;
         position: absolute;
         right: 0px;
         top: 0px;
     }
-    .nav > .nav-btn > label {
+    .nav .nav-btn label {
         display: inline-block;
         width: 30px;
         height: inherit;
         padding: 13px;
     }
-    .nav > .nav-btn > label:hover {
+    .nav .nav-btn label:hover {
         background-color: rgba(0, 0, 0, 0.3);
     }
     .nav > .nav-btn > label > span {
@@ -160,7 +162,7 @@ box-sizing: border-box;
         z-index: 1;
         overflow: hidden;
     }
-    .nav > .nav-links > a {
+    .nav .nav-links  a {
         display: block;
         width: 100%;
     }
