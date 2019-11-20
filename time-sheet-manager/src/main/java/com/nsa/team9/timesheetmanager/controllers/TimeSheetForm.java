@@ -37,7 +37,7 @@ public class TimeSheetForm {
 
     @NotNull(message = "Invalid overtime hours")
     //@Size(min = 0, max = 2, message = "Invalid overtime hours")
-    @Min(0)
+    @Min(value = 0)
     @Max(20)
     private Double overtime;
 
