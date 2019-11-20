@@ -55,7 +55,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                             .param("friday_worked", "false")
                             .param("overtime", "2")
                     )
-                    .andDo(
+                    .andDo( 
                             print()
                     )
                     .andExpect(
