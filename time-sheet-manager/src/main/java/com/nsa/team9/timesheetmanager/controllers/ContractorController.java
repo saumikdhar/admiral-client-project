@@ -18,7 +18,7 @@ public String ReturnTimeSheet(Model model){
     return "contractor_timesheet";
 };
 
-    @RequestMapping(path = "TimeSheetDetails", method = RequestMethod.POST)
+    @PostMapping("TimeSheetDetails")
     public String TimeSheetDetails(Model model, @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
