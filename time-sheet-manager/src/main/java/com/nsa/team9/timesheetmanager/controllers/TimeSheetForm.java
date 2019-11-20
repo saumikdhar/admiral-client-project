@@ -35,10 +35,15 @@ public class TimeSheetForm {
 
     private Boolean friday_worked;
 
+<<<<<<< HEAD
     @NotNull(message = "Invalid overtime hours")
     //@Size(min = 0, max = 2, message = "Invalid overtime hours")
     @Min(value = 0)
     @Max(20)
+=======
+    @Min(value = 0, message = "The minimum amount of overtime cannot be less than 0")
+    @Max(value = 20,message = "The max amount of overtime is 20 hours")
+>>>>>>> e7c631d4ce181c2a4b5f8715fe580e62b20b187c
     private Double overtime;
 
 }
