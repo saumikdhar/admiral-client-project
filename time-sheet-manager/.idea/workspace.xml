@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/TimeSheetForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/controllers/TimeSheetForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/domain/TimeSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nsa/team9/timesheetmanager/domain/TimeSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ContractorFormTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ContractorFormTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="fdbf8e1a-2026-4fa8-8a7b-df176f21cc28" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -91,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ContractorFormTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+            <state relative-caret-position="68">
+              <caret line="43" column="68" lean-forward="true" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -447,14 +443,11 @@
       <workItem from="1573831706079" duration="2643000" />
       <workItem from="1573916052624" duration="347000" />
       <workItem from="1573997327610" duration="8933000" />
-      <workItem from="1574072892226" duration="27412000" />
+      <workItem from="1574072892226" duration="27974000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ContractorFormTest_CheckIfTimeSheetDetailsAreOk - 2019.11.19 at 17h 59m 39s.xml">
-      <configuration name="ContractorFormTest.CheckIfTimeSheetDetailsAreOk" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ContractorFormTest_CheckIfTimeSheetDetailsAreOk - 2019.11.19 at 18h 06m 56s.xml">
       <configuration name="ContractorFormTest.CheckIfTimeSheetDetailsAreOk" configurationId="JUnit" />
     </history-entry>
@@ -482,9 +475,12 @@
     <history-entry file="ContractorFormTest_makeTimeSheetAndCheckIfFormSubmits - 2019.11.19 at 20h 04m 54s.xml">
       <configuration name="ContractorFormTest.makeTimeSheetAndCheckIfFormSubmits" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ContractorFormTest_makeTimeSheetAndCheckIfFormSubmits - 2019.11.19 at 20h 10m 38s.xml">
+      <configuration name="ContractorFormTest.makeTimeSheetAndCheckIfFormSubmits" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55146000" />
+    <option name="totallyTimeSpent" value="55708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -811,8 +807,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ContractorFormTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+        <state relative-caret-position="68">
+          <caret line="43" column="68" lean-forward="true" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
