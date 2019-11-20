@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head th:replace="fragments/header :: head">
 </head>
+<<<<<<< HEAD
 <div th:replace="fragments/header :: navbar"></div>
 <nav class="nav">
     <input type="checkbox" id="nav-check">
@@ -16,6 +17,22 @@
 <!--            </div>-->
             <div class="container">
 <!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
+=======
+<div th:replace="fragments/header :: navbar-admin"></div>
+<body>
+<main role="main" class="box">
+<!--            <div id=missingTimesheetMessage th:if="${#lists.isEmpty(top5Donations)}">-->
+<!--                <div>No time sheets found</div>-->
+<!--            </div>-->
+<!--    <label>Monday</label>-->
+<!--    <label class="switch">-->
+<!--        <input id="myCheck" type="checkbox">-->
+<!--        <span class="slider round"></span>-->
+<!--    </label>-->
+            <div class="container">
+<!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
+                <div style="overflow-x:auto;">
+>>>>>>> contractor_form
                     <table class ="table">
                         <thead>
                         <tr>
@@ -31,8 +48,13 @@
                         </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                         <tr>
 <!--                        <tr th:each="top5Donation,iter : ${top5Donations}">-->
+=======
+<!--                        <tr>-->
+                        <tr th:each="top5Donation,iter : ${top5Donations}">
+>>>>>>> contractor_form
                             <td>Co</td>
                             <td>Gavin Meredith</td>
                             <td>worked</td>
@@ -51,15 +73,27 @@
                             <td>not worked</td>
                             <td>not worked</td>
                             <td>worked</td>
+<<<<<<< HEAD
                             <td><span style="color: red">rejected</span></td>
+=======
+                            <td><span style="color: green">approved</span></td>
+>>>>>>> contractor_form
                             <td>Ben Davies</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
+<<<<<<< HEAD
             </div>
 </main>
 <div th:replace="fragments/footer :: footer">
 </div>
+=======
+                </div>
+    <div th:replace="fragments/footer :: footer">
+    </div>
+    </div>
+</main>
+>>>>>>> contractor_form
 </body>
 </html>
