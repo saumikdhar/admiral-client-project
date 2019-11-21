@@ -35,6 +35,9 @@ public class TimeSheetForm {
 
     private Boolean friday_worked;
 
+    private Boolean saturday_worked;
+
+    private Boolean sunday_worked;
 
     @Min(value = 0, message = "The minimum amount of overtime cannot be less than 0")
     @Max(value = 20,message = "The max amount of overtime is 20 hours")
