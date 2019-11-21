@@ -10,20 +10,25 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "managers")
-public class Manager {
+@Table(name = "contractors")
+public class Contractor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
 
-    @Column(name = "manager_firstName")
-    private String firstName;
+    @Column(name = "contractor_firstName")
+    public String firstName;
 
-    @Column(name = "manager_lastName")
-    private String lastName;
+    @Column(name = "contractor_lastName")
+    public String lastName;
+
 
 //    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //    @JoinColumn(name = "login_id")
 //    private Login login;
+
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
 }
