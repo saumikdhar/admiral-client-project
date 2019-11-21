@@ -418,6 +418,109 @@ VALUES (49, 'Yeo', 'Walls', 37, 33);
 INSERT INTO contractors (contractor_id, contractor_firstname, contractor_lastname, login_id, manager_id)
 VALUES (50, 'Shad', 'Ferrell', 6, 11);
 
+/*Populate agency contractor*/
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (1, 4, 35);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (2, 46, 16);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (3, 36, 35);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (4, 49, 43);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (5, 7, 22);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (6, 42, 49);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (7, 45, 44);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (8, 16, 37);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (9, 38, 3);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (10, 15, 46);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (11, 45, 33);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (12, 42, 23);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (13, 48, 42);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (14, 27, 11);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (15, 24, 20);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (16, 15, 49);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (17, 11, 13);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (18, 23, 40);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (19, 2, 6);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (20, 37, 38);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (21, 11, 44);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (22, 14, 27);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (23, 36, 19);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (24, 48, 40);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (25, 12, 47);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (26, 14, 37);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (27, 41, 33);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (28, 38, 5);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (29, 7, 12);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (30, 29, 31);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (31, 31, 23);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (32, 17, 36);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (33, 18, 25);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (34, 17, 44);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (35, 20, 24);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (36, 25, 47);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (37, 21, 7);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (38, 16, 38);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (39, 10, 20);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (40, 12, 42);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (41, 18, 27);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (42, 14, 31);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (43, 29, 20);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (44, 49, 16);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (45, 27, 38);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (46, 17, 29);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (47, 35, 40);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (48, 30, 12);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (49, 28, 34);
+INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
+VALUES (50, 49, 19);
+
+
 /*Populate time sheet*/
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked)
@@ -570,107 +673,6 @@ INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contr
                         wednesday_worked, thursday_worked, friday_worked)
 VALUES (50, 4, '2019/11/16', 'pending', 48, False, False, False, False, False);
 
-/*Populate agency contractor*/
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (1, 4, 35);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (2, 46, 16);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (3, 36, 35);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (4, 49, 43);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (5, 7, 22);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (6, 42, 49);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (7, 45, 44);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (8, 16, 37);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (9, 38, 3);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (10, 15, 46);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (11, 45, 33);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (12, 42, 23);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (13, 48, 42);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (14, 27, 11);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (15, 24, 20);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (16, 15, 49);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (17, 11, 13);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (18, 23, 40);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (19, 2, 6);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (20, 37, 38);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (21, 11, 44);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (22, 14, 27);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (23, 36, 19);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (24, 48, 40);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (25, 12, 47);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (26, 14, 37);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (27, 41, 33);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (28, 38, 5);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (29, 7, 12);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (30, 29, 31);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (31, 31, 23);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (32, 17, 36);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (33, 18, 25);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (34, 17, 44);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (35, 20, 24);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (36, 25, 47);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (37, 21, 7);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (38, 16, 38);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (39, 10, 20);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (40, 12, 42);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (41, 18, 27);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (42, 14, 31);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (43, 29, 20);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (44, 49, 16);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (45, 27, 38);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (46, 17, 29);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (47, 35, 40);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (48, 30, 12);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (49, 28, 34);
-INSERT INTO agency_contractors (agency_contractor_id, agency_id, contractor_id)
-VALUES (50, 49, 19);
 
 /*Code below should return 2 agencies for Meredith*/
 SELECT agency_name, c.contractor_firstName

@@ -12,7 +12,23 @@
     <link rel="icon" href="../../static/images/logo.svg" th:href="@{/images/logo.svg}">
 </head>
 <body>
-<div th:fragment="navbar" class="masthead mb-auto">
+<div th:fragment="navbar">
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-title">
+                <a href="/">
+                    <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
+                </a>
+            </div>
+        </div>
+        <input type="checkbox" id="nav-check2">
+        <div class="nav_right">
+            <a href="#" th:href="@{/login}">Login</a>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="navbar-admin">
     <nav class="nav">
         <div class="nav-header">
             <div class="nav-title">
@@ -28,10 +44,12 @@
                 <span></span>
             </label>
         </div>
-        <input type="checkbox" id="nav-check">
-        <div class="nav-links">
-            <a href="/home">Home</a>
-            <a href="/login">Login</a>
+        <input id="nav-check">
+        <div class="nav-links"><a href="#" th:href="@{/}">Find by agency</a></div>
+        <div class="nav-links"><a href="#" th:href="@{/}">Find by contractor</a></div>
+        <div class="nav-links"><a href="#" th:href="@{/}">Find by date</a></div>
+        <div class="nav_right">
+            <a href="#" th:href="@{/homeNotSignedIn}">Logout</a>
         </div>
     </nav>
 </div>
