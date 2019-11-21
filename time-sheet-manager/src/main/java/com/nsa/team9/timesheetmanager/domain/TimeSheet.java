@@ -40,6 +40,12 @@ public class TimeSheet {
     @Column(name = "friday_worked")
     private boolean friday_worked;
 
+    @Column(name = "saturday_worked")
+    private boolean saturday_worked;
+
+    @Column(name = "sunday_worked")
+    private boolean sunday_worked;
+
     @Column(name = "overtime")
     private Double overtime;
 
