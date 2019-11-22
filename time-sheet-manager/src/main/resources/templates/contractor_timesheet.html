@@ -96,8 +96,8 @@
         <input
                 th:name = "overtime"
                 class="form-control"
-                placeholder="Overtime"
-                type="number" min="0" max="20" th:field="*{overtime}"/>
+                placeholder="1.0" step="0.01" min="0" max="20"
+                type="number" th:field="*{overtime}"/>
     </div>
 
     <button  class="btn btn-primary"  id="time_sheet_submit" type="submit">Submit time sheet</button>
