@@ -19,8 +19,8 @@ public class TimeSheet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "agency_contractor_id")
-    private int agency_contractor_id;
+    @JoinColumn(name = "agency_contractor_id")
+    private AgencyContractor agency_contractor_id;
 
     @Column(name = "timesheet_id")
     private int timesheet_id;
