@@ -24,20 +24,20 @@ import java.util.Optional;
 
 import static org.junit.Assert.*;
 
-//@RunWith(SpringRunner.class)
-//@DataJpaTest
-//@ComponentScan
-//@Transactional
-//public class AgencyTest {
-
-//    @Autowired
-//    private AgencyRepositry agencyRepositry;
-
-//    @Test
-//    public void theOneWhereAgencyNameIs(){
-//        Agency agency = new Agency(1L, "Co");
-//        agencyRepositry.save(agency);
-//        Optional<Agency> aAgency = agencyRepositry.findById(1L);
-//        assertEquals("OXFAM", aAgency.get().getAgencyName());
-//    }
-//}
+@RunWith(SpringRunner.class)
+@DataJpaTest
+@ComponentScan
+@Transactional
+public class AgencyTest {
+//
+    @Autowired
+    private AgencyRepositry agencyRepositry;
+//
+    @Test
+    public void theOneWhereAgencyNameIsCo(){
+        Agency agency = new Agency(1L, "Co");
+        agencyRepositry.save(agency);
+        Optional<Agency> aAgency = agencyRepositry.findById(1L);
+        assertEquals("Co", aAgency.get().getAgencyName());
+    }
+}

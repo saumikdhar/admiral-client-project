@@ -1,3 +1,5 @@
+
+
 SHOW DATABASES;
 
 USE managingtimesheets;
@@ -524,154 +526,154 @@ VALUES (50, 49, 19);
 /*Populate time sheet*/
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (1, 0, '2019/11/16', 'pending', 40, False, False, False, False, False, False, False);
+VALUES (1, 0, '2019-11-16', 'pending', 40, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (2, 4, '2019/11/18', 'pending', 19, False, False, False, False, False, False, False);
+VALUES (2, 4, '2019-11-18', 'pending', 19, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (3, 2, '2019/11/14', 'pending', 8, False, False, False, False, False, False, False);
+VALUES (3, 2, '2019-11-14', 'pending', 8, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (4, 9, '2019/11/17', 'pending', 23, False, False, False, False, False, False, False);
+VALUES (4, 9, '2019-11-17', 'pending', 23, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (5, 6, '2019/11/21', 'pending', 5, False, False, False, False, False, False, False);
+VALUES (5, 6, '2019-11-21', 'pending', 5, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (6, 8, '2019/11/14', 'pending', 4, False, False, False, False, False, False, False);
+VALUES (6, 8, '2019-11-14', 'pending', 4, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (7, 0, '2019/11/14', 'pending', 26, False, False, False, False, False, False, False);
+VALUES (7, 0, '2019-11-14', 'pending', 26, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (8, 1, '2019/11/18', 'pending', 29, False, False, False, False, False, False, False);
+VALUES (8, 1, '2019-11-18', 'pending', 29, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (9, 10, '2019/11/17', 'pending', 27, False, False, False, False, False, False, False);
+VALUES (9, 10, '2019-11-17', 'pending', 27, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (10, 7, '2019/11/14', 'pending', 19, False, False, False, False, False, False, False);
+VALUES (10, 7, '2019-11-14', 'pending', 19, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (11, 2, '2019/11/14', 'pending', 30, False, False, False, False, False, False, False);
+VALUES (11, 2, '2019-11-14', 'pending', 30, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (12, 2, '2019/11/16', 'pending', 10, False, False, False, False, False, False, False);
+VALUES (12, 2, '2019-11-16', 'pending', 10, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (13, 4, '2019/11/15', 'pending', 9, False, False, False, False, False, False, False);
+VALUES (13, 4, '2019-11-15', 'pending', 9, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (14, 4, '2019/11/18', 'pending', 44, False, False, False, False, False, False, False);
+VALUES (14, 4, '2019-11-18', 'pending', 44, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (15, 3, '2019/11/16', 'pending', 24, False, False, False, False, False, False, False);
+VALUES (15, 3, '2019-11-16', 'pending', 24, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (16, 7, '2019/11/21', 'pending', 7, False, False, False, False, False, False, False);
+VALUES (16, 7, '2019-11-21', 'pending', 7, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (17, 4, '2019/11/20', 'pending', 41, False, False, False, False, False, False, False);
+VALUES (17, 4, '2019-11-20', 'pending', 41, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (18, 2, '2019/11/15', 'pending', 17, False, False, False, False, False, False, False);
+VALUES (18, 2, '2019-11-15', 'pending', 17, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (19, 5, '2019/11/17', 'pending', 21, False, False, False, False, False, False, False);
+VALUES (19, 5, '2019-11-17', 'pending', 21, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (20, 3, '2019/11/21', 'pending', 48, False, False, False, False, False, False, False);
+VALUES (20, 3, '2019-11-21', 'pending', 48, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (21, 7, '2019/11/17', 'pending', 39, False, False, False, False, False, False, False);
+VALUES (21, 7, '2019-11-17', 'pending', 39, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (22, 0, '2019/11/19', 'pending', 30, False, False, False, False, False, False, False);
+VALUES (22, 0, '2019-11-19', 'pending', 30, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (23, 8, '2019/11/20', 'pending', 50, False, False, False, False, False, False, False);
+VALUES (23, 8, '2019-11-20', 'pending', 50, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (24, 5, '2019/11/16', 'pending', 45, False, False, False, False, False, False, False);
+VALUES (24, 5, '2019-11-16', 'pending', 45, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (25, 5, '2019/11/16', 'pending', 43, False, False, False, False, False, False, False);
+VALUES (25, 5, '2019-11-16', 'pending', 43, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (26, 10, '2019/11/16', 'pending', 12, False, False, False, False, False, False, False);
+VALUES (26, 10, '2019-11-16', 'pending', 12, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (27, 0, '2019/11/20', 'pending', 11, False, False, False, False, False, False, False);
+VALUES (27, 0, '2019-11-20', 'pending', 11, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (28, 4, '2019/11/14', 'pending', 43, False, False, False, False, False, False, False);
+VALUES (28, 4, '2019-11-14', 'pending', 43, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (29, 2, '2019/11/14', 'pending', 6, False, False, False, False, False, False, False);
+VALUES (29, 2, '2019-11-14', 'pending', 6, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (30, 0, '2019/11/17', 'pending', 31, False, False, False, False, False, False, False);
+VALUES (30, 0, '2019-11-17', 'pending', 31, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (31, 6, '2019/11/16', 'pending', 38, False, False, False, False, False, False, False);
+VALUES (31, 6, '2019-11-16', 'pending', 38, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (32, 2, '2019/11/21', 'pending', 22, False, False, False, False, False, False, False);
+VALUES (32, 2, '2019-11-21', 'pending', 22, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (33, 5, '2019/11/21', 'pending', 8, False, False, False, False, False, False, False);
+VALUES (33, 5, '2019-11-21', 'pending', 8, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (34, 6, '2019/11/14', 'pending', 33, False, False, False, False, False, False, False);
+VALUES (34, 6, '2019-11-14', 'pending', 33, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (35, 10, '2019/11/14', 'pending', 37, False, False, False, False, False, False, False);
+VALUES (35, 10, '2019-11-14', 'pending', 37, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (36, 4, '2019/11/16', 'pending', 33, False, False, False, False, False, False, False);
+VALUES (36, 4, '2019-11-16', 'pending', 33, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (37, 9, '2019/11/19', 'pending', 50, False, False, False, False, False, False, False);
+VALUES (37, 9, '2019-11-19', 'pending', 50, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (38, 6, '2019/11/14', 'pending', 33, False, False, False, False, False, False, False);
+VALUES (38, 6, '2019-11-14', 'pending', 33, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (39, 7, '2019/11/19', 'pending', 31, False, False, False, False, False, False, False);
+VALUES (39, 7, '2019-11-19', 'pending', 31, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (40, 3, '2019/11/21', 'pending', 30, False, False, False, False, False, False, False);
+VALUES (40, 3, '2019-11-21', 'pending', 30, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (41, 9, '2019/11/19', 'pending', 29, False, False, False, False, False, False, False);
+VALUES (41, 9, '2019-11-19', 'pending', 29, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (42, 7, '2019/11/21', 'pending', 36, False, False, False, False, False, False, False);
+VALUES (42, 7, '2019-11-21', 'pending', 36, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (43, 8, '2019/11/16', 'pending', 34, False, False, False, False, False, False, False);
+VALUES (43, 8, '2019-11-16', 'pending', 34, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (44, 5, '2019/11/15', 'pending', 19, False, False, False, False, False, False, False);
+VALUES (44, 5, '2019-11-15', 'pending', 19, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (45, 2, '2019/11/15', 'pending', 33, False, False, False, False, False, False, False);
+VALUES (45, 2, '2019-11-15', 'pending', 33, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (46, 1, '2019/11/21', 'pending', 48, False, False, False, False, False, False, False);
+VALUES (46, 1, '2019-11-21', 'pending', 48, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (47, 7, '2019/11/19', 'pending', 12, False, False, False, False, False, False, False);
+VALUES (47, 7, '2019-11-19', 'pending', 12, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (48, 9, '2019/11/14', 'pending', 1, False, False, False, False, False, False, False);
+VALUES (48, 9, '2019-11-14', 'pending', 1, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (49, 10, '2019/11/16', 'pending', 26, False, False, False, False, False, False, False);
+VALUES (49, 10, '2019-11-16', 'pending', 26, False, False, False, False, False, False, False);
 INSERT INTO timesheets (timesheet_id, overtime, start_date, status, agency_contractor_id, monday_worked, tuesday_worked,
                         wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked)
-VALUES (50, 4, '2019/11/16', 'pending', 48, False, False, False, False, False, False, False);
+VALUES (50, 4, '2019-11-16', 'pending', 48, False, False, False, False, False, False, False);
 
 
 /*Code below should return 2 agencies for Meredith*/
