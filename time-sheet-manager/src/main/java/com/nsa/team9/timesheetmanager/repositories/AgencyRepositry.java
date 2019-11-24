@@ -7,8 +7,13 @@ import java.util.Optional;
 
 public interface AgencyRepositry {
 
+    /*Save agency to DB*/
     public Agency save(Agency aAgency);
 
+    /*find agency by agency id*/
     public Optional<Agency> findById(Long agencyId);
+
+    /*find all agencies*/
+    public List<Agency> findAllAgencyNames();
 
 }

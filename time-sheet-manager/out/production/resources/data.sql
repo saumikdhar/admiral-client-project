@@ -336,5 +336,3 @@ FROM agencies
          JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id
          JOIN contractors c ON ac.contractor_id = c.contractor_id
 WHERE c.contractor_firstName = 'Meredith';
-
-SELECT * from agencies;
