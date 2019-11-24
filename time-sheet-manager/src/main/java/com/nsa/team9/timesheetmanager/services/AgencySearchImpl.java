@@ -31,4 +31,9 @@ public class AgencySearchImpl implements AgencySearch {
     public Optional<Agency> findById(Long agencyId) {
         return agencyRepositry.findById(agencyId);
     }
+
+    @Override
+    public List<Agency> findAllAgencyNames() {
+        return agencyRepositry.findAllAgencyNames();
+    }
 }

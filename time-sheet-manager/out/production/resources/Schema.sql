@@ -1,6 +1,6 @@
+
 SHOW DATABASES;
 
-DROP SCHEMA IF EXISTS ManagingTimeSheets;
 CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
 
 USE ManagingTimeSheets;

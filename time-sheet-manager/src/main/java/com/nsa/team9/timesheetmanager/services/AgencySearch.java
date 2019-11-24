@@ -10,4 +10,6 @@ public interface AgencySearch {
 public void createAgency(Agency aAgency);
 
 public Optional<Agency> findById(Long id);
+
+public List<Agency> findAllAgencyNames();
 }
