@@ -1,4 +1,4 @@
-
+DROP SCHEMA ManagingTimeSheets;
 SHOW DATABASES;
 
 CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS Agencies
 CREATE TABLE IF NOT EXISTS Managers
 (
     manager_id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    manager_firstName VARCHAR(100) NOT NULL,
-    manager_lastName  VARCHAR(100) NOT NULL,
+    manager_first_name VARCHAR(100) NOT NULL,
+    manager_last_name  VARCHAR(100) NOT NULL,
     login_id          INT,
     FOREIGN KEY (login_id) REFERENCES Logins (login_id)
         ON UPDATE CASCADE
@@ -36,8 +36,8 @@ CREATE TABLE IF NOT EXISTS Managers
 CREATE TABLE IF NOT EXISTS Contractors
 (
     contractor_id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    contractor_firstName VARCHAR(100) NOT NULL,
-    contractor_lastName  VARCHAR(100) NOT NULL,
+    contractor_first_name VARCHAR(100) NOT NULL,
+    contractor_last_name  VARCHAR(100) NOT NULL,
     login_id             INT,
     manager_id           INT,
     FOREIGN KEY (login_id) REFERENCES Logins (login_id)
