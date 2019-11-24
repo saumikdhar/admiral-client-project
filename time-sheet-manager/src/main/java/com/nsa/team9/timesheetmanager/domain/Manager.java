@@ -18,10 +18,10 @@ public class Manager {
     @Column(name = "manager_id")
     private Long id;
 
-    @Column(name = "manager_firstName")
+    @Column(name = "manager_first_name")
     private String firstName;
 
-    @Column(name = "manager_lastName")
+    @Column(name = "manager_last_name")
     private String lastName;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

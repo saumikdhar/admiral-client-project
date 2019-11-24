@@ -31,8 +31,8 @@ public class ManagerController {
 
     @GetMapping("/manager")
     public String showDashboard(Model model) {
-        String firstName = "Sandra";
-        String lastName = "Doyle";
+        String firstName = "Jordan";
+        String lastName = "Coffey";
 
         List<TimeSheet> timeSheets = timeSheetSearch.getTimeSheetsByManager(lastName,firstName);
         System.out.println("Timesheets....");

@@ -18,10 +18,10 @@ public class Contractor {
     @Column(name = "contractor_id")
     public Long id;
 
-    @Column(name = "contractor_firstName")
+    @Column(name = "contractor_first_name")
     public String firstName;
 
-    @Column(name = "contractor_lastName")
+    @Column(name = "contractor_last_name")
     public String lastName;
 
 
