@@ -31,28 +31,18 @@
                         </tr>
                         </thead>
                         <tbody>
-<!--                        <tr>-->
-                        <tr th:each="top5Donation,iter : ${top5Donations}">
-                            <td>Co</td>
-                            <td>Gavin Meredith</td>
-                            <td>worked</td>
-                            <td>worked</td>
-                            <td>not worked</td>
-                            <td>not worked</td>
-                            <td>worked</td>
-                            <td><span style="color: green">approved</span></td>
-                            <td>Ben Davies</td>
-                        </tr>
-                        <tr>
-                            <td>Co</td>
-                            <td>John Smith</td>
-                            <td>worked</td>
-                            <td>worked</td>
-                            <td>not worked</td>
-                            <td>not worked</td>
-                            <td>worked</td>
-                            <td><span style="color: green">approved</span></td>
-                            <td>Ben Davies</td>
+                        <tr th:each="timesheet: ${timesheets}">
+                            <td th:text="${timesheet.agency_contractor_id.agencyId.agencyName}"></td>
+                            <td th:text="${timesheet.agency_contractor_id.contractorId.firstName} + ' ' + ${timesheet.agency_contractor_id.contractorId.lastName}"> deafsult</td>
+                            <td th:text="${timesheet.monday_worked}">X</td>
+                            <td th:text="${timesheet.tuesday_worked)">X</td>
+                            <td th:text="${timesheet.wednesday_worked)">X</td>
+                            <td th:text="${timesheet.thursday_worked)">X</td>
+                            <td th:text="${timesheet.friday_worked)">X</td>
+                            <td th:text="${timesheet.saturday_worked)">X</td>
+                            <td th:text="${timesheet.sunday_worked)">X</td>
+                            <td th:text="${timesheet.status}"><span style="color: green"></span></td>
+                            <td th:text="${timesheet.agency_contractor_id.contractor_id.manager_id.manager_first_name}+ ' ' + ${timesheet.agency_contractor_id.contractor_id.manager_id.manager_last_name}"></td>
                         </tr>
                         </tbody>
                     </table>
