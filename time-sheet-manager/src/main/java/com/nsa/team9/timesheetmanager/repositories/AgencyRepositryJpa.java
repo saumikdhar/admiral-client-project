@@ -8,6 +8,9 @@ import java.util.List;
 
 public interface AgencyRepositryJpa extends JpaRepository<Agency, Long>, AgencyRepositry{
 
+    /*Queries go here*/
+
+    /*this finds all agency names*/
     @Query(value = "SELECT a.agencyName FROM Agency a ")
     public List<Agency> findAllAgencyNames();
 }
