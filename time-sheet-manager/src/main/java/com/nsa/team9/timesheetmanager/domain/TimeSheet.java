@@ -19,6 +19,7 @@ public class TimeSheet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
     @JoinColumn(name = "agency_contractor_id")
     private AgencyContractor agency_contractor_id;
 
