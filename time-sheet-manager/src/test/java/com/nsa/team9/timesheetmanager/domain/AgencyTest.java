@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,16 +29,17 @@ import static org.junit.Assert.*;
 @DataJpaTest
 @ComponentScan
 @Transactional
+@Sql({"/Schema.sql", "/data.sql"})
 public class AgencyTest {
 //
     @Autowired
     private AgencyRepositry agencyRepositry;
 //
     @Test
-    public void theOneWhereAgencyNameIsCo(){
-        Agency agency = new Agency(1L, "Co");
-        agencyRepositry.save(agency);
-        Optional<Agency> aAgency = agencyRepositry.findById(1L);
-        assertEquals("Co", aAgency.get().getAgencyName());
+    public void theOneWhereAgencyNameIsCassady(){
+//        Agency agency = new Agency(99L, "Co");
+//        agencyRepositry.save(agency);
+        Optional<Agency> aAgency = agencyRepositry.findById(2L);
+        assertEquals("Cassady Good", aAgency.get().getAgencyName());
     }
 }
