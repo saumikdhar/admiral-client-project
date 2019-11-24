@@ -38,6 +38,7 @@ public class ManagerController {
         System.out.println("Timesheets....");
         System.out.println(timeSheets.size());
         System.out.println(timeSheets.get(0));
+//        System.out.println("Tuesday is" + timeSheets.get(0).isTuesdayWorked());
 
         model.addAttribute("timesheets", timeSheets);
 
