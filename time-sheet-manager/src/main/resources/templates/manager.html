@@ -25,8 +25,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="test:${tests}">
-                                    <td th:text="${test}"></td>
+                                <tr th:each="timesheet: ${timesheets}">
+                                    <td th:text="${timesheet.agency_contractor_id.agencyId.agencyName}">Default</td>
+                                    <td th:text="${timesheet.agency_contractor_id.contractorId.firstName}">Default</td>
+                                    <td th:text="${timesheet.agency_contractor_id.contractorId.lastName}">Default</td>
+                                    <td th:text="${timesheet.monday_worked}">X</td>
+                                    <td th:text="${timesheet.tuesday_worked)">X</td>
+<!--                                    <td th:text="${timesheet.wednesday_worked)">X</td>-->
+<!--                                    <td th:text="${timesheet.thursday_worked)">X</td>-->
+<!--                                    <td th:text="${timesheet.friday_worked)">X</td>-->
+<!--                                    <td th:text="${timesheet.saturday_worked)">X</td>-->
+<!--                                    <td th:text="${timesheet.sunday_worked)">X</td>-->
+<!--                                    <td th:text="${timesheet.overtime)">X</td>-->
                                     <td align="right" width="10%">
                                         <div class="btn-group" role="group">
                                             <button type="button"

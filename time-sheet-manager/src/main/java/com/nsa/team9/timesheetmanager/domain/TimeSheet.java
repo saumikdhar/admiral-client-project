@@ -15,16 +15,14 @@ import java.util.Date;
 @Table(name = "TimeSheets")
 public class TimeSheet {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @ManyToOne
     @JoinColumn(name = "agency_contractor_id")
     private AgencyContractor agency_contractor_id;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "timesheet_id")
-    private int timesheet_id;
+    private Long timesheet_id;
 
     @Column(name = "monday_worked")
     private boolean monday_worked;

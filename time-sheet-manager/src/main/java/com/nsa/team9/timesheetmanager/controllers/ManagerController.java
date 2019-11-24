@@ -2,6 +2,8 @@ package com.nsa.team9.timesheetmanager.controllers;
 
 
 import com.nsa.team9.timesheetmanager.controllers.util.ManagerNotes;
+import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.services.TimeSheetSearchImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -21,14 +23,24 @@ public class ManagerController {
 
     static final Logger LOG = LoggerFactory.getLogger(ManagerController.class);
 
+    private TimeSheetSearchImpl timeSheetSearch;
+
+    public ManagerController(TimeSheetSearchImpl aRepo) {
+        timeSheetSearch = aRepo;
+    }
+
     @GetMapping("/manager")
     public String showDashboard(Model model) {
-        //remove once jpa added
-        List<String> tests = new ArrayList<>();
-        tests.add("Test1");
-        tests.add("Test2");
-        model.addAttribute("tests",tests);
-        //
+        String firstName = "Sandra";
+        String lastName = "Doyle";
+
+        List<TimeSheet> timeSheets = timeSheetSearch.getTimeSheetsByManager(lastName,firstName);
+        System.out.println("Timesheets....");
+        System.out.println(timeSheets.size());
+        System.out.println(timeSheets.get(0));
+
+        model.addAttribute("timesheets", timeSheets);
+
         List<String> rejectOptions = Arrays.asList("Bank Holiday", "Incorrect Days Selected", "Incorrect Overtime recorded");
         System.out.println(rejectOptions);
         model.addAttribute("rejectOptions",rejectOptions);

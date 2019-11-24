@@ -15,6 +15,7 @@ public class Manager {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "manager_id")
     private Long id;
 
     @Column(name = "manager_firstName")
@@ -23,7 +24,7 @@ public class Manager {
     @Column(name = "manager_lastName")
     private String lastName;
 
-//    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "login_id")
-//    private Login login;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "login_id")
+    private Login login;
 }
