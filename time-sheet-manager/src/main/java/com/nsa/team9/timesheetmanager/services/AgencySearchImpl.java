@@ -16,6 +16,7 @@ public class AgencySearchImpl implements AgencySearch {
 
     private AgencyRepositry agencyRepositry;
 
+    @Autowired
     public AgencySearchImpl(AgencyRepositry aRepo){agencyRepositry = aRepo;}
 
     @Override

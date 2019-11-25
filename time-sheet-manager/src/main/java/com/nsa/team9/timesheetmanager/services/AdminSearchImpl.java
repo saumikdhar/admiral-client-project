@@ -5,6 +5,7 @@ import com.nsa.team9.timesheetmanager.repositories.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -26,5 +27,10 @@ public class AdminSearchImpl implements AdminSearch {
     @Override
     public List<TimeSheet> findTimeSheetsByContractorName(String searchTerm) {
         return adminRepository.findTimeSheetsByContractorName(searchTerm);
+    }
+
+    @Override
+    public List<TimeSheet> findTimeSheetsByDate(LocalDate dateFrom,LocalDate dateTo ) {
+        return adminRepository.findTimeSheetsByDate(dateFrom, dateTo);
     }
 }
