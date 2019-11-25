@@ -8,4 +8,6 @@ public interface TimeSheetRespository {
 
 //    Find all Timesheets associated with a manager
     public List<TimeSheet> getTimeSheetsByManager(String lastName, String firstName);
+
+    public TimeSheet save(TimeSheet aTimeSheet);
 }
