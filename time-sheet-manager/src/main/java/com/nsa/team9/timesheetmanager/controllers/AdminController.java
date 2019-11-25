@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +22,19 @@ public class AdminController {
     }
 
     @GetMapping("/admin")
-public String showtimesheets(Model model){
-
+    public String showtimesheets(Model model){
     List<TimeSheet> timesheets = adminSearch.getAllTimeSheets();
-    System.out.println(timesheets);
-
+//    System.out.println(timesheets.get(0).getStart_date());
     model.addAttribute("timesheets", timesheets);
-
     return "adminshowtimesheets";
-}
+    }
+
+    @GetMapping("/admin/agency")
+    public String findTimeSheetsByAgency(Model model,@RequestParam("search") String searchTerm){
+        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByAgencyName(searchTerm);
+//    System.out.println(timesheets.get(0).getStart_date());
+        model.addAttribute("timesheets", timesheets);
+        model.addAttribute("searchTerm", searchTerm);
+        return "adminshowtimesheets";
+    }
 }

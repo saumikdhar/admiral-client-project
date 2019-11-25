@@ -13,19 +13,36 @@
 <!--        <input id="myCheck" type="checkbox">-->
 <!--        <span class="slider round"></span>-->
 <!--    </label>-->
+    <div class="starter-template">
+        <div class="row">
+            <P class="lead text-left"> Filter by agency name.
+            </P>
+        </div>
+        <div class="row">
+            <form action="/admin/agency" method="get" class="form-inline my-2 my-lg-0">
+                <input type="text" name="search" id="search" placeholder="Enter agency name" class="form-control mr-sm-2"
+                       aria-label="Search"/>
+                <input type="submit" id="submit" value="submit" class="btn btn-outline-success my-2 my-sm-0"/>
+            </form>
+        </div>
+    </div>
             <div class="container">
-<!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
+                <h4>Time Sheets</h4>
+                <!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
                 <div style="overflow-x:auto;">
                     <table class ="table">
                         <thead>
                         <tr>
                             <th scope="col">Agency Name</th>
                             <th scope="col">Contractor name</th>
+                            <th scope="col">Start Date</th>
                             <th scope="col">Monday</th>
                             <th scope="col">Tuesday</th>
                             <th scope="col">Wednesday</th>
                             <th scope="col">Thursday</th>
                             <th scope="col">Friday</th>
+                            <th scope="col">Saturday</th>
+                            <th scope="col">Sunday</th>
                             <th scope="col">Status</th>
                             <th scope="col">Manager Name</th>
                         </tr>
@@ -34,15 +51,16 @@
                         <tr th:each="timesheet: ${timesheets}">
                             <td th:text="${timesheet.agency_contractor_id.agencyId.agencyName}"></td>
                             <td th:text="${timesheet.agency_contractor_id.contractorId.firstName} + ' ' + ${timesheet.agency_contractor_id.contractorId.lastName}"> deafsult</td>
+                            <td th:text="${timesheet.start_date}">X</td>
                             <td th:text="${timesheet.monday_worked}">X</td>
-                            <td th:text="${timesheet.tuesday_worked)">X</td>
-                            <td th:text="${timesheet.wednesday_worked)">X</td>
-                            <td th:text="${timesheet.thursday_worked)">X</td>
-                            <td th:text="${timesheet.friday_worked)">X</td>
-                            <td th:text="${timesheet.saturday_worked)">X</td>
-                            <td th:text="${timesheet.sunday_worked)">X</td>
+                            <td th:text="${timesheet.tuesday_worked}">X</td>
+                            <td th:text="${timesheet.wednesday_worked}">X</td>
+                            <td th:text="${timesheet.thursday_worked}">X</td>
+                            <td th:text="${timesheet.friday_worked}">X</td>
+                            <td th:text="${timesheet.saturday_worked}">X</td>
+                            <td th:text="${timesheet.sunday_worked}">X</td>
                             <td th:text="${timesheet.status}"><span style="color: green"></span></td>
-                            <td th:text="${timesheet.agency_contractor_id.contractor_id.manager_id.manager_first_name}+ ' ' + ${timesheet.agency_contractor_id.contractor_id.manager_id.manager_last_name}"></td>
+                            <td th:text="${timesheet.getAgency_contractor_id().getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getAgency_contractor_id().getContractorId().getManager().getLastName()}"></td>
                         </tr>
                         </tbody>
                     </table>

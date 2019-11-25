@@ -8,4 +8,7 @@ public interface AdminRepository {
 
     /*gets all time sheets*/
     public List<TimeSheet> getAllTimeSheets();
+
+    /*finds all time sheets by agency name*/
+    public List<TimeSheet> findTimeSheetsByAgencyName(String searchTerm);
 }

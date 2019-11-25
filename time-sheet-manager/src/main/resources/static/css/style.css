@@ -91,7 +91,7 @@ button[disabled]{
 /* box styling and inputs inside the box   ================================================= */
 .box{
   margin:auto;
-  width: 100%;
+  width: 90%;
   background: #ffffff;
   padding: 10px;
   /* background: maroon; */
