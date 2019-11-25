@@ -12,13 +12,7 @@ public interface TimeSheetRepositoryJpa extends JpaRepository<TimeSheet, Long>, 
     /*Queries go in here*/
 
 //  Gets all time sheets where status is pending and for the relevant manager
-
-//    @Query(value = "SELECT * from timesheets where timesheet_id = ANY (select timesheet_id from timesheets join " +
-//            "agency_contractors ac on timesheets.agency_contractor_id = " +
-//            "ac.agency_contractor_id join contractors c2 on ac.contractor_id = " +
-//            "c2.contractor_id join managers m on c2.manager_id = m.manager_id where " +
-//            "m.manager_firstName = :firstName and m.manager_lastName = :lastName and status = 'pending')", nativeQuery = true)
-@Query(value = "select * from timesheets join " +
+    @Query(value = "select * from timesheets join " +
         "agency_contractors ac on timesheets.agency_contractor_id = " +
         "ac.agency_contractor_id join contractors c2 on ac.contractor_id = " +
         "c2.contractor_id join managers m on c2.manager_id = m.manager_id where " +

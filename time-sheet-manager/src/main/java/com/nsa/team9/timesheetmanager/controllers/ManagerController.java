@@ -12,10 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.io.File;
+import java.util.*;
 
 @Controller
 @SessionAttributes({"note"})
@@ -31,17 +29,22 @@ public class ManagerController {
 
     @GetMapping("/manager")
     public String showDashboard(Model model) {
+
+        //once login is implemented change inputs the which ever manager is logged in
         String firstName = "Jordan";
         String lastName = "Coffey";
 
         List<TimeSheet> timeSheets = timeSheetSearch.getTimeSheetsByManager(lastName,firstName);
-        System.out.println("Timesheets....");
-        System.out.println(timeSheets.size());
-        System.out.println(timeSheets.get(0));
+
+        /* REMOVE WHEN PUSHED TO MASTER */
+//        System.out.println("Timesheets....");
+//        System.out.println(timeSheets.size());
+//        System.out.println(timeSheets.get(0));
 //        System.out.println("Tuesday is" + timeSheets.get(0).isTuesdayWorked());
 
         model.addAttribute("timesheets", timeSheets);
 
+//        Scanner input = new Scanner(new File("rejectedTimesheetReasons"));
         List<String> rejectOptions = Arrays.asList("Bank Holiday", "Incorrect Days Selected", "Incorrect Overtime recorded");
         System.out.println(rejectOptions);
         model.addAttribute("rejectOptions",rejectOptions);
