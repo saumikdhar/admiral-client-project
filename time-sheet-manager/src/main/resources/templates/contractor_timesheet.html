@@ -9,7 +9,7 @@
 <div th:replace="fragments/header :: navbar"></div>
 <h5>Contractor TimeSheet</h5>
 <div class = "box">
-<form action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
+<form th:action="@{/TimeSheetConfirm}"action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
     <div class="form-control">
         <label>Start Date</label>
         <input aria-describedby="Enter the date of your working week"
