@@ -11,4 +11,7 @@ public interface AdminRepository {
 
     /*finds all time sheets by agency name*/
     public List<TimeSheet> findTimeSheetsByAgencyName(String searchTerm);
+
+    /*finds all time sheets by contractor name*/
+    public List<TimeSheet> findTimeSheetsByContractorName(String searchTerm);
 }

@@ -37,4 +37,13 @@ public class AdminController {
         model.addAttribute("searchTerm", searchTerm);
         return "adminshowtimesheets";
     }
+
+    @GetMapping("/admin/contractor")
+    public String findTimeSheetsByContractor(Model model,@RequestParam("search") String searchTerm){
+        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByContractorName(searchTerm);
+//    System.out.println(timesheets.get(0).getStart_date());
+        model.addAttribute("timesheets", timesheets);
+        model.addAttribute("searchTerm", searchTerm);
+        return "adminshowtimesheets";
+    }
 }

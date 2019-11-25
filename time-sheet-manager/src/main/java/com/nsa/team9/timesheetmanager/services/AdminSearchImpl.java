@@ -22,4 +22,9 @@ public class AdminSearchImpl implements AdminSearch {
     public List<TimeSheet> findTimeSheetsByAgencyName(String searchTerm){
         return adminRepository.findTimeSheetsByAgencyName(searchTerm);
     }
+
+    @Override
+    public List<TimeSheet> findTimeSheetsByContractorName(String searchTerm) {
+        return adminRepository.findTimeSheetsByContractorName(searchTerm);
+    }
 }

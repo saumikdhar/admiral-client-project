@@ -337,4 +337,4 @@ FROM agencies
          JOIN contractors c ON ac.contractor_id = c.contractor_id
 WHERE c.contractor_first_name = 'Meredith';
 
-SELECT * FROM timesheets JOIN agency_contractors ac ON timesheets.agency_contractor_id = ac.agency_contractor_id JOIN agencies a ON ac.agency_id = a.agency_id where a.agency_name
+SELECT * FROM timesheets JOIN agency_contractors ac ON timesheets.agency_contractor_id = ac.agency_contractor_id JOIN contractors c ON ac.contractor_id = c.contractor_id WHERE c.contractor_first_name
