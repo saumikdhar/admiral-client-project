@@ -9,7 +9,7 @@
 <div th:replace="fragments/header :: navbar"></div>
 <h5>Contractor TimeSheet</h5>
 <div class = "box">
-<form action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
+<form th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
     <div class="form-control">
         <label>Start Date</label>
         <input aria-describedby="Enter the date of your working week"
@@ -109,6 +109,37 @@
 
 <div th:replace="fragments/footer :: footer">
 </div>
+
+<script>
+    var date = document.querySelector('[type=date]');
+
+    function onlyMonday(e){
+
+        var day = new Date( e.target.value ).getUTCDay();
+
+        // Days in JS range from 0-6 where 0 is Sunday and 6 is Saturday
+
+        if( day == 0 ){
+            e.target.setCustomValidity('please pick a monday');
+        } else if (day == 2) {
+            e.target.setCustomValidity('please pick a monday');
+        } else if (day == 3){
+            e.target.setCustomValidity('please pick a monday');
+        } else if (day == 4){
+            e.target.setCustomValidity('please pick a monday');
+        } else if (day == 5){
+            e.target.setCustomValidity('please pick a monday');
+        } else if (day == 6){
+            e.target.setCustomValidity('please pick a monday');
+        } else {
+            e.target.setCustomValidity('');
+        }
+    }
+    date.addEventListener('input',onlyMonday);
+</script>
+
+
+
 <script type="text/javascript">
 
         $(document).ready(function () {
