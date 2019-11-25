@@ -11,6 +11,14 @@
 <div class = "box">
 <form th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
     <div class="form-control">
+        <label>Agency</label>
+        <select>
+            <option value="Admiral"> Admiral</option>
+            <option value="JPA Limited"> JPA Limited</option>
+            <option value="KP Limited"> KP Limited</option>
+        </select>
+    </div>
+    <div class="form-control">
         <label>Start Date</label>
         <input aria-describedby="Enter the date of your working week"
                class="form-control"

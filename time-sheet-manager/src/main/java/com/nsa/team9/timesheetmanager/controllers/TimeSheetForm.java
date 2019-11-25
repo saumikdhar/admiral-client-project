@@ -17,6 +17,9 @@ import java.util.Date;
 public class TimeSheetForm {
 
     @NotNull
+    private String agency;
+
+    @NotNull
     @Past(message = "Start date cannot be present or in the future")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate start_date;
