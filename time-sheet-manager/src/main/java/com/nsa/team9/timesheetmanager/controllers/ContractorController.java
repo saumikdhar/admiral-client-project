@@ -1,10 +1,13 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
+import com.nsa.team9.timesheetmanager.domain.Agency;
 import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
+import com.nsa.team9.timesheetmanager.domain.Contractor;
 import com.nsa.team9.timesheetmanager.domain.TimeSheet;
 import com.nsa.team9.timesheetmanager.repositories.AgencyContractorRepositry;
 import com.nsa.team9.timesheetmanager.repositories.AgencyRepositry;
 import com.nsa.team9.timesheetmanager.repositories.TimeSheetRepositoryJpa;
+import com.nsa.team9.timesheetmanager.services.AgencyContractorSearchImpl;
 import com.nsa.team9.timesheetmanager.services.TimeSheetSearch;
 import com.nsa.team9.timesheetmanager.services.TimeSheetSearchImpl;
 import org.slf4j.Logger;
@@ -26,9 +29,13 @@ public class ContractorController {
 
     private TimeSheetSearch TimeSheetCreator ;
 
-    public ContractorController(TimeSheetSearch aCreator){
+    private AgencyContractorSearchImpl AgencyContractorCreator;
+
+    public ContractorController(TimeSheetSearch aCreator,AgencyContractorSearchImpl aRepo){
         TimeSheetCreator = aCreator;
+        AgencyContractorCreator = aRepo;
     }
+
 
     static final Logger LOG = LoggerFactory.getLogger(ContractorController.class);
 
@@ -42,13 +49,17 @@ public String ReturnTimeSheet(Model model){
     @PostMapping("TimeSheetDetails")
     public String TimeSheetDetails(Model model, @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet, BindingResult bindingResult) {
 
+        Agency a = new Agency(null,"KP Limited");
+        Contractor c = new Contractor(null,"gabriel","agius",null,null);
+        AgencyContractor agencyContractor = new AgencyContractor(null,null,null);
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("TimeSheet", TimeSheet);
             return "contractor_timesheet";
         }
 
         TimeSheet t = new TimeSheet(
-                null,
+                agencyContractor,
                 null,
                 TimeSheet.getMonday_worked(),
                 TimeSheet.getTuesday_worked(),
