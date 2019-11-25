@@ -1,5 +1,6 @@
 package com.nsa.team9.timesheetmanager.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,14 +11,20 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Agencies")
-public class Agency {
+@Table(name = "logins")
+public class Login {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "agency_id")
-    private Long id;
+    @Column(name = "login_id")
+    public Long id;
 
-    @Column(name = "agency_name")
-    private String agencyName;
+    @Column(name = "email")
+    public String email;
+
+    @Column(name = "password")
+    public String password;
+
+    @Column(name = "access_level")
+    public String accessLevel;
 }

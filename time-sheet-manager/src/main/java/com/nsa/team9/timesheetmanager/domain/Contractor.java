@@ -10,21 +10,26 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "managers")
-public class Manager {
+@Table(name = "contractors")
+public class Contractor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "manager_id")
-    private Long id;
+    @Column(name = "contractor_id")
+    public Long id;
 
-    @Column(name = "manager_first_name")
-    private String firstName;
+    @Column(name = "contractor_first_name")
+    public String firstName;
 
-    @Column(name = "manager_last_name")
-    private String lastName;
+    @Column(name = "contractor_last_name")
+    public String lastName;
+
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "login_id")
     private Login login;
+
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
 }
