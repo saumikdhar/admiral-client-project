@@ -5,59 +5,85 @@
 <div th:replace="fragments/header :: navbar-admin"></div>
 <body>
 <main role="main" class="box">
-<!--            <div id=missingTimesheetMessage th:if="${#lists.isEmpty(top5Donations)}">-->
-<!--                <div>No time sheets found</div>-->
-<!--            </div>-->
 <!--    <label>Monday</label>-->
 <!--    <label class="switch">-->
 <!--        <input id="myCheck" type="checkbox">-->
 <!--        <span class="slider round"></span>-->
 <!--    </label>-->
+    <div class="input-group">
+        <form action="/admin/agency" method="get" class="form-inline my-2 my-lg-0">
+            <input type="text" name="search" id="search" placeholder="Enter agency name" class="form-control mr-sm-2"
+                       aria-label="Search"/>
+            <input type="submit" id="submit" value="submit" class="btn btn-outline-success my-2 my-sm-0"/>
+        </form>
+        <form action="/admin/contractor" method="get" class="form-inline my-2 my-lg-0">
+            <input type="text" name="search" id="search2" placeholder="Enter contractor name" class="form-control mr-sm-2"
+                       aria-label="Search"/>
+            <input type="submit" id="submit2" value="submit" class="btn btn-outline-success my-2 my-sm-0"/>
+        </form>
+        </div>
+    <div class="starter-template">
+        <div class="row">
+<!--            <P class="lead text-left">-->
+<!--            </P>-->
+        </div>
+    <div class="container">
+        <form action="/admin/date" class="form-inline my-2 my-lg-0" th:object="${dateContainer}">
+            <div>Date from</div>
+            <input type="date" class="form-control mr-sm-2" th:field="*{dateFrom}"/>
+            <div>Date to</div>
+            <input type="date" class="form-control mr-sm-2" th:field="*{dateTo}"/>
+            <input type="submit" value="submit" class="btn btn-outline-success my-2 my-sm-0"/>
+        </form>
+    </div>
+    </div>
+    <div id=missingTimesheetMessage th:if="${#lists.isEmpty(timesheets)}">
+        <div class="container">
+        <h4 th:text="'No time sheets found for: ' + ${searchTerm.toString()}"></h4>
+        </div>
+    </div>
+    <div id=timesheetListContainer th:if="${not #lists.isEmpty(timesheets)}">
             <div class="container">
-<!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
+                <h4>Time Sheets</h4>
+                <!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
                 <div style="overflow-x:auto;">
                     <table class ="table">
                         <thead>
                         <tr>
                             <th scope="col">Agency Name</th>
                             <th scope="col">Contractor name</th>
+                            <th scope="col">Start Date</th>
                             <th scope="col">Monday</th>
                             <th scope="col">Tuesday</th>
                             <th scope="col">Wednesday</th>
                             <th scope="col">Thursday</th>
                             <th scope="col">Friday</th>
+                            <th scope="col">Saturday</th>
+                            <th scope="col">Sunday</th>
                             <th scope="col">Status</th>
                             <th scope="col">Manager Name</th>
                         </tr>
                         </thead>
                         <tbody>
-<!--                        <tr>-->
-                        <tr th:each="top5Donation,iter : ${top5Donations}">
-                            <td>Co</td>
-                            <td>Gavin Meredith</td>
-                            <td>worked</td>
-                            <td>worked</td>
-                            <td>not worked</td>
-                            <td>not worked</td>
-                            <td>worked</td>
-                            <td><span style="color: green">approved</span></td>
-                            <td>Ben Davies</td>
-                        </tr>
-                        <tr>
-                            <td>Co</td>
-                            <td>John Smith</td>
-                            <td>worked</td>
-                            <td>worked</td>
-                            <td>not worked</td>
-                            <td>not worked</td>
-                            <td>worked</td>
-                            <td><span style="color: green">approved</span></td>
-                            <td>Ben Davies</td>
+                        <tr th:each="timesheet: ${timesheets}">
+                            <td th:text="${timesheet.agency_contractor_id.agencyId.agencyName}"></td>
+                            <td th:text="${timesheet.agency_contractor_id.contractorId.firstName} + ' ' + ${timesheet.agency_contractor_id.contractorId.lastName}"> deafsult</td>
+                            <td th:text="${timesheet.start_date}">X</td>
+                            <td th:text="${timesheet.monday_worked}">X</td>
+                            <td th:text="${timesheet.tuesday_worked}">X</td>
+                            <td th:text="${timesheet.wednesday_worked}">X</td>
+                            <td th:text="${timesheet.thursday_worked}">X</td>
+                            <td th:text="${timesheet.friday_worked}">X</td>
+                            <td th:text="${timesheet.saturday_worked}">X</td>
+                            <td th:text="${timesheet.sunday_worked}">X</td>
+                            <td th:text="${timesheet.status}"><span style="color: green"></span></td>
+                            <td th:text="${timesheet.getAgency_contractor_id().getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getAgency_contractor_id().getContractorId().getManager().getLastName()}"></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                </div>
+            </div>
+    </div>
     <div th:replace="fragments/footer :: footer">
     </div>
     </div>
