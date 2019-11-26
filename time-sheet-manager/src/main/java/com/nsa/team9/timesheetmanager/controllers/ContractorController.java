@@ -4,9 +4,8 @@ import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.repositories.AgencyContractorRepositry;
 import com.nsa.team9.timesheetmanager.repositories.AgencyRepositry;
 import com.nsa.team9.timesheetmanager.repositories.TimeSheetRepositoryJpa;
-import com.nsa.team9.timesheetmanager.services.AgencyContractorSearchImpl;
-import com.nsa.team9.timesheetmanager.services.TimeSheetSearch;
-import com.nsa.team9.timesheetmanager.services.TimeSheetSearchImpl;
+import com.nsa.team9.timesheetmanager.services.*;
+import org.apache.coyote.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +19,25 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 @Service
+@SessionAttributes({"agencies"})
 @Controller
 public class ContractorController {
 
     private TimeSheetSearch TimeSheetCreator ;
+    private AgencyContractorSearchImpl agencyContractorCreator;
+    private AgencySearchImpl agencySearch;
 
-    private AgencyContractorSearchImpl AgencyContractorCreator;
 
-
-    public ContractorController(TimeSheetSearch aCreator,AgencyContractorSearchImpl aRepo){
+    public ContractorController(TimeSheetSearch aCreator,
+                                AgencyContractorSearchImpl aRepo,
+                                AgencySearchImpl aAgencyRepo){
         TimeSheetCreator = aCreator;
-        AgencyContractorCreator = aRepo;
+        agencyContractorCreator = aRepo;
+        agencySearch = aAgencyRepo;
     }
 
 
@@ -41,18 +46,25 @@ public class ContractorController {
     @GetMapping("/TimeSheetForm")
     public String ReturnTimeSheet(Model model){
 
+        List<Agency> agencies = agencySearch.findAllAgency();
+        model.addAttribute("agencies",agencies);
         model.addAttribute("TimeSheet", new TimeSheetForm());
+        model.addAttribute("agencycontractor", new AgencyContractorForm());
         return "contractor_timesheet";
     };
 
     @PostMapping("TimeSheetDetails")
-    public String TimeSheetDetails(Model model, @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet, BindingResult bindingResult) {
+    public String TimeSheetDetails(Model model,
+                                   @ModelAttribute("agencycontractor") AgencyContractorForm agencyContractorForm,
+                                   @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet,
+                                   BindingResult bindingResult) {
 
-        Agency a = new Agency(37L,"KP Limited");
+
         Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque","1");
         Manager m = new Manager(2L,"Felix","Shaffer",l);
         Contractor c = new Contractor(7L,"gabriel","agius",l,m);
-        AgencyContractor agencyContractor = new AgencyContractor(2L,a,c);
+        Agency a = agencyContractorForm.getAgency_id();
+
 
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
@@ -60,8 +72,10 @@ public class ContractorController {
             model.addAttribute("TimeSheet", TimeSheet);
             return "contractor_timesheet";
         }
+        AgencyContractor agencyContractor = new AgencyContractor(null, a, c);
 
         TimeSheet t = new TimeSheet(
+//                checkIfAgencyContractorLinkExists(a,c),
                 agencyContractor,
                 null,
                 TimeSheet.getMonday_worked(),
@@ -75,11 +89,23 @@ public class ContractorController {
                 TimeSheet.getStart_date(),
                 "Pending");
 
-
-
         System.out.println("saved timesheet " + t.toString());
         TimeSheetCreator.createTimeSheet(t);
         return "timesheet_confirmation";
     }
+
+//    private AgencyContractor checkIfAgencyContractorLinkExists(Agency a, Contractor c){
+//        Optional<AgencyContractor> agencyContractorExists = agencyContractorCreator.findAgencyContractorExists(a.getId(),c.getId());
+//        AgencyContractor agencyContractor = new AgencyContractor(null, a, c);
+//
+//        System.out.println("data is " + agencyContractorExists.isPresent() + " "+ agencyContractorExists);
+//        if ((agencyContractorExists).isPresent()) {
+//            System.out.println("Link for contractor and agency already exists");
+//        }else {
+//            System.out.println("creating new link");
+//            agencyContractorCreator.createAgency(agencyContractor);
+//        }
+//        return agencyContractor;
+//    };
 
 }

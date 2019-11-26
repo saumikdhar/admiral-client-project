@@ -18,11 +18,11 @@ public class AgencyContractor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long agencyContractorId;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "agency_id")
     public Agency agencyId;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "contractor_id")
     public Contractor contractorId;
 }

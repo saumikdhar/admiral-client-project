@@ -12,4 +12,6 @@ public void createAgency(Agency aAgency);
 public Optional<Agency> findById(Long id);
 
 public List<Agency> findAllAgencyNames();
+
+public List<Agency> findAllAgency();
 }

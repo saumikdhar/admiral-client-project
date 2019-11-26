@@ -12,10 +12,8 @@
 <form th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
     <div class="form-control">
         <label>Agency</label>
-        <select>
-            <option value="Admiral"> Admiral</option>
-            <option value="JPA Limited"> JPA Limited</option>
-            <option value="KP Limited"> KP Limited</option>
+        <select th:field="${agencycontractor.agency_id}">
+            <option th:each="agency: ${agencies}" th:value="${agency.id}" th:text="${agency.agencyName}"></option>
         </select>
     </div>
     <div class="form-control">

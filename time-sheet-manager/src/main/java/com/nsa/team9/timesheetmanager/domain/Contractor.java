@@ -24,7 +24,6 @@ public class Contractor {
     @Column(name = "contractor_last_name")
     public String lastName;
 
-
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "login_id")
     private Login login;

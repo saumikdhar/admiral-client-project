@@ -1,11 +1,11 @@
-
+DROP SCHEMA ManagingTimeSheets;
 SHOW DATABASES;
 
 CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
 
 USE ManagingTimeSheets;
 
-CREATE TABLE IF NOT EXISTS Logins
+CREATE TABLE IF NOT EXISTS logins
 (
     login_id     INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email        VARCHAR(150) NOT NULL,
@@ -14,63 +14,63 @@ CREATE TABLE IF NOT EXISTS Logins
 )
     ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS Agencies
+CREATE TABLE IF NOT EXISTS agencies
 (
     agency_id   INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     agency_name VARCHAR(100) NOT NULL
 )
     ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS Managers
+CREATE TABLE IF NOT EXISTS managers
 (
     manager_id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     manager_first_name VARCHAR(100) NOT NULL,
     manager_last_name  VARCHAR(100) NOT NULL,
     login_id          INT,
-    FOREIGN KEY (login_id) REFERENCES Logins (login_id)
+    FOREIGN KEY (login_id) REFERENCES logins (login_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 )
     ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS Contractors
+CREATE TABLE IF NOT EXISTS contractors
 (
     contractor_id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     contractor_first_name VARCHAR(100) NOT NULL,
     contractor_last_name  VARCHAR(100) NOT NULL,
     login_id             INT,
     manager_id           INT,
-    FOREIGN KEY (login_id) REFERENCES Logins (login_id)
+    FOREIGN KEY (login_id) REFERENCES logins (login_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    FOREIGN KEY (manager_id) REFERENCES Managers (manager_id)
+    FOREIGN KEY (manager_id) REFERENCES managers (manager_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 )
     ENGINE = InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS Admins
+CREATE TABLE IF NOT EXISTS admins
 (
     admin_id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     admin_firstName VARCHAR(100) NOT NULL,
     admin_lastName  VARCHAR(100) NOT NULL,
     login_id        INT,
-    FOREIGN KEY (login_id) REFERENCES Logins (login_id)
+    FOREIGN KEY (login_id) REFERENCES logins (login_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 )
     ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS Agency_Contractors
+CREATE TABLE IF NOT EXISTS agency_contractors
 (
     agency_contractor_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     agency_id            INT,
     contractor_id        INT,
-    FOREIGN KEY (agency_id) REFERENCES Agencies (agency_id)
+    FOREIGN KEY (agency_id) REFERENCES agencies (agency_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    FOREIGN KEY (contractor_id) REFERENCES Contractors (contractor_id)
+    FOREIGN KEY (contractor_id) REFERENCES contractors (contractor_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 )
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS timesheets
     overtime             INT     DEFAULT 0,
     start_date           DATE    NOT NULL,
     status               VARCHAR(10),
-    FOREIGN KEY (agency_contractor_id) REFERENCES Agency_Contractors (agency_contractor_id)
+    FOREIGN KEY (agency_contractor_id) REFERENCES agency_contractors (agency_contractor_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 )

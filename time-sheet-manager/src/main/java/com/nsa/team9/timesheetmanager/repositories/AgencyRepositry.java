@@ -13,7 +13,10 @@ public interface AgencyRepositry {
     /*find agency by agency id*/
     public Optional<Agency> findById(Long agencyId);
 
-    /*find all agencies*/
+    /*find all agencies by agency name*/
     public List<Agency> findAllAgencyNames();
+
+    /*find all agencies by agency*/
+    public List<Agency> findAllAgency();
 
 }

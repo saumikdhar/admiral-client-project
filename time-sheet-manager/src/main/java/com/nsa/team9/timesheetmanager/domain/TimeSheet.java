@@ -15,7 +15,7 @@ import java.util.Date;
 @Table(name = "timesheets")
 public class TimeSheet {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "agency_contractor_id")
     private AgencyContractor agency_contractor_id;
 

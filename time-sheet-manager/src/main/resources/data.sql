@@ -1,5 +1,3 @@
-SET GLOBAL sql_mode='';
-
 SHOW DATABASES;
 
 USE managingtimesheets;
@@ -329,12 +327,3 @@ INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_w
 INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2019-04-30','pending',40,False,False,False,False,False,False);
 INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-04-12','pending',6,False,False,False,False,False,False);
 INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-03-14','pending',12,False,False,False,False,False,False);
-
-/*Code below should return 2 agencies for Meredith*/
-SELECT agency_name, c.contractor_firstName
-FROM agencies
-         JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id
-         JOIN contractors c ON ac.contractor_id = c.contractor_id
-WHERE c.contractor_first_name = 'Meredith';
-
-select * from timesheets t where t.start_date = '2019-06-06';
