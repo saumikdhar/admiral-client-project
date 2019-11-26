@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "TimeSheets")
+@Table(name = "timesheets")
 public class TimeSheet {
 
     @ManyToOne

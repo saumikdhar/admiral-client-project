@@ -15,6 +15,7 @@ public class AgencyContractorSearchImpl implements AgencyContractorSearch {
 
     private AgencyContractorRepositry agencyContractorRepositry;
 
+
     public AgencyContractorSearchImpl(AgencyContractorRepositry aRepo){
         agencyContractorRepositry = aRepo;
     }

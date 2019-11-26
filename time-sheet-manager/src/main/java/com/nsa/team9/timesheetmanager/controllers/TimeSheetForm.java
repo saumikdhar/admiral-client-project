@@ -16,8 +16,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class TimeSheetForm {
 
-    @NotNull
-    private String agency;
 
     @NotNull
     @Past(message = "Start date cannot be present or in the future")
