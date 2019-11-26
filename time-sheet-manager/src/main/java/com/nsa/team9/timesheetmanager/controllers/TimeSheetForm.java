@@ -3,6 +3,7 @@ package com.nsa.team9.timesheetmanager.controllers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -14,6 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TimeSheetForm {
+
 
     @NotNull
     @Past(message = "Start date cannot be present or in the future")
@@ -39,8 +41,8 @@ public class TimeSheetForm {
 
     private Boolean sunday_worked;
 
-    @Min(value = 0, message = "The minimum amount of overtime cannot be less than 0")
-    @Max(value = 20,message = "The max amount of overtime is 20 hours")
+    @DecimalMin(value = "0.0", message = "The minimum amount of overtime cannot be less than 0")
+    @DecimalMax(value = "20.0",message = "The max amount of overtime is 20 hours")
     private Double overtime;
 
 }

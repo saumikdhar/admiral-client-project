@@ -1,4 +1,4 @@
-DROP SCHEMA ManagingTimeSheets;
+
 SHOW DATABASES;
 
 CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS Agency_Contractors
 )
     ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS TimeSheets
+CREATE TABLE IF NOT EXISTS timesheets
 (
     agency_contractor_id INT,
     timesheet_id         INT     NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS TimeSheets
     friday_worked        BOOLEAN NOT NULL DEFAULT FALSE,
     saturday_worked      BOOLEAN NOT NULL DEFAULT FALSE,
     sunday_worked        BOOLEAN NOT NULL DEFAULT FALSE,
-    overtime             INT     NOT NULL DEFAULT 0,
+    overtime             INT     DEFAULT 0,
     start_date           DATE    NOT NULL,
     status               VARCHAR(10),
     FOREIGN KEY (agency_contractor_id) REFERENCES Agency_Contractors (agency_contractor_id)
