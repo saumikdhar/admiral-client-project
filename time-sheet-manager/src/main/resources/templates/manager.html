@@ -56,7 +56,8 @@
                                             <button type="button"
                                                     class="btn btn-danger"
                                                     data-toggle="modal"
-                                                    data-target="#notesModal">N</button>
+                                                    data-target="#notesModal"
+                                                    th:data-id="${timesheet.timesheet_id}">N</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -97,6 +98,9 @@
                                      th:if="${#fields.hasErrors('notes')}">
                                     Notes Error
                                 </div>
+
+                                <input hidden type="number" class="form-control" th:name="timesheet_id" th:id="timesheet_id">
+
                             </div>
 
                     </div>
@@ -111,6 +115,19 @@
     </div>
 
 </main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $("#notesModal").on('shown.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            $('input[name = timesheet_id]').val(id)
+        })
+    })
+
+</script>
 
 </body>
 <div th:replace="fragments/footer :: footer">

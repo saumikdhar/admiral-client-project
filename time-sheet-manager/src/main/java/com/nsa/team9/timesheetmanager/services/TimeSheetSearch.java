@@ -7,4 +7,6 @@ import java.util.List;
 public interface TimeSheetSearch {
 
     public List<TimeSheet> getTimeSheetsByManager(String lastName, String firstName);
+
+    public void updateTimesheetStatus(String status, Long timesheetId);
 }

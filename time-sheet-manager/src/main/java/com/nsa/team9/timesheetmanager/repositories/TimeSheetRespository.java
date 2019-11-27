@@ -8,4 +8,7 @@ public interface TimeSheetRespository {
 
 //    Find all Timesheets associated with a manager
     public List<TimeSheet> getTimeSheetsByManager(String lastName, String firstName);
+
+//    update timesheet status
+    public void updateTimesheetStatus(String status, Long timesheetId);
 }

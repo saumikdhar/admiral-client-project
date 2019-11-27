@@ -54,19 +54,19 @@ public class ManagerController {
 
     @RequestMapping(value = "manager/addNotes", method = RequestMethod.POST)
     public String saveRejectedNotes(@ModelAttribute("note") @Valid ManagerNotes note,
+                                    @RequestParam(value = "timesheet_id", required = false) Long timesheet_id,
                                     BindingResult bindingResult,
                                     Model model) {
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
             LOG.error("Manager addNotes has errors");
-            //remove once jpa added
-            List<String> tests = new ArrayList<>();
-            tests.add("Test1");
-            tests.add("Test2");
-            model.addAttribute("tests",tests);
-            //
             return "redirect:/manager";
         }
+
+//        System.out.println(timesheet_id);
+
+        timeSheetSearch.updateTimesheetStatus("rejected", timesheet_id);
+
         return "redirect:/manager";
     }
 

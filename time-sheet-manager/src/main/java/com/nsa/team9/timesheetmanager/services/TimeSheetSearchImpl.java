@@ -19,4 +19,11 @@ public class TimeSheetSearchImpl implements TimeSheetSearch {
     public List<TimeSheet> getTimeSheetsByManager(String lastName, String firstName) {
         return timeSheetRepository.getTimeSheetsByManager(lastName, firstName);
     }
+
+    @Override
+    public void updateTimesheetStatus(String status, Long timesheetId) {
+        timeSheetRepository.updateTimesheetStatus(status, timesheetId);
+    }
+
+
 }
