@@ -12,20 +12,20 @@
 <div >
     <div class="form-control" id=timehsheetConfirmationDays>
         <h3>The days you selected are: </h3>
-        <p>Monday:</p>
-        <div th:text="${TimeSheet.monday_worked}"></div>
-        <p>Tuesday:</p>
-        <div th:text="${TimeSheet.tuesday_worked}"></div>
-        <p>Wednesday:</p>
-        <div th:text="${TimeSheet.wednesday_worked}"></div>
-        <p>Thursday:</p>
-        <div th:text="${TimeSheet.thursday_worked}"></div>
-        <p>Friday:</p>
-        <div th:text="${TimeSheet.friday_worked}"></div>
-        <p>Saturday:</p>
-        <div th:text="${TimeSheet.saturday_worked}"></div>
-        <p>Sunday:</p>
-        <div th:text="${TimeSheet.sunday_worked}"></div>
+<!--        <p>Monday:</p>-->
+        <div th:text="${'Monday: ' + TimeSheet.monday_worked}"></div>
+<!--        <p>Tuesday:</p>-->
+        <div th:text="${'Tuesday: ' + TimeSheet.tuesday_worked}"></div>
+<!--        <p>Wednesday:</p>-->
+        <div th:text="${'Wednesday: ' + TimeSheet.wednesday_worked}"></div>
+<!--        <p>Thursday:</p>-->
+        <div th:text="${'Thursday: ' + TimeSheet.thursday_worked}"></div>
+<!--        <p>Friday:</p>-->
+        <div th:text="${'Friday: ' + TimeSheet.friday_worked}"></div>
+<!--        <p>Saturday:</p>-->
+        <div th:text="${'Saturday: ' + TimeSheet.saturday_worked}"></div>
+<!--        <p>Sunday:</p>-->
+        <div th:text="${'Sunday: ' + TimeSheet.sunday_worked}"></div>
     </div>
 
     <div class="form-control" id=timehsheetConfirmationOvertime>
