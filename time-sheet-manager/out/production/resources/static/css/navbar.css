@@ -23,6 +23,7 @@ body{
     border:0;
     font-family: Helvetica, sans-serif;
     overflow-x: hidden;
+    line-height: 1.25;
 }
 
 /* nav bar css ================================================================================ */
