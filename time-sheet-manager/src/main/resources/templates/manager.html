@@ -50,9 +50,17 @@
                                     <td th:text="${timesheet.overtime}">X</td>
                                     <td align="right" width="10%">
                                         <div class="btn-group" role="group">
-                                            <button type="button"
-                                                    class="btn btn-success"
-                                                    href="/">Y</button>
+                                            <form action="#"
+                                                  th:action="@{manager/accept}" method="post">
+                                                <input hidden
+                                                       type="number"
+                                                       th:name="timesheet_id"
+                                                       th:id="timesheet_id"
+                                                       th:value="${timesheet.timesheet_id}">
+                                                <button type="submit"
+                                                        class="btn btn-success">Y</button>
+                                            </form>
+
                                             <button type="button"
                                                     class="btn btn-danger"
                                                     data-toggle="modal"

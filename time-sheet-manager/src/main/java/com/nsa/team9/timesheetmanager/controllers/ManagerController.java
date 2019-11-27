@@ -52,9 +52,10 @@ public class ManagerController {
         return "manager";
     }
 
+    //reject timesheets
     @RequestMapping(value = "manager/addNotes", method = RequestMethod.POST)
     public String saveRejectedNotes(@ModelAttribute("note") @Valid ManagerNotes note,
-                                    @RequestParam(value = "timesheet_id", required = false) Long timesheet_id,
+                                    @RequestParam(value = "timesheet_id") Long timesheet_id,
                                     BindingResult bindingResult,
                                     Model model) {
         if (bindingResult.hasErrors()) {
@@ -66,6 +67,16 @@ public class ManagerController {
 //        System.out.println(timesheet_id);
 
         timeSheetSearch.updateTimesheetStatus("rejected", timesheet_id);
+
+        return "redirect:/manager";
+    }
+
+    //accept timesheets
+    @PostMapping("manager/accept")
+    public String acceptTimesheets(@RequestParam(value = "timesheet_id") Long timesheet_id) {
+
+//        System.out.println("ACCEPT ID: " + timesheet_id);
+        timeSheetSearch.updateTimesheetStatus("accepted", timesheet_id);
 
         return "redirect:/manager";
     }
