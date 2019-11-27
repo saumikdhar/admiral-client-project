@@ -4,21 +4,14 @@
 </head>
 <body>
 <div th:replace="fragments/header :: navbar"></div>
-<main role="main" class="container">
+<main role="main" class="box">
     <div class="container">
-        <div class="row">
-            <div class="col-1">
-                <div class="row">
-                    <p>Test Column Nav</p>
-                </div>
+            <div class="row">
+<!--                <p>Test Column Nav</p>-->
             </div>
-            <div class="col">
-<!--                <div class="row no-gutters">-->
-<!--                    <p>Table Headers</p>-->
-<!--                </div>-->
-                <div class="row no-gutters">
-                    <div class="col">
-                        <table class="table table-striped table-borderless table-sm">
+            <div class="row" style="overflow-x:auto;">
+                        <table class="table">
+                            <caption>Time Sheet</caption>
                             <thead>
                                 <tr>
                                     <th scope="col">Agency Name</th>
@@ -37,18 +30,18 @@
                             </thead>
                             <tbody>
                                 <tr th:each="timesheet: ${timesheets}">
-                                    <td th:text="${timesheet.agency_contractor_id.agencyId.agencyName}">Default</td>
-                                    <td th:text="${timesheet.agency_contractor_id.contractorId.firstName}">Default</td>
-                                    <td th:text="${timesheet.agency_contractor_id.contractorId.lastName}">Default</td>
-                                    <td th:text="${timesheet.monday_worked}">X</td>
-                                    <td th:text="${timesheet.tuesday_worked}">X</td>
-                                    <td th:text="${timesheet.wednesday_worked}">X</td>
-                                    <td th:text="${timesheet.thursday_worked}">X</td>
-                                    <td th:text="${timesheet.friday_worked}">X</td>
-                                    <td th:text="${timesheet.saturday_worked}">X</td>
-                                    <td th:text="${timesheet.sunday_worked}">X</td>
-                                    <td th:text="${timesheet.overtime}">X</td>
-                                    <td align="right" width="10%">
+                                    <td data-label="Agency Name" th:text="${timesheet.agency_contractor_id.agencyId.agencyName}">Default</td>
+                                    <td data-label="First Name" th:text="${timesheet.agency_contractor_id.contractorId.firstName}">Default</td>
+                                    <td data-label="Last Name" th:text="${timesheet.agency_contractor_id.contractorId.lastName}">Default</td>
+                                    <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
+                                    <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>
+                                    <td data-label="Wednesday" th:text="${timesheet.wednesday_worked}">X</td>
+                                    <td data-label="Thursday" th:text="${timesheet.thursday_worked}">X</td>
+                                    <td data-label="Friday" th:text="${timesheet.friday_worked}">X</td>
+                                    <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
+                                    <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
+                                    <td data-label="Overtime" th:text="${timesheet.overtime}">X</td>
+                                    <td data-label="Accept/Reject">
                                         <div class="btn-group" role="group">
                                             <form action="#"
                                                   th:action="@{manager/accept}" method="post">
@@ -71,10 +64,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
             </div>
-        </div>
 
     </div>
 
