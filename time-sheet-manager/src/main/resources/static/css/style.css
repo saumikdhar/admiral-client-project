@@ -137,7 +137,9 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  border-radius: 10px;
+  webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 
 table caption {
@@ -148,11 +150,46 @@ table caption {
 }
 
 td, th {
-  border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
 
+/* top-left border-radius */
+table tr:first-child th:first-child {
+  border-top-left-radius: 13px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+  border-top-right-radius: 13px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 13px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 13px;
+}
+
+table tr th {
+  background: #6c7ae0;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even){
+  background-color: #f8f6ff;
+}
+
+.table thead th {
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
 
 
 tr:hover {
@@ -199,6 +236,7 @@ tr:hover {
 
   table tr {
     border-bottom: 1px solid #ddd;
+    border-top: 1px solid #dddddd;
     display: block;
     margin-bottom: 2.625em;
   }
@@ -207,6 +245,10 @@ tr:hover {
     display: block;
     font-size: 0.9em;
     text-align: right;
+  }
+
+  .table td, .table th{
+    border-top: transparent;
   }
 
   table td::before {
@@ -223,8 +265,39 @@ tr:hover {
   table td:last-child {
     border-bottom: 0;
   }
+
+  td, th {
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+  }
+
+  tr:hover {
+    background-color: transparent;
+  }
+
+  /* top-left border-radius */
+  table tr:first-child th:first-child {
+    border-top-left-radius: 13px;
+  }
+
+  /* top-right border-radius */
+  table tr:first-child th:last-child {
+    border-top-right-radius: 13px;
+  }
+
+  /* bottom-left border-radius */
+  table tr:last-child td:first-child {
+    border-bottom-left-radius: 13px;
+  }
+
+  /* bottom-right border-radius */
+  table tr:last-child td:last-child {
+    border-bottom-right-radius: 13px;
+  }
+
+
 }
 
 @media (hover: none) {
-  tr:hover { color: inherit; }
+  tr:hover { color: transparent; }
 }
