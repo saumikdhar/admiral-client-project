@@ -37,4 +37,9 @@ public class AgencySearchImpl implements AgencySearch {
     public List<Agency> findAllAgencyNames() {
         return agencyRepositry.findAllAgencyNames();
     }
+
+    @Override
+    public List<Agency> findAllAgency() {
+        return agencyRepositry.findAllAgency();
+    }
 }

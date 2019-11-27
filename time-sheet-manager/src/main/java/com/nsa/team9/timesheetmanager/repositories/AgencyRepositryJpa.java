@@ -13,4 +13,9 @@ public interface AgencyRepositryJpa extends JpaRepository<Agency, Long>, AgencyR
     /*this finds all agency names*/
     @Query(value = "SELECT a.agencyName FROM Agency a ")
     public List<Agency> findAllAgencyNames();
+
+    /*find all agencies by agency*/
+    @Query(value = "SELECT * FROM agencies;", nativeQuery = true)
+    public List<Agency> findAllAgency();
+
 }

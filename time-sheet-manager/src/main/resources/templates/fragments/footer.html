@@ -9,7 +9,6 @@
 <body>
 
 <footer th:fragment="footer">
-    Admiral &copy; 2019
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -19,6 +18,58 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/css/footer.css" th:href="@{/css/footer.css}">
+
+    <div class="footer-links">
+        <div class="wrapper">
+            <div>
+                <ul class="links group">
+                    <li>
+                        <span>© 1993-2019 Admiral</span>
+                    </li>
+                    <li>
+                        <span>SiteMap</span>
+                    </li>
+                    <li>
+                        <span>Contact Us</span>
+                    </li>
+                    <li>
+                        <span>Accessibility</span>
+                    </li>
+                    <li>
+                        <span>Conditions of Use</span>
+                    </li>
+                    <li>
+                        <span>Privacy & Security</span>
+                    </li>
+                    <li>
+                        <span>Press Office</span>
+                    </li>
+                    <li>
+                        <span>Cookie Policy</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="address">
+                <p itemprop="location" itemtype="http://schema.org/PostalAddress" itemscope="itemscope">
+                    <span itemprop="name">Admiral</span>
+                    ,
+                    <span itemprop="streetAddress">Tŷ Admiral, David Street</span>
+                    ,
+                    <span itemprop="addressLocality">Cardiff</span>
+                    ,
+                    <span itemprop="postalCode">CF10 2EH</span>
+                    ,
+                    <span itemprop="addressCountry">United Kingdom</span>
+                </p>
+            </div>
+            <div class="registered">
+                <p>Admiral Group plc is registered in England and Wales at Tŷ Admiral, David Street, Cardiff. CF10 2EH (Reg No: 03849958). Admiral Financial Services Limited (Reg No: 10255225) is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 771862). EUI Limited (Reg No: 02686904) is a subsidiary of Admiral Group plc and is authorised and regulated by the Financial Conduct Authority (Firm reference number: 309378). These details can be confirmed by visiting the Financial Services Register,
+                <a href="http://www.fca.org.uk/register" rel="nofollow">www.fca.org.uk/register</a> . EUI Limited acts for, and on behalf of, other regulated insurance companies. Further details may be provided on request.
+                </p>
+            </div>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
