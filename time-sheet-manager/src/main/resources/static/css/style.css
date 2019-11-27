@@ -128,6 +128,12 @@ button[disabled]{
   /* box-sizing: border-box; */
 }
 
+/* font styling*/
+h1, h2, h3, h4{
+  color: #2350a0;
+  font-weight: 300;
+}
+
 /*  link colours for classes*/
 a {
     color: Black;
@@ -137,14 +143,214 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+  caption-side: top;
+  text-align: center;
 }
 
 td, th {
-  border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
 
+/* top-left border-radius */
+table tr:first-child th:first-child {
+  border-top-left-radius: 13px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+  border-top-right-radius: 13px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 13px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 13px;
+}
+
+table tr th {
+  background: #6c7ae0;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even){
+  background-color: #f8f6ff;
+}
+
+.table thead th {
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+
 tr:hover {
   background-color: #ddd
+}
+
+
+
+/*.results tr[visible='false'],*/
+/*.no-result{*/
+/*  display:none;*/
+/*}*/
+
+/*.results tr[visible='true']{*/
+/*  display:table-row;*/
+/*}*/
+
+/*.counter{*/
+/*  padding:8px;*/
+/*  color:#ccc;*/
+/*}*/
+
+/*homepage css*/
+.heroBanner.other-products-hub, .heroBanner.about-us-hub{
+  background: url('../images/admiral-character.png') no-repeat scroll center -50px;
+
+}
+
+.heroBanner{
+  overflow: hidden;
+  /*border-bottom: 1px solid #D3CBAF;*/
+}
+
+.heroBanner.other-products-hub .content, .heroBanner.about-us-hub .content{
+  padding: 30px 0 0;
+  width: 384px;
+  margin-left: 368px;
+  margin-bottom: 40px;
+}
+
+.heroBanner.other-products-hub .content p.messaging, .heroBanner.about-us-hub .content p.messaging{
+  width: 340px;
+  padding-left: 0;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  /*font-size: 1.8rem;*/
+  line-height: 2.7rem;
+}
+
+.heroBanner .content{
+  width:650px;
+  max-width: 100%;
+  padding: 60px 0 0 0;
+  margin-left: 18px;
+}
+
+.container{
+  width: 740px;
+  max-width: 100%;
+  margin: auto;
+  padding: 0px 15px;
+  position: relative;
+}
+
+/*.container bg{*/
+/*  background-color: #f00300;*/
+/*  color: #4f5902;*/
+/*}*/
+
+/*media content*/
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #dddddd;
+    display: block;
+    margin-bottom: 2.625em;
+  }
+
+  table td {
+    display: block;
+    font-size: 0.9em;
+    text-align: right;
+  }
+
+  .table td, .table th{
+    border-top: transparent;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  td, th {
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+  }
+
+  tr:hover {
+    background-color: transparent;
+  }
+
+  /* top-left border-radius */
+  table tr:first-child th:first-child {
+    border-top-left-radius: 13px;
+  }
+
+  /* top-right border-radius */
+  table tr:first-child th:last-child {
+    border-top-right-radius: 13px;
+  }
+
+  /* bottom-left border-radius */
+  table tr:last-child td:first-child {
+    border-bottom-left-radius: 13px;
+  }
+
+  /* bottom-right border-radius */
+  table tr:last-child td:last-child {
+    border-bottom-right-radius: 13px;
+  }
+
+
+}
+
+@media (hover: none) {
+  tr:hover { color: transparent; }
 }
