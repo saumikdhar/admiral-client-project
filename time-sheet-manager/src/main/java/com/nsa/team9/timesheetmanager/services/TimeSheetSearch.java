@@ -8,5 +8,9 @@ public interface TimeSheetSearch {
 
     public List<TimeSheet> getTimeSheetsByManager(String lastName, String firstName);
 
+<<<<<<< HEAD
     public void createTimeSheet(TimeSheet aTimeSheet);
+=======
+    public void updateTimesheetStatus(String status, Long timesheetId);
+>>>>>>> managerSql-feature
 }

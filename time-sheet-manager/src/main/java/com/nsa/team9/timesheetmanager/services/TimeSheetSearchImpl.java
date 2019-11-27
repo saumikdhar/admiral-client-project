@@ -29,5 +29,13 @@ public class TimeSheetSearchImpl implements TimeSheetSearch {
         return timeSheetRepository.getTimeSheetsByManager(lastName, firstName);
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public void updateTimesheetStatus(String status, Long timesheetId) {
+        timeSheetRepository.updateTimesheetStatus(status, timesheetId);
+    }
+
+>>>>>>> managerSql-feature
 
 }
