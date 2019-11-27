@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <title>TimeSheetConfirmation</title>
 </head>
+<head th:replace="fragments/header :: head">
+</head>
 <body>
 <div th:replace="fragments/header :: navbar"></div>
 
 <div >
-    <div class="form-control" id=timehsheetConfirmationDate>
-        <h3>The start date you selected:</h3>
-        <div th:text="${TimeSheet.start_date}"></div>
-    </div>
-
     <div class="form-control" id=timehsheetConfirmationDays>
         <h3>The days you selected are: </h3>
         <p>Monday:</p>
@@ -33,14 +30,15 @@
 
     <div class="form-control" id=timehsheetConfirmationOvertime>
         <h3>The overtime you selected:</h3>
-        <div th:text="${TimeSheet.overtime}"></div>
+        <div th:text="${TimeSheet.overtime}">0</div>
     </div>
 </div>
 
 
+
+</body>
 <div th:replace="fragments/footer :: footer">
 </div>
-</body>
 <input type="hidden" id="refreshed" value="no">
 <script type="text/javascript">
 
