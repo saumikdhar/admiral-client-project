@@ -80,7 +80,7 @@
                             <td data-label="Thursday" th:text="${timesheet.thursday_worked}">X</td>
                             <td data-label="Friday" th:text="${timesheet.friday_worked}">X</td>
                             <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
-                            <td data-label="Status" th:text="${timesheet.sunday_worked}">X</td>
+                            <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
                             <td data-label="Status" th:text="${timesheet.status}"><span style="color: green"></span></td>
                             <td data-label="Manager Name" th:text="${timesheet.getAgency_contractor_id().getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getAgency_contractor_id().getContractorId().getManager().getLastName()}"></td>
                         </tr>
