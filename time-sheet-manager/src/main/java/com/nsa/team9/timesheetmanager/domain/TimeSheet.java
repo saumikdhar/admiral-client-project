@@ -12,18 +12,17 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "TimeSheets")
+@Table(name = "timesheets")
 public class TimeSheet {
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "agency_contractor_id")
+    private AgencyContractor agency_contractor_id;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "agency_contractor_id")
-    private int agency_contractor_id;
-
     @Column(name = "timesheet_id")
-    private int timesheet_id;
+    private Long timesheet_id;
 
     @Column(name = "monday_worked")
     private boolean monday_worked;
@@ -39,6 +38,12 @@ public class TimeSheet {
 
     @Column(name = "friday_worked")
     private boolean friday_worked;
+
+    @Column(name = "saturday_worked")
+    private boolean saturday_worked;
+
+    @Column(name = "sunday_worked")
+    private boolean sunday_worked;
 
     @Column(name = "overtime")
     private Double overtime;

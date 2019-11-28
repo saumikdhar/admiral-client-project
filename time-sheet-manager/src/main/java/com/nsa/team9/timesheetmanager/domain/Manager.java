@@ -15,15 +15,16 @@ public class Manager {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "manager_id")
     private Long id;
 
-    @Column(name = "manager_firstName")
+    @Column(name = "manager_first_name")
     private String firstName;
 
-    @Column(name = "manager_lastName")
+    @Column(name = "manager_last_name")
     private String lastName;
 
-    //change to type Login when created
-    //add column name and join one-to-one
-    private Long login;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "login_id")
+    private Login login;
 }
