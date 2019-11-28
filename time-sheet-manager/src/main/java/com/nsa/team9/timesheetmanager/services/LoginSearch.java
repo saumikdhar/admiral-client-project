@@ -14,5 +14,5 @@ public interface LoginSearch {
 
     public List<Login> findAllLoginEmails();
 
-    public List<Login> getAllLogins();
+    public Optional<Login> getLoginByEmail(String email);
 }

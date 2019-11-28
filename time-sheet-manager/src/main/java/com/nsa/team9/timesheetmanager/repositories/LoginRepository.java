@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface LoginRepository {
 
     public Optional<Login> findById(Long loginId);
-    public List<Login> getAllLogins();
+    public Optional<Login> getLoginByEmail(String email);
 }
