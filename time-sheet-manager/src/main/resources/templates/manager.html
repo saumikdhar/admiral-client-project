@@ -14,6 +14,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Agency Name</th>
+                                    <th scope="col">Start Date</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Monday</th>
@@ -30,6 +31,7 @@
                             <tbody>
                                 <tr th:each="timesheet: ${timesheets}">
                                     <td data-label="Agency Name" th:text="${timesheet.agency_contractor_id.agencyId.agencyName}">Default</td>
+                                    <td data-label="Start Date" th:text="${timesheet.start_date}">Default</td>
                                     <td data-label="First Name" th:text="${timesheet.agency_contractor_id.contractorId.firstName}">Default</td>
                                     <td data-label="Last Name" th:text="${timesheet.agency_contractor_id.contractorId.lastName}">Default</td>
                                     <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
