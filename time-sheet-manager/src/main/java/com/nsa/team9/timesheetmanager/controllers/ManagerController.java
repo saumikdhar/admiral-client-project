@@ -31,8 +31,8 @@ public class ManagerController {
     public String showDashboard(Model model) {
 
         //once login is implemented change inputs the which ever manager is logged in
-        String firstName = "Jordan";
-        String lastName = "Coffey";
+        String firstName = "Cyrus";
+        String lastName = "Moreno";
 
         List<TimeSheet> timeSheets = timeSheetSearch.getTimeSheetsByManager(lastName,firstName);
 
