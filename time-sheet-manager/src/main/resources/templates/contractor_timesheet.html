@@ -180,23 +180,6 @@
     date.addEventListener('input',onlyMonday);
 </script>
 
-
-
-<script type="text/javascript">
-
-        $(document).ready(function () {
-            $('#time_sheet_submit').click(function() {
-                checked = $("input[type=checkbox]:checked").length;
-
-                if(!checked) {
-                    alert("You must check at least one checkbox.");
-                    return false;
-                }
-
-            });
-        });
-</script>
-
 <script>
 function TDate() {
 var UserDate = document.getElementById("e").value;
