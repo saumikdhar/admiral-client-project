@@ -87,7 +87,7 @@ public class ContractorController {
                 TimeSheet.getSunday_worked(),
                 TimeSheet.getOvertime(),
                 TimeSheet.getStart_date(),
-                "Pending");
+                "pending");
 
         System.out.println("saved timesheet " + t.toString());
         TimeSheetCreator.createTimeSheet(t);
