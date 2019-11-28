@@ -32,24 +32,6 @@ public class AdminController {
     return "adminshowtimesheets";
     }
 
-    /*map to admin page with agency filter*/
-    @GetMapping("/admin/agency")
-    public String findTimeSheetsByAgency(Model model,@RequestParam("search") String searchTerm,DateContainer dateContainer){
-        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByAgencyName(searchTerm);
-        model.addAttribute("timesheets", timesheets);
-        model.addAttribute("searchTerm", searchTerm);
-        return "adminshowtimesheets";
-    }
-
-    /*map to admin page with contractor filter*/
-    @GetMapping("/admin/contractor")
-    public String findTimeSheetsByContractor(Model model,@RequestParam("search") String searchTerm, DateContainer dateContainer){
-        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByContractorName(searchTerm);
-        model.addAttribute("timesheets", timesheets);
-        model.addAttribute("searchTerm", searchTerm);
-        return "adminshowtimesheets";
-    }
-
     /*map to admin page with date range filter*/
     @RequestMapping("/admin/date")
     public String findTimeSheetsByDate(Model model, DateContainer dateContainer){
