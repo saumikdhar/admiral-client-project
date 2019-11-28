@@ -259,14 +259,21 @@ tr:hover {
   position: relative;
 }
 
-/*.container bg{*/
-/*  background-color: #f00300;*/
-/*  color: #4f5902;*/
-/*}*/
+.pcontainer{
+  max-width: 700px;
+  margin: auto;
+  padding: 50px 15px;
+  position: relative;
+}
+
+.lightGreyWrapper{
+  background-color: #F0F0EB;
+  width: 100%;
+}
 
 /*media content*/
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   table {
     border: 0;
   }
