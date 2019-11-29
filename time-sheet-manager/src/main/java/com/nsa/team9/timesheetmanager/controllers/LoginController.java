@@ -28,11 +28,13 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage(Model model){
+    public String getLoginPage(Model model) {
 
         model.addAttribute("Login", new LoginForm());
         return "login.html";
-    };
+    }
+
+    ;
 
     @PostMapping("/signIn")
     public String signIn(@ModelAttribute("Login") @Valid LoginForm Login,
@@ -51,23 +53,22 @@ public class LoginController {
         if (loginDetails.get().getPassword().toUpperCase().equals(Login.getPassword().toUpperCase())) {
 
             // check user role and decide the redirect URL
-            if (loginDetails.get().getAccessLevel()== 0) {
-                url = "/TimeSheetForm";
+            if (loginDetails.get().getAccessLevel() == 0) {
+//                url = "/TimeSheetForm";
+            } else if (loginDetails.get().getAccessLevel() == 1) {
+//                url = "/manager";
+            } else if (loginDetails.get().getAccessLevel() == 2) {
+//                url = "/admin";
+//            return url;
+                //do something
+                //set accesslevel and get persons first name and last name then set as session
+                LOG.debug("LOGIN SUCCESSFUL");
+                return "redirect:/admin";
             }
-            else if (loginDetails.get().getAccessLevel()== 1) {
-                url = "/manager";
-            }
-            else if (loginDetails.get().getAccessLevel()== 2) {
-                url = "/admin";
-            return url;
-            //do something
-            //set accesslevel and get persons first name and last name then set as session
-            LOG.debug("LOGIN SUCCESSFUL");
-            return "redirect:/admin";
+
+
+            LOG.debug("LOGIN FAIL");
+            return "login";
         }
-
-
-        LOG.debug("LOGIN FAIL");
-        return "login";
     }
 }
