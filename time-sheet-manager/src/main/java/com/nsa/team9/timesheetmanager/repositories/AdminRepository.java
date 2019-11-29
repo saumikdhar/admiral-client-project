@@ -1,6 +1,10 @@
 package com.nsa.team9.timesheetmanager.repositories;
 
+import com.nsa.team9.timesheetmanager.domain.Agency;
+import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
+import com.nsa.team9.timesheetmanager.domain.Contractor;
 import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.projections.AgencyProjection;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
@@ -19,4 +23,11 @@ public interface AdminRepository {
 
     /*finds all time sheets specified by date*/
     public List<TimeSheet> findTimeSheetsByDate(LocalDate dateFrom,LocalDate dateTo);
+
+    /*finds all contractors not assigned a manager*/
+    public List<AgencyProjection> findContractorsNotAssignedManager();
+
+    /*finds all contractors with a manager*/
+    public List<Agency> findContractorsAssignedWithManager();
+
 }

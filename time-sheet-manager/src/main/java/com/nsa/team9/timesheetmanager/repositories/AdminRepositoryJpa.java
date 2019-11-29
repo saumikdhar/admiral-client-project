@@ -1,5 +1,9 @@
 package com.nsa.team9.timesheetmanager.repositories;
+import com.nsa.team9.timesheetmanager.domain.Agency;
+import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
+import com.nsa.team9.timesheetmanager.domain.Contractor;
 import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.projections.AgencyProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -34,6 +38,17 @@ public interface AdminRepositoryJpa extends JpaRepository<TimeSheet, Long>, Admi
             "JOIN contractors c ON ac.contractor_id = c.contractor_id where CONCAT(c.contractor_first_name,' ', c.contractor_last_name) like CONCAT('%',:searchTerm,'%')", nativeQuery = true)
     public List<TimeSheet> findTimeSheetsByContractorName(@Param("searchTerm") String searchTerm);
 
+    /*query to find all time sheets in date range*/
     @Query(value = "select * from timesheets t where t.start_date between :dateFrom and :dateTo", nativeQuery = true)
     public List<TimeSheet> findTimeSheetsByDate(@Param("dateFrom")LocalDate dateFrom,@Param("dateTo")LocalDate dateTo );
+
+    /*query finds all contractors without a manager assigned to them*/
+    @Query(value = "SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName, concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id JOIN contractors c ON ac.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id WHERE concat(manager_first_name, ' ', manager_last_name) LIKE '%Not Assigned%'",nativeQuery = true)
+    public List<AgencyProjection> findContractorsNotAssignedManager();
+
+    /*query gets all relevant information for contractors and managers assigned to them*/
+    @Query(value = "SELECT agencies.agency_id, agencies.agency_name, c.contractor_id, c.contractor_first_name, c.contractor_last_name FROM agencies JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id JOIN contractors c ON ac.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id",nativeQuery = true)
+    public List<Agency> findContractorsAssignedWithManager();
+
+
 }

@@ -1,9 +1,15 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
+import com.nsa.team9.timesheetmanager.domain.Agency;
+import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
+import com.nsa.team9.timesheetmanager.domain.Contractor;
 import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.projections.AgencyProjection;
 import com.nsa.team9.timesheetmanager.services.AdminSearchImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +25,9 @@ import java.util.List;
 public class AdminController {
 
     private AdminSearchImpl adminSearch;
+
+    static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
+
 
     public AdminController(AdminSearchImpl aRepo) {
         adminSearch = aRepo;
@@ -39,5 +48,13 @@ public class AdminController {
         model.addAttribute("timesheets", timesheets);
         model.addAttribute("searchTerm", dateContainer);
         return "adminshowtimesheets";
+    }
+
+    @GetMapping("/admin/assign-manager")
+    public String assignManagerToContractor(Model model){
+        List<AgencyProjection> agencies = adminSearch.findContractorsNotAssignedManager();
+//        System.out.println("the agency is" + agencies.get(0).getAgencyName());
+        model.addAttribute("agencies", agencies);
+      return "adminAssignManager";
     }
 }

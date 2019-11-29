@@ -105,6 +105,8 @@ INSERT INTO logins (email, password, access_level)
 VALUES ('gravida.mauris.ut@vitae.org', 'sodales', 0);
 INSERT INTO logins (email, password, access_level)
 VALUES ('vel.lectus@ligulaDonec.ca', 'Vestibulum', 2);
+INSERT INTO logins (email, password, access_level)
+VALUES ('notassigned@na.com', 'password', 1);
 
 
 /*populate admin*/
@@ -189,9 +191,10 @@ INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Ph
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Paki','Garrison',18);
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Rashad','Waters',19);
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Keaton','Copeland',20);
+INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Not','Assigned',51);
 
 /*Populate contractor*/
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aristotle','Livingston',21,8);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id) VALUES ('Aristotle','Livingston',21);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Clio','Vaughan',22,11);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Jayme','Sparks',23,15);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Shoshana','Daniels',24,5);
@@ -327,3 +330,12 @@ INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_w
 INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2019-04-30','pending',40,False,False,False,False,False,False);
 INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-04-12','pending',6,False,False,False,False,False,False);
 INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-03-14','pending',12,False,False,False,False,False,False);
+
+SELECT a.agency_name,a.agency_id, m.manager_id,m.manager_first_name
+FROM agency_contractors ac
+         JOIN contractors c ON ac.contractor_id = c.contractor_id
+         JOIN managers m ON c.manager_id = m.manager_id
+         JOIN agencies a ON ac.agency_id = a.agency_id;
+
+# WHERE concat(manager_first_name, ' ', manager_last_name) LIKE '%n%';
+

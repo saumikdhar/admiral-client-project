@@ -60,7 +60,7 @@
                         <tbody>
                         <tr th:each="timesheet: ${timesheets}">
                             <td data-label="Agency Name" th:text="${timesheet.agency_contractor_id.agencyId.agencyName}"></td>
-                            <td data-label="Contractor Name" th:text="${timesheet.agency_contractor_id.contractorId.firstName} + ' ' + ${timesheet.agency_contractor_id.contractorId.lastName}"> deafsult</td>
+                            <td data-label="Contractor Name" th:text="${timesheet.agency_contractor_id.contractorId.manager.firstName} + ' ' + ${timesheet.agency_contractor_id.contractorId.manager.lastName}"> deafsult</td>
                             <td data-label="Start Date" th:text="${timesheet.start_date}">X</td>
                             <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
                             <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>

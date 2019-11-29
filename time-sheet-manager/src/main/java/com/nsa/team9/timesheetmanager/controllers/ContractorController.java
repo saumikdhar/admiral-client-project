@@ -61,7 +61,7 @@ public class ContractorController {
 
 
         Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque","1");
-        Manager m = new Manager(2L,"Felix","Shaffer",l);
+        Manager m = new Manager(21L,"Felix","Shaffer",l);
         Contractor c = new Contractor(7L,"gabriel","agius",l,m);
         Agency a = agencyContractorForm.getAgency_id();
 
