@@ -1,9 +1,6 @@
 package com.nsa.team9.timesheetmanager.repositories;
 
-import com.nsa.team9.timesheetmanager.domain.Agency;
-import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
-import com.nsa.team9.timesheetmanager.domain.Contractor;
-import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.AgencyProjection;
 import org.springframework.data.repository.query.Param;
 
@@ -29,5 +26,8 @@ public interface AdminRepository {
 
     /*finds all contractors with a manager*/
     public List<Agency> findContractorsAssignedWithManager();
+
+    /*finds all managers*/
+    public List<Manager> findAllManagers();
 
 }

@@ -1,8 +1,5 @@
 package com.nsa.team9.timesheetmanager.repositories;
-import com.nsa.team9.timesheetmanager.domain.Agency;
-import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
-import com.nsa.team9.timesheetmanager.domain.Contractor;
-import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.AgencyProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -49,6 +46,10 @@ public interface AdminRepositoryJpa extends JpaRepository<TimeSheet, Long>, Admi
     /*query gets all relevant information for contractors and managers assigned to them*/
     @Query(value = "SELECT agencies.agency_id, agencies.agency_name, c.contractor_id, c.contractor_first_name, c.contractor_last_name FROM agencies JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id JOIN contractors c ON ac.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id",nativeQuery = true)
     public List<Agency> findContractorsAssignedWithManager();
+
+    /*query finds all managers*/
+    @Query(value = "select m from Manager m")
+    public List<Manager> findAllManagers();
 
 
 }

@@ -1,9 +1,6 @@
 package com.nsa.team9.timesheetmanager.services;
 
-import com.nsa.team9.timesheetmanager.domain.Agency;
-import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
-import com.nsa.team9.timesheetmanager.domain.Contractor;
-import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.AgencyProjection;
 import com.nsa.team9.timesheetmanager.repositories.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +43,11 @@ public class AdminSearchImpl implements AdminSearch {
     @Override
     public List<Agency> findContractorsAssignedWithManager() {
         return adminRepository.findContractorsAssignedWithManager();
+    }
+
+    @Override
+    public List<Manager> findAllManagers() {
+        return adminRepository.findAllManagers();
     }
 
 }

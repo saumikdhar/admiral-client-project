@@ -382,22 +382,22 @@ tr:hover {
 
   /* top-left border-radius */
   table tr:first-child th:first-child {
-    border-top-left-radius: 13px;
+    border-top-left-radius: 0px;
   }
 
   /* top-right border-radius */
   table tr:first-child th:last-child {
-    border-top-right-radius: 13px;
+    border-top-right-radius: 0px;
   }
 
   /* bottom-left border-radius */
   table tr:last-child td:first-child {
-    border-bottom-left-radius: 13px;
+    border-bottom-left-radius: 0px;
   }
 
   /* bottom-right border-radius */
   table tr:last-child td:last-child {
-    border-bottom-right-radius: 13px;
+    border-bottom-right-radius: 0px;
   }
 
 

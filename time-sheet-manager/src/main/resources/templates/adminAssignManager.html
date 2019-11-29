@@ -26,25 +26,58 @@
                 <tr th:each="agency: ${agencies}">
                     <td data-label="Agency Name" th:text="${agency.getAgencyName()}"></td>
                     <td data-label="Contractor Name" th:text="${agency.getContractorName()}"></td>
-                    <td data-label="Contractor Name" th:text="${agency.getManagerName()}"></td>
-                    <td data-label="Update">
+                    <td data-label="Manager Name" th:text="${agency.getManagerName()}"></td>
+                    <td data-label="Change Manager">
                         <div class="btn-group" role="group">
-                            <form action="#"
-                                  th:action="@{manager/accept}" method="post">
-                                <input hidden
-                                       type="number"
-                                       th:name="timesheet_id"
-                                       th:id="timesheet_id"
-                                       th:value="${timesheet.timesheet_id}">
-                                <button type="submit"
-                                        class="btn btn-success">Y</button>
-                            </form>
+                                <button type="button"
+                                        class="btn btn-success"
+                                        data-toggle="modal"
+                                        data-target="#notesModal"
+                                        th:data-id="${agency.getContractorId()}">Update</button>
                         </div>
-                            <!--                </tr>-->
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notesModalLabel">Choose a manager</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="#" th:action="@{manager/addNotes}" th:object="${note}" method="post">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="col-form-label" th:for="notes">Managers:</label>
+
+                            <!--                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>-->
+
+                            <select class="row form-control" ><!--th:field="*{notes}"-->
+                                <option th:each="manager : ${managers}" th:value="${manager.id}" th:text="${manager.firstName + ' '+ manager.lastName}">
+                                </option>
+                            </select>
+                            <input hidden type="number" class="form-control" th:name="contractor_id" th:id="contractor_id">
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="submit"
+                                class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </main>
 <div th:replace="fragments/footer :: footer">
 </div>

@@ -1,10 +1,7 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
-import com.nsa.team9.timesheetmanager.domain.Agency;
-import com.nsa.team9.timesheetmanager.domain.AgencyContractor;
-import com.nsa.team9.timesheetmanager.domain.Contractor;
-import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.AgencyProjection;
 import com.nsa.team9.timesheetmanager.services.AdminSearchImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -53,7 +50,9 @@ public class AdminController {
     @GetMapping("/admin/assign-manager")
     public String assignManagerToContractor(Model model){
         List<AgencyProjection> agencies = adminSearch.findContractorsNotAssignedManager();
+        List<Manager> managers = adminSearch.findAllManagers();
 //        System.out.println("the agency is" + agencies.get(0).getAgencyName());
+        model.addAttribute("managers",managers);
         model.addAttribute("agencies", agencies);
       return "adminAssignManager";
     }
