@@ -88,6 +88,22 @@ button[disabled]{
 
 }
 
+/*button css*/
+
+.btn:not(:disabled):not(.disabled){
+  border-radius: 30px;
+}
+
+.modal-content{
+  border-radius: 30px;
+}
+
+.modal-body{
+  padding:1.5rem;
+}
+
+/*end*/
+
 /* box styling and inputs inside the box   ================================================= */
 .box{
   margin:auto;
@@ -259,6 +275,11 @@ tr:hover {
   display:none;
 }
 
+
+.table td, .table th{
+  vertical-align: middle;
+  border-top: 0;
+}
 /*.results tr[visible='true']{*/
 /*  display:table-row;*/
 /*}*/
@@ -357,7 +378,7 @@ tr:hover {
   }
 
   .table td, .table th{
-    border-top: transparent;
+    vertical-align: middle;
   }
 
   table td::before {
@@ -400,9 +421,8 @@ tr:hover {
     border-bottom-right-radius: 0px;
   }
 
+  tr:hover {
+    background-color: unset;
+  }
 
-}
-
-@media (hover: none) {
-  tr:hover { color: transparent; }
 }
