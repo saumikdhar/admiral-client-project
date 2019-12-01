@@ -169,7 +169,7 @@ a {
 
 .search-form{
   height: 80px;
-  width: 100%;
+  width: 50%;
   margin-top: 50px;
 }
 
@@ -345,6 +345,14 @@ tr:hover {
 /*media content*/
 
 @media screen and (max-width: 700px) {
+  .search-form{
+    width: 100%;
+  }
+
+  .search:focus {
+    width: 100%;
+  }
+
   table {
     border: 0;
   }
@@ -426,3 +434,10 @@ tr:hover {
   }
 
 }
+<<<<<<< HEAD
+=======
+
+@media (hover: none) {
+  tr:hover { color: inherit; }
+}
+>>>>>>> develop
