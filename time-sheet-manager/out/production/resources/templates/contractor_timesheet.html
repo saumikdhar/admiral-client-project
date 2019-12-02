@@ -187,45 +187,46 @@
 
 <script>
 
-    window.onload=function checkboxValidation() {
-        var days = new Date.now();
+    var date1 = document.querySelector('[type=date]');
 
-        document.getElementsByName("mondaylist").disabled = true;
-        document.getElementsByName("tuesdaylist").disabled = true;
-        document.getElementsByName("wednesdaylist").disabled = true;
-        document.getElementsByName("thursdaylist").disabled = true;
-        document.getElementsByName("fridaylist").disabled = true;
-        document.getElementsByName("saturdaylist").disabled = true;
-        document.getElementsByName("sundaylist").disabled = true;
+    function checkboxValidation(e) {
+        var days = new Date( e.target.value ).getUTCDay();
+        var day = new Date();
 
-        if (days == 1) {
+        if (days=1) {
             document.getElementsByName("mondaylist").disabled = false;
-        } else if (days == 2) {
+            document.getElementsByName("tuesdaylist").disabled = true;
+            document.getElementsByName("wednesdaylist").disabled = true;
+            document.getElementsByName("thursdaylist").disabled = true;
+            document.getElementsByName("fridaylist").disabled = true;
+            document.getElementsByName("saturdaylist").disabled = true;
+            document.getElementsByName("sundaylist").disabled = true;
+        } else if (day == 2) {
             document.getElementsByName("mondaylist").disabled = false;
             document.getElementsByName("tuesdaylist").disabled = false;
-        } else if (days == 3) {
+        } else if (day == 3) {
             document.getElementsByName("mondaylist").disabled = false;
             document.getElementsByName("tuesdaylist").disabled = false;
             document.getElementsByName("wednesdaylist").disabled = false;
-        } else if (days == 4) {
+        } else if (day == 4) {
             document.getElementsByName("mondaylist").disabled = false;
             document.getElementsByName("tuesdaylist").disabled = false;
             document.getElementsByName("wednesdaylist").disabled = false;
             document.getElementsByName("thursdaylist").disabled = false;
-        } else if (days == 5) {
+        } else if (day == 5) {
             document.getElementsByName("mondaylist").disabled = false;
             document.getElementsByName("tuesdaylist").disabled = false;
             document.getElementsByName("wednesdaylist").disabled = false;
             document.getElementsByName("thursdaylist").disabled = false;
             document.getElementsByName("fridaylist").disabled = false;
-        } else if (days == 6) {
+        } else if (day == 6) {
             document.getElementsByName("mondaylist").disabled = false;
             document.getElementsByName("tuesdaylist").disabled = false;
             document.getElementsByName("wednesdaylist").disabled = false;
             document.getElementsByName("thursdaylist").disabled = false;
             document.getElementsByName("fridaylist").disabled = false;
             document.getElementsByName("saturdaylist").disabled = false;
-        } else if (days == 0) {
+        } else if (day == 0) {
             document.getElementsByName("mondaylist").disabled = false;
             document.getElementsByName("tuesdaylist").disabled = false;
             document.getElementsByName("wednesdaylist").disabled = false;
@@ -235,6 +236,8 @@
             document.getElementsByName("sundaylist").disabled = false;
         }
     }
+
+    date1.addEventListener('input',checkboxValidation);
 
 </script>
 
