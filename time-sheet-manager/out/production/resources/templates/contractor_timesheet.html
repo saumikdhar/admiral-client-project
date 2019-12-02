@@ -37,7 +37,7 @@
                 document.getElementById('e').value = new Date().toISOString().substring(0, 10);
             </script>
         </div>
-        <fieldset class="form-check form-check-inline" >
+        <fieldset class="form-check form-check-inline"  >
         <div class="input-group" >
             <label class="form-check-label form-control">Monday</label>
             <div class="input-group-prepend">
@@ -187,8 +187,8 @@
 
 <script>
 
-    function checkboxValidation(e) {
-        var days = new Date(e.target.value).getUTCDay();
+    window.onload=function checkboxValidation() {
+        var days = new Date.now();
 
         document.getElementsByName("mondaylist").disabled = true;
         document.getElementsByName("tuesdaylist").disabled = true;
@@ -197,7 +197,6 @@
         document.getElementsByName("fridaylist").disabled = true;
         document.getElementsByName("saturdaylist").disabled = true;
         document.getElementsByName("sundaylist").disabled = true;
-
 
         if (days == 1) {
             document.getElementsByName("mondaylist").disabled = false;
@@ -237,7 +236,6 @@
         }
     }
 
-    date.addEventListener('input',checkboxValidation);
 </script>
 
 
