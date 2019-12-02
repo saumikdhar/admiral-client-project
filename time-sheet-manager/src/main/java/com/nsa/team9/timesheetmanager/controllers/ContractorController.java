@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -51,16 +52,18 @@ public class ContractorController {
         model.addAttribute("TimeSheet", new TimeSheetForm());
         model.addAttribute("agencycontractor", new AgencyContractorForm());
         return "contractor_timesheet";
-    };
+    }
 
     @PostMapping("TimeSheetDetails")
     public String TimeSheetDetails(Model model,
                                    @ModelAttribute("agencycontractor") AgencyContractorForm agencyContractorForm,
                                    @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet,
-                                   BindingResult bindingResult) {
+                                   BindingResult bindingResult,
+                                   HttpSession session,
+                                   SessionStatus status) {
 
 
-        Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque","1");
+        Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque",1);
         Manager m = new Manager(2L,"Felix","Shaffer",l);
         Contractor c = new Contractor(7L,"gabriel","agius",l,m);
         Agency a = agencyContractorForm.getAgency_id();
@@ -91,6 +94,11 @@ public class ContractorController {
 
         System.out.println("saved timesheet " + t.toString());
         TimeSheetCreator.createTimeSheet(t);
+
+        //invalidate session without removing login
+        status.setComplete();
+        session.removeAttribute("agencies");
+
         return "timesheet_confirmation";
     }
 

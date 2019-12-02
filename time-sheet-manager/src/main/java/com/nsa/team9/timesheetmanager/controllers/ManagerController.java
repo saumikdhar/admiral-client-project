@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.File;
 import java.util.*;
@@ -57,7 +59,9 @@ public class ManagerController {
     public String saveRejectedNotes(@ModelAttribute("note") @Valid ManagerNotes note,
                                     @RequestParam(value = "timesheet_id") Long timesheet_id,
                                     BindingResult bindingResult,
-                                    Model model) {
+                                    Model model,
+                                    HttpSession session,
+                                    SessionStatus status) {
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
             LOG.error("Manager addNotes has errors");
@@ -67,6 +71,10 @@ public class ManagerController {
 //        System.out.println(timesheet_id);
 
         timeSheetSearch.updateTimesheetStatus("rejected", timesheet_id);
+
+        //invalidate session without removing login
+        status.setComplete();
+        session.removeAttribute("note");
 
         return "redirect:/manager";
     }

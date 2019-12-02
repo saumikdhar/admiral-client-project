@@ -10,11 +10,18 @@
 <div th:replace="fragments/header :: navbar"></div>
 <div class="box ">
     <div class="container form-control">
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
         <!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
-        <form th:action="@{/signIn}" th:object="${Login}" method="POST" class="form-signin box">
+        <form th:action="@{/login}" method="POST" class="form-signin box">
             <h3 class="form-signin-heading" th:text="Login">Login</h3>
             <br/>
-            <input type="text" id="email" name="email" th:placeholder="Email" class="form-control"/> <br/> <input
+            <input type="text" id="username" name="username" th:placeholder="Email" class="form-control"/> <br/>
+            <input
                 type="password" th:placeholder="Password" id="password" name="password" class="form-control"/> <br/>
 
             <div align="center" th:if="${param.error}">
