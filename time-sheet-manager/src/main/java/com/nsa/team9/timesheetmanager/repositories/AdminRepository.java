@@ -24,10 +24,10 @@ public interface AdminRepository {
     /*finds all contractors not assigned a manager*/
     public List<AgencyProjection> findContractorsNotAssignedManager();
 
-    /*finds all contractors with a manager*/
-    public List<Agency> findContractorsAssignedWithManager();
-
     /*finds all managers*/
     public List<Manager> findAllManagers();
+
+    /*finds all contractors and managers assigned to them*/
+    public List<AgencyProjection> findAllContractorsAndManagersAssociated();
 
 }

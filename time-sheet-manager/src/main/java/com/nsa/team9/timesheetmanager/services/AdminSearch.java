@@ -24,9 +24,10 @@ public interface AdminSearch {
     /*finds all contractors without a manager assigned to them*/
     public List<AgencyProjection> findContractorsNotAssignedManager();
 
-    /*finds all contractors with a manager*/
-    public List<Agency> findContractorsAssignedWithManager();
-
     /*finds all managers*/
     public List<Manager> findAllManagers();
+
+    /*finds all contractors and managers assigned to them*/
+    public List<AgencyProjection> findAllContractorsAndManagersAssociated();
+
 }

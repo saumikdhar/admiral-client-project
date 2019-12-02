@@ -47,13 +47,24 @@ public class AdminController {
         return "adminshowtimesheets";
     }
 
+    /*map to from admin page to assign manager page*/
     @GetMapping("/admin/assign-manager")
-    public String assignManagerToContractor(Model model){
-        List<AgencyProjection> agencies = adminSearch.findContractorsNotAssignedManager();
+    public String assignManagerToContractor(Model model, DateContainer dateContainer){
+        List<AgencyProjection> contractors = adminSearch.findAllContractorsAndManagersAssociated();
         List<Manager> managers = adminSearch.findAllManagers();
 //        System.out.println("the agency is" + agencies.get(0).getAgencyName());
         model.addAttribute("managers",managers);
-        model.addAttribute("agencies", agencies);
+        model.addAttribute("agencies", contractors);
       return "adminAssignManager";
     }
+
+    /*map to assign manager page with date range filter*/
+    @RequestMapping("/admin/assign-manager/date")
+    public String findContractorsToAssignManagersByDate(Model model, DateContainer dateContainer){
+        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByDate(dateContainer.getDateFrom(), dateContainer.getDateTo());
+        model.addAttribute("timesheets", timesheets);
+        model.addAttribute("searchTerm", dateContainer);
+        return "adminAssignManager";
+    }
+
 }

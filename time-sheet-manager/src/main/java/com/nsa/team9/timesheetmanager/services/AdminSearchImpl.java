@@ -41,13 +41,14 @@ public class AdminSearchImpl implements AdminSearch {
     }
 
     @Override
-    public List<Agency> findContractorsAssignedWithManager() {
-        return adminRepository.findContractorsAssignedWithManager();
-    }
-
-    @Override
     public List<Manager> findAllManagers() {
         return adminRepository.findAllManagers();
     }
+
+    @Override
+    public List<AgencyProjection> findAllContractorsAndManagersAssociated() {
+        return adminRepository.findAllContractorsAndManagersAssociated();
+    }
+
 
 }
