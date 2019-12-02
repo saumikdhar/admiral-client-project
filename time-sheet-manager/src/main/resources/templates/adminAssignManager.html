@@ -43,7 +43,8 @@
                                         class="btn btn-success"
                                         data-toggle="modal"
                                         data-target="#notesModal"
-                                        th:data-id="${agency.getContractorId()}">Update</button>
+                                        th:data-id="${agency.ContractorId}"
+                                        >Update</button>
                         </div>
                     </td>
                 </tr>
@@ -61,19 +62,19 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="#" th:action="@{assign-manager/update-manager}" th:object="${managerId}" method="post">
+                <form action="#" th:action="@{/admin/assign-manager/update-manager}" th:object="${managerId}" method="post">
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label class="col-form-label" th:for="notes">Managers:</label>
+                            <label class="col-form-label">Managers:</label>
                             <select class="row form-control" th:field="*{id}"><!--th:field="*{notes}"-->
                                 <option th:each="manager : ${managers}" th:value="${manager.id}" th:text="${manager.firstName + ' '+ manager.lastName}"></option>
                             </select>
                         </div>
-
-                        <div th:field="${contractorId.id}" ></div>
-
                     </div>
+
+                    <input hidden type="number" class="form-control" th:name="contractor_id" th:id="contractor_id"/>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" id="submit"
@@ -90,6 +91,7 @@
 </body>
 <!--Java script for searching any field content in timesheet-->
 <script>
+
     var form = document.querySelector("#search-form");
     var searchbox = document.querySelector(".search");
 
@@ -107,6 +109,11 @@
 
 
     $(document).ready(function() {
+        $("#notesModal").on('shown.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            $('input[name = contractor_id]').val(id)
+        })
         $(".search").keyup(function () {
             var searchTerm = $(".search").val();
             var listItem = $('.results tbody').children('tr');

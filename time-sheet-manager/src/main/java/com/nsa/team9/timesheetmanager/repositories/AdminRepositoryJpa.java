@@ -42,11 +42,7 @@ public interface AdminRepositoryJpa extends JpaRepository<TimeSheet, Long>, Admi
     /*query finds all contractors without a manager assigned to them*/
     @Query(value = "SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName, concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id JOIN contractors c ON ac.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id WHERE concat(manager_first_name, ' ', manager_last_name) LIKE '%Not Assigned%'",nativeQuery = true)
     public List<ContractorProjection> findContractorsNotAssignedManager();
-
-    /*query finds all managers*/
-    @Query(value = "select m from Manager m")
-    public List<Manager> findAllManagers();
-
+    
     /*query gets all relevant information for contractors and managers assigned to them*/
     @Query(value = "SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName, concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id JOIN contractors c ON ac.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id group by ContractorName",nativeQuery = true)
     public List<ContractorProjection> findAllContractorsAndManagersAssociated();

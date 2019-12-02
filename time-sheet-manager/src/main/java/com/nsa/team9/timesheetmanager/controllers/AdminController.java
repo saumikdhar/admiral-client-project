@@ -3,7 +3,9 @@ package com.nsa.team9.timesheetmanager.controllers;
 import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
 import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.ContractorProjection;
+import com.nsa.team9.timesheetmanager.services.ManagerSearchImpl;
 import com.nsa.team9.timesheetmanager.services.AdminSearchImpl;
+import com.nsa.team9.timesheetmanager.services.ContractorSearchImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,12 +21,16 @@ import java.util.List;
 public class AdminController {
 
     private AdminSearchImpl adminSearch;
+    private ContractorSearchImpl contractorSearch;
+    private ManagerSearchImpl managerSearch;
 
     static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
 
 
-    public AdminController(AdminSearchImpl aRepo) {
+    public AdminController(AdminSearchImpl aRepo, ContractorSearchImpl cRepo, ManagerSearchImpl mRepo) {
         adminSearch = aRepo;
+        contractorSearch = cRepo;
+        managerSearch = mRepo;
     }
 
     /*Map to admin page*/
@@ -46,18 +52,18 @@ public class AdminController {
 
     /*map to from admin page to assign manager page*/
     @GetMapping("/assign-manager")
-    public String assignManagerToContractor(Model model, @ModelAttribute("managerId") Manager manager, @ModelAttribute("contractorId") Contractor contractor){
+    public String assignManagerToContractor(Model model, @ModelAttribute("managerId") Manager manager){
         List<ContractorProjection> contractors = adminSearch.findAllContractorsAndManagersAssociated();
-        List<Manager> managers = adminSearch.findAllManagers();
-//        System.out.println("the agency is" + agencies.get(0).getAgencyName());
+        List<Manager> managers = managerSearch.findAllManagers();
         model.addAttribute("managers",managers);
         model.addAttribute("agencies", contractors);
+
       return "adminAssignManager";
     }
 
     @PostMapping("/assign-manager/update-manager")
-    public String updateManager(Model model, @ModelAttribute("managerId") Manager manager, @ModelAttribute("contractorId") Contractor contractor){
-        System.out.println("manager id is " + manager.getId().toString());
+    public String updateManager(Model model, @ModelAttribute("managerId") Manager manager, @RequestParam(value = "contractor_id") Long contractor){
+        contractorSearch.updateContractorManager(contractor, manager.getId());
         return "redirect:";
     }
 }
