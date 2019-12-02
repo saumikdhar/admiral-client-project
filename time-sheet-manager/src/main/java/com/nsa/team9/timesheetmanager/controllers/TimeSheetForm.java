@@ -18,7 +18,7 @@ public class TimeSheetForm {
 
 
     @NotNull
-    @Past(message = "Start date cannot be present or in the future")
+    @PastOrPresent(message = "Start date cannot be in the future")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate start_date;
 

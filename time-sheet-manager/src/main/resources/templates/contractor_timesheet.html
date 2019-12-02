@@ -43,7 +43,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                           name = "list"
+                           name = "mondaylist"
                            class="form-check-input"
                            placeholder="Monday"
                            type="checkbox" th:field="*{monday_worked}"/>
@@ -56,7 +56,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            name = "tuesdaylist"
                             class="form-check-input"
                             placeholder="Tuesday"
                             type="checkbox" th:field="*{tuesday_worked}"/>
@@ -69,7 +69,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            name = "wednesdaylist"
                             class="form-check-input"
                             placeholder="Wednesday"
                             type="checkbox" th:field="*{wednesday_worked}"/>
@@ -82,7 +82,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            name = "thursdaylist"
                             class="form-check-input"
                             placeholder="Thursday"
                             type="checkbox" th:field="*{thursday_worked}"/>
@@ -95,7 +95,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            name = "fridaylist"
                             class="form-check-input"
                             placeholder="Friday"
                             type="checkbox" th:field="*{friday_worked}"/>
@@ -108,7 +108,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            name = "saturdaylist"
                             class="form-check-input"
                             placeholder="Saturday"
                             type="checkbox" th:field="*{saturday_worked}"/>
@@ -121,7 +121,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            name = "sundaylist"
                             class="form-check-input"
                             placeholder="Sunday"
                             type="checkbox" th:field="*{sunday_worked}"/>
@@ -183,6 +183,63 @@
     }
     date.addEventListener('input',onlyMonday);
 </script>
+
+
+<script>
+
+    function checkboxValidation(e) {
+        var days = new Date(e.target.value).getUTCDay();
+
+        document.getElementsByName("mondaylist").disabled = true;
+        document.getElementsByName("tuesdaylist").disabled = true;
+        document.getElementsByName("wednesdaylist").disabled = true;
+        document.getElementsByName("thursdaylist").disabled = true;
+        document.getElementsByName("fridaylist").disabled = true;
+        document.getElementsByName("saturdaylist").disabled = true;
+        document.getElementsByName("sundaylist").disabled = true;
+
+
+        if (days == 1) {
+            document.getElementsByName("mondaylist").disabled = false;
+        } else if (days == 2) {
+            document.getElementsByName("mondaylist").disabled = false;
+            document.getElementsByName("tuesdaylist").disabled = false;
+        } else if (days == 3) {
+            document.getElementsByName("mondaylist").disabled = false;
+            document.getElementsByName("tuesdaylist").disabled = false;
+            document.getElementsByName("wednesdaylist").disabled = false;
+        } else if (days == 4) {
+            document.getElementsByName("mondaylist").disabled = false;
+            document.getElementsByName("tuesdaylist").disabled = false;
+            document.getElementsByName("wednesdaylist").disabled = false;
+            document.getElementsByName("thursdaylist").disabled = false;
+        } else if (days == 5) {
+            document.getElementsByName("mondaylist").disabled = false;
+            document.getElementsByName("tuesdaylist").disabled = false;
+            document.getElementsByName("wednesdaylist").disabled = false;
+            document.getElementsByName("thursdaylist").disabled = false;
+            document.getElementsByName("fridaylist").disabled = false;
+        } else if (days == 6) {
+            document.getElementsByName("mondaylist").disabled = false;
+            document.getElementsByName("tuesdaylist").disabled = false;
+            document.getElementsByName("wednesdaylist").disabled = false;
+            document.getElementsByName("thursdaylist").disabled = false;
+            document.getElementsByName("fridaylist").disabled = false;
+            document.getElementsByName("saturdaylist").disabled = false;
+        } else if (days == 0) {
+            document.getElementsByName("mondaylist").disabled = false;
+            document.getElementsByName("tuesdaylist").disabled = false;
+            document.getElementsByName("wednesdaylist").disabled = false;
+            document.getElementsByName("thursdaylist").disabled = false;
+            document.getElementsByName("fridaylist").disabled = false;
+            document.getElementsByName("saturdaylist").disabled = false;
+            document.getElementsByName("sundaylist").disabled = false;
+        }
+    }
+
+</script>
+
+
 
 <script>
 function TDate() {
