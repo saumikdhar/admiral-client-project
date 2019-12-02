@@ -43,6 +43,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
+                            id = "mondayList"
                            name = "mondaylist"
                            class="form-check-input"
                            placeholder="Monday"
@@ -56,6 +57,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
+                            id = "tuesdayList"
                             name = "tuesdaylist"
                             class="form-check-input"
                             placeholder="Tuesday"
@@ -69,6 +71,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
+                            id = "wednesdayList"
                             name = "wednesdaylist"
                             class="form-check-input"
                             placeholder="Wednesday"
@@ -82,6 +85,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
+                            id = "thursdayList"
                             name = "thursdaylist"
                             class="form-check-input"
                             placeholder="Thursday"
@@ -95,6 +99,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
+                            id = "fridayList"
                             name = "fridaylist"
                             class="form-check-input"
                             placeholder="Friday"
@@ -108,6 +113,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
+                            id = "saturdayList"
                             name = "saturdaylist"
                             class="form-check-input"
                             placeholder="Saturday"
@@ -121,6 +127,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
+                            id = "sundayList"
                             name = "sundaylist"
                             class="form-check-input"
                             placeholder="Sunday"
@@ -191,47 +198,47 @@
         var days = new Date( e.target.value ).getUTCDay();
         var day = new Date();
 
-        if (days=1) {
-            document.getElementsByName("mondaylist").disabled = false;
-            document.getElementsByName("tuesdaylist").disabled = true;
-            document.getElementsByName("wednesdaylist").disabled = true;
-            document.getElementsByName("thursdaylist").disabled = true;
-            document.getElementsByName("fridaylist").disabled = true;
-            document.getElementsByName("saturdaylist").disabled = true;
-            document.getElementsByName("sundaylist").disabled = true;
+        if (days == 1) {
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = true;
+            document.getElementById("wednesdayList").disabled = true;
+            document.getElementById("thursdayList").disabled = true;
+            document.getElementById("fridayList").disabled = true;
+            document.getElementById("saturdayList").disabled = true;
+            document.getElementById("sundayList").disabled = true;
         } else if (day == 2) {
-            document.getElementsByName("mondaylist").disabled = false;
-            document.getElementsByName("tuesdaylist").disabled = false;
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
         } else if (day == 3) {
-            document.getElementsByName("mondaylist").disabled = false;
-            document.getElementsByName("tuesdaylist").disabled = false;
-            document.getElementsByName("wednesdaylist").disabled = false;
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
+            document.getElementById("wednesdayList").disabled = false;
         } else if (day == 4) {
-            document.getElementsByName("mondaylist").disabled = false;
-            document.getElementsByName("tuesdaylist").disabled = false;
-            document.getElementsByName("wednesdaylist").disabled = false;
-            document.getElementsByName("thursdaylist").disabled = false;
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
+            document.getElementById("wednesdayList").disabled = false;
+            document.getElementById("thursdayList").disabled = false;
         } else if (day == 5) {
-            document.getElementsByName("mondaylist").disabled = false;
-            document.getElementsByName("tuesdaylist").disabled = false;
-            document.getElementsByName("wednesdaylist").disabled = false;
-            document.getElementsByName("thursdaylist").disabled = false;
-            document.getElementsByName("fridaylist").disabled = false;
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
+            document.getElementById("wednesdayList").disabled = false;
+            document.getElementById("thursdayList").disabled = false;
+            document.getElementById("fridayList").disabled = false;
         } else if (day == 6) {
-            document.getElementsByName("mondaylist").disabled = false;
-            document.getElementsByName("tuesdaylist").disabled = false;
-            document.getElementsByName("wednesdaylist").disabled = false;
-            document.getElementsByName("thursdaylist").disabled = false;
-            document.getElementsByName("fridaylist").disabled = false;
-            document.getElementsByName("saturdaylist").disabled = false;
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
+            document.getElementById("wednesdayList").disabled = false;
+            document.getElementById("thursdayList").disabled = false;
+            document.getElementById("fridayList").disabled = false;
+            document.getElementById("saturdayList").disabled = false;
         } else if (day == 0) {
-            document.getElementsByName("mondaylist").disabled = false;
-            document.getElementsByName("tuesdaylist").disabled = false;
-            document.getElementsByName("wednesdaylist").disabled = false;
-            document.getElementsByName("thursdaylist").disabled = false;
-            document.getElementsByName("fridaylist").disabled = false;
-            document.getElementsByName("saturdaylist").disabled = false;
-            document.getElementsByName("sundaylist").disabled = false;
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
+            document.getElementById("wednesdayList").disabled = false;
+            document.getElementById("thursdayList").disabled = false;
+            document.getElementById("fridayList").disabled = false;
+            document.getElementById("saturdayList").disabled = false;
+            document.getElementById("sundayList").disabled = false;
         }
     }
 
