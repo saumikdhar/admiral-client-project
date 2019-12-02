@@ -7,24 +7,13 @@
 <main role="main" class="box">
 
     <div class="form-inline">
-        <form action="/admin/assign-manager/date" th:object="${dateContainer}">
+        <form class="search-form">
             <div class="margin-right-ten">
-            <input type="date" class="form-control mr-sm-2" placeholder="Start Date" th:field="*{dateFrom}"/>
+                <input type="text" class="search">
             </div>
-            <input type="date"class="form-control mr-sm-2" placeholder="End Date" th:field="*{dateTo}"/>
-            <div class="margin-right-fourty">
-            <input type="submit" value="Filter" class="btn btn-outline-success my-2 my-sm-0"/>
-            </div>
+            <span class="counter"></span>
         </form>
-            <form class="search-form">
-                <div class="margin-right-ten">
-                    <input type="text" class="search">
-                </div>
-                <span class="counter"></span>
-            </form>
     </div>
-
-
 
     <div id=missingTimesheetMessage th:if="${#lists.isEmpty(agencies)}">
         <div class="container">
@@ -34,7 +23,7 @@
     <div id=timesheetListContainer th:if="${not #lists.isEmpty(agencies)}">
         <div style="overflow-x:auto;">
             <table class="table results">
-                <caption>Time Sheet</caption>
+                <caption>Contractors</caption>
                 <thead>
                 <tr>
                     <th scope="col">Agency Name</th>
@@ -67,26 +56,22 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="notesModalLabel">Choose a manager</h5>
+                    <h5 class="modal-title" id="notesModalLabel">Select A Manager</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="#" th:action="@{manager/addNotes}" th:object="${note}" method="post">
+                <form action="#" th:action="@{assign-manager/update-manager}" th:object="${managerId}" method="post">
                     <div class="modal-body">
 
                         <div class="form-group">
                             <label class="col-form-label" th:for="notes">Managers:</label>
-
-                            <!--                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>-->
-
-                            <select class="row form-control" ><!--th:field="*{notes}"-->
-                                <option th:each="manager : ${managers}" th:value="${manager.id}" th:text="${manager.firstName + ' '+ manager.lastName}">
-                                </option>
+                            <select class="row form-control" th:field="*{id}"><!--th:field="*{notes}"-->
+                                <option th:each="manager : ${managers}" th:value="${manager.id}" th:text="${manager.firstName + ' '+ manager.lastName}"></option>
                             </select>
-                            <input hidden type="number" class="form-control" th:name="contractor_id" th:id="contractor_id">
-
                         </div>
+
+                        <div th:field="${contractorId.id}" ></div>
 
                     </div>
                     <div class="modal-footer">
