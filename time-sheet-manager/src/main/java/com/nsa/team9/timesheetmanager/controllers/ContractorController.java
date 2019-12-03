@@ -1,26 +1,25 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 import com.nsa.team9.timesheetmanager.domain.*;
-import com.nsa.team9.timesheetmanager.repositories.AgencyContractorRepositry;
-import com.nsa.team9.timesheetmanager.repositories.AgencyRepositry;
-import com.nsa.team9.timesheetmanager.repositories.TimeSheetRepositoryJpa;
-import com.nsa.team9.timesheetmanager.services.*;
-import org.apache.coyote.Response;
+import com.nsa.team9.timesheetmanager.services.AgencyContractorSearchImpl;
+import com.nsa.team9.timesheetmanager.services.AgencySearchImpl;
+import com.nsa.team9.timesheetmanager.services.TimeSheetSearch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import javax.servlet.http.HttpSession;
+import javax.mail.MessagingException;
 import javax.validation.Valid;
-import java.sql.Time;
-import java.time.LocalDate;
+import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @SessionAttributes({"agencies"})
@@ -53,11 +52,17 @@ public class ContractorController {
         return "contractor_timesheet";
     };
 
+    @Value("${gmail.username}")
+    private String username;
+
+    @Value("${gmail.password}")
+    private String password;
+
     @PostMapping("TimeSheetDetails")
     public String TimeSheetDetails(Model model,
                                    @ModelAttribute("agencycontractor") AgencyContractorForm agencyContractorForm,
                                    @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet,
-                                   BindingResult bindingResult) {
+                                   BindingResult bindingResult) throws IOException, MessagingException {
 
 
         Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque","1");
@@ -91,7 +96,10 @@ public class ContractorController {
 
         System.out.println("saved timesheet " + t.toString());
         TimeSheetCreator.createTimeSheet(t);
+
         return "timesheet_confirmation";
+
+        //Code here to get the post request running when page is returned
     }
 
 //    private AgencyContractor checkIfAgencyContractorLinkExists(Agency a, Contractor c){
