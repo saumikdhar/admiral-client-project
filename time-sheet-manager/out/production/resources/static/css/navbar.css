@@ -68,7 +68,6 @@ nav .nav-header {
 }
 
 .nav .nav-links  a {
-    display: inline-block;
     padding: 12px 20px 13px 20px;
     text-decoration: none;
     color: #2350a0;
@@ -76,11 +75,10 @@ nav .nav-header {
 }
 
 .nav .nav_right a {
-    display: inline-block;
     padding: 13px 20px 13px 20px;
     text-decoration: none;
     color: #2350a0;
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
 }
 
 .nav .nav_right{

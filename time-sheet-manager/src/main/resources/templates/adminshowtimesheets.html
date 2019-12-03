@@ -44,7 +44,7 @@
 
     <div id=missingTimesheetMessage th:if="${#lists.isEmpty(timesheets)}">
         <div class="container">
-        <h4 th:text="'No time sheets found for: ' + ${searchTerm.toString()}"></h4>
+        <h4 th:text="'No time sheets found for: ' + ${searchTerm}"></h4>
         </div>
     </div>
     <div id=timesheetListContainer th:if="${not #lists.isEmpty(timesheets)}">
