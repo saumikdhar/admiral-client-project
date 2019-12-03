@@ -194,11 +194,13 @@
 
 <script>
 
+    var checkbox = document.querySelector('[type=checkbox]');
+
     function checkboxValidation(e) {
         var days = new Date( e.target.value ).getUTCDay();
         var day = new Date();
 
-        if (days=1) {
+        if (days == 1) {
             document.getElementById("mondayList").disabled = false;
             document.getElementById("tuesdayList").disabled = true;
             document.getElementById("wednesdayList").disabled = true;
@@ -206,32 +208,32 @@
             document.getElementById("fridayList").disabled = true;
             document.getElementById("saturdayList").disabled = true;
             document.getElementById("sundayList").disabled = true;
-        } else if (day = 2) {
+        } else if (day == 2) {
             document.getElementById("mondayList").disabled = false;
             document.getElementById("tuesdayList").disabled = false;
-        } else if (day = 3) {
+        } else if (day == 3) {
             document.getElementById("mondayList").disabled = false;
             document.getElementById("tuesdayList").disabled = false;
             document.getElementById("wednesdayList").disabled = false;
-        } else if (day = 4) {
+        } else if (day == 4) {
             document.getElementById("mondayList").disabled = false;
             document.getElementById("tuesdayList").disabled = false;
             document.getElementById("wednesdayList").disabled = false;
             document.getElementById("thursdayList").disabled = false;
-        } else if (day = 5) {
+        } else if (day == 5) {
             document.getElementById("mondayList").disabled = false;
             document.getElementById("tuesdayList").disabled = false;
             document.getElementById("wednesdayList").disabled = false;
             document.getElementById("thursdayList").disabled = false;
             document.getElementById("fridayList").disabled = false;
-        } else if (day = 6) {
+        } else if (day == 6) {
             document.getElementById("mondayList").disabled = false;
             document.getElementById("tuesdayList").disabled = false;
             document.getElementById("wednesdayList").disabled = false;
             document.getElementById("thursdayList").disabled = false;
             document.getElementById("fridayList").disabled = false;
             document.getElementById("saturdayList").disabled = false;
-        } else if (day = 0) {
+        } else if (day == 0) {
             document.getElementById("mondayList").disabled = false;
             document.getElementById("tuesdayList").disabled = false;
             document.getElementById("wednesdayList").disabled = false;
@@ -239,9 +241,16 @@
             document.getElementById("fridayList").disabled = false;
             document.getElementById("saturdayList").disabled = false;
             document.getElementById("sundayList").disabled = false;
+        } else if(days < days-7){
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
+            document.getElementById("wednesdayList").disabled = false;
+            document.getElementById("thursdayList").disabled = false;
+            document.getElementById("fridayList").disabled = false;
+            document.getElementById("saturdayList").disabled = false;
         }
     }
-
+    checkbox.addEventListener('input',checkboxValidation);
 </script>
 
 

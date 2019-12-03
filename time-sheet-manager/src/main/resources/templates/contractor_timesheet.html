@@ -194,6 +194,8 @@
 
 <script>
 
+    var checkbox = document.querySelector('[type=checkbox]');
+
     function checkboxValidation(e) {
         var days = new Date( e.target.value ).getUTCDay();
         var day = new Date();
@@ -248,7 +250,7 @@
             document.getElementById("saturdayList").disabled = false;
         }
     }
-
+    checkbox.addEventListener('input',checkboxValidation);
 </script>
 
 
