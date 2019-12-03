@@ -105,6 +105,8 @@ INSERT INTO logins (email, password, access_level)
 VALUES ('gravida.mauris.ut@vitae.org', 'sodales', 0);
 INSERT INTO logins (email, password, access_level)
 VALUES ('vel.lectus@ligulaDonec.ca', 'Vestibulum', 2);
+INSERT INTO logins (email, password, access_level)
+VALUES ('notassigned@na.com', 'password', 1);
 
 
 /*populate admin*/
@@ -189,9 +191,10 @@ INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Ph
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Paki','Garrison',18);
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Rashad','Waters',19);
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Keaton','Copeland',20);
+INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Not','Assigned',51);
 
 /*Populate contractor*/
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aristotle','Livingston',21,8);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id) VALUES ('Aristotle','Livingston',21);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Clio','Vaughan',22,11);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Jayme','Sparks',23,15);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Shoshana','Daniels',24,5);

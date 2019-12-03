@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS contractors
     contractor_first_name VARCHAR(100) NOT NULL,
     contractor_last_name  VARCHAR(100) NOT NULL,
     login_id             INT,
-    manager_id           INT,
+    manager_id           INT NOT NULL DEFAULT 21,
     FOREIGN KEY (login_id) REFERENCES logins (login_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,

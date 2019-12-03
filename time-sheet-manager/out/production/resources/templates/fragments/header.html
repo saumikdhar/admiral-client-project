@@ -13,6 +13,22 @@
     <link rel="icon" href="../../static/images/logo.svg" th:href="@{/images/logo.svg}">
 </head>
 <body>
+<div th:fragment="navbar-default">
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-title">
+                <a href="/">
+                    <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
+                </a>
+            </div>
+        </div>
+        <!--        <input type="checkbox" id="nav-check2">-->
+        <div class="nav_right">
+            <a href="#" th:href="@{/}">Login</a>
+        </div>
+    </nav>
+</div>
+
 <div th:fragment="navbar">
     <nav class="nav">
         <div class="nav-header">
@@ -46,11 +62,37 @@
             </label>
         </div>
 <!--        <input id="nav-check">-->
-        <div class="nav-links"><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></div>
-<!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by contractor</a></div>-->
+        <div class="nav-links"><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></div>
+        <div class="nav-links"><a href="#" th:href="@{/admin/assign-manager}">Assign a Manager</a></div>
 <!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by date</a></div>-->
         <div class="nav_right">
-            <a href="#" th:href="@{/homeNotSignedIn}">Logout</a>
+            <a href="#" th:href="@{/signout}">Logout</a>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="navbar-contractor">
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-title">
+                <a href="/">
+                    <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
+                </a>
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <!--        <input id="nav-check">-->
+        <div class="nav-links"><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></div>
+        <!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by contractor</a></div>-->
+        <!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by date</a></div>-->
+        <div class="nav_right">
+            <a href="#" th:href="@{/signout}">Logout</a>
         </div>
     </nav>
 </div>
