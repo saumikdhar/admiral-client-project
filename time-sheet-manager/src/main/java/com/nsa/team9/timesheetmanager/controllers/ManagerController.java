@@ -1,11 +1,17 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 
+import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
 import com.nsa.team9.timesheetmanager.controllers.util.ManagerNotes;
+import com.nsa.team9.timesheetmanager.domain.Login;
+import com.nsa.team9.timesheetmanager.domain.Manager;
 import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import com.nsa.team9.timesheetmanager.services.LoginSearchImpl;
+import com.nsa.team9.timesheetmanager.services.ManagerSearchImpl;
 import com.nsa.team9.timesheetmanager.services.TimeSheetSearchImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,25 +30,29 @@ public class ManagerController {
     static final Logger LOG = LoggerFactory.getLogger(ManagerController.class);
 
     private TimeSheetSearchImpl timeSheetSearch;
+    private LoginSearchImpl loginSearch;
+    private ManagerSearchImpl managerSearch;
 
-    public ManagerController(TimeSheetSearchImpl aRepo) {
+    public ManagerController(TimeSheetSearchImpl aRepo, LoginSearchImpl aLoginSearch, ManagerSearchImpl aManagerSearch) {
+
         timeSheetSearch = aRepo;
+        loginSearch = aLoginSearch;
+        managerSearch = aManagerSearch;
     }
 
     @GetMapping("/manager")
-    public String showDashboard(Model model) {
+    public String showDashboard(Model model, Authentication authentication) {
 
         //once login is implemented change inputs the which ever manager is logged in
-        String firstName = "Cyrus";
-        String lastName = "Moreno";
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+
+        LOG.debug("The principal is " + principal);
+
+        Manager manager = managerSearch.findManagerByEmail(principal.getUser().getEmail()).get();
+        String firstName = manager.getFirstName();
+        String lastName = manager.getLastName();
 
         List<TimeSheet> timeSheets = timeSheetSearch.getTimeSheetsByManager(lastName,firstName);
-
-        /* REMOVE WHEN PUSHED TO MASTER */
-//        System.out.println("Timesheets....");
-//        System.out.println(timeSheets.size());
-//        System.out.println(timeSheets.get(0));
-//        System.out.println("Tuesday is" + timeSheets.get(0).isTuesdayWorked());
 
         model.addAttribute("timesheets", timeSheets);
 
