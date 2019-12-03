@@ -222,41 +222,48 @@
             if (selectedDay == 1) {
                 console.log("It's a Monday, so disabling all but Monday");
                 document.getElementById("mondayList").disabled = false;
+                document.getElementById("mondayList").checked = false;
                 document.getElementById("tuesdayList").disabled = true;
                 document.getElementById("tuesdayList").checked = false;
                 document.getElementById("wednesdayList").disabled = true;
+                document.getElementById("wednesdayList").checked = false;
                 document.getElementById("thursdayList").disabled = true;
+                document.getElementById("thursdayList").checked = false;
                 document.getElementById("fridayList").disabled = true;
+                document.getElementById("fridayList").checked = false;
                 document.getElementById("saturdayList").disabled = true;
+                document.getElementById("saturdayList").checked = false;
                 document.getElementById("sundayList").disabled = true;
-            }
+                document.getElementById("sundayList").checked = false;
+            };
 
-            if (today == 2) {
+            if (dayToday == 2) {
+                console.log("its tuesday")
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
-            } else if (today == 3) {
+            } else if (dayToday == 3) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
-            } else if (today == 4) {
+            } else if (dayToday == 4) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
                 document.getElementById("thursdayList").disabled = false;
-            } else if (today == 5) {
+            } else if (dayToday == 5) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
                 document.getElementById("thursdayList").disabled = false;
                 document.getElementById("fridayList").disabled = false;
-            } else if (today == 6) {
+            } else if (dayToday == 6) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
                 document.getElementById("thursdayList").disabled = false;
                 document.getElementById("fridayList").disabled = false;
                 document.getElementById("saturdayList").disabled = false;
-            } else if (today == 0) {
+            } else if (dayToday == 0) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
