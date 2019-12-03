@@ -36,7 +36,8 @@ public class MyUserDetailsService implements UserDetailsService {
       System.out.println("User = " + user);
 
       List<String> userRoles = new ArrayList<>();
-      userRoles.add(user.accessLevel.toString());
+      userRoles.add("ROLE_"+user.accessLevel.toString());
+      System.out.println(userRoles);
       return new MyUserPrincipal(user, userRoles);
     }
   }

@@ -26,6 +26,7 @@ import java.util.Optional;
 @Service
 @SessionAttributes({"agencies"})
 @Controller
+@RequestMapping("/contractor")
 public class ContractorController {
 
     private TimeSheetSearch TimeSheetCreator ;
@@ -54,7 +55,7 @@ public class ContractorController {
         return "contractor_timesheet";
     }
 
-    @PostMapping("TimeSheetDetails")
+    @PostMapping("/TimeSheetDetails")
     public String TimeSheetDetails(Model model,
                                    @ModelAttribute("agencycontractor") AgencyContractorForm agencyContractorForm,
                                    @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet,

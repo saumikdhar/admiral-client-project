@@ -9,7 +9,7 @@
 <div th:replace="fragments/header :: navbar"></div>
 <h5>Contractor TimeSheet</h5>
 <div class = "box">
-<form class="box" th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
+<form class="box" th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${contractor/TimeSheet}" >
     <div class="row">
         <div class="form-control">
             <label>Agency</label>
