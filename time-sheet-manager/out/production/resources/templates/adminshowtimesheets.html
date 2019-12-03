@@ -72,8 +72,8 @@
                         </thead>
                         <tbody>
                         <tr th:each="timesheet: ${timesheets}">
-                            <td data-label="Agency Name" th:text="${timesheet.agency_contractor_id.agencyId.agencyName}"></td>
-                            <td data-label="Contractor Name" th:text="${timesheet.agency_contractor_id.contractorId.firstName} + ' ' + ${timesheet.agency_contractor_id.contractorId.lastName}"> deafsult</td>
+                            <td data-label="Agency Name" th:text="${timesheet.contractorId.agencyId.agencyName}"></td>
+                            <td data-label="Contractor Name" th:text="${timesheet.contractorId.firstName} + ' ' + ${timesheet.contractorId.lastName}"> deafsult</td>
                             <td data-label="Start Date" th:text="${timesheet.start_date}">X</td>
                             <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
                             <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>
@@ -83,7 +83,7 @@
                             <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
                             <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
                             <td data-label="Status" th:text="${timesheet.status}"><span style="color: green"></span></td>
-                            <td data-label="Manager Name" th:text="${timesheet.getAgency_contractor_id().getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getAgency_contractor_id().getContractorId().getManager().getLastName()}"></td>
+                            <td data-label="Manager Name" th:text="${timesheet.getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getContractorId().getManager().getLastName()}"></td>
                         </tr>
                         </tbody>
                     </table>

@@ -16,8 +16,8 @@ import java.util.Date;
 public class TimeSheet {
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "agency_contractor_id")
-    private AgencyContractor agency_contractor_id;
+    @JoinColumn(name = "contractor_id")
+    private Contractor contractorId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,26 +1,17 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 import com.nsa.team9.timesheetmanager.domain.*;
-import com.nsa.team9.timesheetmanager.repositories.AgencyContractorRepositry;
-import com.nsa.team9.timesheetmanager.repositories.AgencyRepositry;
-import com.nsa.team9.timesheetmanager.repositories.TimeSheetRepositoryJpa;
 import com.nsa.team9.timesheetmanager.services.*;
-import org.apache.coyote.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.sql.Time;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @SessionAttributes({"agencies"})
@@ -28,15 +19,12 @@ import java.util.Optional;
 public class ContractorController {
 
     private TimeSheetSearch TimeSheetCreator ;
-    private AgencyContractorSearchImpl agencyContractorCreator;
     private AgencySearchImpl agencySearch;
 
 
     public ContractorController(TimeSheetSearch aCreator,
-                                AgencyContractorSearchImpl aRepo,
                                 AgencySearchImpl aAgencyRepo){
         TimeSheetCreator = aCreator;
-        agencyContractorCreator = aRepo;
         agencySearch = aAgencyRepo;
     }
 
@@ -45,9 +33,6 @@ public class ContractorController {
 
     @GetMapping("/TimeSheetForm")
     public String ReturnTimeSheet(Model model){
-
-        List<Agency> agencies = agencySearch.findAllAgency();
-        model.addAttribute("agencies",agencies);
         model.addAttribute("TimeSheet", new TimeSheetForm());
         model.addAttribute("agencycontractor", new AgencyContractorForm());
         return "contractor_timesheet";
@@ -62,9 +47,8 @@ public class ContractorController {
 
         Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque","1");
         Manager m = new Manager(21L,"Felix","Shaffer",l);
-        Contractor c = new Contractor(7L,"gabriel","agius",l,m);
         Agency a = agencyContractorForm.getAgency_id();
-
+        Contractor c = new Contractor(7L,"gabriel","agius",l,m, a);
 
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
@@ -72,11 +56,8 @@ public class ContractorController {
             model.addAttribute("TimeSheet", TimeSheet);
             return "contractor_timesheet";
         }
-        AgencyContractor agencyContractor = new AgencyContractor(null, a, c);
-
         TimeSheet t = new TimeSheet(
-//                checkIfAgencyContractorLinkExists(a,c),
-                agencyContractor,
+                c,
                 null,
                 TimeSheet.getMonday_worked(),
                 TimeSheet.getTuesday_worked(),
