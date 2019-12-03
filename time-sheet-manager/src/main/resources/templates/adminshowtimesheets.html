@@ -33,7 +33,9 @@
 
 
     <div class="form-inline" th:object="${dateContainer}">
-        <input type="text" class="form-control mr-sm-2" th:placeholder="*{'Filter: ' + dateFrom + ' - ' + dateTo}" disabled/>
+        <div class="filter">
+        <input type="text" class="form-control" th:placeholder="*{'Filter: ' + dateFrom + ' to ' + dateTo}" disabled/>
+        </div>
     </div>
 <!--    <div class="custom-container">-->
 <!--        <form class="search-form">-->
@@ -44,7 +46,7 @@
 
     <div id=missingTimesheetMessage th:if="${#lists.isEmpty(timesheets)}">
         <div class="container">
-        <h4 th:text="'No time sheets found for: ' + ${searchTerm}"></h4>
+        <h4 th:text="'No time sheets found '"></h4>
         </div>
     </div>
     <div id=timesheetListContainer th:if="${not #lists.isEmpty(timesheets)}">

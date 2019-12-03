@@ -479,3 +479,9 @@ form {
 
 
 }
+
+@media (min-width:576px) {
+  .form-inline .form-control .filter {
+    width: 230px;
+  }
+}
