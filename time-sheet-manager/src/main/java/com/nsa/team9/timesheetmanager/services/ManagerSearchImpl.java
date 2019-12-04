@@ -5,6 +5,7 @@ import com.nsa.team9.timesheetmanager.repositories.ManagerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Slf4j
@@ -21,5 +22,11 @@ public class ManagerSearchImpl implements ManagerSearch {
     @Override
     public List<Manager> findAllManagers() {
         return managerRepository.findAllManagers();
+    }
+
+    @Transactional
+    @Override
+    public void createManager(Manager aManager) {
+        managerRepository.save(aManager);
     }
 }

@@ -45,7 +45,7 @@ public class ContractorController {
                                    BindingResult bindingResult) {
 
 
-        Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque","1");
+        Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque",1);
         Manager m = new Manager(21L,"Felix","Shaffer",l);
         Agency a = agencyContractorForm.getAgency_id();
         Contractor c = new Contractor(7L,"gabriel","agius",l,m, a);

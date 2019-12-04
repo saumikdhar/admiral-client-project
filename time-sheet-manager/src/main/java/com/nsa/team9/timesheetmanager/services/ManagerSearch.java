@@ -9,4 +9,8 @@ public interface ManagerSearch {
     /*finds all managers*/
     List<Manager> findAllManagers();
 
+
+    /*creates a login account*/
+    public void createManager(Manager aManager);
+
 }
