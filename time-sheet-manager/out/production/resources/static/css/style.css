@@ -357,6 +357,7 @@ input[type="date"]:before {
   font-size: 20px;
   margin: 0 auto 10px;
   padding: 10px;
+  margin-top: 80px;
   /*background: #333;*/
 }
 
@@ -411,8 +412,11 @@ form {
   table tr {
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
     display: block;
     margin-bottom: 2.625em;
+    border-radius: 15px;
   }
 
   table td {
@@ -438,11 +442,6 @@ form {
 
   table td:last-child {
     border-bottom: 0;
-  }
-
-  td, th {
-    border-right: 1px solid #dddddd;
-    border-left: 1px solid #dddddd;
   }
 
   /* top-left border-radius */
@@ -478,4 +477,10 @@ form {
   }
 
 
+}
+
+@media (min-width:576px) {
+  .form-inline .form-control .filter {
+    width: 230px;
+  }
 }

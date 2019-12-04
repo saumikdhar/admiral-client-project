@@ -30,10 +30,10 @@
                             </thead>
                             <tbody>
                                 <tr th:each="timesheet: ${timesheets}">
-                                    <td data-label="Agency Name" th:text="${timesheet.agency_contractor_id.agencyId.agencyName}">Default</td>
+                                    <td data-label="Agency Name" th:text="${timesheet.contractorId.agencyId.agencyName}">Default</td>
                                     <td data-label="Start Date" th:text="${timesheet.start_date}">Default</td>
-                                    <td data-label="First Name" th:text="${timesheet.agency_contractor_id.contractorId.firstName}">Default</td>
-                                    <td data-label="Last Name" th:text="${timesheet.agency_contractor_id.contractorId.lastName}">Default</td>
+                                    <td data-label="First Name" th:text="${timesheet.contractorId.firstName}">Default</td>
+                                    <td data-label="Last Name" th:text="${timesheet.contractorId.lastName}">Default</td>
                                     <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
                                     <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>
                                     <td data-label="Wednesday" th:text="${timesheet.wednesday_worked}">X</td>
