@@ -1,5 +1,6 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
+import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
 import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.repositories.AgencyContractorRepositry;
 import com.nsa.team9.timesheetmanager.repositories.AgencyRepositry;
@@ -9,6 +10,7 @@ import org.apache.coyote.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -26,20 +28,22 @@ import java.util.Optional;
 @Service
 @SessionAttributes({"agencies"})
 @Controller
-@RequestMapping("/contractor")
 public class ContractorController {
 
     private TimeSheetSearch TimeSheetCreator ;
     private AgencyContractorSearchImpl agencyContractorCreator;
     private AgencySearchImpl agencySearch;
+    private ContractorSearchImpl contractorSearch;
 
 
     public ContractorController(TimeSheetSearch aCreator,
                                 AgencyContractorSearchImpl aRepo,
-                                AgencySearchImpl aAgencyRepo){
+                                AgencySearchImpl aAgencyRepo,
+                                ContractorSearchImpl aContractorSearch){
         TimeSheetCreator = aCreator;
         agencyContractorCreator = aRepo;
         agencySearch = aAgencyRepo;
+        contractorSearch = aContractorSearch;
     }
 
 
@@ -61,12 +65,15 @@ public class ContractorController {
                                    @ModelAttribute("TimeSheet") @Valid TimeSheetForm TimeSheet,
                                    BindingResult bindingResult,
                                    HttpSession session,
-                                   SessionStatus status) {
+                                   SessionStatus status,
+                                   Authentication authentication) {
+        //Get the logged in user
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+        LOG.debug("The principal is " + principal);
+        Contractor c = contractorSearch.findContractorByEmail(principal.getUser().getEmail()).get();
 
-
-        Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque",1);
-        Manager m = new Manager(2L,"Felix","Shaffer",l);
-        Contractor c = new Contractor(7L,"gabriel","agius",l,m);
+//        Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque",1);
+//        Manager m = new Manager(2L,"Felix","Shaffer",l);
         Agency a = agencyContractorForm.getAgency_id();
 
 
