@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @SessionAttributes({"agencies"})
@@ -20,12 +21,14 @@ public class ContractorController {
 
     private TimeSheetSearch TimeSheetCreator ;
     private AgencySearchImpl agencySearch;
+    private TimeSheetSearchImpl TimeSheetValidation;
 
 
     public ContractorController(TimeSheetSearch aCreator,
-                                AgencySearchImpl aAgencyRepo){
+                                AgencySearchImpl aAgencyRepo, TimeSheetSearchImpl timeSheetValidation){
         TimeSheetCreator = aCreator;
         agencySearch = aAgencyRepo;
+        TimeSheetValidation = timeSheetValidation;
     }
 
 
@@ -57,7 +60,6 @@ public class ContractorController {
             return "contractor_timesheet";
         }
         TimeSheet t = new TimeSheet(
-                c,
                 null,
                 TimeSheet.getMonday_worked(),
                 TimeSheet.getTuesday_worked(),
@@ -68,10 +70,19 @@ public class ContractorController {
                 TimeSheet.getSunday_worked(),
                 TimeSheet.getOvertime(),
                 TimeSheet.getStart_date(),
-                "pending");
+                "pending",c);
 
+
+        Optional<TimeSheet> timeSheets2 = TimeSheetValidation.CheckIfTimeSheetExists(TimeSheet.getStart_date());
+        model.addAttribute("timesheets2", timeSheets2);
+
+        //this checks if the start date thats entered exists within the timesheet2 list
+        if(!timeSheets2.isPresent()){
+            TimeSheetCreator.createTimeSheet(t);
+        } else {
+            return "contractor_timesheet";
+        }
         System.out.println("saved timesheet " + t.toString());
-        TimeSheetCreator.createTimeSheet(t);
         return "timesheet_confirmation";
     }
 

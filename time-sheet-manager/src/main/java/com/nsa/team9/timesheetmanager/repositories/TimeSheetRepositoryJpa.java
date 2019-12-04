@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,4 +24,7 @@ public interface TimeSheetRepositoryJpa extends JpaRepository<TimeSheet, Long>, 
     @Transactional
     @Query(value = "update timesheets set status = :status where timesheet_id = :timesheetId", nativeQuery = true)
     void updateTimesheetStatus(@Param("status") String status, @Param("timesheetId") Long timesheetId);
+
+    @Query(value = "select  start_date, status from timesheets where start_date = :startDate and status not like '%rejected%'", nativeQuery = true)
+    public Optional<TimeSheet> CheckIfTimeSheetExists(@Param("startDate") LocalDate startDate);
 }
