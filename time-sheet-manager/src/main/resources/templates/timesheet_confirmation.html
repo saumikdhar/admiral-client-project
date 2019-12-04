@@ -54,6 +54,8 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+    //Post request which starts the emailing process once the time sheet confirmation page reloads
+
     $(document).ready(function() {
         $.ajax({
             type: "POST",
@@ -63,10 +65,26 @@
                 //To_addresss needs to be changed so that it takes in the contractors email
                 "to_address":"edge14031985@gmail.com",
                 //Subject needs to be generic timesheet receipt
-                "subject":"Hi test message - subject",
+                "subject":"Time sheet receipt - subject",
                 //body needs to return a generic thankyou and also a copy of the time sheet
-                "body":"Hi test message - body"
+                "body":"Thankyou for submitting your time sheet - body"
                 // also need to trigger secondary email which sends to a manager a notification saying contractor has submitted time sheet
+            })
+        });
+    });
+    //Post request which starts the emailing process once the time sheet confirmation page reloads
+    $(document).ready(function() {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/send",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                //To_addresss needs to be changed so that it takes in the contractors email
+                "to_address":"edge14031985@gmail.com",
+                //Subject needs to be generic timesheet receipt
+                "subject":"Time sheet submitted - subject",
+                //body needs to return a generic thankyou and also a copy of the time sheet
+                "body":"Dear manager, One of your contractors has just sumbmitted a time sheet for your approval - body"
             })
         });
     });
