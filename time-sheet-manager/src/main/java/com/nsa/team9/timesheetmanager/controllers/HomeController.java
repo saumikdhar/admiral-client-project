@@ -15,6 +15,7 @@ public class HomeController {
 
     @GetMapping("/")
     String getHomePage() {
-        return "homeSignedIn";
+        return "homepage";
     }
+
 }
