@@ -28,7 +28,11 @@ public class Contractor {
     @JoinColumn(name = "login_id")
     private Login login;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "manager_id")
     private Manager manager;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "agency_id")
+    private Agency agencyId;
 }

@@ -15,9 +15,9 @@ import java.util.Date;
 @Table(name = "timesheets")
 public class TimeSheet {
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "agency_contractor_id")
-    private AgencyContractor agency_contractor_id;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "contractor_id")
+    private Contractor contractorId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

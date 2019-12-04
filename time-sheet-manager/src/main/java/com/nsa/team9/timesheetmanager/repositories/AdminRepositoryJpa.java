@@ -13,10 +13,9 @@ public interface AdminRepositoryJpa extends JpaRepository<TimeSheet, Long>, Admi
     /*Queries go here */
 
     /*finds all time sheets */
-    @Query(value = "select * from timesheets join " +
-            "agency_contractors ac on timesheets.agency_contractor_id = " +
-            "ac.agency_contractor_id join contractors c2 on ac.contractor_id = " +
-            "c2.contractor_id join managers m on c2.manager_id = m.manager_id", nativeQuery = true)
+    @Query(value = "SELECT * FROM timesheets JOIN contractors c ON " +
+            "timesheets.contractor_id = c.contractor_id " +
+            "JOIN managers m ON c.manager_id = m.manager_id", nativeQuery = true)
     public List<TimeSheet> getAllTimeSheets();
 
     /*finds all time sheets for an agency*/
@@ -40,10 +39,14 @@ public interface AdminRepositoryJpa extends JpaRepository<TimeSheet, Long>, Admi
     public List<TimeSheet> findTimeSheetsByDate(@Param("dateFrom")LocalDate dateFrom,@Param("dateTo")LocalDate dateTo );
 
     /*query finds all contractors without a manager assigned to them*/
-    @Query(value = "SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName, concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id JOIN contractors c ON ac.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id WHERE concat(manager_first_name, ' ', manager_last_name) LIKE '%Not Assigned%'",nativeQuery = true)
+    @Query(value = "SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName, concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies JOIN contractors c ON agencies.agency_id= c.agency_id JOIN managers m ON c.manager_id = m.manager_id WHERE concat(manager_first_name, ' ', manager_last_name) LIKE '%Not Assigned%'",nativeQuery = true)
     public List<ContractorProjection> findContractorsNotAssignedManager();
     
     /*query gets all relevant information for contractors and managers assigned to them*/
-    @Query(value = "SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName, concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies JOIN agency_contractors ac ON agencies.agency_id = ac.agency_id JOIN contractors c ON ac.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id group by ContractorName",nativeQuery = true)
+    @Query(value = "SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName," +
+            " concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies " +
+            "JOIN contractors c ON agencies.agency_id= c.agency_id " +
+            "JOIN managers m ON c.manager_id = m.manager_id " +
+            "group by ContractorName",nativeQuery = true)
     public List<ContractorProjection> findAllContractorsAndManagersAssociated();
 }

@@ -12,11 +12,6 @@
 <form class="box" th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
     <div class="row">
         <div class="form-control">
-            <label>Agency</label>
-            <select th:field="${agencycontractor.agency_id}">
-                <option th:each="agency: ${agencies}" th:value="${agency.id}" th:text="${agency.agencyName}"></option>
-            </select>
-        </div>
         <div class="input-group form-control align-items-center">
             <label>Start Date</label>
             <div class="input-group">
