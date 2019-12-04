@@ -48,7 +48,7 @@ public class ContractorController {
         Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque","1");
         Manager m = new Manager(21L,"Felix","Shaffer",l);
         Agency a = agencyContractorForm.getAgency_id();
-        Contractor c = new Contractor(7L,"gabriel","agius",l,m, a);
+        Contractor c = new Contractor(7L,"gabriel","agius",l,m,a);
 
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
@@ -75,18 +75,5 @@ public class ContractorController {
         return "timesheet_confirmation";
     }
 
-//    private AgencyContractor checkIfAgencyContractorLinkExists(Agency a, Contractor c){
-//        Optional<AgencyContractor> agencyContractorExists = agencyContractorCreator.findAgencyContractorExists(a.getId(),c.getId());
-//        AgencyContractor agencyContractor = new AgencyContractor(null, a, c);
-//
-//        System.out.println("data is " + agencyContractorExists.isPresent() + " "+ agencyContractorExists);
-//        if ((agencyContractorExists).isPresent()) {
-//            System.out.println("Link for contractor and agency already exists");
-//        }else {
-//            System.out.println("creating new link");
-//            agencyContractorCreator.createAgency(agencyContractor);
-//        }
-//        return agencyContractor;
-//    };
 
 }
