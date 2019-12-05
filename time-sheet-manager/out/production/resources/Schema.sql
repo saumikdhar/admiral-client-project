@@ -6,10 +6,10 @@ CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
 USE ManagingTimeSheets;
 
 CREATE TABLE IF NOT EXISTS logins
-(
+    (
     login_id     INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email        VARCHAR(150) NOT NULL,
-    password     VARCHAR(12)  NOT NULL,
+    password     VARCHAR(250)  NOT NULL,
     access_level INT(1)       NOT NULL DEFAULT 0
 )
     ENGINE = InnoDB;
@@ -38,8 +38,12 @@ CREATE TABLE IF NOT EXISTS contractors
     contractor_id        INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     contractor_first_name VARCHAR(100) NOT NULL,
     contractor_last_name  VARCHAR(100) NOT NULL,
-    login_id             INT,
-    manager_id           INT,
+    login_id             INT NOT NULL ,
+    manager_id           INT NOT NULL ,
+    agency_id            INT NOT NULL,
+    FOREIGN KEY (agency_id) REFERENCES agencies (agency_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     FOREIGN KEY (login_id) REFERENCES logins (login_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
@@ -62,24 +66,10 @@ CREATE TABLE IF NOT EXISTS admins
 )
     ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS agency_contractors
-(
-    agency_contractor_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    agency_id            INT,
-    contractor_id        INT,
-    FOREIGN KEY (agency_id) REFERENCES agencies (agency_id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    FOREIGN KEY (contractor_id) REFERENCES contractors (contractor_id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
-)
-    ENGINE = InnoDB;
-
 CREATE TABLE IF NOT EXISTS timesheets
 (
-    agency_contractor_id INT,
     timesheet_id         INT     NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    contractor_id        INT     NOT NULL,
     monday_worked        BOOLEAN NOT NULL DEFAULT FALSE,
     tuesday_worked       BOOLEAN NOT NULL DEFAULT FALSE,
     wednesday_worked     BOOLEAN NOT NULL DEFAULT FALSE,
@@ -90,8 +80,7 @@ CREATE TABLE IF NOT EXISTS timesheets
     overtime             INT     DEFAULT 0,
     start_date           DATE    NOT NULL,
     status               VARCHAR(10),
-    FOREIGN KEY (agency_contractor_id) REFERENCES agency_contractors (agency_contractor_id)
+        FOREIGN KEY (contractor_id) REFERENCES contractors (contractor_id)
         ON UPDATE CASCADE
-        ON DELETE CASCADE
-)
+        ON DELETE CASCADE)
     ENGINE = InnoDB;

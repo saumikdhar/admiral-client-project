@@ -10,48 +10,49 @@
 <!--        <input id="myCheck" type="checkbox">-->
 <!--        <span class="slider round"></span>-->
 <!--    </label>-->
-    <div class="input-group">
-        <form action="/admin/agency" method="get" class="form-inline my-2 my-lg-0">
-            <input type="text" name="search" id="search" placeholder="Enter agency name" class="form-control mr-sm-2"
-                       aria-label="Search"/>
-            <input type="submit" id="submit" value="submit" class="btn btn-outline-success my-2 my-sm-0"/>
+    <div class="form-inline">
+        <form action="/admin/timesheets/date" th:object="${dateContainer}">
+            <div class="margin-right-ten">
+            <input type="date" class="form-control mr-sm-2" th:field="*{dateFrom}" placeholder="Start Date"/>
+            </div>
+            <div class="margin-right-ten">
+            <input type="date" class="form-control mr-sm-2" th:field="*{dateTo}" placeholder="End Date"/>
+            </div>
+            <div class="margin-right-fourty">
+            <input type="submit" value="Filter" class="btn btn-outline-success my-2 my-sm-0"/>
+            </div>
         </form>
-        <form action="/admin/contractor" method="get" class="form-inline my-2 my-lg-0">
-            <input type="text" name="search" id="search2" placeholder="Enter contractor name" class="form-control mr-sm-2"
-                       aria-label="Search"/>
-            <input type="submit" id="submit2" value="submit" class="btn btn-outline-success my-2 my-sm-0"/>
+
+        <form class="search-form">
+            <div class="margin-right-ten">
+            <input type="text" class="search">
+            </div>
+            <span class="counter"></span>
         </form>
-        </div>
-    <div class="starter-template">
-        <div class="row">
-        </div>
-    <div class="container">
-        <form action="/admin/date" class="form-inline my-2 my-lg-0" th:object="${dateContainer}">
-            <div>Date from</div>
-            <input type="date" class="form-control mr-sm-2" th:field="*{dateFrom}"/>
-            <div>Date to</div>
-            <input type="date" class="form-control mr-sm-2" th:field="*{dateTo}"/>
-            <input type="submit" value="submit" class="btn btn-outline-success my-2 my-sm-0"/>
-        </form>
-    </div>
     </div>
 
-<!--    <div class="form-group pull-right">-->
-<!--    <input type="text" class="search form-control" placeholder="What you looking for?">-->
+
+    <div class="form-inline" th:object="${dateContainer}">
+        <div class="filter">
+        <input type="text" class="form-control" th:placeholder="*{'Filter: ' + dateFrom + ' to ' + dateTo}" disabled/>
+        </div>
+    </div>
+<!--    <div class="custom-container">-->
+<!--        <form class="search-form">-->
+<!--            <input type="text" class="search">-->
+<!--            <span class="counter"></span>-->
+<!--        </form>-->
 <!--    </div>-->
-<!--    <span class="counter pull-right"></span>-->
 
     <div id=missingTimesheetMessage th:if="${#lists.isEmpty(timesheets)}">
         <div class="container">
-        <h4 th:text="'No time sheets found for: ' + ${searchTerm.toString()}"></h4>
+        <h4 th:text="'No time sheets found '"></h4>
         </div>
     </div>
     <div id=timesheetListContainer th:if="${not #lists.isEmpty(timesheets)}">
-            <div class="container">
-                <!--                <div id=donationListContainer th:if="${not #lists.isEmpty(top5Donations)}">-->
                 <div style="overflow-x:auto;">
 <!--                    <table class ="table table-hover table-bordered results">-->
-                    <table class="table">
+                    <table class="table results">
                         <caption>Time Sheet</caption>
                         <thead>
                         <tr>
@@ -71,8 +72,8 @@
                         </thead>
                         <tbody>
                         <tr th:each="timesheet: ${timesheets}">
-                            <td data-label="Agency Name" th:text="${timesheet.agency_contractor_id.agencyId.agencyName}"></td>
-                            <td data-label="Contractor Name" th:text="${timesheet.agency_contractor_id.contractorId.firstName} + ' ' + ${timesheet.agency_contractor_id.contractorId.lastName}"> deafsult</td>
+                            <td data-label="Agency Name" th:text="${timesheet.contractorId.agencyId.agencyName}"></td>
+                            <td data-label="Contractor Name" th:text="${timesheet.contractorId.firstName} + ' ' + ${timesheet.contractorId.lastName}"> deafsult</td>
                             <td data-label="Start Date" th:text="${timesheet.start_date}">X</td>
                             <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
                             <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>
@@ -82,18 +83,34 @@
                             <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
                             <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
                             <td data-label="Status" th:text="${timesheet.status}"><span style="color: green"></span></td>
-                            <td data-label="Manager Name" th:text="${timesheet.getAgency_contractor_id().getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getAgency_contractor_id().getContractorId().getManager().getLastName()}"></td>
+                            <td data-label="Manager Name" th:text="${timesheet.getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getContractorId().getManager().getLastName()}"></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
     </div>
 </main>
 <div th:replace="fragments/footer :: footer">
 </div>
 </body>
+<!--Java script for searching any field content in timesheet-->
 <script>
+    var form = document.querySelector("#search-form");
+    var searchbox = document.querySelector(".search");
+
+
+    // Adds the placeholder when the searchbox is in focus
+    searchbox.addEventListener("focus", function(e) {
+        searchbox.setAttribute("placeholder", "Search...");
+    });
+
+    // Removes Text and the placeholder when the search box is out of focus
+    searchbox.addEventListener("focusout", function(e) {
+        searchbox.value = null;
+        searchbox.removeAttribute("placeholder");
+    });
+
+
     $(document).ready(function() {
         $(".search").keyup(function () {
             var searchTerm = $(".search").val();

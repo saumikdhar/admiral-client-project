@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+</head>
+<div th:replace="fragments/header :: navbar-admin"></div>
+<body>
+<main role="main" class="box">
+
+    <div class="form-inline">
+        <form class="search-form">
+            <div class="margin-right-ten">
+                <input type="text" class="search">
+            </div>
+            <span class="counter"></span>
+        </form>
+    </div>
+
+    <div id=missingTimesheetMessage th:if="${#lists.isEmpty(agencies)}">
+        <div class="container">
+            <h4 th:text="${'No contractors found' }"></h4>
+        </div>
+    </div>
+    <div id=timesheetListContainer th:if="${not #lists.isEmpty(agencies)}">
+        <div style="overflow-x:auto;">
+            <table class="table results">
+                <caption>Contractors</caption>
+                <thead>
+                <tr>
+                    <th scope="col">Agency Name</th>
+                    <th scope="col">Contractor Name</th>
+                    <th scope="col">Manager Name</th>
+                    <th scope="col">Change manager</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="agency: ${agencies}">
+                    <td data-label="Agency Name" th:text="${agency.getAgencyName()}"></td>
+                    <td data-label="Contractor Name" th:text="${agency.getContractorName()}"></td>
+                    <td data-label="Manager Name" th:text="${agency.getManagerName()}"></td>
+                    <td data-label="Change Manager">
+                        <div class="btn-group" role="group">
+                                <button type="button"
+                                        class="btn btn-success"
+                                        data-toggle="modal"
+                                        data-target="#notesModal"
+                                        th:data-id="${agency.ContractorId}"
+                                        >Update</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notesModalLabel">Select A Manager</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="#" th:action="@{/admin/assign-manager/update-manager}" th:object="${managerId}" method="post">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="col-form-label">Managers:</label>
+                            <select class="row form-control" th:field="*{id}"><!--th:field="*{notes}"-->
+                                <option th:each="manager : ${managers}" th:value="${manager.id}" th:text="${manager.firstName + ' '+ manager.lastName}"></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <input hidden type="number" class="form-control" th:name="contractor_id" th:id="contractor_id"/>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="submit"
+                                class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+<div th:replace="fragments/footer :: footer">
+</div>
+</body>
+<!--Java script for searching any field content in timesheet-->
+<script>
+
+    var form = document.querySelector("#search-form");
+    var searchbox = document.querySelector(".search");
+
+
+    // Adds the placeholder when the searchbox is in focus
+    searchbox.addEventListener("focus", function(e) {
+        searchbox.setAttribute("placeholder", "Search...");
+    });
+
+    // Removes Text and the placeholder when the search box is out of focus
+    searchbox.addEventListener("focusout", function(e) {
+        searchbox.value = null;
+        searchbox.removeAttribute("placeholder");
+    });
+
+
+    $(document).ready(function() {
+        $("#notesModal").on('shown.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            $('input[name = contractor_id]').val(id)
+        })
+        $(".search").keyup(function () {
+            var searchTerm = $(".search").val();
+            var listItem = $('.results tbody').children('tr');
+            var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+
+            $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                    return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+            });
+
+            $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+                $(this).attr('visible','false');
+            });
+
+            $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+                $(this).attr('visible','true');
+            });
+
+            var jobCount = $('.results tbody tr[visible="true"]').length;
+            $('.counter').text(jobCount + ' item');
+
+            if(jobCount == '0') {$('.no-result').show();}
+            else {$('.no-result').hide();}
+        });
+    });
+</script>
+</html>

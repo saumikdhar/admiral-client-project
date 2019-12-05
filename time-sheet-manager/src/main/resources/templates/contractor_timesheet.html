@@ -6,18 +6,14 @@
     <title>TimeSheet</title>
 </head>
 <body>
-<div th:replace="fragments/header :: navbar"></div>
+<div th:replace="fragments/header :: navbar-contractor"></div>
 <h5>Contractor TimeSheet</h5>
 <div class = "box">
 <form class="box" th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
+    <div class="custom-margin box">
     <div class="row">
-        <div class="form-control">
-            <label>Agency</label>
-            <select th:field="${agencycontractor.agency_id}">
-                <option th:each="agency: ${agencies}" th:value="${agency.id}" th:text="${agency.agencyName}"></option>
-            </select>
-        </div>
-        <div class="input-group form-control align-items-center">
+        <div class="form-control row">
+        <div class="input-group">
             <label>Start Date</label>
             <div class="input-group">
                 <div class="input-group">
@@ -37,13 +33,14 @@
                 document.getElementById('e').value = new Date().toISOString().substring(0, 10);
             </script>
         </div>
-        <fieldset class="form-check form-check-inline" >
+        <fieldset class="form-check form-check-inline"  >
         <div class="input-group" >
             <label class="form-check-label form-control">Monday</label>
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                           name = "list"
+                            id = "mondayList"
+                           name = "mondaylist"
                            class="form-check-input"
                            placeholder="Monday"
                            type="checkbox" th:field="*{monday_worked}"/>
@@ -56,7 +53,8 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            id = "tuesdayList"
+                            name = "tuesdaylist"
                             class="form-check-input"
                             placeholder="Tuesday"
                             type="checkbox" th:field="*{tuesday_worked}"/>
@@ -69,7 +67,8 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            id = "wednesdayList"
+                            name = "wednesdaylist"
                             class="form-check-input"
                             placeholder="Wednesday"
                             type="checkbox" th:field="*{wednesday_worked}"/>
@@ -82,7 +81,8 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            id = "thursdayList"
+                            name = "thursdaylist"
                             class="form-check-input"
                             placeholder="Thursday"
                             type="checkbox" th:field="*{thursday_worked}"/>
@@ -95,7 +95,8 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            id = "fridayList"
+                            name = "fridaylist"
                             class="form-check-input"
                             placeholder="Friday"
                             type="checkbox" th:field="*{friday_worked}"/>
@@ -108,7 +109,8 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            id = "saturdayList"
+                            name = "saturdaylist"
                             class="form-check-input"
                             placeholder="Saturday"
                             type="checkbox" th:field="*{saturday_worked}"/>
@@ -121,7 +123,8 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <input
-                            name = "list"
+                            id = "sundayList"
+                            name = "sundaylist"
                             class="form-check-input"
                             placeholder="Sunday"
                             type="checkbox" th:field="*{sunday_worked}"/>
@@ -131,22 +134,31 @@
 
         </fieldset>
 
-        <div class="input-group form-control">
+        <div class="input-group">
             <label>Overtime</label>
             <div class="input-group">
             <input
+                    id = "overtime"
                     th:name = "overtime"
                     class="form-control"
-                    placeholder="0" step="0.01" min="0" max="20"
-                    type="number" th:field="*{overtime}"/>
+                    step="0.01" min="0" max="20"
+                    type="number" placeholder="Please enter a number" th:field="*{overtime}" />
             </div>
         </div>
+        <script>
+            document.getElementById("overtime").defaultValue = "0";
+        </script>
+
+        <input
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}"
+                type="hidden"/>
 
         <button  class="btn btn-primary"  id="time_sheet_submit" type="submit">Submit time sheet</button>
     </div>
-
+    </div>
+    </div>
 </form>
-</div>
 
 
 <div th:replace="fragments/footer :: footer">
@@ -181,21 +193,92 @@
 </script>
 
 
+<script>
 
-<script type="text/javascript">
+    var date = document.querySelector('[type=date]');
 
-        $(document).ready(function () {
-            $('#time_sheet_submit').click(function() {
-                checked = $("input[type=checkbox]:checked").length;
+    function checkboxValidation(e) {
 
-                if(!checked) {
-                    alert("You must check at least one checkbox.");
-                    return false;
-                }
+        //Both variables are days of the week, where Sunday =0, Saturday =6
+        var selectedDate = new Date(e.target.value);
+        var selectedDay = selectedDate.getUTCDay();
+        var today = new Date();
+        var dayToday = today.getUTCDay();
 
-            });
-        });
+        var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+
+        var differenceInDays = Math.round(Math.abs((selectedDate.getTime() - today.getTime()) / (oneDay)));
+
+        if (differenceInDays >= 7) {
+            console.log("More than 7 days ago.  Enabling all");
+            document.getElementById("mondayList").disabled = false;
+            document.getElementById("tuesdayList").disabled = false;
+            document.getElementById("wednesdayList").disabled = false;
+            document.getElementById("thursdayList").disabled = false;
+            document.getElementById("fridayList").disabled = false;
+            document.getElementById("saturdayList").disabled = false;
+            document.getElementById("sundayList").disabled = false;
+        } else {
+
+            if (selectedDay == 1) {
+                console.log("It's a Monday, so disabling all but Monday");
+                document.getElementById("mondayList").disabled = false;
+                document.getElementById("mondayList").checked = false;
+                document.getElementById("tuesdayList").disabled = true;
+                document.getElementById("tuesdayList").checked = false;
+                document.getElementById("wednesdayList").disabled = true;
+                document.getElementById("wednesdayList").checked = false;
+                document.getElementById("thursdayList").disabled = true;
+                document.getElementById("thursdayList").checked = false;
+                document.getElementById("fridayList").disabled = true;
+                document.getElementById("fridayList").checked = false;
+                document.getElementById("saturdayList").disabled = true;
+                document.getElementById("saturdayList").checked = false;
+                document.getElementById("sundayList").disabled = true;
+                document.getElementById("sundayList").checked = false;
+            };
+
+            if (dayToday == 2) {
+                console.log("its tuesday")
+                document.getElementById("mondayList").disabled = false;
+                document.getElementById("tuesdayList").disabled = false;
+            } else if (dayToday == 3) {
+                document.getElementById("mondayList").disabled = false;
+                document.getElementById("tuesdayList").disabled = false;
+                document.getElementById("wednesdayList").disabled = false;
+            } else if (dayToday == 4) {
+                document.getElementById("mondayList").disabled = false;
+                document.getElementById("tuesdayList").disabled = false;
+                document.getElementById("wednesdayList").disabled = false;
+                document.getElementById("thursdayList").disabled = false;
+            } else if (dayToday == 5) {
+                document.getElementById("mondayList").disabled = false;
+                document.getElementById("tuesdayList").disabled = false;
+                document.getElementById("wednesdayList").disabled = false;
+                document.getElementById("thursdayList").disabled = false;
+                document.getElementById("fridayList").disabled = false;
+            } else if (dayToday == 6) {
+                document.getElementById("mondayList").disabled = false;
+                document.getElementById("tuesdayList").disabled = false;
+                document.getElementById("wednesdayList").disabled = false;
+                document.getElementById("thursdayList").disabled = false;
+                document.getElementById("fridayList").disabled = false;
+                document.getElementById("saturdayList").disabled = false;
+            } else if (dayToday == 0) {
+                document.getElementById("mondayList").disabled = false;
+                document.getElementById("tuesdayList").disabled = false;
+                document.getElementById("wednesdayList").disabled = false;
+                document.getElementById("thursdayList").disabled = false;
+                document.getElementById("fridayList").disabled = false;
+                document.getElementById("saturdayList").disabled = false;
+                document.getElementById("sundayList").disabled = false;
+            }
+        }
+    }
+    date.addEventListener('input',checkboxValidation);
 </script>
+
+
 
 <script>
 function TDate() {

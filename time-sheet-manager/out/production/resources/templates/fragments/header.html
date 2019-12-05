@@ -1,57 +1,79 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/xhtml"
       lang="en"
       xmlns="http://www.w3.org/1999/xhtml">
 <head th:fragment="head">
     <meta charset="UTF-8">
     <title>Admiral</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="../../static/css/navbar.css" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" href="../../static/css/createaccount.css" th:href="@{/css/createaccount.css}">
     <link rel="icon" href="../../static/images/logo.svg" th:href="@{/images/logo.svg}">
 </head>
 <body>
+<div th:fragment="navbar-default">
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
+        </a>
+
+        <input class="menu-btn" type="checkbox" id="menu-btn4"/>
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="#" th:href="@{/login}">Login</a></li>
+        </ul>
+    </header>
+</div>
+
 <div th:fragment="navbar">
-    <nav class="nav">
-        <div class="nav-header">
-            <div class="nav-title">
-                <a href="/">
-                    <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
-                </a>
-            </div>
-        </div>
-<!--        <input type="checkbox" id="nav-check2">-->
-        <div class="nav_right">
-            <a href="#" th:href="@{/}">Login</a>
-        </div>
-    </nav>
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
+        </a>
+
+        <input class="menu-btn" type="checkbox" id="menu-btn3"/>
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="#" th:href="@{/login}">Sign In</a></li>
+        </ul>
+    </header>
 </div>
 
 <div th:fragment="navbar-admin">
-    <nav class="nav">
-        <div class="nav-header">
-            <div class="nav-title">
-                <a href="/">
+    <header class="header">
+                <a href="/" class="logo">
                     <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
                 </a>
-            </div>
-        </div>
-        <div class="nav-btn">
-            <label for="nav-check">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-        </div>
-<!--        <input id="nav-check">-->
-        <div class="nav-links"><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></div>
-<!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by contractor</a></div>-->
-<!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by date</a></div>-->
-        <div class="nav_right">
-            <a href="#" th:href="@{/homeNotSignedIn}">Logout</a>
-        </div>
-    </nav>
+
+        <input class="menu-btn" type="checkbox" id="menu-btn"/>
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></li>
+            <li><a href="#" th:href="@{/admin/assign-manager}">Assign a Manager</a></li>
+            <li><a href="#" th:href="@{/admin/create-account}">Create account</a></li>
+            <li><a href="#" th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </header>
 </div>
+
+<div th:fragment="navbar-contractor">
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
+        </a>
+
+        <input class="menu-btn" type="checkbox" id="menu-btn2"/>
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></li>
+            <li><a href="#" th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </header>
+</div>
+
 </body>
 </html>
