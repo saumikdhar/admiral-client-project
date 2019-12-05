@@ -6,7 +6,7 @@ SHOW TABLES;
 
 /*populate login*/
 INSERT INTO logins (email, password, access_level)
-VALUES ('lobortis@felispurusac.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
+VALUES ('lobortis@felispurusac.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
 VALUES ('quis.arcu.vel@augueporttitor.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)

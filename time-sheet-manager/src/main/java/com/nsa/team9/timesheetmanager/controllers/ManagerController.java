@@ -47,6 +47,7 @@ public class ManagerController {
         MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
 
         LOG.debug("The principal is " + principal);
+        System.out.println("The principal is " + principal.getUser().getEmail());
 
         Manager manager = managerSearch.findManagerByEmail(principal.getUser().getEmail()).get();
         String firstName = manager.getFirstName();
