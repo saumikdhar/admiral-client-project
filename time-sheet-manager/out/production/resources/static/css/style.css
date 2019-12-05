@@ -150,6 +150,10 @@ h1, h2, h3, h4{
   font-weight: 300;
 }
 
+.custom-margin{
+  margin-top: 55px;
+}
+
 /*  link colours for classes*/
 a {
     color: Black;
