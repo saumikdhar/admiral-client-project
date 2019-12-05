@@ -24,12 +24,18 @@
                 <div class="field-wrap">
                 <div class="margin-right-ten">
                     <input type="text" th:field="*{firstName}" class="form-control mr-sm-2" placeholder="First Name" required/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                    </div>
+
                 </div>
             </div>
 
                 <div class="field-wrap">
                 <div class="margin-right-ten">
                     <input type="text" th:field="*{lastName}" class="form-control mr-sm-2" placeholder="Last Name" required/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                    </div>
+
                 </div>
                 </div>
             </div>
@@ -55,7 +61,7 @@
                     <select onclick="javascript:hideorshowcontracotrfeatures()" th:field="*{AccessLevel}" class="form-control mr-sm-2" id ="role" required>
                         <option value="" selected disabled>Select account type</option>
                         <option th:value="1">Manager</option>
-                        <option th:value="2">Contractor</option>
+                        <option th:value="0">Contractor</option>
                     </select>
                 </div>
 
@@ -91,7 +97,7 @@
     function hideorshowcontracotrfeatures() {
         var e = document.getElementById('role');
         var strUser = e.options[e.selectedIndex].value;
-        if (strUser == 2 ){
+        if (strUser == 0 ){
             document.getElementById('agency').style.display = 'block';
             document.getElementById('manager').style.display = 'block';
             document.getElementById('manager').style.required = true;

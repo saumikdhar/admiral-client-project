@@ -29,9 +29,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         @MockBean
         TimeSheetSearch timeSheetSearch;
 
-        @MockBean
-        AgencyContractorSearchImpl agencyContractorSearchImpl;
-
         @Test
         public void makeTimeSheetAndCheckIfFormSubmits() throws Exception {
 
