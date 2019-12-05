@@ -25,4 +25,9 @@ public interface AdminSearch {
 
     /*finds all contractors and managers assigned to them*/
     public List<ContractorProjection> findAllContractorsAndManagersAssociated();
+
+
+    /*creates a admin account*/
+    public void createAdmin(Admin aAdmin);
+
 }

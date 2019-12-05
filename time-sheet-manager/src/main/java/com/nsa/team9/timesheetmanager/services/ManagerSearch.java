@@ -13,4 +13,9 @@ public interface ManagerSearch {
     List<Manager> findAllManagers();
 
     public Optional<Manager> findManagerByEmail(String email);
+
+
+    /*creates a login account*/
+    public void createManager(Manager aManager);
+
 }

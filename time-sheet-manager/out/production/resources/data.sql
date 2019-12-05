@@ -199,34 +199,34 @@ INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Ra
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Keaton','Copeland',20);
 
 /*Populate contractor*/
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Jayme','Sparks',23,15);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Shoshana','Daniels',24,5);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Haley','Hodges',25,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Alexandra','Jennings',26,9);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Ori','Levy',27,12);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Graiden','Thornton',28,9);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aidan','Maxwell',29,11);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Amity','Newman',30,1);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Kareem','Mcbride',31,5);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Evan','Dunlap',32,19);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Constance','Lowery',33,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Wade','Rice',34,14);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Jescie','Head',35,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Ryan','Stevens',36,1);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Venus','Riddle',37,2);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aurelia','Callahan',38,17);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Elliott','Malone',39,11);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Tiger','Molina',40,13);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Cooper','Marshall',41,16);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Quintessa','Hogan',42,13);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Travis','Savage',43,2);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Keelie','Mccarty',44,4);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Rae','Gilmore',45,12);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Ralph','Barnett',46,7);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Shafira','Thornton',47,15);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Riley','Conway',48,9);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Mariko','Blackburn',49,10);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Juliet','Conley',50,15);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Jayme','Sparks',23,15,1);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Shoshana','Daniels',24,5,1);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Haley','Hodges',25,8,2);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Alexandra','Jennings',26,9,2);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Ori','Levy',27,12,3);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Graiden','Thornton',28,9,3);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Aidan','Maxwell',29,11,4);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Amity','Newman',30,1,4);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Kareem','Mcbride',31,5,5);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Evan','Dunlap',32,19,5);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Constance','Lowery',33,8,6);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Wade','Rice',34,14,6);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Jescie','Head',35,8,7);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Ryan','Stevens',36,1,7);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Venus','Riddle',37,2,8);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Aurelia','Callahan',38,17,8);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Elliott','Malone',39,11,9);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Tiger','Molina',40,13,9);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Cooper','Marshall',41,16,10);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Quintessa','Hogan',42,13,10);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Travis','Savage',43,2,1);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Keelie','Mccarty',44,4,2);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Rae','Gilmore',45,12,3);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Ralph','Barnett',46,7,4);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Shafira','Thornton',47,15,5);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Riley','Conway',48,9,6);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Mariko','Blackburn',49,10,7);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Juliet','Conley',50,15,8);
 
 
 /*Populate time sheet*/
@@ -282,6 +282,17 @@ INSERT INTO timesheets (contractor_id, monday_worked, tuesday_worked, wednesday_
 # INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2019-04-30','pending',40,False,False,False,False,False,False);
 # INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-04-12','pending',6,False,False,False,False,False,False);
 # INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-03-14','pending',12,False,False,False,False,False,False);
-SELECT * FROM timesheets JOIN contractors c ON timesheets.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id
+<<<<<<< HEAD
+SELECT * FROM timesheets JOIN contractors c ON timesheets.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id;
 SELECT * FROM agencies join contractors c ON agencies.agency_id = c.agency_id JOIN managers m ON c.manager_id = m.manager_id;
 select *  from managers;
+
+SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName,
+            concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies
+            JOIN contractors c ON agencies.agency_id= c.agency_id
+            JOIN managers m ON c.manager_id = m.manager_id
+            group by ContractorName;
+=======
+SELECT * from contractors JOIN agencies a ON contractors.agency_id = a.agency_id JOIN managers m ON contractors.manager_id = m.manager_id;
+SELECT * FROM managers JOIN logins l ON managers.login_id = l.login_id;
+>>>>>>> create-account-feature

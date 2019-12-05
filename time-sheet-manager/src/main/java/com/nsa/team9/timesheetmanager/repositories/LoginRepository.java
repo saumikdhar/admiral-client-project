@@ -10,4 +10,7 @@ public interface LoginRepository {
 
     public Optional<Login> findById(Long loginId);
     public Optional<Login> getLoginByEmail(String email);
+
+    /*inserts/save into data base*/
+    public Login save(Login aLogin);
 }
