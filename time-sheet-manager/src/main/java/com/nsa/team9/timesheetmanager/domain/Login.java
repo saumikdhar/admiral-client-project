@@ -26,5 +26,5 @@ public class Login {
     public String password;
 
     @Column(name = "access_level")
-    public String accessLevel;
+    public Integer accessLevel;
 }

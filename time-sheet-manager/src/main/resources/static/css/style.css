@@ -88,6 +88,22 @@ button[disabled]{
 
 }
 
+/*button css*/
+
+.btn:not(:disabled):not(.disabled){
+  border-radius: 30px;
+}
+
+.modal-content{
+  border-radius: 30px;
+}
+
+.modal-body{
+  padding:1.5rem;
+}
+
+/*end*/
+
 /* box styling and inputs inside the box   ================================================= */
 .box{
   margin:auto;
@@ -134,6 +150,10 @@ h1, h2, h3, h4{
   font-weight: 300;
 }
 
+.custom-margin{
+  margin-top: 55px;
+}
+
 /*  link colours for classes*/
 a {
     color: Black;
@@ -147,14 +167,16 @@ a {
 /*  align-items: center;*/
 /*}*/
 
-.counter{
+.counter {
   margin-top: 20px;
+
 }
 
 .search-form{
-  height: 80px;
-  width: 100%;
-  margin-top: 50px;
+/*  height: 80px;*/
+  width: auto;
+  float: right;
+/*  margin-top: 50px;*/
 }
 
 .search{
@@ -180,7 +202,7 @@ a {
 
 .search:focus {
   cursor: text;
-  width: 50%;
+  width: 100%;
   border-radius: 25px 25px 25px 25px;
   outline: none;
   text-indent: 15px;
@@ -208,28 +230,28 @@ table caption {
 }
 
 td, th {
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 
 /* top-left border-radius */
 table tr:first-child th:first-child {
-  border-top-left-radius: 13px;
+  border-top-left-radius: 30px;
 }
 
 /* top-right border-radius */
 table tr:first-child th:last-child {
-  border-top-right-radius: 13px;
+  border-top-right-radius: 30px;
 }
 
 /* bottom-left border-radius */
 table tr:last-child td:first-child {
-  border-bottom-left-radius: 13px;
+  border-bottom-left-radius: 30px;
 }
 
 /* bottom-right border-radius */
 table tr:last-child td:last-child {
-  border-bottom-right-radius: 13px;
+  border-bottom-right-radius: 30px;
 }
 
 table tr th {
@@ -259,6 +281,11 @@ tr:hover {
   display:none;
 }
 
+
+.table td, .table th{
+  vertical-align: middle;
+  border-top: 0;
+}
 /*.results tr[visible='true']{*/
 /*  display:table-row;*/
 /*}*/
@@ -321,9 +348,52 @@ tr:hover {
   width: 100%;
 }
 
+/*date picker css*/
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+
+/*custom inline*/
+.form-inline {
+  width: auto;
+  font-size: 20px;
+  margin: 0 auto 10px;
+  padding: 10px;
+  margin-top: 80px;
+  /*background: #333;*/
+}
+
+
+form {
+  display: flex;
+}
+
+/*custom margin*/
+.margin-right-ten{
+  margin-right: 10px;
+}
+
+.margin-right-fourty{
+  margin-right: 40px;
+}
+
+
+/*end custom margin */
+
+
 /*media content*/
 
 @media screen and (max-width: 700px) {
+  .search-form{
+    width: 100%;
+  }
+
+  .search:focus {
+    width: 100%;
+  }
+
   table {
     border: 0;
   }
@@ -346,8 +416,11 @@ tr:hover {
   table tr {
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
     display: block;
     margin-bottom: 2.625em;
+    border-radius: 15px;
   }
 
   table td {
@@ -357,7 +430,7 @@ tr:hover {
   }
 
   .table td, .table th{
-    border-top: transparent;
+    vertical-align: middle;
   }
 
   table td::before {
@@ -375,34 +448,43 @@ tr:hover {
     border-bottom: 0;
   }
 
-  td, th {
-    border-right: 1px solid #dddddd;
-    border-left: 1px solid #dddddd;
-  }
-
   /* top-left border-radius */
   table tr:first-child th:first-child {
-    border-top-left-radius: 13px;
+    border-top-left-radius: 0px;
   }
 
   /* top-right border-radius */
   table tr:first-child th:last-child {
-    border-top-right-radius: 13px;
+    border-top-right-radius: 0px;
   }
 
   /* bottom-left border-radius */
   table tr:last-child td:first-child {
-    border-bottom-left-radius: 13px;
+    border-bottom-left-radius: 0px;
   }
 
   /* bottom-right border-radius */
   table tr:last-child td:last-child {
-    border-bottom-right-radius: 13px;
+    border-bottom-right-radius: 0px;
+  }
+
+  tr:hover {
+    background-color: unset;
+  }
+  .box{
+    max-width: 80%;
+  }
+
+
+  form {
+    display: unset;
   }
 
 
 }
 
-@media (hover: none) {
-  tr:hover { color: transparent; }
+@media (min-width:576px) {
+  .form-inline .form-control .filter {
+    width: 230px;
+  }
 }

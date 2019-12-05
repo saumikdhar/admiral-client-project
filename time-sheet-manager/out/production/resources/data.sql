@@ -6,112 +6,120 @@ SHOW TABLES;
 
 /*populate login*/
 INSERT INTO logins (email, password, access_level)
-VALUES ('lobortis@felispurusac.edu', 'enim,', 2);
+VALUES ('lobortis@felispurusac.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('quis.arcu.vel@augueporttitor.org', 'Quisque', 1);
+VALUES ('quis.arcu.vel@augueporttitor.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Phasellus@quamelementumat.ca', 'tortor', 1);
+VALUES ('Phasellus@quamelementumat.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('eu@Sed.net', 'neque', 0);
+VALUES ('eu@Sed.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Duis.mi@ipsum.com', 'diam', 2);
+VALUES ('Duis.mi@ipsum.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('ultrices.posuere@eutelluseu.ca', 'sodales', 2);
+VALUES ('ultrices.posuere@eutelluseu.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Suspendisse.tristique@ut.edu', 'nibh', 0);
+VALUES ('Suspendisse.tristique@ut.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Praesent.luctus@iaculisaliquet.ca', 'nunc', 0);
+VALUES ('Praesent.luctus@iaculisaliquet.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Nullam@euismodestarcu.net', 'facilisis', 0);
+VALUES ('Nullam@euismodestarcu.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('quis.diam.Pellentesque@euismod.ca', 'lectus', 1);
+VALUES ('quis.diam.Pellentesque@euismod.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('sollicitudin.commodo@tempor.co.uk', 'Ut', 0);
+VALUES ('sollicitudin.commodo@tempor.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
+
+-- #################CYRUS MORENO###########################
 INSERT INTO logins (email, password, access_level)
-VALUES ('velit.in@sapienCras.com', 'elementum', 2);
+VALUES ('velit.in@sapienCras.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- #######################  ##############################
 INSERT INTO logins (email, password, access_level)
-VALUES ('Curabitur.dictum@ullamcorpereueuismod.net', 'leo', 2);
+VALUES ('Curabitur.dictum@ullamcorpereueuismod.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 INSERT INTO logins (email, password, access_level)
-VALUES ('ac.risus.Morbi@seddictumeleifend.edu', 'magna', 0);
+VALUES ('ac.risus.Morbi@seddictumeleifend.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('lacus@tristique.edu', 'njkks', 2);
+VALUES ('lacus@tristique.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('quam.Pellentesque@Pellentesquetincidunttempus.com', 'tellus', 1);
+VALUES ('quam.Pellentesque@Pellentesquetincidunttempus.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('ac.orci@bibendumullamcorperDuis.org', 'nec', 2);
+VALUES ('ac.orci@bibendumullamcorperDuis.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('mus.Proin.vel@feugiatLoremipsum.com', 'enim', 0);
+VALUES ('mus.Proin.vel@feugiatLoremipsum.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('est@a.co.uk', 'vehicula', 2);
+VALUES ('est@a.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('id.magna.et@rutrum.net', 'Sed', 1);
+VALUES ('id.magna.et@rutrum.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('semper.tellus@dui.co.uk', 'dolor', 0);
+VALUES ('semper.tellus@dui.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('cursus.a@fringillapurus.org', 'atullamcor', 1);
+VALUES ('cursus.a@fringillapurus.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('sit.amet@penatibusetmagnis.co.uk', 'at', 2);
+VALUES ('sit.amet@penatibusetmagnis.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('sodales.elit@Nuncsedorci.org', 'Nunc', 0);
+VALUES ('sodales.elit@Nuncsedorci.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
 INSERT INTO logins (email, password, access_level)
-VALUES ('nulla.Donec@Suspendissealiquetmolestie.edu', 'eu', 1);
+VALUES ('nulla.Donec@Suspendissealiquetmolestie.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('felis.Nulla.tempor@adipiscing.co.uk', 'ipsum', 1);
+VALUES ('felis.Nulla.tempor@adipiscing.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('mollis.Duis.sit@netusetmalesuada.net', 'consecteer', 0);
+VALUES ('mollis.Duis.sit@netusetmalesuada.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
 INSERT INTO logins (email, password, access_level)
-VALUES ('risus@tincidunt.net', 'ullamcorper', 2);
+VALUES ('risus@tincidunt.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('amet.diam@pede.edu', 'interdum', 2);
+VALUES ('amet.diam@pede.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Ut@ametconsectetueradipiscing.ca', 'ligula', 1);
+VALUES ('Ut@ametconsectetueradipiscing.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('malesuada@fringilla.co.uk', 'pellentesque', 2);
+VALUES ('malesuada@fringilla.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('accumsan.neque@In.co.uk', 'nibh', 1);
+VALUES ('accumsan.neque@In.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('litora.torquent@Aeneangravida.org', 'ridiculus', 2);
+VALUES ('litora.torquent@Aeneangravida.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('et@nisiMaurisnulla.com', 'Aenean', 2);
+VALUES ('et@nisiMaurisnulla.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('erat@venenatisamagna.ca', 'imperdiet', 2);
+VALUES ('erat@venenatisamagna.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('gravida@Proinsed.com', 'Integer', 1);
+VALUES ('gravida@Proinsed.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('amet.luctus.vulputate@Sedid.org', 'in', 0);
+VALUES ('amet.luctus.vulputate@Sedid.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
 INSERT INTO logins (email, password, access_level)
-VALUES ('in.consequat.enim@adui.edu', 'sed,', 0);
+VALUES ('in.consequat.enim@adui.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
 INSERT INTO logins (email, password, access_level)
-VALUES ('quis@PraesentluctusCurabitur.com', 'elit', 1);
+VALUES ('quis@PraesentluctusCurabitur.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('orci.Phasellus@Donecsollicitudin.edu', 'vel', 1);
+VALUES ('orci.Phasellus@Donecsollicitudin.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('dolor.nonummy.ac@luctuset.com', 'quis', 0);
+VALUES ('dolor.nonummy.ac@luctuset.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
 INSERT INTO logins (email, password, access_level)
-VALUES ('molestie.arcu@sedliberoProin.co.uk', 'venenatis', 1);
+VALUES ('molestie.arcu@sedliberoProin.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('neque@miacmattis.edu', 'luctus', 1);
+VALUES ('neque@miacmattis.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('morbi.tristique@ornarefacilisiseget.org', 'sit', 1);
+VALUES ('morbi.tristique@ornarefacilisiseget.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Cras@adipiscingnonluctus.org', 'nunc', 1);
+VALUES ('Cras@adipiscingnonluctus.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('parturient.montes.nascetur@Quisque.co.uk', 'amet,', 1);
+VALUES ('parturient.montes.nascetur@Quisque.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('urna@pedeultrices.co.uk', 'augue.', 2);
+VALUES ('urna@pedeultrices.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('ac.libero@Nuncullamcorper.com', 'risus', 2);
+VALUES ('ac.libero@Nuncullamcorper.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('gravida.mauris.ut@vitae.org', 'sodales', 0);
+VALUES ('gravida.mauris.ut@vitae.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
 INSERT INTO logins (email, password, access_level)
-VALUES ('vel.lectus@ligulaDonec.ca', 'Vestibulum', 2);
+VALUES ('vel.lectus@ligulaDonec.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 
 
 /*populate admin*/
-INSERT INTO admins (admin_firstName, admin_lastName)
-VALUES ('Dan', 'Davies');
-INSERT INTO admins (admin_firstName, admin_lastName)
-VALUES ('Ben', 'Jones');
+INSERT INTO admins (admin_firstName, admin_lastName, login_id)
+VALUES ('Dan', 'Davies', 21);
+INSERT INTO admins (admin_firstName, admin_lastName, login_id)
+VALUES ('Ben', 'Jones', 22);
 
 /*Populate agency*/
 INSERT INTO agencies (agency_name) VALUES ('Leroy Hughes');
@@ -191,139 +199,100 @@ INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Ra
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Keaton','Copeland',20);
 
 /*Populate contractor*/
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aristotle','Livingston',21,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Clio','Vaughan',22,11);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Jayme','Sparks',23,15);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Shoshana','Daniels',24,5);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Haley','Hodges',25,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Alexandra','Jennings',26,9);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Ori','Levy',27,12);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Graiden','Thornton',28,9);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aidan','Maxwell',29,11);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Amity','Newman',30,1);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Kareem','Mcbride',31,5);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Evan','Dunlap',32,19);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Constance','Lowery',33,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Wade','Rice',34,14);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Jescie','Head',35,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Ryan','Stevens',36,1);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Venus','Riddle',37,2);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aurelia','Callahan',38,17);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Elliott','Malone',39,11);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Tiger','Molina',40,13);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Cooper','Marshall',41,16);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Quintessa','Hogan',42,13);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Travis','Savage',43,2);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Keelie','Mccarty',44,4);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Rae','Gilmore',45,12);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Ralph','Barnett',46,7);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Shafira','Thornton',47,15);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Riley','Conway',48,9);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Mariko','Blackburn',49,10);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Juliet','Conley',50,15);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Jayme','Sparks',23,15,1);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Shoshana','Daniels',24,5,1);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Haley','Hodges',25,8,2);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Alexandra','Jennings',26,9,2);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Ori','Levy',27,12,3);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Graiden','Thornton',28,9,3);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Aidan','Maxwell',29,11,4);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Amity','Newman',30,1,4);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Kareem','Mcbride',31,5,5);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Evan','Dunlap',32,19,5);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Constance','Lowery',33,8,6);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Wade','Rice',34,14,6);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Jescie','Head',35,8,7);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Ryan','Stevens',36,1,7);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Venus','Riddle',37,2,8);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Aurelia','Callahan',38,17,8);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Elliott','Malone',39,11,9);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Tiger','Molina',40,13,9);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Cooper','Marshall',41,16,10);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Quintessa','Hogan',42,13,10);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Travis','Savage',43,2,1);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Keelie','Mccarty',44,4,2);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Rae','Gilmore',45,12,3);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Ralph','Barnett',46,7,4);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Shafira','Thornton',47,15,5);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Riley','Conway',48,9,6);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Mariko','Blackburn',49,10,7);
+INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id,agency_id) VALUES ('Juliet','Conley',50,15,8);
 
-/*Populate agency contractor*/
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (11,17);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (37,7);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (24,11);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (19,17);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (27,11);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (38,6);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (1,7);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (48,2);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (4,17);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (37,15);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (45,9);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (17,16);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (2,19);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (42,18);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (50,19);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (2,14);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (17,18);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (10,2);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (23,6);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (13,3);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (9,19);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (31,17);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (30,14);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (7,18);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (43,20);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (45,13);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (2,18);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (24,13);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (33,5);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (48,7);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (14,2);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (36,8);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (43,2);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (29,17);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (39,18);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (15,13);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (40,1);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (28,3);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (10,8);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (28,20);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (25,4);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (49,14);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (15,10);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (14,7);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (21,10);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (3,15);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (9,12);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (46,5);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (35,3);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (2,12);
-INSERT INTO agency_contractors (agency_id,contractor_id) VALUES (32,16);
 
 /*Populate time sheet*/
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (8,'2019-03-02','pending',30,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (10,'2018-12-26','pending',24,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-05-23','pending',13,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (6,'2019-05-17','pending',38,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (9,'2018-11-30','pending',42,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (8,'2019-01-29','pending',29,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (13,'2019-03-02','pending',36,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2018-11-18','pending',1,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (18,'2019-01-14','pending',6,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-01-11','pending',42,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (3,'2019-02-24','pending',34,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (2,'2019-04-28','pending',15,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (6,'2018-12-11','pending',12,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (17,'2019-03-21','pending',21,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2018-11-12','pending',44,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (9,'2018-11-29','pending',8,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2018-11-08','pending',23,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (3,'2019-06-02','pending',42,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2018-12-24','pending',36,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2018-10-08','pending',34,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2018-10-16','pending',36,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2019-03-21','pending',16,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (2,'2019-01-10','pending',5,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (17,'2019-05-11','pending',47,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (5,'2018-11-22','pending',45,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2019-06-06','pending',43,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (18,'2018-12-02','pending',41,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2019-03-01','pending',30,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (5,'2018-12-09','pending',46,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2018-10-22','pending',8,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (5,'2019-02-04','pending',15,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (15,'2019-04-12','pending',44,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-03-24','pending',9,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (3,'2018-10-30','pending',49,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-05-19','pending',34,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-02-08','pending',47,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2019-04-02','pending',35,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2019-04-27','pending',33,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (15,'2018-10-12','pending',50,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (2,'2018-12-10','pending',6,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (15,'2018-11-17','pending',9,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (7,'2018-12-20','pending',33,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2018-12-17','pending',31,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-01-20','pending',32,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-03-18','pending',10,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (13,'2018-11-07','pending',18,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (1,'2018-11-01','pending',7,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-02-14','pending',9,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2019-04-30','pending',40,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-04-12','pending',6,False,False,False,False,False,False);
-INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-03-14','pending',12,False,False,False,False,False,False);
+INSERT INTO timesheets (contractor_id, monday_worked, tuesday_worked, wednesday_worked, thursday_worked, friday_worked, saturday_worked, sunday_worked, overtime, start_date, status) VALUES (8,False,False,False,False,False,False,False,30,'2019-03-02','pending');
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (8,'2019-03-02','pending',30,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (10,'2018-12-26','pending',24,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-05-23','pending',13,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (6,'2019-05-17','pending',38,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (9,'2018-11-30','pending',42,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (8,'2019-01-29','pending',29,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (13,'2019-03-02','pending',36,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2018-11-18','pending',1,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (18,'2019-01-14','pending',6,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-01-11','pending',42,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (3,'2019-02-24','pending',34,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (2,'2019-04-28','pending',15,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (6,'2018-12-11','pending',12,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (17,'2019-03-21','pending',21,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2018-11-12','pending',44,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (9,'2018-11-29','pending',8,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2018-11-08','pending',23,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (3,'2019-06-02','pending',42,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2018-12-24','pending',36,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2018-10-08','pending',34,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2018-10-16','pending',36,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2019-03-21','pending',16,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (2,'2019-01-10','pending',5,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (17,'2019-05-11','pending',47,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (5,'2018-11-22','pending',45,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2019-06-06','pending',43,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (18,'2018-12-02','pending',41,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2019-03-01','pending',30,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (5,'2018-12-09','pending',46,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2018-10-22','pending',8,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (5,'2019-02-04','pending',15,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (15,'2019-04-12','pending',44,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-03-24','pending',9,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (3,'2018-10-30','pending',49,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-05-19','pending',34,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-02-08','pending',47,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2019-04-02','pending',35,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (20,'2019-04-27','pending',33,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (15,'2018-10-12','pending',50,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (2,'2018-12-10','pending',6,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (15,'2018-11-17','pending',9,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (7,'2018-12-20','pending',33,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (16,'2018-12-17','pending',31,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-01-20','pending',32,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (4,'2019-03-18','pending',10,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (13,'2018-11-07','pending',18,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (1,'2018-11-01','pending',7,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-02-14','pending',9,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2019-04-30','pending',40,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-04-12','pending',6,False,False,False,False,False,False);
+# INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-03-14','pending',12,False,False,False,False,False,False);
+<<<<<<< HEAD
+SELECT * FROM timesheets JOIN contractors c ON timesheets.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id;
+SELECT * FROM agencies join contractors c ON agencies.agency_id = c.agency_id JOIN managers m ON c.manager_id = m.manager_id;
+select *  from managers;
+
+SELECT agencies.agency_name as AgencyName, c.contractor_id as ContractorId, CONCAT(c.contractor_first_name, ' ', c.contractor_last_name) as ContractorName,
+            concat(m.manager_first_name, ' ', m.manager_last_name) as ManagerName FROM agencies
+            JOIN contractors c ON agencies.agency_id= c.agency_id
+            JOIN managers m ON c.manager_id = m.manager_id
+            group by ContractorName;
+=======
+SELECT * from contractors JOIN agencies a ON contractors.agency_id = a.agency_id JOIN managers m ON contractors.manager_id = m.manager_id;
+SELECT * FROM managers JOIN logins l ON managers.login_id = l.login_id;
+>>>>>>> create-account-feature

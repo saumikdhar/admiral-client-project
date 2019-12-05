@@ -1,11 +1,15 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
+import com.nsa.team9.timesheetmanager.services.AdminSearchImpl;
+import com.nsa.team9.timesheetmanager.services.ContractorSearchImpl;
+import com.nsa.team9.timesheetmanager.services.ManagerSearchImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -23,6 +27,16 @@ public class AdminControllerTest {
 @Autowired
 private MockMvc mvc;
 
+@MockBean
+AdminSearchImpl adminSearch;
+
+@MockBean
+ManagerSearchImpl managerSearch;
+
+@MockBean
+ContractorSearchImpl contractorSearch;
+
+
 @Test
     public void ShouldShowAdminPage() throws Exception{
     mvc.perform(
@@ -34,7 +48,7 @@ private MockMvc mvc;
     @Test
     public void ShouldShowJohnwithApprovedStatus() throws Exception{
         mvc.perform(
-                get("/admin")
+                get("/admin/timesheets")
         ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("<td><span style=\"color: green\">approved</span></td>")))

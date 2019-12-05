@@ -24,11 +24,15 @@ public class Contractor {
     @Column(name = "contractor_last_name")
     public String lastName;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "login_id")
     private Login login;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "manager_id")
     private Manager manager;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "agency_id")
+    private Agency agencyId;
 }

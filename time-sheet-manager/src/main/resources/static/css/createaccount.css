@@ -1,0 +1,54 @@
+.tab-group {
+    list-style:none;
+    background: #ffffff;
+    padding: 40px;
+    max-width:600px;
+    margin:90px auto;
+    border: 1px solid #6c7ae0;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    /*box-shadow: 0 1px 10px 1px #6c7ae0;*/
+
+}
+
+.tab-group .title {
+    text-decoration:none;
+    padding:15px;
+    color: #2350a0;
+    font-size:40px;
+    margin: auto;
+    text-align:center;
+}
+
+
+.tab-group form{
+    display: unset;
+}
+
+.tab-group input[type=text]{
+    align-self: center;
+}
+
+
+.field-wrap {
+    position:relative;
+    margin-bottom:40px;
+}
+
+.top-row:after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+
+.top-row > div {
+    float:left;
+    width:48%;
+    margin-right:4%;
+}
+
+.top-row > div:last-child {
+     margin:0;
+ }
+
