@@ -51,6 +51,10 @@
                                                        th:name="timesheet_id"
                                                        th:id="timesheet_id"
                                                        th:value="${timesheet.timesheet_id}">
+                                                <input
+                                                        th:name="${_csrf.parameterName}"
+                                                        th:value="${_csrf.token}"
+                                                        type="hidden"/>
                                                 <button type="submit"
                                                         class="btn btn-success">Y</button>
                                             </form>
@@ -96,7 +100,10 @@
                                 </div>
 
                                 <input hidden type="number" class="form-control" th:name="timesheet_id" th:id="timesheet_id">
-
+                                <input
+                                        th:name="${_csrf.parameterName}"
+                                        th:value="${_csrf.token}"
+                                        type="hidden"/>
                             </div>
 
                     </div>

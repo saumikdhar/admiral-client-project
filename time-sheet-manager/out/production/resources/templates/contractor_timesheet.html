@@ -148,6 +148,11 @@
             document.getElementById("overtime").defaultValue = "0";
         </script>
 
+        <input
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}"
+                type="hidden"/>
+
         <button  class="btn btn-primary"  id="time_sheet_submit" type="submit">Submit time sheet</button>
     </div>
 
@@ -236,29 +241,29 @@
                 console.log("its tuesday")
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
-            } else if (today == 3) {
+            } else if (dayToday == 3) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
-            } else if (today == 4) {
+            } else if (dayToday == 4) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
                 document.getElementById("thursdayList").disabled = false;
-            } else if (today == 5) {
+            } else if (dayToday == 5) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
                 document.getElementById("thursdayList").disabled = false;
                 document.getElementById("fridayList").disabled = false;
-            } else if (today == 6) {
+            } else if (dayToday == 6) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;
                 document.getElementById("thursdayList").disabled = false;
                 document.getElementById("fridayList").disabled = false;
                 document.getElementById("saturdayList").disabled = false;
-            } else if (today == 0) {
+            } else if (dayToday == 0) {
                 document.getElementById("mondayList").disabled = false;
                 document.getElementById("tuesdayList").disabled = false;
                 document.getElementById("wednesdayList").disabled = false;

@@ -15,4 +15,6 @@ public interface ContractorRepository {
 
     /*update contractor manager*/
     void updateContractorManager(Long contractorId, Long managerId);
+
+    public Optional<Contractor> findContractorByEmail(String email);
 }

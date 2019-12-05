@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ContractorRepsoitoryJpa  extends JpaRepository<Contractor, Long>, ContractorRepository{
 
@@ -19,4 +20,9 @@ public interface ContractorRepsoitoryJpa  extends JpaRepository<Contractor, Long
     @Transactional
     @Query(value = "update contractors set manager_id = :managerId where contractor_id = :contractorId", nativeQuery = true)
     void updateContractorManager(@Param("contractorId") Long contractorId, @Param("managerId") Long managerId);
+
+
+    @Query(value = "select * from contractors c join logins l on c.login_id = l.login_id where l.email = :email",
+            nativeQuery = true)
+    public Optional<Contractor> findContractorByEmail(@Param("email") String email);
 }
