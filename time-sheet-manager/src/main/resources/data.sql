@@ -12,21 +12,21 @@ VALUES ('quis.arcu.vel@augueporttitor.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4w
 INSERT INTO logins (email, password, access_level)
 VALUES ('Phasellus@quamelementumat.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('eu@Sed.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('eu@Sed.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Duis.mi@ipsum.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
+VALUES ('Duis.mi@ipsum.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('ultrices.posuere@eutelluseu.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
+VALUES ('ultrices.posuere@eutelluseu.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Suspendisse.tristique@ut.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('Suspendisse.tristique@ut.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Praesent.luctus@iaculisaliquet.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('Praesent.luctus@iaculisaliquet.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('Nullam@euismodestarcu.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('Nullam@euismodestarcu.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
 VALUES ('quis.diam.Pellentesque@euismod.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('sollicitudin.commodo@tempor.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('sollicitudin.commodo@tempor.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 
 -- #################CYRUS MORENO###########################
 INSERT INTO logins (email, password, access_level)
@@ -35,28 +35,28 @@ VALUES ('velit.in@sapienCras.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.M
 
 -- #######################  ##############################
 INSERT INTO logins (email, password, access_level)
-VALUES ('Curabitur.dictum@ullamcorpereueuismod.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
+VALUES ('Curabitur.dictum@ullamcorpereueuismod.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 INSERT INTO logins (email, password, access_level)
-VALUES ('ac.risus.Morbi@seddictumeleifend.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('ac.risus.Morbi@seddictumeleifend.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('lacus@tristique.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
+VALUES ('lacus@tristique.edu', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
 VALUES ('quam.Pellentesque@Pellentesquetincidunttempus.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('ac.orci@bibendumullamcorperDuis.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
+VALUES ('ac.orci@bibendumullamcorperDuis.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('mus.Proin.vel@feugiatLoremipsum.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('mus.Proin.vel@feugiatLoremipsum.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('est@a.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
+VALUES ('est@a.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
 VALUES ('id.magna.et@rutrum.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
 INSERT INTO logins (email, password, access_level)
-VALUES ('semper.tellus@dui.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 0);
+VALUES ('semper.tellus@dui.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
-VALUES ('cursus.a@fringillapurus.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 1);
+VALUES ('cursus.a@fringillapurus.org', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
 VALUES ('sit.amet@penatibusetmagnis.co.uk', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
 INSERT INTO logins (email, password, access_level)
@@ -116,10 +116,10 @@ VALUES ('vel.lectus@ligulaDonec.ca', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z
 
 
 /*populate admin*/
-INSERT INTO admins (admin_firstName, admin_lastName)
-VALUES ('Dan', 'Davies');
-INSERT INTO admins (admin_firstName, admin_lastName)
-VALUES ('Ben', 'Jones');
+INSERT INTO admins (admin_firstName, admin_lastName, login_id)
+VALUES ('Dan', 'Davies', 21);
+INSERT INTO admins (admin_firstName, admin_lastName, login_id)
+VALUES ('Ben', 'Jones', 22);
 
 /*Populate agency*/
 INSERT INTO agencies (agency_name) VALUES ('Leroy Hughes');
@@ -199,8 +199,6 @@ INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Ra
 INSERT INTO managers (manager_first_name,manager_last_name,login_id) VALUES ('Keaton','Copeland',20);
 
 /*Populate contractor*/
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Aristotle','Livingston',21,8);
-INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Clio','Vaughan',22,11);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Jayme','Sparks',23,15);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Shoshana','Daniels',24,5);
 INSERT INTO contractors (contractor_first_name,contractor_last_name,login_id,manager_id) VALUES ('Haley','Hodges',25,8);
