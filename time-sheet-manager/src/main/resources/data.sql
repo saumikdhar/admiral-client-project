@@ -36,7 +36,7 @@ VALUES ('velit.in@sapienCras.com', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.M
 -- #######################  ##############################
 INSERT INTO logins (email, password, access_level)
 VALUES ('Curabitur.dictum@ullamcorpereueuismod.net', '{bcrypt}$2a$10$B188I9BfwGLsWGU9eF4wPOV6O6z.MgEbNxcErNEKb8xwM.4ChBT7G', 2);
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 INSERT INTO logins (email, password, access_level)

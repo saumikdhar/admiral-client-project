@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+</head>
 <head>
     <meta charset="UTF-8">
     <title>Homepage</title>
 </head>
 <div th:replace="fragments/header :: navbar"></div>
 <body>
-<main role="main" class="container">
-    <div class="container">
-
-        <h1>home page not signed in under construction</h1>
-
+<article role="article">
+    <div>
+        <div class="pcontainer">
+            <!--                    <div class="heroBanner other-products-hub nopic d8-migrate-hero">-->
+            <div class="content hub">
+                <h1>About Us</h1>
+                <div>
+                    <p class="messaging">
+                        Admiral started out in 1993 with the aim of offering lower insurance prices to more people, without compromising on the quality of our service or products.
+                    </p>
+                    <p class="messaging">
+                        You may know us as a car & home insurer but we offer a lot more. We can cover your holidays, vans and now we offer Personal Loans and Car Finance. Admiral is there to make sure you're covered every step of the way.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-</main>
+    </div>
+</article>
+</div>
+<div class="lightGreyWrapper">
+    <div class="pcontainer">
+        <!--                    <div class="heroBanner other-products-hub nopic d8-migrate-hero">-->
+        <div class="content hub">
+            <h1>What we're all about</h1>
+            <div>
+                <p class="messaging">
+                    From humble beginnings in Cardiff - Admiral launched with just 57 staff members and no customers - to offices in seven countries and more than 7,000 staff and four million customers, it's fair to say Admiral has changed over the years.</p>
+                <p class="messaging">
+                    But the one thing that hasn’t changed is our ethos: “People who like what they do, do it better.” Admiral’s founder, Henry Engelhard, said that, and we truly believe happy staff work harder, give better customer service and are happy to go above and beyond to do the best by our policyholders.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 <div th:replace="fragments/footer :: footer">
 </div>
 </body>
+</div>
 
 </html>

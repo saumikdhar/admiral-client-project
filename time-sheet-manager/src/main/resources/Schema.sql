@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS logins
 (
     login_id     INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email        VARCHAR(150) NOT NULL,
-    password     VARCHAR(12)  NOT NULL,
+    password     VARCHAR(250)  NOT NULL,
     access_level INT(1)       NOT NULL DEFAULT 0
 )
     ENGINE = InnoDB;
