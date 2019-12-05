@@ -14,19 +14,17 @@
 </head>
 <body>
 <div th:fragment="navbar-default">
-    <nav class="nav">
-        <div class="nav-header">
-            <div class="nav-title">
-                <a href="/">
-                    <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
-                </a>
-            </div>
-        </div>
-        <!--        <input type="checkbox" id="nav-check2">-->
-        <div class="nav_right">
-            <a href="#" th:href="@{/}">Login</a>
-        </div>
-    </nav>
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
+        </a>
+
+        <input class="menu-btn" type="checkbox" id="menu-btn4"/>
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="#" th:href="@{/login}">Login</a></li>
+        </ul>
+    </header>
 </div>
 
 <div th:fragment="navbar">
@@ -38,7 +36,7 @@
         <input class="menu-btn" type="checkbox" id="menu-btn3"/>
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         <ul class="menu">
-            <li><a href="#" th:href="@{/signout}">Logout</a></li>
+            <li><a href="#" th:href="@{/login}">Sign In</a></li>
         </ul>
     </header>
 </div>
@@ -54,7 +52,7 @@
         <ul class="menu">
             <li><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></li>
             <li><a href="#" th:href="@{/admin/assign-manager}">Assign a Manager</a></li>
-            <li><a href="#" th:href="@{/signout}">Logout</a></li>
+            <li><a href="#" logout-url="/login">Logout</a></li>
         </ul>
     </header>
 </div>

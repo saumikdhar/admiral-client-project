@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 import java.util.Optional;
 
 @Slf4j
@@ -33,5 +34,9 @@ public class ContractorSearchImpl implements ContractorSearch {
     @Override
     public void updateContractorManager(Long contractorId, Long managerId) {
         contractorRepository.updateContractorManager(contractorId,managerId);
+    }
+    @Override
+    public Optional<Contractor> findContractorByEmail(String email) {
+        return contractorRepository.findContractorByEmail(email);
     }
 }

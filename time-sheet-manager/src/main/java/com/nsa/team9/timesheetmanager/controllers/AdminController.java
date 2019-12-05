@@ -54,6 +54,7 @@ public class AdminController {
     @GetMapping("/assign-manager")
     public String assignManagerToContractor(Model model, @ModelAttribute("managerId") Manager manager){
         List<ContractorProjection> contractors = adminSearch.findAllContractorsAndManagersAssociated();
+        System.out.println(contractors);
         List<Manager> managers = managerSearch.findAllManagers();
         model.addAttribute("managers",managers);
         model.addAttribute("agencies", contractors);
