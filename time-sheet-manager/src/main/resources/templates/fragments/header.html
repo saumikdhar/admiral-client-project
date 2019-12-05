@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="../../static/css/navbar.css" th:href="@{/css/navbar.css}">
     <link rel="stylesheet" href="../../static/css/createaccount.css" th:href="@{/css/createaccount.css}">
     <link rel="icon" href="../../static/images/logo.svg" th:href="@{/images/logo.svg}">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:fragment="navbar-default">
@@ -35,6 +39,49 @@
 </div>
 
 <div th:fragment="navbar">
+<<<<<<< HEAD
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-title">
+                <a href="/">
+                    <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo"
+                         th:width="175" th:height="45">
+                </a>
+            </div>
+        </div>
+        <!--        <input type="checkbox" id="nav-check2">-->
+        <div class="nav_right">
+            <a href="#" th:href="@{/}">Login</a>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="navbar-admin">
+    <nav class="nav">
+        <div class="nav-header">
+            <div class="nav-title">
+                <a href="/">
+                    <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo"
+                         th:width="175" th:height="45">
+                </a>
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <!--        <input id="nav-check">-->
+        <div class="nav-links"><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></div>
+        <!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by contractor</a></div>-->
+        <!--        <div class="nav-links"><a href="#" th:href="@{/}">Find by date</a></div>-->
+        <div class="nav_right">
+            <a href="#" th:href="@{/homeNotSignedIn}">Logout</a>
+        </div>
+    </nav>
+=======
     <header class="header">
         <a href="/" class="logo">
             <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
@@ -63,6 +110,7 @@
             <li><a href="#" th:href="@{/logout}">Logout</a></li>
         </ul>
     </header>
+>>>>>>> develop
 </div>
 
 <div th:fragment="navbar-contractor">

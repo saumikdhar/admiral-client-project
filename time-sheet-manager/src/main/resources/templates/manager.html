@@ -1,10 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: head">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:replace="fragments/header :: navbar"></div>
 <main role="main" class="box">
+<<<<<<< HEAD
+    <div class="row">
+        <!--                <p>Test Column Nav</p>-->
+    </div>
+    <div class="row" style="overflow-x:auto;">
+        <table class="table">
+            <caption>Time Sheet</caption>
+            <thead>
+            <tr>
+                <th scope="col">Agency Name</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Monday</th>
+                <th scope="col">Tuesday</th>
+                <th scope="col">Wednesday</th>
+                <th scope="col">Thursday</th>
+                <th scope="col">Friday</th>
+                <th scope="col">Saturday</th>
+                <th scope="col">Sunday</th>
+                <th scope="col">Overtime</th>
+                <th scope="col">Accept/Reject</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="timesheet: ${timesheets}">
+                <td data-label="Agency Name" th:text="${timesheet.agency_contractor_id.agencyId.agencyName}">Default
+                </td>
+                <td data-label="Start Date" th:text="${timesheet.start_date}">Default</td>
+                <td data-label="First Name" th:text="${timesheet.agency_contractor_id.contractorId.firstName}">Default
+                </td>
+                <td data-label="Last Name" th:text="${timesheet.agency_contractor_id.contractorId.lastName}">Default
+                </td>
+                <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
+                <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>
+                <td data-label="Wednesday" th:text="${timesheet.wednesday_worked}">X</td>
+                <td data-label="Thursday" th:text="${timesheet.thursday_worked}">X</td>
+                <td data-label="Friday" th:text="${timesheet.friday_worked}">X</td>
+                <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
+                <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
+                <td data-label="Overtime" th:text="${timesheet.overtime}">X</td>
+                <td data-label="Accept/Reject">
+                    <div class="btn-group" role="group">
+                        <form action="#"
+                              th:action="@{manager/accept}" method="post">
+                            <input hidden
+                                   type="number"
+                                   th:name="timesheet_id"
+                                   th:id="timesheet_id"
+                                   th:value="${timesheet.timesheet_id}">
+                            <button type="submit"
+                                    class="btn btn-success">Y
+                            </button>
+                        </form>
+=======
             <div class="row">
 <!--                <p>Test Column Nav</p>-->
             </div>
@@ -58,20 +117,23 @@
                                                 <button type="submit"
                                                         class="btn btn-success">Y</button>
                                             </form>
+>>>>>>> develop
 
-                                            <button type="button"
-                                                    class="btn btn-danger"
-                                                    data-toggle="modal"
-                                                    data-target="#notesModal"
-                                                    th:data-id="${timesheet.timesheet_id}">N</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-            </div>
+                        <button type="button"
+                                class="btn btn-danger"
+                                data-toggle="modal"
+                                data-target="#notesModal"
+                                th:data-id="${timesheet.timesheet_id}">N
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <!-- Modal -->
-    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -83,34 +145,42 @@
                 <form action="#" th:action="@{manager/addNotes}" th:object="${note}" method="post">
                     <div class="modal-body">
 
-                            <div class="form-group">
-                                <label class="col-form-label" th:for="notes">Notes:</label>
+                        <div class="form-group">
+                            <label class="col-form-label" th:for="notes">Notes:</label>
 
-<!--                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>-->
+                            <!--                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>-->
 
-                                <select class="row form-control" th:field="*{notes}">
-                                    <option th:each="i : ${rejectOptions}" th:value="${i}" th:text="${i}">
-                                    </option>
-                                </select>
+                            <select class="row form-control" th:field="*{notes}">
+                                <option th:each="i : ${rejectOptions}" th:value="${i}" th:text="${i}">
+                                </option>
+                            </select>
 
-                                <div class="alert alert-danger"
-                                     th:errors="*{notes}"
-                                     th:if="${#fields.hasErrors('notes')}">
-                                    Notes Error
-                                </div>
+                            <div class="alert alert-danger"
+                                 th:errors="*{notes}"
+                                 th:if="${#fields.hasErrors('notes')}">
+                                Notes Error
+                            </div>
 
+<<<<<<< HEAD
+                            <input hidden type="number" class="form-control" th:name="timesheet_id"
+                                   th:id="timesheet_id">
+
+                        </div>
+=======
                                 <input hidden type="number" class="form-control" th:name="timesheet_id" th:id="timesheet_id">
                                 <input
                                         th:name="${_csrf.parameterName}"
                                         th:value="${_csrf.token}"
                                         type="hidden"/>
                             </div>
+>>>>>>> develop
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" id="submit"
-                                class="btn btn-primary">Save changes</button>
+                        <button type="submit" id="submitNotes" th:id="submitNotes"
+                                class="btn btn-primary">Save changes
+                        </button>
                     </div>
                 </form>
             </div>
@@ -118,17 +188,37 @@
     </div>
 
 </main>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#notesModal").on('shown.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var id = button.data('id') // Extract info from data-* attributes
             $('input[name = timesheet_id]').val(id)
         })
     })
+
+    $(document).ready(function () {
+        $("#submitNotes").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8000/send",
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify({
+                    //To_addresss needs to be changed so that it takes in the contractors email
+                    "to_address": "edge14031985@gmail.com",
+                    //Subject needs to be generic timesheet receipt
+                    "subject": "Time sheet rejected - subject",
+                    //body needs to return a generic thankyou and also a copy of the time sheet
+                    "body": "Dear Contrctor, Your time sheet was not approved due to not working on the bank holiday - body"
+                })
+            });
+        });
+    });
 
 </script>
 
