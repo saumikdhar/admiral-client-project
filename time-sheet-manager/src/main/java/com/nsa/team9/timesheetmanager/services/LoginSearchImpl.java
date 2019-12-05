@@ -26,10 +26,6 @@ public class LoginSearchImpl  implements LoginSearch{
         loginRepository.equals(login);
     }
 
-    @Override
-    public void createLogin(Login login) {
-
-    }
 
     @Override
     public Optional<Login> findById(Long loginId){
@@ -47,4 +43,9 @@ public class LoginSearchImpl  implements LoginSearch{
     }
 
 
+    @Transactional
+    @Override
+    public void createLogin(Login aLogin) {
+        loginRepository.save(aLogin);
+    }
 }

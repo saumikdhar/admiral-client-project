@@ -25,4 +25,8 @@ public interface AdminRepository {
 
     /*finds all contractors and managers assigned to them*/
     public List<ContractorProjection> findAllContractorsAndManagersAssociated();
+
+    /*inserts/save into data base*/
+    public Admin save(Admin aAdmin);
+
 }
