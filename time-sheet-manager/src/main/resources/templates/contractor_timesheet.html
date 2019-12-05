@@ -21,7 +21,7 @@
                            class="form-control"
                            placeholder="Start date"
                            type="date" id="e"
-                           th:field="*{start_date}" />
+                           th:field="*{start_date}" required/>
 
                 </div>
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('start_date')}" th:errors="*{start_date}">
