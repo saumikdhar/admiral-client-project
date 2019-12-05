@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -74,17 +76,17 @@ public class ContractorController {
 
 
         Optional<TimeSheet> timeSheets2 = TimeSheetValidation.CheckIfTimeSheetExists(TimeSheet.getStart_date());
+        System.out.println(timeSheets2);
         model.addAttribute("timesheets2", timeSheets2);
 
         //this checks if the start date thats entered exists within the timesheet2 list
         if(!timeSheets2.isPresent()){
             TimeSheetCreator.createTimeSheet(t);
         } else {
-            return "contractor_timesheet";
+            model.addAttribute("TimeSheet", TimeSheet);
+            return "duplicate_timesheet";
         }
         System.out.println("saved timesheet " + t.toString());
         return "timesheet_confirmation";
     }
-
-
 }
