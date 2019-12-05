@@ -8,7 +8,7 @@
 </head>
 <div th:replace="fragments/header :: navbar-admin"></div>
 <style> body{background-color:rgb(242,247,252);} .box{background-color:rgb(242,247,252); }
-}</style>
+</style>
 
 <body>
 <main role="main" class="box">
@@ -23,13 +23,13 @@
                 <div class="form-inline">
                 <div class="field-wrap">
                 <div class="margin-right-ten">
-                    <input type="text" class="form-control mr-sm-2" placeholder="First Name" required/>
+                    <input type="text" th:field="*{firstName}" class="form-control mr-sm-2" placeholder="First Name" required/>
                 </div>
             </div>
 
                 <div class="field-wrap">
                 <div class="margin-right-ten">
-                    <input type="text" class="form-control mr-sm-2" placeholder="Last Name" required/>
+                    <input type="text" th:field="*{lastName}" class="form-control mr-sm-2" placeholder="Last Name" required/>
                 </div>
                 </div>
             </div>
@@ -52,14 +52,8 @@
                 </div>
 
                 <div class="field-wrap">
-                    <select th:field="*{AccessLevel}" class="form-control mr-sm-2"required onchange="if (this.value=='2')
-                    {this.form['manager'].style.visibility='visible'; this.form['manager'].required=true;
-                    this.form['agency'].required=true;this.form['agency'].style.visibility='visible'}
-                    else
-                        {this.form['manager'].style.visibility='hidden';this.form['manager'].required=false;
-                        this.form['agency'].style.visibility='hidden';this.form['agency'].required=false};">
+                    <select onclick="javascript:hideorshowcontracotrfeatures()" th:field="*{AccessLevel}" class="form-control mr-sm-2" id ="role" required>
                         <option value="" selected disabled>Select account type</option>
-                        <option th:value="0">Admin</option>
                         <option th:value="1">Manager</option>
                         <option th:value="2">Contractor</option>
                     </select>
@@ -67,7 +61,7 @@
 
 
                 <div class="field-wrap">
-                    <select name="manager" style="visibility:hidden;" class="form-control mr-sm-2">
+                    <select id="manager" name="manager" th:field="*{managerId}" style="display:none;" class="form-control mr-sm-2">
                         <option value="" selected disabled>Select Manager</option>
                         <option th:each="manager: ${managers}" th:value="${manager.id}" th:text="${manager.firstName + ' ' + manager.lastName}"></option>
                     </select>
@@ -75,7 +69,7 @@
 
 
                 <div class="field-wrap">
-                    <select name="agency" style="visibility:hidden;" class="form-control mr-sm-2">
+                    <select id="agency" name="agency" th:field="*{agencyId}" style="display:none;" class="form-control mr-sm-2">
                         <option value="" selected disabled>Select Agency</option>
                         <option th:each="agency: ${agencies}" th:value="${agency.id}" th:text="${agency.agencyName}"></option>
                     </select>
@@ -91,5 +85,25 @@
 </main>
 <div th:replace="fragments/footer :: footer">
 </div>
+
+<script>
+
+    function hideorshowcontracotrfeatures() {
+        var e = document.getElementById('role');
+        var strUser = e.options[e.selectedIndex].value;
+        if (strUser == 2 ){
+            document.getElementById('agency').style.display = 'block';
+            document.getElementById('manager').style.display = 'block';
+            document.getElementById('manager').style.required = true;
+            document.getElementById('agency').style.required = true;
+        }else{
+            document.getElementById('agency').style.display = 'none';
+            document.getElementById('manager').style.display = 'none';
+            document.getElementById("manager").style.required = false;
+            document.getElementById("agency").style.required = false;
+        }
+    }
+    
+</script>
 </body>
 </html>

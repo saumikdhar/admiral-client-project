@@ -24,7 +24,7 @@ public class Manager {
     @Column(name = "manager_last_name")
     private String lastName;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "login_id")
     private Login login;
 }

@@ -18,7 +18,7 @@ public class Admin{
     @Column(name = "admin_id")
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "login_id")
     private Login login;
 

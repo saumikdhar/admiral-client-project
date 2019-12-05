@@ -91,40 +91,44 @@ public class AdminController {
             return "adminCreateAccount";
         }
 
-        Login l = new Login(
+        Login L = new Login(
                 null,
                 account.getEmailAddress(),
                 account.getPassword(),
                 account.getAccessLevel()
         );
-        loginSearch.createLogin(l);
-        LOG.debug("created login " + l);
-
+        loginSearch.createLogin(L);
+        LOG.debug("created login " + L);
         if (account.getAccessLevel() == 0){
-            Admin a = new Admin(null, l, account.getFirstName(), account.getLastName());
+            Admin a = new Admin(null, L, account.getFirstName(), account.getLastName());
             adminSearch.createAdmin(a);
             LOG.debug("created admin account " + a);
         }
 
         if (account.getAccessLevel() == 1){
-            Manager m = new Manager(null, account.getFirstName(), account.getLastName(), l);
+            System.out.println("LOGIN IS " + L);
+            Manager m = new Manager(null, account.getFirstName(), account.getLastName(), L);
             managerSearch.createManager(m);
-            LOG.debug("created manager account " + m);
+            System.out.println("created manager account " + m);
         }
 
 
         if (account.getAccessLevel() == 2){
-//            Contractor c = new Contractor(
-//                    null,
-//                    account.getFirstName(),
-//                    account.getLastName(),
-//                    l,
-//                    m,
-//                    a
-//            );
+            System.out.println("MANAGER ID IS " + account.getManagerId());
+            Manager m = new Manager(account.getManagerId(), "n/a", "n/a", null);
+            Agency a = new Agency(account.getAgencyId(), "n/a");
+            System.out.println("LOGIN IS " + L);
+            Contractor c = new Contractor(
+                    null,
+                    account.getFirstName(),
+                    account.getLastName(),
+                    L,
+                    m,
+                    a
+            );
 
-//            contractorSearch.createContractor(c);
+            contractorSearch.createContractor(c);
         }
-        return "adminCreateAccount";
+        return "redirect:";
     }
 }

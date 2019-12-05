@@ -261,4 +261,5 @@ INSERT INTO timesheets (contractor_id, monday_worked, tuesday_worked, wednesday_
 # INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (19,'2019-04-30','pending',40,False,False,False,False,False,False);
 # INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (14,'2019-04-12','pending',6,False,False,False,False,False,False);
 # INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-03-14','pending',12,False,False,False,False,False,False);
-SELECT * from logins;
+SELECT * from contractors JOIN agencies a ON contractors.agency_id = a.agency_id JOIN managers m ON contractors.manager_id = m.manager_id;
+SELECT * FROM managers JOIN logins l ON managers.login_id = l.login_id;
