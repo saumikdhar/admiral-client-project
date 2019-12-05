@@ -17,7 +17,7 @@
 
     <div id=missingTimesheetMessage th:if="${#lists.isEmpty(agencies)}">
         <div class="container">
-            <h4 th:text="${'No time sheets found' }"></h4>
+            <h4 th:text="${'No contractors found' }"></h4>
         </div>
     </div>
     <div id=timesheetListContainer th:if="${not #lists.isEmpty(agencies)}">

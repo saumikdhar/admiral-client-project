@@ -284,3 +284,4 @@ INSERT INTO timesheets (contractor_id, monday_worked, tuesday_worked, wednesday_
 # INSERT INTO timesheets (overtime,start_date,status,agency_contractor_id,monday_worked,tuesday_worked,wednesday_worked,friday_worked,saturday_worked,sunday_worked) VALUES (12,'2019-03-14','pending',12,False,False,False,False,False,False);
 SELECT * FROM timesheets JOIN contractors c ON timesheets.contractor_id = c.contractor_id JOIN managers m ON c.manager_id = m.manager_id
 SELECT * FROM agencies join contractors c ON agencies.agency_id = c.agency_id JOIN managers m ON c.manager_id = m.manager_id;
+select *  from managers;
