@@ -1,5 +1,7 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
+import com.nsa.team9.timesheetmanager.domain.constraints.ExtendedEmailValidator;
+import com.nsa.team9.timesheetmanager.domain.constraints.UniqueEmail;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,11 +13,9 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginForm {
-    @NotNull
-    @Email
+
     private String email;
 
-    @NotNull
     private String password;
 
 }
