@@ -150,6 +150,10 @@ h1, h2, h3, h4{
   font-weight: 300;
 }
 
+.custom-margin{
+  margin-top: 55px;
+}
+
 /*  link colours for classes*/
 a {
     color: Black;
@@ -375,8 +379,21 @@ form {
   margin-right: 40px;
 }
 
-
 /*end custom margin */
+
+
+/*content hub css*/
+
+.content .hub{
+  margin-top: 55px;
+}
+
+/*end*/
+
+/* alert message font size*/
+.alert-danger{
+  font-size: 14px;
+}
 
 
 /*media content*/

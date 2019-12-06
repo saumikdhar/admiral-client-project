@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create account</title>
+</head>
+<head th:replace="fragments/header :: head">
+</head>
+<div th:replace="fragments/header :: navbar-admin"></div>
+<style> body{background-color:rgb(242,247,252);} .box{background-color:rgb(242,247,252); }
+</style>
+
+<body>
+<main role="main" class="box">
+
+    <div class="form">
+        <div class="tab-group">
+            <div class="title">
+                Create a Account
+            </div>
+            <form th:action="@{/admin/create-account/details}" METHOD="post" th:object="${account}">
+
+                <div class="form-inline">
+                <div class="field-wrap">
+                <div class="margin-right-ten">
+                    <label>First Name</label>
+                    <input type="text" th:field="*{firstName}" class="form-control mr-sm-2" placeholder="First Name" required/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                    </div>
+
+                </div>
+            </div>
+
+                <div class="field-wrap">
+                <div class="margin-right-ten">
+                    <label>Last Name</label>
+                    <input type="text" th:field="*{lastName}" class="form-control mr-sm-2" placeholder="Last Name" required/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                    </div>
+
+                </div>
+                </div>
+            </div>
+
+                <div class="field-wrap">
+                    <div class="margin-right-ten">
+                        <label>Email address</label>
+                        <input type="text" class="form-control mr-sm-2" th:field="*{emailAddress}"  placeholder="Email Address" required/>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="field-wrap">
+                    <div class="margin-right-ten">
+                        <label>Password</label>
+                        <input type="password" th:field="*{password}" class="form-control mr-sm-2" placeholder="Password" required/>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                    </div>
+                </div>
+
+                <div class="field-wrap">
+                    <select onclick="javascript:hideorshowcontracotrfeatures()" th:field="*{AccessLevel}" class="form-control mr-sm-2" id ="role" required>
+                        <label>Select Account Type</label>
+                        <option value="" selected disabled>Select account type</option>
+                        <option th:value="1">Manager</option>
+                        <option th:value="0">Contractor</option>
+                    </select>
+                </div>
+
+
+                <div class="field-wrap">
+                    <select id="manager" name="manager" th:field="*{managerId}" style="display:none;" class="form-control mr-sm-2">
+                        <label>Assign A Manager</label>
+                        <option value="" selected disabled>Select Manager</option>
+                        <option th:each="manager: ${managers}" th:value="${manager.id}" th:text="${manager.firstName + ' ' + manager.lastName}"></option>
+                    </select>
+                </div>
+
+
+                <div class="field-wrap">
+                    <select id="agency" name="agency" th:field="*{agencyId}" style="display:none;" class="form-control mr-sm-2">
+                        <label>Assign a Agency</label>
+                        <option value="" selected disabled>Select Agency</option>
+                        <option th:each="agency: ${agencies}" th:value="${agency.id}" th:text="${agency.agencyName}"></option>
+                    </select>
+                </div>
+
+
+                <button class="btn btn-success" name="submit" type="Submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+
+</main>
+<div th:replace="fragments/footer :: footer">
+</div>
+
+<script>
+
+    function hideorshowcontracotrfeatures() {
+        var e = document.getElementById('role');
+        var strUser = e.options[e.selectedIndex].value;
+        if (strUser == 0 ){
+            document.getElementById('agency').style.display = 'block';
+            document.getElementById('manager').style.display = 'block';
+            document.getElementById('manager').style.required = true;
+            document.getElementById('agency').style.required = true;
+        }else{
+            document.getElementById('agency').style.display = 'none';
+            document.getElementById('manager').style.display = 'none';
+            document.getElementById("manager").style.required = false;
+            document.getElementById("agency").style.required = false;
+        }
+    }
+    
+</script>
+</body>
+</html>

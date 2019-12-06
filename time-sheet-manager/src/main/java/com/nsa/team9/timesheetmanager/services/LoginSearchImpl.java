@@ -33,11 +33,6 @@ public class LoginSearchImpl  implements LoginSearch{
     }
 
     @Override
-    public List<Login> findAllLoginEmails() {
-        return null;
-    }
-
-    @Override
     public Optional<Login> getLoginByEmail(String email) {
         return loginRepository.getLoginByEmail(email);
     }
@@ -47,5 +42,10 @@ public class LoginSearchImpl  implements LoginSearch{
     @Override
     public void createLogin(Login aLogin) {
         loginRepository.save(aLogin);
+    }
+
+    @Override
+    public Optional<Login> findEmailExists(String email) {
+        return loginRepository.findEmailExists(email);
     }
 }

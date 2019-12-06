@@ -100,7 +100,7 @@ public class AdminController {
         );
         loginSearch.createLogin(L);
         LOG.debug("created login " + L);
-        if (account.getAccessLevel() == 0){
+        if (account.getAccessLevel() == 2){
             Admin a = new Admin(null, L, account.getFirstName(), account.getLastName());
             adminSearch.createAdmin(a);
             LOG.debug("created admin account " + a);
@@ -114,7 +114,7 @@ public class AdminController {
         }
 
 
-        if (account.getAccessLevel() == 2){
+        if (account.getAccessLevel() == 0){
             System.out.println("MANAGER ID IS " + account.getManagerId());
             Manager m = new Manager(account.getManagerId(), "n/a", "n/a", null);
             Agency a = new Agency(account.getAgencyId(), "n/a");

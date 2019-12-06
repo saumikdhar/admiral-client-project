@@ -9,11 +9,12 @@ public interface LoginSearch {
 
     public Optional<Login> findById(Long id);
 
-    public List<Login> findAllLoginEmails();
-
     public Optional<Login> getLoginByEmail(String email);
 
     /*creates a login account*/
     public void createLogin(Login aLogin);
+
+    /*finds all be email*/
+    public Optional<Login>findEmailExists(String email);
 
 }
