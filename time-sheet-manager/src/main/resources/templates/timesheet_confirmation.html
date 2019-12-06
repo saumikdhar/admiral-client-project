@@ -52,7 +52,9 @@
     }
 
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 <script type="text/javascript">
     //Post request which starts the emailing process once the time sheet confirmation page reloads
 
@@ -67,7 +69,7 @@
                 //Subject needs to be generic timesheet receipt
                 "subject": "Time sheet receipt - subject",
                 //body needs to return a generic thankyou and also a copy of the time sheet
-                "body": "Thankyou for submitting your time sheet - body"
+                "body": "Thank you for submitting your time sheet - body"
                 // also need to trigger secondary email which sends to a manager a notification saying contractor has submitted time sheet
             })
         });

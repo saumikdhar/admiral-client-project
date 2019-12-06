@@ -6,7 +6,7 @@ CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
 USE ManagingTimeSheets;
 
 CREATE TABLE IF NOT EXISTS logins
-(
+    (
     login_id     INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email        VARCHAR(150) NOT NULL,
     password     VARCHAR(250)  NOT NULL,
