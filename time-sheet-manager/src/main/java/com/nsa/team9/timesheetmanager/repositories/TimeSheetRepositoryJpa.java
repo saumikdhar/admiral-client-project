@@ -25,6 +25,7 @@ public interface TimeSheetRepositoryJpa extends JpaRepository<TimeSheet, Long>, 
     @Query(value = "update timesheets set status = :status where timesheet_id = :timesheetId", nativeQuery = true)
     void updateTimesheetStatus(@Param("status") String status, @Param("timesheetId") Long timesheetId);
 
-    @Query(value = "select * from timesheets where start_date = :startDate and status not like '%rejected%'", nativeQuery = true)
-    public Optional<TimeSheet> CheckIfTimeSheetExists(@Param("startDate") LocalDate startDate);
+    @Query(value = "select * from timesheets t join contractors c on t.contractor_id =" +
+            " c.contractor_id where start_date = :startDate and c.contractor_Id = :contractorId and status not like '%rejected%'", nativeQuery = true)
+    public Optional<TimeSheet> CheckIfTimeSheetExists(@Param("startDate") LocalDate startDate, @Param("contractorId") Long contractorId);
 }

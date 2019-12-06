@@ -17,5 +17,5 @@ public interface TimeSheetRespository {
     public void updateTimesheetStatus(String status, Long timesheetId);
 
     // find all timesheets with a agency contractor id, start date and status
-    public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate start_date);
+    public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate start_date, Long contractorId);
 }
