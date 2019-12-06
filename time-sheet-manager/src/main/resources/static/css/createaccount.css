@@ -1,4 +1,6 @@
 .tab-group {
+    text-align: center;
+    text-align: -webkit-center;
     list-style:none;
     background: #ffffff;
     padding: 40px;
@@ -35,6 +37,7 @@
     position:relative;
     margin-bottom:40px;
 }
+
 
 .top-row{
     margin-top: 55px;
