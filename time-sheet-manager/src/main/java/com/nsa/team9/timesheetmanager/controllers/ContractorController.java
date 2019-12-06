@@ -30,12 +30,15 @@ public class ContractorController {
     private TimeSheetSearch TimeSheetCreator ;
     private AgencySearchImpl agencySearch;
     private TimeSheetSearchImpl TimeSheetValidation;
+    private ContractorSearchImpl contractorSearch;
 
     public ContractorController(TimeSheetSearch aCreator,
-                                AgencySearchImpl aAgencyRepo, TimeSheetSearchImpl timeSheetValidation){
+                                AgencySearchImpl aAgencyRepo, TimeSheetSearchImpl timeSheetValidation,
+                                ContractorSearchImpl cRepo){
         TimeSheetCreator = aCreator;
         agencySearch = aAgencyRepo;
         TimeSheetValidation = timeSheetValidation;
+        contractorSearch = cRepo;
     }
 
 
@@ -65,12 +68,9 @@ public class ContractorController {
         //Get the logged in user
         MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
         LOG.debug("The principal is " + principal);
-//        Contractor c = contractorSearch.findContractorByEmail(principal.getUser().getEmail()).get();
-//        System.out.println(c);
-        Login l = new Login(24L,"quis.arcu.vel@augueporttitor.org","Quisque",1);
-        Manager m = new Manager(2L,"Felix","Shaffer",l);
-        Agency a = agencyContractorForm.getAgency_id();
-        Contractor c = new Contractor(2L, "na", "na", l,m,a);
+        Contractor c = contractorSearch.findContractorByEmail(principal.getUser().getEmail()).get();
+        System.out.println(c);
+
 
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
