@@ -13,5 +13,5 @@ public interface TimeSheetSearch {
     public void createTimeSheet(TimeSheet aTimeSheet);
     public void updateTimesheetStatus(String status, Long timesheetId);
 
-    public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate start_date);
+    public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate start_date, Long contractorId);
 }

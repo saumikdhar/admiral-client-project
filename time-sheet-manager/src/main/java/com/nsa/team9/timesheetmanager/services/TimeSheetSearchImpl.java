@@ -37,7 +37,7 @@ public class TimeSheetSearchImpl implements TimeSheetSearch {
     }
 
     @Override
-    public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate startDate){
-        return timeSheetRepository.CheckIfTimeSheetExists(startDate);
+    public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate startDate, Long contractorId){
+        return timeSheetRepository.CheckIfTimeSheetExists(startDate,contractorId);
     }
 }

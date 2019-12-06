@@ -92,7 +92,7 @@ public class ContractorController {
                 "pending",c);
 
 
-        Optional<TimeSheet> timeSheets2 = TimeSheetValidation.CheckIfTimeSheetExists(TimeSheet.getStart_date());
+        Optional<TimeSheet> timeSheets2 = TimeSheetValidation.CheckIfTimeSheetExists(TimeSheet.getStart_date(),c.getId());
         System.out.println(timeSheets2);
         model.addAttribute("timesheets2", timeSheets2);
 
