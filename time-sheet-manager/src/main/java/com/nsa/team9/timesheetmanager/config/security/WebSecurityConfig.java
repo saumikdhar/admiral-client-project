@@ -78,7 +78,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .exceptionHandling().accessDeniedPage("/403")
             .and()
             .csrf()
-            .ignoringAntMatchers("/h2-console/**", "/send")
+            .ignoringAntMatchers("/h2-console/**")
     ;
 
     http.headers().frameOptions().disable();
