@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Service
 @SessionAttributes({"agencies"})
@@ -28,15 +29,13 @@ public class ContractorController {
 
     private TimeSheetSearch TimeSheetCreator ;
     private AgencySearchImpl agencySearch;
-    private ContractorSearchImpl contractorSearch;
-
+    private TimeSheetSearchImpl TimeSheetValidation;
 
     public ContractorController(TimeSheetSearch aCreator,
-                                AgencySearchImpl aAgencyRepo,
-                                ContractorSearchImpl aContractorSearch){
+                                AgencySearchImpl aAgencyRepo, TimeSheetSearchImpl timeSheetValidation){
         TimeSheetCreator = aCreator;
         agencySearch = aAgencyRepo;
-        contractorSearch = aContractorSearch;
+        TimeSheetValidation = timeSheetValidation;
     }
 
 
@@ -66,11 +65,12 @@ public class ContractorController {
         //Get the logged in user
         MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
         LOG.debug("The principal is " + principal);
-        Contractor c = contractorSearch.findContractorByEmail(principal.getUser().getEmail()).get();
-
-//        Login l = new Login(2L,"quis.arcu.vel@augueporttitor.org","Quisque",1);
-//        Manager m = new Manager(2L,"Felix","Shaffer",l);
+//        Contractor c = contractorSearch.findContractorByEmail(principal.getUser().getEmail()).get();
+//        System.out.println(c);
+        Login l = new Login(24L,"quis.arcu.vel@augueporttitor.org","Quisque",1);
+        Manager m = new Manager(2L,"Felix","Shaffer",l);
         Agency a = agencyContractorForm.getAgency_id();
+        Contractor c = new Contractor(2L, "na", "na", l,m,a);
 
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
@@ -79,7 +79,6 @@ public class ContractorController {
             return "contractor_timesheet";
         }
         TimeSheet t = new TimeSheet(
-                c,
                 null,
                 TimeSheet.getMonday_worked(),
                 TimeSheet.getTuesday_worked(),
@@ -90,19 +89,27 @@ public class ContractorController {
                 TimeSheet.getSunday_worked(),
                 TimeSheet.getOvertime(),
                 TimeSheet.getStart_date(),
-                "pending");
+                "pending",c);
 
+
+        Optional<TimeSheet> timeSheets2 = TimeSheetValidation.CheckIfTimeSheetExists(TimeSheet.getStart_date());
+        System.out.println(timeSheets2);
+        model.addAttribute("timesheets2", timeSheets2);
+
+        //this checks if the start date thats entered exists within the timesheet2 list
+        if(!timeSheets2.isPresent()){
+            TimeSheetCreator.createTimeSheet(t);
+        } else {
+            model.addAttribute("TimeSheet", TimeSheet);
+            return "duplicate_timesheet";
+        }
         System.out.println("saved timesheet " + t.toString());
-        TimeSheetCreator.createTimeSheet(t);
 
         //invalidate session without removing login
         status.setComplete();
         session.removeAttribute("agencies");
 
-        return "timesheet_confirmation";
-
         //Code here to get the post request running when page is returned
+        return "timesheet_confirmation";
     }
-
-
 }

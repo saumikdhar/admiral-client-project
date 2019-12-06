@@ -36,6 +36,10 @@
     margin-bottom:40px;
 }
 
+.top-row{
+    margin-top: 55px;
+}
+
 .top-row:after {
      content: "";
      display: table;

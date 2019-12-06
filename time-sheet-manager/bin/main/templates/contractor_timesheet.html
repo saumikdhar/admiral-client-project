@@ -10,9 +10,10 @@
 <h5>Contractor TimeSheet</h5>
 <div class = "box">
 <form class="box" th:action="TimeSheetDetails" id="TimeSheet1" METHOD="post" th:object="${TimeSheet}" >
+    <div class="custom-margin box">
     <div class="row">
-        <div class="form-control">
-        <div class="input-group form-control align-items-center">
+        <div class="form-control row">
+        <div class="input-group">
             <label>Start Date</label>
             <div class="input-group">
                 <div class="input-group">
@@ -20,7 +21,7 @@
                            class="form-control"
                            placeholder="Start date"
                            type="date" id="e"
-                           th:field="*{start_date}" />
+                           th:field="*{start_date}" required/>
 
                 </div>
                 <div class="alert alert-danger" th:if="${#fields.hasErrors('start_date')}" th:errors="*{start_date}">
@@ -133,7 +134,7 @@
 
         </fieldset>
 
-        <div class="input-group form-control">
+        <div class="input-group">
             <label>Overtime</label>
             <div class="input-group">
             <input
@@ -155,9 +156,9 @@
 
         <button  class="btn btn-primary"  id="time_sheet_submit" type="submit">Submit time sheet</button>
     </div>
-
+    </div>
+    </div>
 </form>
-</div>
 
 
 <div th:replace="fragments/footer :: footer">
