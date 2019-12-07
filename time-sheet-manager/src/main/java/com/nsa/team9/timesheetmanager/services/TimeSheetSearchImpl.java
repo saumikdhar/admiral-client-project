@@ -40,4 +40,9 @@ public class TimeSheetSearchImpl implements TimeSheetSearch {
     public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate startDate, Long contractorId){
         return timeSheetRepository.CheckIfTimeSheetExists(startDate,contractorId);
     }
+
+    @Override
+    public List<TimeSheet> getTimeSheetsByContractor(Long contractorId){
+        return timeSheetRepository.getTimeSheetsByContractor(contractorId);
+    }
 }

@@ -18,4 +18,7 @@ public interface TimeSheetRespository {
 
     // find all timesheets with a agency contractor id, start date and status
     public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate start_date, Long contractorId);
+
+    // find all timesheets created for that specific contractor
+    public List<TimeSheet> getTimeSheetsByContractor(Long contractorId);
 }
