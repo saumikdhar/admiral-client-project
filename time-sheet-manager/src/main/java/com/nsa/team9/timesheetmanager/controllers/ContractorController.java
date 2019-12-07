@@ -119,9 +119,10 @@ public class ContractorController {
 
         MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
         Contractor c = contractorSearch.findContractorByEmail(principal.getUser().getEmail()).get();
-        
+
         List<TimeSheet> previousTimesheet = TimeSheetValidation.getTimeSheetsByContractor(c.getId());
         model.addAttribute("previousTimesheet", previousTimesheet);
+
         return "contractor_previous_timesheets";
     }
 }
