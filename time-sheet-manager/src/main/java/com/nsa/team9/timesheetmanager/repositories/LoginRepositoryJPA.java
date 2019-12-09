@@ -15,4 +15,7 @@ public interface LoginRepositoryJPA extends JpaRepository<Login, Long>, LoginRep
 
     @Query(value = "select l.email from Login l where l.email = :email ")
     public Optional<Login> findEmailExists(@Param("email") String email);
+
+    @Query(value = "select l.password from Login l where l.id = :loginId")
+    public String findPasswordMatches(@Param("loginId") Long loginId);
 }
