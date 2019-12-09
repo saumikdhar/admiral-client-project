@@ -1,23 +1,23 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
-import com.nsa.team9.timesheetmanager.domain.*;
+import com.nsa.team9.timesheetmanager.domain.Agency;
+import com.nsa.team9.timesheetmanager.domain.Contractor;
+import com.nsa.team9.timesheetmanager.domain.TimeSheet;
 import com.nsa.team9.timesheetmanager.services.AgencySearchImpl;
+import com.nsa.team9.timesheetmanager.services.ContractorSearchImpl;
 import com.nsa.team9.timesheetmanager.services.TimeSheetSearch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import com.nsa.team9.timesheetmanager.services.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -48,6 +48,15 @@ public class ContractorController {
         model.addAttribute("agencycontractor", new AgencyContractorForm());
         return "contractor_timesheet";
     }
+
+//    //Mapping for timeSheetHistory so contractor can view past and current timesheets
+//    @GetMapping("/TimeSheetHistory")
+//    public String ReturnTimeSheetHistory(Model model){
+//        model.addAttribute("TimeSheet", new TimeSheetForm());
+//        model.addAttribute("agencycontractor", new AgencyContractorForm());
+//        return "timeSheetHistory";
+//    }
+
 
     @Value("${gmail.username}")
     private String username;
@@ -101,8 +110,8 @@ public class ContractorController {
 
         return "timesheet_confirmation";
 
+
         //Code here to get the post request running when page is returned
     }
-
 
 }

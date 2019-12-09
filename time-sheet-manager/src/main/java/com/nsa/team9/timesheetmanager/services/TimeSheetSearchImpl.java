@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -32,5 +33,15 @@ public class TimeSheetSearchImpl implements TimeSheetSearch {
     @Override
     public void updateTimesheetStatus(String status, Long timesheetId) {
         timeSheetRepository.updateTimesheetStatus(status, timesheetId);
+    }
+
+    @Override
+    public List<TimeSheet> getAllTimeSheetsByManager(String lastName, String firstName) {
+        return timeSheetRepository.getAllTimeSheetsByManager(lastName, firstName);
+    }
+
+    @Override
+    public List<TimeSheet> getAllTimeSheetsByManagerAndDate(String lastName, String firstName, LocalDate dateFrom, LocalDate dateTo) {
+        return timeSheetRepository.getAllTimeSheetsByManagerAndDate(lastName, firstName, dateFrom, dateTo);
     }
 }

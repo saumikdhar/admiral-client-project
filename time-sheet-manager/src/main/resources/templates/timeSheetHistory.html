@@ -11,7 +11,7 @@
     <!--        <span class="slider round"></span>-->
     <!--    </label>-->
     <div class="form-inline">
-        <form action="/admin/timesheets/date" th:object="${dateContainer}">
+        <form action="/manager/history/date" th:object="${dateContainer}">
             <div class="margin-right-ten">
                 <input type="date" class="form-control mr-sm-2" th:field="*{dateFrom}" placeholder="Start Date"/>
             </div>
@@ -37,12 +37,6 @@
             <input type="text" class="form-control" th:placeholder="*{'Filter: ' + dateFrom + ' to ' + dateTo}" disabled/>
         </div>
     </div>
-    <!--    <div class="custom-container">-->
-    <!--        <form class="search-form">-->
-    <!--            <input type="text" class="search">-->
-    <!--            <span class="counter"></span>-->
-    <!--        </form>-->
-    <!--    </div>-->
 
     <div id=missingTimesheetMessage th:if="${#lists.isEmpty(timesheets)}">
         <div class="container">
@@ -66,8 +60,8 @@
                     <th scope="col">Friday</th>
                     <th scope="col">Saturday</th>
                     <th scope="col">Sunday</th>
+                    <th scope="col">Overtime</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Manager Name</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -82,8 +76,8 @@
                     <td data-label="Friday" th:text="${timesheet.friday_worked}">X</td>
                     <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
                     <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
+                    <td data-label="Overtime" th:text="${timesheet.overtime}">X</td>
                     <td data-label="Status" th:text="${timesheet.status}"><span style="color: green"></span></td>
-                    <td data-label="Manager Name" th:text="${timesheet.getContractorId().getManager().getFirstName()} + ' ' + ${timesheet.getContractorId().getManager().getLastName()}"></td>
                 </tr>
                 </tbody>
             </table>

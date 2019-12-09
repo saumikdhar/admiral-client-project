@@ -46,6 +46,14 @@ public class AdminController {
     return "adminshowtimesheets";
     }
 
+//    /*Map to timeSheetHistory page*/
+//    @GetMapping("/timesheets/history")
+//    public String showtimesheethistory(Model model, DateContainer dateContainer){
+//        List<TimeSheet> timesheets = adminSearch.getAllTimeSheets();
+//        model.addAttribute("timesheets", timesheets);
+//        return "timeSheetHistory";
+//    }
+
     /*map to admin page with date range filter*/
     @RequestMapping("/timesheets/date")
     public String findTimeSheetsByDate(Model model, DateContainer dateContainer){
@@ -54,6 +62,16 @@ public class AdminController {
         model.addAttribute("searchTerm", dateContainer);
         return "adminshowtimesheets";
     }
+
+//    /*map to timeSheetHistory page with date range filter*/
+//    @RequestMapping("/timesheets/date")
+//    public String findTimeSheetHistoryByDate(Model model, DateContainer dateContainer){
+//        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByDate(dateContainer.getDateFrom(), dateContainer.getDateTo());
+//        model.addAttribute("timesheets", timesheets);
+//        model.addAttribute("searchTerm", dateContainer);
+//        return "timeSheetHistory";
+//    }
+
 
     /*map to from admin page to assign manager page*/
     @GetMapping("/assign-manager")
