@@ -96,7 +96,7 @@ ul li ul:hover {
 .header .menu {
     clear: both;
     max-height: 0;
-    transition: max-height .2s ease-out;
+    transition: max-height .3s ease-out;
 }
 
 /* menu icon */
@@ -145,7 +145,7 @@ ul li ul:hover {
 }
 
 .header .menu-btn:checked ~ .menu {
-    max-height: 240px;
+    max-height: 1000px;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {

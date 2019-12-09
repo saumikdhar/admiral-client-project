@@ -1,5 +1,6 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
+import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
 import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
 import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.ContractorProjection;
@@ -7,16 +8,19 @@ import com.nsa.team9.timesheetmanager.services.*;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
 @Controller
+@SessionAttributes({"agencies","managers"})
 @RequestMapping("/admin")
 public class AdminController {
 
@@ -131,5 +135,15 @@ public class AdminController {
             System.out.println("created Contractor");
         }
         return "redirect:";
+    }
+
+    @GetMapping("/change-password")
+    public String showChangePasswordPage(Model model, Authentication authentication) {
+        //Get the logged in user
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+
+        model.addAttribute("changePassword", new ChangePasswordForm());
+
+        return "changePassword";
     }
 }

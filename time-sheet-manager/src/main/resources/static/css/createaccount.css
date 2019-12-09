@@ -84,3 +84,16 @@
 
 }
 
+@media screen and (max-width: 700px) {
+
+    .tab-group{
+        max-width: 700px;
+        padding: 20px;
+    }
+
+    .tab-group .title{
+        font-size: 25px;
+        padding: unset;
+    }
+
+}

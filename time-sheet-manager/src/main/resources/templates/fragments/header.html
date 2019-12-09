@@ -25,8 +25,8 @@
             <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
         </a>
 
-        <input class="menu-btn" type="checkbox" id="menu-btn4"/>
-        <label class="menu-icon" for="menu-btn4"><span class="navicon"></span></label>
+        <input class="menu-btn" type="checkbox" id="menu-btn6"/>
+        <label class="menu-icon" for="menu-btn6"><span class="navicon"></span></label>
         <ul class="menu">
             <li><a href="#" th:href="@{/login}">Sign out</a></li>
             <li><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></li>
@@ -43,9 +43,8 @@
         <a href="/" class="logo">
             <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
         </a>
-
         <input class="menu-btn" type="checkbox" id="menu-btn3"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <label class="menu-icon" for="menu-btn3"><span class="navicon"></span></label>
         <ul class="menu">
             <li><a href="#" th:href="@{/login}">Sign In</a></li>
         </ul>
@@ -67,7 +66,7 @@
             <li><a href="#">My Account</a>
               <ul class="dropdown">
                  <li>
-                     <a href="#">Change my password</a>
+                     <a href="/admin/change-password">Change my password</a>
                      <a href="#">Logout</a>
                  </li>
               </ul>
@@ -83,7 +82,7 @@
         </a>
 
         <input class="menu-btn" type="checkbox" id="menu-btn2"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <label class="menu-icon" for="menu-btn2"><span class="navicon"></span></label>
         <ul class="menu">
             <li><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></li>
             <li><a href="#" th:href="@{/logout}">Logout</a></li>
