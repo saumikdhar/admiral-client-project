@@ -22,20 +22,21 @@
 
                 <div class="top-row">
                 <div class="field-wrap">
-                <div class="margin-right-ten">
-                    <label>First Name</label>
-                    <input onblur="validatefirstname()" type="text" th:field="*{firstName}" class="form-control mr-sm-2" placeholder="First Name" id="firstname"required/>
-                    <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                    <div class="margin-right-ten">
+                        <label for="firstName" class="idleLabel">First Name</label>
+                         <input type="text" th:field="*{firstName}" onblur="validatefirstname()" class="form-control isRequired" id="firstname" name="firstName" required/>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}">
+                            <img class="warning-icon" th:src="@{/images/warning.jpg}" height="14" width="25" alt="warning" th:errors="*{firstName}"/>
+                        </div>
                     </div>
-
                 </div>
-            </div>
 
                 <div class="field-wrap">
                 <div class="margin-right-ten">
-                    <label>Last Name</label>
-                    <input type="text" onblur="validatlastname()" th:field="*{lastName}" class="form-control mr-sm-2" placeholder="Last Name" id="lastname" required/>
-                    <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                    <label for="lastName" class="idleLabel">Last Name</label>
+                    <input type="text" onblur="validatlastname()" th:field="*{lastName}" class="form-control mr-sm-2" name="lastName" id="lastname" required/>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}">
+                        <img class="warning-icon" th:src="@{/images/warning.jpg}" height="14" width="25" alt="warning" th:errors="*{lastName}"/>
                     </div>
 
                 </div>
@@ -44,9 +45,10 @@
 
                 <div class="field-wrap">
                     <div class="margin-right-ten">
-                        <label>Email address</label>
-                        <input type="text" class="form-control mr-sm-2" th:field="*{emailAddress}"  placeholder="Email Address" onblur="validateemail()" id="email" required/>
-                        <div class="alert alert-danger" th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">
+                        <label class="idleLabel" for="emailAddress">Email address</label>
+                        <input type="text" class="form-control mr-sm-2" th:field="*{emailAddress}"onblur="validateemail()" id="email" name="emailAddress" required/>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('emailAddress')}">
+                            <img class="warning-icon" th:src="@{/images/warning.jpg}" height="14" width="25" alt="warning" th:errors="*{emailAddress}"/>
                         </div>
 
                     </div>
@@ -55,16 +57,19 @@
 
                 <div class="field-wrap">
                     <div class="margin-right-ten">
-                        <label>Password</label>
-                        <input type="password" th:field="*{password}" class="form-control mr-sm-2" placeholder="Password" id="password" onblur="validatePassword()" required/>
-                        <div class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        <label class="idleLabel" for="password">Password</label>
+                        <input type="password" th:field="*{password}" class="form-control mr-sm-2" onblur="validatePassword()" id="password" name="newPassword" required/>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('password')}">
+                            <img class="warning-icon" th:src="@{/images/warning.jpg}" height="14" width="25" alt="warning" th:errors="*{password}"/>
+                        </div>
                     </div>
                 </div>
 
                 <div class="field-wrap">
+                    <label class="idleLabel" for="AccessLevel">Account Type</label>
                     <select onclick="javascript:hideorshowcontracotrfeatures()" th:field="*{AccessLevel}" class="form-control mr-sm-2" id ="role" required>
                         <label>Select Account Type</label>
-                        <option value="" selected disabled>Select account type</option>
+                        <option value="" selected></option>
                         <option th:value="1">Manager</option>
                         <option th:value="0">Contractor</option>
                     </select>
@@ -99,12 +104,12 @@
 <div th:replace="fragments/footer :: footer">
 </div>
 
-<script>
-
+<script type="text/javascript">
+/*javascript for colour validation for field inputs*/
     function hideorshowcontracotrfeatures() {
         var e = document.getElementById('role');
-        var strUser = e.options[e.selectedIndex].value;
-        if (strUser == 0 ){
+        var strUser = e.options[e.selectedIndex].text;
+        if (strUser == "Contractor" ){
             document.getElementById('agency').style.display = 'block';
             document.getElementById('manager').style.display = 'block';
             document.getElementById('manager').style.required = true;
@@ -122,7 +127,7 @@
         var regex = /^[a-zA-Z ]{2,30}$/;
 
         if (!regex.test(fn) || fn.trim().length == 0) {
-            // document.getElementById('firstname').style.borderColor = "red";
+            document.getElementById('firstname').style.borderColor = "red";
             document.getElementById('firstname').style.backgroundColor = "#FDD";
             return false;
         } else {
@@ -137,7 +142,7 @@
         var regex = /^[a-zA-Z ]{2,30}$/;
 
         if(!regex.test(fn) || fn.trim().length == 0){
-            // document.getElementById('lastname').style.borderColor = "red";
+            document.getElementById('lastname').style.borderColor = "red";
             document.getElementById('lastname').style.backgroundColor= "#FDD";
             return false;
         }else{
@@ -152,7 +157,7 @@
         var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if(!regex.test(fn) || fn.trim().length == 0){
-            // document.getElementById('email').style.borderColor = "red";
+            document.getElementById('email').style.borderColor = "red";
             document.getElementById('email').style.backgroundColor= "#FDD";
             return false;
         }else{
@@ -163,19 +168,64 @@
     }
 
     function validatePassword(){
-        var fn = document.getElementById('password').value;
+        var fn = document.getElementById('newpassword').value;
 
         if(fn.trim().length == 0){
-            document.getElementById('password').style.backgroundColor= "#FDD";
-            // document.getElementById('password').style.border= "#99ff99";
+            document.getElementById('newpassword').style.backgroundColor= "#FDD";
+            document.getElementById('password').style.border= "#99ff99";
 
             return false;
         }else{
         // document.getElementById('password').style.borderColor = "green";
-        document.getElementById('password').style.backgroundColor = "unset";
+        document.getElementById('newpassword').style.backgroundColor = "unset";
         return true;
     }
     }
+    </script>
+
+<script type="text/javascript" src = "http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"> </script>
+<script>
+
+$(document).ready(function(e) {
+    /*Java script for label transition*/
+    $('label').on('click', function(e) {
+        // If you click on the label we force-focus to the input
+        var input = $(this).attr('for');
+        $('input[name="' + input + '"]').focus();
+    });
+
+
+    $('input,textarea,select').on('focus', function(e) {
+        var input = $(this).attr('name');
+        $('label[for="' + input + '"]').removeClass('idleLabel').addClass('activeLabel');
+    }).on('blur', function(e) {
+        if (($(this).is('input,textarea') && $(this).val() == '') || ($(this).is('select') && $(this).val() == 0)) {
+            var input = $(this).attr('name');
+            $('label[for="' + input + '"]').removeClass('activeLabel').addClass('idleLabel');
+            debugger;
+        }
+    });
+
+    var firstNameInput = document.getElementById("firstname");
+    if (firstNameInput.value){
+        $('label[for="firstName"]').removeClass('idleLabel').addClass('activeLabel');
+    }
+
+    var lastNameInput = document.getElementById("lastname");
+    if (lastNameInput.value){
+        $('label[for="lastName"]').removeClass('idleLabel').addClass('activeLabel');
+    }
+
+    var emailAddressInput = document.getElementById("email");
+    if (emailAddressInput .value){
+        $('label[for="emailAddress"]').removeClass('idleLabel').addClass('activeLabel');
+    }
+
+    var roleInput = document.getElementById("role");
+    if (roleInput.value){
+        $('label[for="AccessLevel"]').removeClass('idleLabel').addClass('activeLabel');
+    }
+});
 </script>
 </body>
 </html>

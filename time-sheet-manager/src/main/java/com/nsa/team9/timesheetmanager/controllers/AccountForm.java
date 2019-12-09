@@ -17,7 +17,7 @@ public class AccountForm {
     @UniqueEmail(message = "This Email is already taken")
     private String emailAddress;
 
-    @NotBlank(message = "Password mut not be blank")
+    @NotBlank(message = "Password must not be blank")
     @Size(min = 6, max = 12,message = "Password must be between 6 and 12 characters long")
     private String password;
 

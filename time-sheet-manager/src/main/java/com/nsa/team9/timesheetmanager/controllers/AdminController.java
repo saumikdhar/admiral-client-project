@@ -115,7 +115,6 @@ public class AdminController {
 
 
         if (account.getAccessLevel() == 0){
-            System.out.println("MANAGER ID IS " + account.getManagerId());
             Manager m = new Manager(account.getManagerId(), "n/a", "n/a", null);
             Agency a = new Agency(account.getAgencyId(), "n/a");
             System.out.println("LOGIN IS " + L);
@@ -129,6 +128,7 @@ public class AdminController {
             );
 
             contractorSearch.createContractor(c);
+            System.out.println("created Contractor");
         }
         return "redirect:";
     }

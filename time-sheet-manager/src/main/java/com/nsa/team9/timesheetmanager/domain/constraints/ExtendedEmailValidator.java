@@ -15,8 +15,8 @@ import javax.validation.constraints.Size;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Email
 @Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
+@Email
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = {})
@@ -26,3 +26,4 @@ public @interface ExtendedEmailValidator {
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
+
