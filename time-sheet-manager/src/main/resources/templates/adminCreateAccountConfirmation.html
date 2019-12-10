@@ -19,9 +19,8 @@
         </div>
         <div class="content hub">
             <div class="custom-margin">
-                <div>
-                    <p class="messaging">
-                    Emailed to:
+                <div class="center">
+                    <p class="messaging" th:text="${'The account information has account information has been emailed to ' +account.getEmailAddress()}">
                     </p>
                 </div>
         </div>
@@ -31,4 +30,28 @@
 </main>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    $(document).ready(function () {
+
+        var emailAddress =/*[[${account.emailAddress}]]*/ 'defaultanyvalue';
+        alert(emailAddress);
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/send",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                //To_addresss needs to be changed so that it takes in the contractors email
+                "to_address": emailAddress,
+                //Subject needs to be generic timesheet receipt
+                "subject": "Your account information",
+                //body needs to return a generic thankyou and also a copy of the time sheet
+                "body": "Your account was created the details are below",
+
+                // also need to trigger secondary email which sends to a manager a notification saying contractor has submitted time sheet
+            })
+        });
+    });
+    </script>
 </html>
