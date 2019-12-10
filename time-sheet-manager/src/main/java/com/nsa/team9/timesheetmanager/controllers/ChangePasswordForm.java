@@ -1,5 +1,6 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
+import com.nsa.team9.timesheetmanager.domain.constraints.ValidPassword;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,8 @@ public class ChangePasswordForm {
     @NotBlank(message = "Current password should not be blank")
     private String currentPassword;
 
-    @NotBlank(message = "New password mus not be blank")
+    @ValidPassword
+    @NotBlank(message = "New password must not be blank")
     private String newPassword;
 
     @NotBlank(message = "Confirm password should not be blank")

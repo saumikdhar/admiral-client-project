@@ -220,14 +220,21 @@ ul li ul:hover {
     display: block;
 }
 
+ul li ul{
+    width: 100%;
+}
+
+li:focus-within a {
+    outline: none;
+}
+
 /*end*/
 
 @media screen and (min-width:700px){
 
-    /*ul li ul li {*/
-    /*    clear: both;*/
-    /*    width: 100%;*/
-    /*}*/
+    ul li ul{
+        width: auto;
+    }
 
 
     .header li {
