@@ -160,37 +160,6 @@ public class AdminController {
             contractorSearch.createContractor(c);
             System.out.println("created Contractor");
         }
-        return "redirect:";
+        return "adminCreateAccountConfirmation";
     }
-
-    @GetMapping("/change-password")
-    public String showChangePasswordPage(Model model) {
-        model.addAttribute("changePassword", new ChangePasswordForm());
-
-        return "changePassword";
-    }
-
-    @PostMapping("change-password/confirm")
-    public String ChangePassword(Model model, @ModelAttribute("changePassword") @Valid ChangePasswordForm changePassword, BindingResult bindingResult , Authentication authentication) {
-
-        //Get the logged in user
-        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
-        boolean result = encoder.matches(changePassword.getCurrentPassword(), principal.getUser().getPassword());
-
-        if (!result){
-            bindingResult.rejectValue("currentPassword", "error.ChangePasswordForm", "Current password did not match");
-        }
-
-        if (!changePassword.getNewPassword().equals(changePassword.getConfirmPassword())) {
-            bindingResult.rejectValue("confirmPassword", "error.ChangePasswordForm", "Confirm password did not match new password");
-        }
-
-        if (bindingResult.hasErrors()){
-            System.out.println(bindingResult);
-            return "changePassword";
-        }
-        loginSearch.updateUserPassword(principal.getUser().getId(), encoder.encode(changePassword.getNewPassword()));
-        return "passwordChangeConfirmation";
-    }
-
 }

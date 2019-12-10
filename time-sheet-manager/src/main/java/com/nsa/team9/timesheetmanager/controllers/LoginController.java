@@ -5,8 +5,10 @@ import com.nsa.team9.timesheetmanager.domain.Login;
 import com.nsa.team9.timesheetmanager.services.LoginSearchImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,14 @@ import java.util.Optional;
 public class LoginController {
 
     static final Logger LOG = LoggerFactory.getLogger(ContractorController.class);
+    private final PasswordEncoder encoder;
+    private LoginSearchImpl loginSearch;
+
+
+    public LoginController(PasswordEncoder encoder, LoginSearchImpl loginSearch) {
+        this.encoder = encoder;
+        this.loginSearch = loginSearch;
+    }
 
     @GetMapping("/loginSuccess")
     public String successfulLogin(Authentication authentication) {
@@ -74,6 +84,36 @@ public class LoginController {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout";
+    }
+
+    @GetMapping("user/change-password")
+    public String showChangePasswordPage(Model model) {
+        model.addAttribute("changePassword", new ChangePasswordForm());
+
+        return "changePassword";
+    }
+
+    @PostMapping("user/change-password/confirm")
+    public String ChangePassword(Model model, @ModelAttribute("changePassword") @Valid ChangePasswordForm changePassword, BindingResult bindingResult , Authentication authentication) {
+
+        //Get the logged in user
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+        boolean result = encoder.matches(changePassword.getCurrentPassword(), principal.getUser().getPassword());
+
+        if (!result){
+            bindingResult.rejectValue("currentPassword", "error.ChangePasswordForm", "Current password did not match");
+        }
+
+        if (!changePassword.getNewPassword().equals(changePassword.getConfirmPassword())) {
+            bindingResult.rejectValue("confirmPassword", "error.ChangePasswordForm", "Confirm password did not match new password");
+        }
+
+        if (bindingResult.hasErrors()){
+            System.out.println(bindingResult);
+            return "changePassword";
+        }
+        loginSearch.updateUserPassword(principal.getUser().getId(), encoder.encode(changePassword.getNewPassword()));
+        return "passwordChangeConfirmation";
     }
 
 }

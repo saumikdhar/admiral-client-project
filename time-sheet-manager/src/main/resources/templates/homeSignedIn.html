@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: head">
 </head>
-<div th:replace="fragments/header :: navbar-default"></div>
+<div sec:authorize="hasRole('ROLE_2')">
+    <div th:replace="fragments/header :: navbar-admin"></div>
+</div>
+
+<div sec:authorize="hasRole('ROLE_1')">
+    <div th:replace="fragments/header :: navbar"></div>
+</div>
+
+<div sec:authorize="hasRole('ROLE_0')">
+    <div th:replace="fragments/header :: navbar-contractor"></div>
+</div>
 <body>
         <article role="article">
             <div>
                 <div class="pcontainer">
 <!--                    <div class="heroBanner other-products-hub nopic d8-migrate-hero">-->
                     <div class="content hub">
-                        <h1>About Us</h1>
-                        <div>
-                            <p class="messaging">
-                                Admiral started out in 1993 with the aim of offering lower insurance prices to more people, without compromising on the quality of our service or products.
-                            </p>
-                            <p class="messaging">
-                                You may know us as a car & home insurer but we offer a lot more. We can cover your holidays, vans and now we offer Personal Loans and Car Finance. Admiral is there to make sure you're covered every step of the way.
-                            </p>
+                        <div class="custom-margin">
+                            <h1>About Us</h1>
+                            <div>
+                                <p class="messaging">
+                                    Admiral started out in 1993 with the aim of offering lower insurance prices to more people, without compromising on the quality of our service or products.
+                                </p>
+                                <p class="messaging">
+                                    You may know us as a car & home insurer but we offer a lot more. We can cover your holidays, vans and now we offer Personal Loans and Car Finance. Admiral is there to make sure you're covered every step of the way.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
         </article>
-    </div>
         <div class="lightGreyWrapper">
-        <div class="pcontainer">
+            <div class="pcontainer">
             <!--                    <div class="heroBanner other-products-hub nopic d8-migrate-hero">-->
             <div class="content hub">
                 <h1>What we're all about</h1>
