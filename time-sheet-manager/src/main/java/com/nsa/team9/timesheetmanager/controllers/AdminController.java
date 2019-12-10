@@ -160,6 +160,6 @@ public class AdminController {
             contractorSearch.createContractor(c);
             System.out.println("created Contractor");
         }
-        return "redirect:";
+        return "adminCreateAccountConfirmation";
     }
 }
