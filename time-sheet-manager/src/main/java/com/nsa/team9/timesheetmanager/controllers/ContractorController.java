@@ -111,6 +111,10 @@ public class ContractorController {
         status.setComplete();
         session.removeAttribute("agencies");
         //Code here to get the post request running when page is returned
+
+        //sending constructor email to email post
+        model.addAttribute("emailContractor", principal.getUser().getEmail());
+        model.addAttribute("emailManager", c.getManager().getLogin().getEmail());
         return "timesheet_confirmation";
     }
 

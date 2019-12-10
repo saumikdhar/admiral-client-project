@@ -53,9 +53,12 @@
 
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
     //Post request which starts the emailing process once the time sheet confirmation page reloads
     //EMAILS CONTRACTOR A NOTIFICATION THAT THEIR MANAGER HAS BEEN NOTIFIED
+    var contractorEmail = [[${emailContractor}]]
+    var managerEmail = [[${emailManager}]]
+    console.log(email)
     $(document).ready(function () {
         $.ajax({
             type: "POST",
@@ -63,7 +66,7 @@
             contentType: "application/json;charset=UTF-8",
             data: JSON.stringify({
                 //To_addresss needs to be changed so that it takes in the contractors email
-                "to_address": "edge14031985@gmail.com",
+                "to_address": contractorEmail,
                 //Subject needs to be generic timesheet receipt
                 "subject": "Time sheet receipt - subject",
                 //body needs to return a generic thankyou and also a copy of the time sheet
@@ -81,7 +84,7 @@
             contentType: "application/json;charset=UTF-8",
             data: JSON.stringify({
                 //To_addresss needs to be changed so that it takes in the contractors email
-                "to_address": "edge14031985@gmail.com",
+                "to_address": managerEmail,
                 //Subject needs to be generic timesheet receipt
                 "subject": "Time sheet submitted - subject",
                 //body needs to return a generic thankyou and also a copy of the time sheet
