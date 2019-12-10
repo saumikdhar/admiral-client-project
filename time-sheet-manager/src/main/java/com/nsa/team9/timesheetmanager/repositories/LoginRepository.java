@@ -18,6 +18,6 @@ public interface LoginRepository {
     public Optional<Login>findEmailExists(String email);
 
     /*updates password for the user signed in*/
-    public Optional<Login> updateUserPassword(Long loginId, String newPassword);
+    public void updateUserPassword(Long loginId, String newPassword);
 
 }

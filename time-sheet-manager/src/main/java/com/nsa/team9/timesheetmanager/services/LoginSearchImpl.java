@@ -49,8 +49,8 @@ public class LoginSearchImpl  implements LoginSearch{
     }
 
     @Override
-    public Optional<Login> updateUserPassword(Long loginId, String newPassword) {
-        return loginRepository.updateUserPassword(loginId, newPassword);
+    public void updateUserPassword(Long loginId, String newPassword) {
+         loginRepository.updateUserPassword(loginId, newPassword);
     }
 
 }

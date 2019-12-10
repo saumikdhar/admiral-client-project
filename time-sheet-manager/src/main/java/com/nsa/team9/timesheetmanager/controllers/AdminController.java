@@ -163,6 +163,10 @@ public class AdminController {
             bindingResult.rejectValue("currentPassword", "error.ChangePasswordForm", "Current password did not match");
         }
 
+        if (!changePassword.getNewPassword().equals(changePassword.getConfirmPassword())) {
+            bindingResult.rejectValue("confirmPassword", "error.ChangePasswordForm", "Confirm password did not match new password");
+        }
+
         if (bindingResult.hasErrors()){
             System.out.println(bindingResult);
             return "changePassword";
