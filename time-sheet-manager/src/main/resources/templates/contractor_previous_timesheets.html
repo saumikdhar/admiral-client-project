@@ -6,7 +6,7 @@
 <body>
 <main role="main" class="box">
 
-    <div id=missingTimesheetMessage th:if="${#lists.isEmpty(previousTimesheet)}">
+    <div id=missingTimesheetMessage class="custom-margin" th:if="${#lists.isEmpty(previousTimesheet)}">
     <div class="container">
         <h4 th:text="'No time sheets found '"></h4>
     </div>
