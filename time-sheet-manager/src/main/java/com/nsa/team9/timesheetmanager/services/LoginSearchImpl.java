@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -48,4 +47,10 @@ public class LoginSearchImpl  implements LoginSearch{
     public Optional<Login> findEmailExists(String email) {
         return loginRepository.findEmailExists(email);
     }
+
+    @Override
+    public void updateUserPassword(Long loginId, String newPassword) {
+         loginRepository.updateUserPassword(loginId, newPassword);
+    }
+
 }

@@ -16,4 +16,8 @@ public interface LoginRepository {
 
     /*finds all login by email*/
     public Optional<Login>findEmailExists(String email);
+
+    /*updates password for the user signed in*/
+    public void updateUserPassword(Long loginId, String newPassword);
+
 }

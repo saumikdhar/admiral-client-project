@@ -17,15 +17,16 @@ public class AccountForm {
     @UniqueEmail(message = "This Email is already taken")
     private String emailAddress;
 
-    @Size(min = 6, max = 12,message = "password must be between 6 and 12 characters long")
+    @NotBlank(message = "Password must not be blank")
+    @Size(min = 6, max = 12,message = "Password must be between 6 and 12 characters long")
     private String password;
 
     private Integer accessLevel;
 
-    @NotBlank(message = "First name must not be blank spaces")
+    @NotBlank(message = "First name must not be blank")
     private String firstName;
 
-    @NotBlank(message = "Last name must not be blank spaces")
+    @NotBlank(message = "Last name must not be blank")
     private String lastName;
 
     private Long managerId;
