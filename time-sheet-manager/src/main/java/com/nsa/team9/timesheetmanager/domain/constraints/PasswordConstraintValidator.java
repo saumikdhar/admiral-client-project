@@ -5,6 +5,7 @@ import org.passay.*;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Arrays;
+import com.google.common.base.Joiner;
 
 import static org.apache.tomcat.util.buf.StringUtils.join;
 
@@ -32,7 +33,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
         }
         context.disableDefaultConstraintViolation();
         context.buildConstraintViolationWithTemplate(
-                join(validator.getMessages(result)))
+                Joiner.on(",").join(validator.getMessages(result)))
                 .addConstraintViolation();
         return false;
     }

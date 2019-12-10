@@ -16,7 +16,6 @@ public class ChangePasswordForm {
     private String currentPassword;
 
     @ValidPassword
-    @NotBlank(message = "New password must not be blank")
     private String newPassword;
 
     @NotBlank(message = "Confirm password should not be blank")

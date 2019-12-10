@@ -43,6 +43,7 @@ dependencies {
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
     // https://mvnrepository.com/artifact/org.passay/passay
     compile group: 'org.passay', name: 'passay', version: '1.0'
+    compile "com.google.guava:guava:16+"
 }
 
 test {
