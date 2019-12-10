@@ -60,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/admin/**").access("hasRole('ROLE_2')")
             .antMatchers("/manager/**").access("hasRole('ROLE_1')")
             .antMatchers("/TimeSheetForm/**").access("hasRole('ROLE_0')")
+            .antMatchers("/user/**").access("hasAnyRole('ROLE_0','ROLE_1', 'ROLE_2')" )
             .antMatchers("/TimeSheetDetails/**").access("hasRole('ROLE_0')")
             .antMatchers("/h2_console/**").permitAll()
             .antMatchers("/").permitAll()
