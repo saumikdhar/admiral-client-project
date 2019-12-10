@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface TimeSheetRespository {
 
-//    Find all Timesheets associated with a manager
+//    Find all pending Timesheets associated with a manager
     public List<TimeSheet> getTimeSheetsByManager(String lastName, String firstName);
 
     public TimeSheet save(TimeSheet aTimeSheet);
@@ -21,4 +21,11 @@ public interface TimeSheetRespository {
 
     // find all timesheets created for that specific contractor
     public List<TimeSheet> getTimeSheetsByContractor(Long contractorId);
+
+    //    Get all Timesheets associated with a manager
+    public List<TimeSheet> getAllTimeSheetsByManager(String lastName, String firstName);
+
+//   Get all timesheets for manager depending on date
+    public List<TimeSheet> getAllTimeSheetsByManagerAndDate( String lastName,  String firstName, LocalDate dateFrom, LocalDate dateTo );
+
 }

@@ -36,6 +36,11 @@
     margin-bottom:40px;
 }
 
+
+.top-row{
+    margin-top: 55px;
+}
+
 .top-row:after {
      content: "";
      display: table;
@@ -52,3 +57,48 @@
      margin:0;
  }
 
+.tab-group .form-control{
+    width: -webkit-fill-available;
+
+}
+
+.idleLabel {
+    position: absolute;
+    color: #888888;
+    margin: 7px 13px;
+    font-weight: normal;
+    z-index: 3;
+    transition: 0.4s ease;
+}
+
+.activeLabel {
+    position: absolute;
+    color: blue;
+    font-size: x-small;
+    margin: -5px 10px;
+    background-color: #FFFFFF;
+    border-left: solid #888888 1px;
+    border-right: solid #888888 1px;
+    padding: 0 4px;
+    z-index: 3;
+    transition: 0.4s ease;
+
+}
+
+.change-password-group{
+    max-width: 300px;
+}
+
+@media screen and (max-width: 700px) {
+
+    .tab-group{
+        max-width: 700px;
+        padding: 20px;
+    }
+
+    .tab-group .title{
+        font-size: 25px;
+        padding: unset;
+    }
+
+}

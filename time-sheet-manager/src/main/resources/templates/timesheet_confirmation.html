@@ -52,12 +52,10 @@
     }
 
 </script>
-<script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
     //Post request which starts the emailing process once the time sheet confirmation page reloads
-
+    //EMAILS CONTRACTOR A NOTIFICATION THAT THEIR MANAGER HAS BEEN NOTIFIED
     $(document).ready(function () {
         $.ajax({
             type: "POST",
@@ -75,6 +73,7 @@
         });
     });
     //Post request which starts the emailing process once the time sheet confirmation page reloads
+    //EMAILS MANAGER A NOTIFICATION THAT A TIME SHEET IS SUBMITTED
     $(document).ready(function () {
         $.ajax({
             type: "POST",

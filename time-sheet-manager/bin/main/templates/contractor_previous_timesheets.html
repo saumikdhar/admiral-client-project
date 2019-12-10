@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+</head>
+<div th:replace="fragments/header :: navbar-contractor"></div>
+<body>
+<main role="main" class="box">
+
+    <div id=missingTimesheetMessage th:if="${#lists.isEmpty(previousTimesheet)}">
+    <div class="container">
+        <h4 th:text="'No time sheets found '"></h4>
+    </div>
+</div>
+    <div id=timesheetListContainer th:if="${not #lists.isEmpty(previousTimesheet)}">
+            <div style="overflow-x:auto;">
+        <!--                    <table class ="table table-hover table-bordered results">-->
+                <table class="table results">
+                    <caption>Previous TimeSheets</caption>
+                    <thead>
+                    <tr>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Monday</th>
+                        <th scope="col">Tuesday</th>
+                        <th scope="col">Wednesday</th>
+                        <th scope="col">Thursday</th>
+                        <th scope="col">Friday</th>
+                        <th scope="col">Saturday</th>
+                        <th scope="col">Sunday</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="timesheet: ${previousTimesheet}">
+                        <td data-label="Start Date" th:text="${timesheet.start_date}">X</td>
+                        <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
+                        <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>
+                        <td data-label="Wednesday" th:text="${timesheet.wednesday_worked}">X</td>
+                        <td data-label="Thursday" th:text="${timesheet.thursday_worked}">X</td>
+                        <td data-label="Friday" th:text="${timesheet.friday_worked}">X</td>
+                        <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
+                        <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</main>
+<div th:replace="fragments/footer :: footer">
+</div>
+</body>
+</html>

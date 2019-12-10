@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head th:replace="fragments/header :: head">
+</head>
+<div th:replace="fragments/header :: navbar"></div>
+<body>
+<main role="main" class="box">
+    <div class="form-inline">
+        <form action="/manager/history/date" th:object="${dateContainer}">
+            <div class="margin-right-ten">
+                <input type="date" class="form-control mr-sm-2" th:field="*{dateFrom}" placeholder="Start Date"/>
+            </div>
+            <div class="margin-right-ten">
+                <input type="date" class="form-control mr-sm-2" th:field="*{dateTo}" placeholder="End Date"/>
+            </div>
+            <div class="margin-right-fourty">
+                <input type="submit" value="Filter" class="btn btn-outline-success my-2 my-sm-0"/>
+            </div>
+        </form>
+
+        <form class="search-form">
+            <div class="margin-right-ten">
+                <input type="text" class="search">
+            </div>
+            <span class="counter"></span>
+        </form>
+    </div>
+
+
+    <div class="form-inline" th:object="${dateContainer}">
+        <div class="filter">
+            <input type="text" class="form-control" th:placeholder="*{'Filter: ' + dateFrom + ' to ' + dateTo}" disabled/>
+        </div>
+    </div>
+
+    <div id=missingTimesheetMessage th:if="${#lists.isEmpty(timesheets)}">
+        <div class="container">
+            <h4 th:text="'No time sheets found '"></h4>
+        </div>
+    </div>
+    <div id=timesheetListContainer th:if="${not #lists.isEmpty(timesheets)}">
+        <div style="overflow-x:auto;">
+            <!--                    <table class ="table table-hover table-bordered results">-->
+            <table class="table results">
+                <caption>Time Sheet</caption>
+                <thead>
+                <tr>
+                    <th scope="col">Agency Name</th>
+                    <th scope="col">Contractor Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                    <th scope="col">Saturday</th>
+                    <th scope="col">Sunday</th>
+                    <th scope="col">Overtime</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="timesheet: ${timesheets}">
+                    <td data-label="Agency Name" th:text="${timesheet.contractorId.agencyId.agencyName}"></td>
+                    <td data-label="Contractor Name" th:text="${timesheet.contractorId.firstName} + ' ' + ${timesheet.contractorId.lastName}"> deafsult</td>
+                    <td data-label="Start Date" th:text="${timesheet.start_date}">X</td>
+                    <td data-label="Monday" th:text="${timesheet.monday_worked}">X</td>
+                    <td data-label="Tuesday" th:text="${timesheet.tuesday_worked}">X</td>
+                    <td data-label="Wednesday" th:text="${timesheet.wednesday_worked}">X</td>
+                    <td data-label="Thursday" th:text="${timesheet.thursday_worked}">X</td>
+                    <td data-label="Friday" th:text="${timesheet.friday_worked}">X</td>
+                    <td data-label="Saturday" th:text="${timesheet.saturday_worked}">X</td>
+                    <td data-label="Sunday" th:text="${timesheet.sunday_worked}">X</td>
+                    <td data-label="Overtime" th:text="${timesheet.overtime}">X</td>
+                    <td data-label="Status" th:text="${timesheet.status}"><span style="color: green"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<div th:replace="fragments/footer :: footer">
+</div>
+</body>
+<!--Java script for searching any field content in timesheet-->
+<script>
+    var form = document.querySelector("#search-form");
+    var searchbox = document.querySelector(".search");
+
+
+    // Adds the placeholder when the searchbox is in focus
+    searchbox.addEventListener("focus", function(e) {
+        searchbox.setAttribute("placeholder", "Search...");
+    });
+
+    // Removes Text and the placeholder when the search box is out of focus
+    searchbox.addEventListener("focusout", function(e) {
+        searchbox.value = null;
+        searchbox.removeAttribute("placeholder");
+    });
+
+
+    $(document).ready(function() {
+        $(".search").keyup(function () {
+            var searchTerm = $(".search").val();
+            var listItem = $('.results tbody').children('tr');
+            var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+
+            $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                    return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+            });
+
+            $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+                $(this).attr('visible','false');
+            });
+
+            $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+                $(this).attr('visible','true');
+            });
+
+            var jobCount = $('.results tbody tr[visible="true"]').length;
+            $('.counter').text(jobCount + ' item');
+
+            if(jobCount == '0') {$('.no-result').show();}
+            else {$('.no-result').hide();}
+        });
+    });
+</script>
+</html>
