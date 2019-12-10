@@ -1,22 +1,31 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
+import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
 import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
 import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.ContractorProjection;
 import com.nsa.team9.timesheetmanager.services.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Locale;
 
 @Slf4j
 @Controller
+@SessionAttributes({"agencies","managers"})
 @RequestMapping("/admin")
 public class AdminController {
 
@@ -25,30 +34,33 @@ public class AdminController {
     private ManagerSearchImpl managerSearch;
     private LoginSearchImpl loginSearch;
     private AgencySearchImpl agencySearch;
+    private PasswordEncoder encoder;
+
 
     static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
 
 
     public AdminController(AdminSearchImpl aRepo, ContractorSearchImpl cRepo, ManagerSearchImpl mRepo
-            , LoginSearchImpl lRepo, AgencySearchImpl agRepo) {
+            , LoginSearchImpl lRepo, AgencySearchImpl agRepo, PasswordEncoder encoder) {
         adminSearch = aRepo;
         contractorSearch = cRepo;
         managerSearch = mRepo;
         loginSearch = lRepo;
         agencySearch = agRepo;
+        this.encoder = encoder;
     }
 
     /*Map to admin page*/
     @GetMapping("/timesheets")
-    public String showtimesheets(Model model, DateContainer dateContainer){
-    List<TimeSheet> timesheets = adminSearch.getAllTimeSheets();
-    model.addAttribute("timesheets", timesheets);
-    return "adminshowtimesheets";
+    public String showtimesheets(Model model, DateContainer dateContainer) {
+        List<TimeSheet> timesheets = adminSearch.getAllTimeSheets();
+        model.addAttribute("timesheets", timesheets);
+        return "adminshowtimesheets";
     }
 
     /*map to admin page with date range filter*/
     @RequestMapping("/timesheets/date")
-    public String findTimeSheetsByDate(Model model, DateContainer dateContainer){
+    public String findTimeSheetsByDate(Model model, DateContainer dateContainer) {
         List<TimeSheet> timesheets = adminSearch.findTimeSheetsByDate(dateContainer.getDateFrom(), dateContainer.getDateTo());
         model.addAttribute("timesheets", timesheets);
         model.addAttribute("searchTerm", dateContainer);
@@ -57,34 +69,34 @@ public class AdminController {
 
     /*map to from admin page to assign manager page*/
     @GetMapping("/assign-manager")
-    public String assignManagerToContractor(Model model, @ModelAttribute("managerId") Manager manager){
+    public String assignManagerToContractor(Model model, @ModelAttribute("managerId") Manager manager) {
         List<ContractorProjection> contractors = adminSearch.findAllContractorsAndManagersAssociated();
         System.out.println(contractors);
         List<Manager> managers = managerSearch.findAllManagers();
-        model.addAttribute("managers",managers);
+        model.addAttribute("managers", managers);
         model.addAttribute("agencies", contractors);
 
-      return "adminAssignManager";
+        return "adminAssignManager";
     }
 
     @PostMapping("/assign-manager/update-manager")
-    public String updateManager(Model model, @ModelAttribute("managerId") Manager manager, @RequestParam(value = "contractor_id") Long contractor){
+    public String updateManager(Model model, @ModelAttribute("managerId") Manager manager, @RequestParam(value = "contractor_id") Long contractor) {
         contractorSearch.updateContractorManager(contractor, manager.getId());
         return "redirect:";
     }
 
     @GetMapping("/create-account")
-    public String showCreateAccountPage(Model model){
+    public String showCreateAccountPage(Model model) {
         List<Agency> agencies = agencySearch.findAllAgency();
         List<Manager> managers = managerSearch.findAllManagers();
-        model.addAttribute("managers",managers);
-        model.addAttribute("agencies",agencies);
+        model.addAttribute("managers", managers);
+        model.addAttribute("agencies", agencies);
         model.addAttribute("account", new AccountForm());
         return "adminCreateAccount";
     }
 
     @PostMapping("create-account/details")
-    public String createAccount(Model model, @ModelAttribute("account") @Valid AccountForm account, BindingResult bindingResult){
+    public String createAccount(Model model, @ModelAttribute("account") @Valid AccountForm account, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             LOG.error(bindingResult.toString());
             LOG.error("create-account has binding errors");
@@ -95,18 +107,18 @@ public class AdminController {
         Login L = new Login(
                 null,
                 account.getEmailAddress(),
-                account.getPassword(),
+                encoder.encode(account.getPassword()),
                 account.getAccessLevel()
         );
         loginSearch.createLogin(L);
         LOG.debug("created login " + L);
-        if (account.getAccessLevel() == 2){
+        if (account.getAccessLevel() == 2) {
             Admin a = new Admin(null, L, account.getFirstName(), account.getLastName());
             adminSearch.createAdmin(a);
             LOG.debug("created admin account " + a);
         }
 
-        if (account.getAccessLevel() == 1){
+        if (account.getAccessLevel() == 1) {
             System.out.println("LOGIN IS " + L);
             Manager m = new Manager(null, account.getFirstName(), account.getLastName(), L);
             managerSearch.createManager(m);
@@ -114,8 +126,7 @@ public class AdminController {
         }
 
 
-        if (account.getAccessLevel() == 0){
-            System.out.println("MANAGER ID IS " + account.getManagerId());
+        if (account.getAccessLevel() == 0) {
             Manager m = new Manager(account.getManagerId(), "n/a", "n/a", null);
             Agency a = new Agency(account.getAgencyId(), "n/a");
             System.out.println("LOGIN IS " + L);
@@ -129,7 +140,39 @@ public class AdminController {
             );
 
             contractorSearch.createContractor(c);
+            System.out.println("created Contractor");
         }
         return "redirect:";
     }
+
+    @GetMapping("/change-password")
+    public String showChangePasswordPage(Model model) {
+        model.addAttribute("changePassword", new ChangePasswordForm());
+
+        return "changePassword";
+    }
+
+    @PostMapping("change-password/confirm")
+    public String ChangePassword(Model model, @ModelAttribute("changePassword") @Valid ChangePasswordForm changePassword, BindingResult bindingResult , Authentication authentication) {
+
+        //Get the logged in user
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+        boolean result = encoder.matches(changePassword.getCurrentPassword(), principal.getUser().getPassword());
+
+        if (!result){
+            bindingResult.rejectValue("currentPassword", "error.ChangePasswordForm", "Current password did not match");
+        }
+
+        if (!changePassword.getNewPassword().equals(changePassword.getConfirmPassword())) {
+            bindingResult.rejectValue("confirmPassword", "error.ChangePasswordForm", "Confirm password did not match new password");
+        }
+
+        if (bindingResult.hasErrors()){
+            System.out.println(bindingResult);
+            return "changePassword";
+        }
+        loginSearch.updateUserPassword(principal.getUser().getId(), encoder.encode(changePassword.getNewPassword()));
+        return "passwordChangeConfirmation";
+    }
+
 }
