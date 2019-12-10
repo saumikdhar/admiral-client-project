@@ -13,4 +13,11 @@ public interface LoginRepository {
 
     /*inserts/save into data base*/
     public Login save(Login aLogin);
+
+    /*finds all login by email*/
+    public Optional<Login>findEmailExists(String email);
+
+    /*updates password for the user signed in*/
+    public void updateUserPassword(Long loginId, String newPassword);
+
 }

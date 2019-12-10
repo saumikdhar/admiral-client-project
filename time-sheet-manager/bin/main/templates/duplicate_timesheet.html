@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>DuplicateTimesheet</title>
+</head>
+<head th:replace="fragments/header :: head">
+</head>
+<div th:replace="fragments/header :: navbar-contractor"></div>
+<body>
+<form href="#" th:href="@{/TimeSheetForm}" METHOD="post" th:object="${TimeSheet}">
+    <div class="box">
+        <div class="tab-group">
+            <div>
+                <h3>Timesheet not submitted</h3>
+                <p>This is due to the start date already existing for a timesheet created previously</p>
+            </div>
+            <button class="btn btn-primary"  id="time_sheet_duplicate" type="submit">Return to timesheet</button>
+        </div>
+
+        <input
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}"
+                type="hidden"/>
+
+    </div>
+    </div>
+</form>
+</body>
+<div th:replace="fragments/footer :: footer">
+</div>
+</html>

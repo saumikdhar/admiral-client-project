@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: head">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
 </head>
-<body>
 <div th:replace="fragments/header :: navbar"></div>
+<body>
 <main role="main" class="box">
-            <div class="row">
+    <div class="custom-margin">
 <!--                <p>Test Column Nav</p>-->
-            </div>
             <div class="row" style="overflow-x:auto;">
                         <table class="table">
                             <caption>Time Sheet</caption>
@@ -58,20 +61,22 @@
                                                 <button type="submit"
                                                         class="btn btn-success">Y</button>
                                             </form>
-
-                                            <button type="button"
-                                                    class="btn btn-danger"
-                                                    data-toggle="modal"
-                                                    data-target="#notesModal"
-                                                    th:data-id="${timesheet.timesheet_id}">N</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <button type="button"
+                                class="btn btn-danger"
+                                data-toggle="modal"
+                                data-target="#notesModal"
+                                th:data-id="${timesheet.timesheet_id}">N
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
             </div>
+    </div>
     <!-- Modal -->
-    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -83,21 +88,21 @@
                 <form action="#" th:action="@{manager/addNotes}" th:object="${note}" method="post">
                     <div class="modal-body">
 
-                            <div class="form-group">
-                                <label class="col-form-label" th:for="notes">Notes:</label>
+                        <div class="form-group">
+                            <label class="col-form-label" th:for="notes">Notes:</label>
 
-<!--                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>-->
+                            <!--                                <textarea type="text" class="row form-control" th:field="*{notes}"></textarea>-->
 
-                                <select class="row form-control" th:field="*{notes}">
-                                    <option th:each="i : ${rejectOptions}" th:value="${i}" th:text="${i}">
-                                    </option>
-                                </select>
+                            <select class="row form-control" th:field="*{notes}">
+                                <option th:each="i : ${rejectOptions}" th:value="${i}" th:text="${i}">
+                                </option>
+                            </select>
 
-                                <div class="alert alert-danger"
-                                     th:errors="*{notes}"
-                                     th:if="${#fields.hasErrors('notes')}">
-                                    Notes Error
-                                </div>
+                            <div class="alert alert-danger"
+                                 th:errors="*{notes}"
+                                 th:if="${#fields.hasErrors('notes')}">
+                                Notes Error
+                            </div>
 
                                 <input hidden type="number" class="form-control" th:name="timesheet_id" th:id="timesheet_id">
                                 <input
@@ -109,26 +114,46 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" id="submit"
-                                class="btn btn-primary">Save changes</button>
+                        <button type="submit" id="submitNotes" th:id="submitNotes"
+                                class="btn btn-primary">Save changes
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
 </main>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#notesModal").on('shown.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var id = button.data('id') // Extract info from data-* attributes
             $('input[name = timesheet_id]').val(id)
         })
     })
+
+    $(document).ready(function () {
+        $("#submitNotes").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8000/send",
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify({
+                    //To_addresss needs to be changed so that it takes in the contractors email
+                    "to_address": "edge14031985@gmail.com",
+                    //Subject needs to be generic timesheet receipt
+                    "subject": "Time sheet rejected - subject",
+                    //body needs to return a generic thankyou and also a copy of the time sheet
+                    "body": "Dear Contractor, Your time sheet was not approved due to not working on the bank holiday - body"
+                })
+            });
+        });
+    });
 
 </script>
 

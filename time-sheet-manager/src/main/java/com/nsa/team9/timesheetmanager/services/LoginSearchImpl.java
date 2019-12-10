@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -33,11 +32,6 @@ public class LoginSearchImpl  implements LoginSearch{
     }
 
     @Override
-    public List<Login> findAllLoginEmails() {
-        return null;
-    }
-
-    @Override
     public Optional<Login> getLoginByEmail(String email) {
         return loginRepository.getLoginByEmail(email);
     }
@@ -48,4 +42,15 @@ public class LoginSearchImpl  implements LoginSearch{
     public void createLogin(Login aLogin) {
         loginRepository.save(aLogin);
     }
+
+    @Override
+    public Optional<Login> findEmailExists(String email) {
+        return loginRepository.findEmailExists(email);
+    }
+
+    @Override
+    public void updateUserPassword(Long loginId, String newPassword) {
+         loginRepository.updateUserPassword(loginId, newPassword);
+    }
+
 }

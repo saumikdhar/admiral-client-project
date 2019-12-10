@@ -29,9 +29,7 @@
             </div>
             </div>
 
-            <script>
-                document.getElementById('e').value = new Date().toISOString().substring(0, 10);
-            </script>
+
         </div>
         <fieldset class="form-check form-check-inline"  >
         <div class="input-group" >
@@ -161,10 +159,11 @@
 </form>
 
 
+
+</div>
 <div th:replace="fragments/footer :: footer">
 </div>
-
-<script>
+    <script>
     var date = document.querySelector('[type=date]');
 
     function onlyMonday(e){
@@ -189,7 +188,13 @@
             e.target.setCustomValidity('');
         }
     }
+
+
+
     date.addEventListener('input',onlyMonday);
+
+
+
 </script>
 
 
@@ -197,10 +202,16 @@
 
     var date = document.querySelector('[type=date]');
 
-    function checkboxValidation(e) {
+    function checkBoxValidationOnEvent(event){
+        checkboxValidation(event.target);
+    }
 
+    function checkboxValidation(target) {
+
+        console.log("Validating check boxes");
+        console.log("Target.value = ", target.value);
         //Both variables are days of the week, where Sunday =0, Saturday =6
-        var selectedDate = new Date(e.target.value);
+        var selectedDate = new Date(target.value);
         var selectedDay = selectedDate.getUTCDay();
         var today = new Date();
         var dayToday = today.getUTCDay();
@@ -275,12 +286,30 @@
             }
         }
     }
-    date.addEventListener('input',checkboxValidation);
+    date.addEventListener('input',checkBoxValidationOnEvent);
 </script>
 
 
 
 <script>
+
+    function getMonday(d) {
+        d = new Date(d);
+        var day = d.getDay(),
+            diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+        return new Date(d.setDate(diff));
+    }
+
+          document.getElementById('e').value =
+            getMonday(new Date()).toISOString().substring(0, 10);
+
+        var date = document.getElementById('e');
+        date.addEventListener('input',checkBoxValidationOnEvent);
+        console.log("about to run validation");
+        console.log("Date.value = ", date.value);
+        checkboxValidation(date);
+
+
 function TDate() {
 var UserDate = document.getElementById("e").value;
 var ToDate = new Date();

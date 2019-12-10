@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="../../static/css/navbar.css" th:href="@{/css/navbar.css}">
     <link rel="stylesheet" href="../../static/css/createaccount.css" th:href="@{/css/createaccount.css}">
     <link rel="icon" href="../../static/images/logo.svg" th:href="@{/images/logo.svg}">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:fragment="navbar-default">
@@ -22,7 +26,7 @@
         </a>
 
         <input class="menu-btn" type="checkbox" id="menu-btn4"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <label class="menu-icon" for="menu-btn4"><span class="navicon"></span></label>
         <ul class="menu">
             <li><a href="#" th:href="@{/login}">Sign out</a></li>
             <li><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></li>
@@ -34,6 +38,7 @@
     </header>
 </div>
 
+
 <div th:fragment="navbar">
     <header class="header">
         <a href="/" class="logo">
@@ -41,7 +46,7 @@
         </a>
 
         <input class="menu-btn" type="checkbox" id="menu-btn3"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <label class="menu-icon" for="menu-btn3"><span class="navicon"></span></label>
         <ul class="menu">
             <li><a href="#" th:href="@{/login}">Sign In</a></li>
         </ul>
@@ -72,9 +77,10 @@
         </a>
 
         <input class="menu-btn" type="checkbox" id="menu-btn2"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <label class="menu-icon" for="menu-btn2"><span class="navicon"></span></label>
         <ul class="menu">
             <li><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></li>
+            <li><a href="#" th:href="@{/PreviousTimesheets}">Previous Timesheet</a></li>
             <li><a href="#" th:href="@{/logout}">Logout</a></li>
         </ul>
     </header>

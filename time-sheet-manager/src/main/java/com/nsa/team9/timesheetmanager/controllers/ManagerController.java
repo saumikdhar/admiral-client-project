@@ -2,8 +2,8 @@ package com.nsa.team9.timesheetmanager.controllers;
 
 
 import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
+import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
 import com.nsa.team9.timesheetmanager.controllers.util.ManagerNotes;
-import com.nsa.team9.timesheetmanager.domain.Login;
 import com.nsa.team9.timesheetmanager.domain.Manager;
 import com.nsa.team9.timesheetmanager.domain.TimeSheet;
 import com.nsa.team9.timesheetmanager.services.LoginSearchImpl;
@@ -12,6 +12,7 @@ import com.nsa.team9.timesheetmanager.services.TimeSheetSearchImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +21,8 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.io.File;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @SessionAttributes({"note"})
@@ -39,6 +40,8 @@ public class ManagerController {
         loginSearch = aLoginSearch;
         managerSearch = aManagerSearch;
     }
+
+
 
     @GetMapping("/manager")
     public String showDashboard(Model model, Authentication authentication) {
@@ -99,5 +102,40 @@ public class ManagerController {
 
         return "redirect:/manager";
     }
+
+        /*Map to timeSheetHistory page*/
+    @GetMapping("/manager/history")
+    public String showtimesheethistory(Model model, Authentication authentication, DateContainer dateContainer){
+        //Get Logged in user
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+
+        LOG.debug("The principal is " + principal);
+        System.out.println("The principal is " + principal.getUser().getEmail());
+        //find manager by email of logged in user
+        Manager manager = managerSearch.findManagerByEmail(principal.getUser().getEmail()).get();
+        String firstName = manager.getFirstName();
+        String lastName = manager.getLastName();
+        //get all timesheets for a manager ordered by start date, newest first
+
+        List<TimeSheet> timeSheets = timeSheetSearch.getAllTimeSheetsByManager(lastName, firstName);
+
+        model.addAttribute("timesheets", timeSheets);
+        return "timeSheetHistory";
+    }
+
+    @RequestMapping("/manager/history/date")
+    public String findTimeSheetsByDate(Model model, DateContainer dateContainer, Authentication authentication){
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+        Manager manager = managerSearch.findManagerByEmail(principal.getUser().getEmail()).get();
+        String firstName = manager.getFirstName();
+        String lastName = manager.getLastName();
+        List<TimeSheet> timesheets = timeSheetSearch.getAllTimeSheetsByManagerAndDate(lastName, firstName, dateContainer.getDateFrom(), dateContainer.getDateTo());
+        model.addAttribute("timesheets", timesheets);
+        model.addAttribute("searchTerm", dateContainer);
+        return "timeSheetHistory";
+    }
+
+
+
 
 }

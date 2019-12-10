@@ -9,22 +9,22 @@
 <body>
 <div th:replace="fragments/header :: navbar-contractor"></div>
 
-<div >
+<div>
     <div class="form-control" id=timehsheetConfirmationDays>
         <h3>The days you selected are: </h3>
-<!--        <p>Monday:</p>-->
+        <!--        <p>Monday:</p>-->
         <div th:text="${'Monday: ' + TimeSheet.monday_worked}"></div>
-<!--        <p>Tuesday:</p>-->
+        <!--        <p>Tuesday:</p>-->
         <div th:text="${'Tuesday: ' + TimeSheet.tuesday_worked}"></div>
-<!--        <p>Wednesday:</p>-->
+        <!--        <p>Wednesday:</p>-->
         <div th:text="${'Wednesday: ' + TimeSheet.wednesday_worked}"></div>
-<!--        <p>Thursday:</p>-->
+        <!--        <p>Thursday:</p>-->
         <div th:text="${'Thursday: ' + TimeSheet.thursday_worked}"></div>
-<!--        <p>Friday:</p>-->
+        <!--        <p>Friday:</p>-->
         <div th:text="${'Friday: ' + TimeSheet.friday_worked}"></div>
-<!--        <p>Saturday:</p>-->
+        <!--        <p>Saturday:</p>-->
         <div th:text="${'Saturday: ' + TimeSheet.saturday_worked}"></div>
-<!--        <p>Sunday:</p>-->
+        <!--        <p>Sunday:</p>-->
         <div th:text="${'Sunday: ' + TimeSheet.sunday_worked}"></div>
     </div>
 
@@ -35,18 +35,59 @@
 </div>
 
 
-
 </body>
 <div th:replace="fragments/footer :: footer">
 </div>
 <input type="hidden" id="refreshed" value="no">
 <script type="text/javascript">
 
-    onload=function(){
-        var e=document.getElementById("refreshed");
-        if(e.value=="no")e.value="yes";
-        else{e.value="no";location.reload();}
+    onload = function () {
+        var e = document.getElementById("refreshed");
+        if (e.value == "no") e.value = "yes";
+        else {
+            e.value = "no";
+            location.reload();
+        }
+
     }
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    //Post request which starts the emailing process once the time sheet confirmation page reloads
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/send",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                //To_addresss needs to be changed so that it takes in the contractors email
+                "to_address": "edge14031985@gmail.com",
+                //Subject needs to be generic timesheet receipt
+                "subject": "Time sheet receipt - subject",
+                //body needs to return a generic thankyou and also a copy of the time sheet
+                "body": "Thank you for submitting your time sheet - body"
+                // also need to trigger secondary email which sends to a manager a notification saying contractor has submitted time sheet
+            })
+        });
+    });
+    //Post request which starts the emailing process once the time sheet confirmation page reloads
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/send",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                //To_addresss needs to be changed so that it takes in the contractors email
+                "to_address": "edge14031985@gmail.com",
+                //Subject needs to be generic timesheet receipt
+                "subject": "Time sheet submitted - subject",
+                //body needs to return a generic thankyou and also a copy of the time sheet
+                "body": "Dear manager, One of your contractors has just sumbmitted a time sheet for your approval - body"
+            })
+        });
+    });
 
 </script>
 </html>

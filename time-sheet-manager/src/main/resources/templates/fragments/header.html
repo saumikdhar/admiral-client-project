@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="../../static/css/navbar.css" th:href="@{/css/navbar.css}">
     <link rel="stylesheet" href="../../static/css/createaccount.css" th:href="@{/css/createaccount.css}">
     <link rel="icon" href="../../static/images/logo.svg" th:href="@{/images/logo.svg}">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:fragment="navbar-default">
@@ -21,29 +25,26 @@
             <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
         </a>
 
-        <input class="menu-btn" type="checkbox" id="menu-btn4"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <input class="menu-btn" type="checkbox" id="menu-btn6"/>
+        <label class="menu-icon" for="menu-btn6"><span class="navicon"></span></label>
         <ul class="menu">
-            <li><a href="#" th:href="@{/login}">Sign out</a></li>
-            <li><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></li>
-            <li><a href="#" th:href="@{/admin/assign-manager}">Assign a Manager</a></li>
-            <li><a href="#" th:href="@{/admin/create-account}">Create account</a></li>
-            <li><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></li>
-            <li><a href="#" th:href="@{/manager}">Manager</a></li>
+            <li><a href="#" th:href="@{/login}">Login</a></li>
         </ul>
     </header>
 </div>
+
 
 <div th:fragment="navbar">
     <header class="header">
         <a href="/" class="logo">
             <img src="../../static/images/logo.svg" th:src="@{/images/logo.svg}" alt="Admiral logo" th:width="175" th:height="45">
         </a>
-
         <input class="menu-btn" type="checkbox" id="menu-btn3"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <label class="menu-icon" for="menu-btn3"><span class="navicon"></span></label>
         <ul class="menu">
-            <li><a href="#" th:href="@{/login}">Sign In</a></li>
+            <li><a href="#" th:href="@{/manager}">Dashboard</a></li>
+            <li><a href="#" th:href="@{/manager/history}">History</a></li>
+            <li><a href="#" th:href="@{/logout}">Logout</a></li>
         </ul>
     </header>
 </div>
@@ -60,7 +61,15 @@
             <li><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></li>
             <li><a href="#" th:href="@{/admin/assign-manager}">Assign a Manager</a></li>
             <li><a href="#" th:href="@{/admin/create-account}">Create account</a></li>
-            <li><a href="#" th:href="@{/logout}">Logout</a></li>
+            <li><a href="">My Account</a>
+              <ul class="dropdown">
+                 <li>
+                     <a href="/admin/change-password">Change my password</a>
+                     <a href="#" th:href="@{/logout}">Logout</a>
+
+                  </li>
+              </ul>
+            </li>
         </ul>
     </header>
 </div>
@@ -72,9 +81,10 @@
         </a>
 
         <input class="menu-btn" type="checkbox" id="menu-btn2"/>
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <label class="menu-icon" for="menu-btn2"><span class="navicon"></span></label>
         <ul class="menu">
             <li><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></li>
+            <li><a href="#" th:href="@{/previousTimesheets}">History</a></li>
             <li><a href="#" th:href="@{/logout}">Logout</a></li>
         </ul>
     </header>

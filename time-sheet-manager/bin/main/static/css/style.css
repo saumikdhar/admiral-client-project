@@ -150,6 +150,10 @@ h1, h2, h3, h4{
   font-weight: 300;
 }
 
+.custom-margin{
+  margin-top: 55px;
+}
+
 /*  link colours for classes*/
 a {
     color: Black;
@@ -375,9 +379,35 @@ form {
   margin-right: 40px;
 }
 
-
 /*end custom margin */
 
+
+/*content hub css*/
+
+.content .hub{
+  margin-top: 55px;
+}
+
+/*end*/
+
+/* alert message css*/
+.alert-danger{
+  font-size: 14px;
+  background-color: unset;
+  border-color: transparent;
+  color: red;
+
+}
+
+.alert{
+  padding: .75rem 0;
+}
+
+.warning-icon{
+  background: transparent;
+}
+
+/*end*/
 
 /*media content*/
 
@@ -468,7 +498,7 @@ form {
     background-color: unset;
   }
   .box{
-    max-width: 80%;
+    max-width: 90%;
   }
 
 
