@@ -17,7 +17,7 @@ public interface LoginRepository {
     /*finds all login by email*/
     public Optional<Login>findEmailExists(String email);
 
-    /*finds the login and checks if the password matches*/
-    public String findPasswordMatches(Long loginId);
+    /*updates password for the user signed in*/
+    public Optional<Login> updateUserPassword(Long loginId, String newPassword);
 
 }

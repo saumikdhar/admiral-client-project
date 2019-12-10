@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Queue;
 
 public interface LoginRepositoryJPA extends JpaRepository<Login, Long>, LoginRepository {
 
@@ -16,6 +17,7 @@ public interface LoginRepositoryJPA extends JpaRepository<Login, Long>, LoginRep
     @Query(value = "select l.email from Login l where l.email = :email ")
     public Optional<Login> findEmailExists(@Param("email") String email);
 
-    @Query(value = "select l.password from Login l where l.id = :loginId")
-    public String findPasswordMatches(@Param("loginId") Long loginId);
+    /*Query to update user password*/
+    @Query(value = "update Login l set l.password = :newPassword where l.id = :loginId")
+    public Optional<Login> updateUserPassword(@Param("loginId") Long loginId, @Param("newPassword") String newPassword);
 }

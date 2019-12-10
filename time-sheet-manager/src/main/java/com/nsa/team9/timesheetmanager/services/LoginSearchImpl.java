@@ -49,7 +49,8 @@ public class LoginSearchImpl  implements LoginSearch{
     }
 
     @Override
-    public String findPasswordMatches(Long loginId) {
-        return loginRepository.findPasswordMatches(loginId);
+    public Optional<Login> updateUserPassword(Long loginId, String newPassword) {
+        return loginRepository.updateUserPassword(loginId, newPassword);
     }
+
 }

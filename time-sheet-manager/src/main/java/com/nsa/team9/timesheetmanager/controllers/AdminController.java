@@ -167,6 +167,7 @@ public class AdminController {
             System.out.println(bindingResult);
             return "changePassword";
         }
+        loginSearch.updateUserPassword(principal.getUser().getId(), encoder.encode(changePassword.getNewPassword()));
         return "passwordChangeConfirmation";
     }
 
