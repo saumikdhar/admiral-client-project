@@ -6,33 +6,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>Admiral Login</title>
 </head>
+<style> body{background-color:rgb(242,247,252);} .box{background-color:rgb(242,247,252);}
+.custom-background{background-color:rgb(242,247,252);}
+</style>
 <body>
 <div th:replace="fragments/header :: navbar-default"></div>
 <div class="box ">
-    <div class="custom-margin">
+    <div class="box custom-margin">
     <div class="container form-control">
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
-        <form th:action="@{/login}" method="POST" class="form-signin box">
-            <h3 class="form-signin-heading" th:text="Login">Login</h3>
-            <br/>
-            <input type="text" id="username" name="username" th:placeholder="Email" class="form-control"/> <br/>
-            <input
-                type="password" th:placeholder="Password" id="password" name="password" class="form-control"/> <br/>
-
-            <div align="center" th:if="${param.error}">
-                <p style="font-size: 20px; color: #FF1C19;">Email or Password is invalid.</p>
+        <div class="tab-group custom-background">
+            <div class="lightBlueWrapper" th:if="${param.logout}">
+                You have been logged out.
             </div>
-            <button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login"
-                    style="margin-right:10px;">Login
-            </button>
-            <a href="/recover-password">Forgot password?</a>
-        </form>
+            <div class="title">
+                Enter your details below
+            </div>
+            <form th:action="@{/login}" method="POST">
+                <div class="field-wrap form-row">
+                    <label class="form-label" th:text="Email">Email</label>
+                    <input type="text" id="username" name="username" th:placeholder="Email" class="form-control"/>
+                </div>
+
+                <div class="field-wrap form-row">
+                    <label class="form-label" th:text="Password">Password</label>
+                    <input
+                        type="password" th:placeholder="Password" id="password" name="password" class="form-control"/>
+
+                    <div align="center" th:if="${param.error}">
+                        <p style="font-size: 20px; color: #FF1C19;">Email or Password is invalid.</p>
+                    </div>
+                </div>
+                <button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login"
+                        style="margin-right:10px;">Login
+                </button>
+<!--                <a href="/recover-password">Forgot password?</a>-->
+            </form>
+        </div>
     </div>
     </div>
 </div>

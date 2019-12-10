@@ -12,6 +12,7 @@ import com.nsa.team9.timesheetmanager.services.TimeSheetSearchImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,6 +40,8 @@ public class ManagerController {
         loginSearch = aLoginSearch;
         managerSearch = aManagerSearch;
     }
+
+
 
     @GetMapping("/manager")
     public String showDashboard(Model model, Authentication authentication) {
