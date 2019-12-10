@@ -41,44 +41,6 @@ public class ManagerController {
         managerSearch = aManagerSearch;
     }
 
-    @GetMapping("/loginSuccess")
-    public String successfulLogin(Authentication authentication) {
-        //attempt to use my principle
-        try {
-            MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
-
-            boolean isContractor = false;
-            boolean isManager = false;
-            boolean isAdmin = false;
-
-            if (principal.getUser().getAccessLevel().equals(0)) {
-                isContractor = true;
-            } else if (principal.getUser().getAccessLevel().equals(1)) {
-                isManager = true;
-            } else if (principal.getUser().getAccessLevel().equals(2)) {
-                isAdmin = true;
-            }
-
-
-            if (isContractor) {
-                return "redirect:/TimeSheetForm";
-            } else if (isManager) {
-                return "redirect:/manager";
-            } else if (isAdmin) {
-
-                return "redirect:/admin/timesheets";
-            } else {
-                String error = new IllegalStateException().getMessage();
-                LOG.debug(error);
-                return "redirect:/login";
-            }
-        }catch (NullPointerException n) {
-            return "redirect:/login";
-        }
-    }
-
-
-
 
 
     @GetMapping("/manager")
