@@ -60,6 +60,7 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
                 break;
             } else if (grantedAuthority.getAuthority().equals("ROLE_1")) {
                 isManager = true;
+                break;
             } else if (grantedAuthority.getAuthority().equals("ROLE_2")) {
                 isAdmin = true;
                 break;
@@ -67,12 +68,12 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
         }
 
         if (isContractor) {
-            return "redirect:/TimeSheetForm";
+            return "redirect:/loginSuccess";
         } else if (isManager) {
-            return "redirect:/manager";
+            return "redirect:/loginSuccess";
         } else if (isAdmin) {
-            
-            return "redirect:/admin/timesheets";
+
+            return "redirect:/loginSuccess";
         } else {
             throw new IllegalStateException();
         }

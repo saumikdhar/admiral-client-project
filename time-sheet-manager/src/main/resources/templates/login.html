@@ -14,9 +14,6 @@
 <div class="box ">
     <div class="box custom-margin">
     <div class="container form-control">
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
@@ -42,7 +39,7 @@
                 <button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login"
                         style="margin-right:10px;">Login
                 </button>
-                <a href="/recover-password">Forgot password?</a>
+<!--                <a href="/recover-password">Forgot password?</a>-->
             </form>
         </div>
     </div>

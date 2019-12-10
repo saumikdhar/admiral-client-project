@@ -51,8 +51,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
 
-//    AuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
-    AuthenticationSuccessHandler successHandler = new MyUrlAuthenticationSuccessHandler();
+    AuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
+//    AuthenticationSuccessHandler successHandler = new MyUrlAuthenticationSuccessHandler();
 
 
     http
@@ -69,11 +69,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .successHandler(successHandler)
 
             .loginPage("/login")
-
+            .defaultSuccessUrl("/loginSuccess")
             .permitAll()
             .and()
             .logout()
+            .logoutUrl("/logout")
             .logoutSuccessUrl("/login")
+            .invalidateHttpSession(true)
             .permitAll()
             .and()
             .exceptionHandling().accessDeniedPage("/403")
