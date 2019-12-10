@@ -6,10 +6,12 @@ import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.ContractorProjection;
 import com.nsa.team9.timesheetmanager.services.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Locale;
 
 @Slf4j
 @Controller
@@ -150,11 +153,21 @@ public class AdminController {
     }
 
     @PostMapping("change-password/confirm")
-    public String ChangePassword(Model model, @ModelAttribute("changePassword") @Valid ChangePasswordForm changePassword, BindingResult bindingResult) {
+    public String ChangePassword(Model model, @ModelAttribute("changePassword") @Valid ChangePasswordForm changePassword, BindingResult bindingResult , Authentication authentication) {
+
         //Get the logged in user
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+        boolean result = encoder.matches(changePassword.getCurrentPassword(), principal.getUser().getPassword());
+
+        if (!result){
+            bindingResult.rejectValue("currentPassword", "error.ChangePasswordForm", "Current password did not match");
+        }
+
         if (bindingResult.hasErrors()){
+            System.out.println(bindingResult);
             return "changePassword";
         }
         return "passwordChangeConfirmation";
     }
+
 }
