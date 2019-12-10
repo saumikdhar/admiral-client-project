@@ -44,7 +44,7 @@
         <ul class="menu">
             <li><a href="#" th:href="@{/manager}">Dashboard</a></li>
             <li><a href="#" th:href="@{/manager/history}">History</a></li>
-            <li><a href="#" th:href="@{/login}">Sign In</a></li>
+            <li><a href="#" th:href="@{/logout}">Logout</a></li>
         </ul>
     </header>
 </div>
@@ -61,12 +61,13 @@
             <li><a href="#" th:href="@{/admin/timesheets}">Timesheets</a></li>
             <li><a href="#" th:href="@{/admin/assign-manager}">Assign a Manager</a></li>
             <li><a href="#" th:href="@{/admin/create-account}">Create account</a></li>
-            <li><a href="#">My Account</a>
+            <li><a href="">My Account</a>
               <ul class="dropdown">
                  <li>
                      <a href="/admin/change-password">Change my password</a>
-                     <a href="#">Logout</a>
-                 </li>
+                     <a href="#" th:href="@{/logout}">Logout</a>
+
+                  </li>
               </ul>
             </li>
         </ul>
