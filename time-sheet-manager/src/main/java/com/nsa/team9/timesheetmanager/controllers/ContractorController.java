@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -111,5 +112,17 @@ public class ContractorController {
 
         //Code here to get the post request running when page is returned
         return "timesheet_confirmation";
+    }
+
+    @GetMapping("/PreviousTimesheets")
+    public String ShowPreviousTimesheets(Model model,Authentication authentication){
+
+        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
+        Contractor c = contractorSearch.findContractorByEmail(principal.getUser().getEmail()).get();
+
+        List<TimeSheet> previousTimesheet = TimeSheetValidation.getTimeSheetsByContractor(c.getId());
+        model.addAttribute("previousTimesheet", previousTimesheet);
+
+        return "contractor_previous_timesheets";
     }
 }
