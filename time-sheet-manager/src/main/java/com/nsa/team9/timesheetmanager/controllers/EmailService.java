@@ -81,14 +81,14 @@ public class EmailService {
         MimeBodyPart messageBodyPart = new MimeBodyPart();
         messageBodyPart.setContent(emailMessage.getBody(), "text/html");
 
-        Multipart multipart = new MimeMultipart();
+        /*Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(messageBodyPart);
         MimeBodyPart attachPart = new MimeBodyPart();
 
         attachPart.attachFile("C:\\Users\\hp envy\\Downloads\\milky_way_mountain_by_yakub_nihat-wallpaper-3840x2160.jpg");
 
         multipart.addBodyPart(attachPart);
-        message.setContent(multipart);
+        message.setContent(multipart);*/
         // sends the email
         Transport.send(message);
     }

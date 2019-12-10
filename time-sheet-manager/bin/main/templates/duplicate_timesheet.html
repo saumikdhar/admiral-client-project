@@ -10,13 +10,20 @@
 <body>
 <form href="#" th:href="@{/TimeSheetForm}" METHOD="post" th:object="${TimeSheet}">
     <div class="box">
-        <div class="custom-margin">
+        <div class="tab-group">
             <div>
                 <h3>Timesheet not submitted</h3>
                 <p>This is due to the start date already existing for a timesheet created previously</p>
             </div>
             <button class="btn btn-primary"  id="time_sheet_duplicate" type="submit">Return to timesheet</button>
         </div>
+
+        <input
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}"
+                type="hidden"/>
+
+    </div>
     </div>
 </form>
 </body>

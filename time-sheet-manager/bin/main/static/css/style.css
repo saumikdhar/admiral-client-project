@@ -390,11 +390,24 @@ form {
 
 /*end*/
 
-/* alert message font size*/
+/* alert message css*/
 .alert-danger{
   font-size: 14px;
+  background-color: unset;
+  border-color: transparent;
+  color: red;
+
 }
 
+.alert{
+  padding: .75rem 0;
+}
+
+.warning-icon{
+  background: transparent;
+}
+
+/*end*/
 
 /*media content*/
 
@@ -485,7 +498,7 @@ form {
     background-color: unset;
   }
   .box{
-    max-width: 80%;
+    max-width: 90%;
   }
 
 

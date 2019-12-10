@@ -1,6 +1,7 @@
 package com.nsa.team9.timesheetmanager.services;
 
 import com.nsa.team9.timesheetmanager.domain.TimeSheet;
+import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,4 +17,8 @@ public interface TimeSheetSearch {
     public Optional<TimeSheet> CheckIfTimeSheetExists(LocalDate start_date, Long contractorId);
 
     public List<TimeSheet> getTimeSheetsByContractor(Long contractorId);
+
+    public List<TimeSheet> getAllTimeSheetsByManager(String lastName, String firstName);
+
+    public List<TimeSheet> getAllTimeSheetsByManagerAndDate(@Param("lastName") String lastName, @Param("firstName") String firstName, @Param("dateFrom") LocalDate dateFrom, @Param("dateTo") LocalDate dateTo );
 }

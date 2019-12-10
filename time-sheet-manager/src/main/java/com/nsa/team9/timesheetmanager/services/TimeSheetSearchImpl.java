@@ -42,7 +42,18 @@ public class TimeSheetSearchImpl implements TimeSheetSearch {
     }
 
     @Override
-    public List<TimeSheet> getTimeSheetsByContractor(Long contractorId){
+    public List<TimeSheet> getTimeSheetsByContractor(Long contractorId) {
         return timeSheetRepository.getTimeSheetsByContractor(contractorId);
+    }
+
+    @Override
+    public List<TimeSheet> getAllTimeSheetsByManager(String lastName, String firstName) {
+        return timeSheetRepository.getAllTimeSheetsByManager(lastName, firstName);
+    }
+
+    @Override
+    public List<TimeSheet> getAllTimeSheetsByManagerAndDate(String lastName, String firstName, LocalDate dateFrom, LocalDate dateTo) {
+        return timeSheetRepository.getAllTimeSheetsByManagerAndDate(lastName, firstName, dateFrom, dateTo);
+
     }
 }
