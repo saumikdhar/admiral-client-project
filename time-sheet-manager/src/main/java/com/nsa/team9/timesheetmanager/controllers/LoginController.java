@@ -193,7 +193,7 @@ public class LoginController {
 
     // Endpoint to update a user's password
     @PostMapping(value = "/reset-password")
-    public String resetUserPassword(ModelAndView modelAndView, Login user, @ModelAttribute("resetpassword") @Valid ResetPasswordForm resetPasswordForm, BindingResult bindingResult, @SessionAttribute("token") String confirmationToken) {
+    public String resetUserPassword(ModelAndView modelAndView, @ModelAttribute("resetpassword") @Valid ResetPasswordForm resetPasswordForm, BindingResult bindingResult, @SessionAttribute("token") String confirmationToken, Login user ) {
 
         if (!resetPasswordForm.getNewPassword().equals(resetPasswordForm.getConfirmPassword())){
             bindingResult.rejectValue("confirmPassword", "error.ResetPasswordForm", "Confirm password did not match new password");
@@ -204,18 +204,14 @@ public class LoginController {
             return "resetPassword";
         }
 
-        if (user.getEmail() != null) {
             // Use email to find user
-            Login tokenUser = loginSearch.getLoginByEmail(user.getEmail()).get();
-            tokenUser.setPassword(encoder.encode(user.getPassword()));
+        ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+        Login tokenUser = loginSearch.getLoginByEmail(token.getUser().getEmail()).get();
+            tokenUser.setPassword(encoder.encode(resetPasswordForm.getConfirmPassword()));
             loginSearch.createLogin(tokenUser);
             System.out.println("login saved"+ tokenUser);
             modelAndView.addObject("message", "Password successfully reset. You can now log in with the new credentials.");
             modelAndView.setViewName("successResetPassword");
-        } else {
-            modelAndView.addObject("message","The link is invalid or broken!");
-            modelAndView.setViewName("error");
-        }
         return "successResetPassword";
     }
 }
