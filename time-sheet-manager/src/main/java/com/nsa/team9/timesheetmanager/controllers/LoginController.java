@@ -5,7 +5,6 @@ import com.nsa.team9.timesheetmanager.domain.Login;
 import com.nsa.team9.timesheetmanager.services.LoginSearchImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,11 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Service
 @Controller
@@ -116,4 +115,42 @@ public class LoginController {
         return "passwordChangeConfirmation";
     }
 
+    @GetMapping(value="/forgot-password")
+    public ModelAndView displayResetPassword(ModelAndView modelAndView, Login user) {
+        modelAndView.addObject("user", user);
+        modelAndView.setViewName("forgotPassword");
+        return modelAndView;
+    }
+
+    // Receive the address and send an email
+    /*@PostMapping(value="/forgot-password")
+    public ModelAndView forgotUserPassword(ModelAndView modelAndView, Login user) {
+        Login existingUser = loginSearch.getLoginByEmail(user.getEmail()).get();
+        if (existingUser != null) {
+            // Create token
+            ConfirmationToken confirmationToken = new ConfirmationToken(existingUser);
+
+            // Save it
+            confirmationTokenRepository.save(confirmationToken);
+
+            // Create the email
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setTo(existingUser.getEmailId());
+            mailMessage.setSubject("Complete Password Reset!");
+            mailMessage.setFrom("test-email@gmail.com");
+            mailMessage.setText("To complete the password reset process, please click here: "
+                    + "http://localhost:8082/confirm-reset?token="+confirmationToken.getConfirmationToken());
+
+            // Send the email
+            emailSenderService.sendEmail(mailMessage);
+
+            modelAndView.addObject("message", "Request to reset password received. Check your inbox for the reset link.");
+            modelAndView.setViewName("successForgotPassword");
+
+        } else {
+            modelAndView.addObject("message", "This email address does not exist!");
+            modelAndView.setViewName("error");
+        }
+        return modelAndView;
+    }*/
 }

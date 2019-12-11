@@ -10,6 +10,7 @@ import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,6 +51,13 @@ public class AdminController {
         this.encoder = encoder;
     }
 
+    @Value("${gmail.username}")
+    private String username;
+
+    @Value("${gmail.password}")
+    private String password;
+
+
     /*Map to admin page*/
     @GetMapping("/timesheets")
     public String showtimesheets(Model model, DateContainer dateContainer) {
@@ -57,14 +65,6 @@ public class AdminController {
         model.addAttribute("timesheets", timesheets);
         return "adminshowtimesheets";
     }
-
-//    /*Map to timeSheetHistory page*/
-//    @GetMapping("/timesheets/history")
-//    public String showtimesheethistory(Model model, DateContainer dateContainer){
-//        List<TimeSheet> timesheets = adminSearch.getAllTimeSheets();
-//        model.addAttribute("timesheets", timesheets);
-//        return "timeSheetHistory";
-//    }
 
     /*map to admin page with date range filter*/
     @RequestMapping("/timesheets/date")
@@ -74,15 +74,6 @@ public class AdminController {
         model.addAttribute("searchTerm", dateContainer);
         return "adminshowtimesheets";
     }
-
-//    /*map to timeSheetHistory page with date range filter*/
-//    @RequestMapping("/timesheets/date")
-//    public String findTimeSheetHistoryByDate(Model model, DateContainer dateContainer){
-//        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByDate(dateContainer.getDateFrom(), dateContainer.getDateTo());
-//        model.addAttribute("timesheets", timesheets);
-//        model.addAttribute("searchTerm", dateContainer);
-//        return "timeSheetHistory";
-//    }
 
 
     /*map to from admin page to assign manager page*/
