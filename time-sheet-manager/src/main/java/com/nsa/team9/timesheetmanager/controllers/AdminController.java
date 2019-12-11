@@ -1,28 +1,21 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
-import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
 import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
 import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.ContractorProjection;
 import com.nsa.team9.timesheetmanager.services.*;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Locale;
 
 @Slf4j
 @Controller
@@ -80,7 +73,6 @@ public class AdminController {
     @GetMapping("/assign-manager")
     public String assignManagerToContractor(Model model, @ModelAttribute("managerId") Manager manager) {
         List<ContractorProjection> contractors = adminSearch.findAllContractorsAndManagersAssociated();
-        System.out.println(contractors);
         List<Manager> managers = managerSearch.findAllManagers();
         model.addAttribute("managers", managers);
         model.addAttribute("agencies", contractors);

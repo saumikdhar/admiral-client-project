@@ -70,8 +70,9 @@
                     <select onchange="hideorshowcontracotrfeatures()" th:field="*{AccessLevel}" class="form-control mr-sm-2" id ="role" required>
                         <label>Select Account Type</label>
                         <option disabled selected value=""> -- select an option -- </option>
-                        <option th:value="1">Manager</option>
                         <option th:value="0">Contractor</option>
+                        <option th:value="1">Manager</option>
+<!--                        <option th:value="2">Admin</option>-->
                     </select>
                 </div>
 
