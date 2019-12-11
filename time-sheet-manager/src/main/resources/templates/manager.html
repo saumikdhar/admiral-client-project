@@ -65,6 +65,7 @@
                                 class="btn btn-danger"
                                 data-toggle="modal"
                                 data-target="#notesModal"
+                                th:data-managerEmail="${timesheet.contractorId.login.email}"
                                 th:data-id="${timesheet.timesheet_id}">N
                         </button>
                     </div>
@@ -128,11 +129,13 @@
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
-<script>
+<script th:inline="javascript">
+    var managerEmail = "";
     $(document).ready(function () {
         $("#notesModal").on('shown.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var id = button.data('id') // Extract info from data-* attributes
+            managerEmail = button.data('managerEmail');
             $('input[name = timesheet_id]').val(id)
         })
     })
@@ -145,7 +148,7 @@
                 contentType: "application/json;charset=UTF-8",
                 data: JSON.stringify({
                     //To_addresss needs to be changed so that it takes in the contractors email
-                    "to_address": "edge14031985@gmail.com",
+                    "to_address": managerEmail,
                     //Subject needs to be generic timesheet receipt
                     "subject": "Time sheet rejected - subject",
                     //body needs to return a generic thankyou and also a copy of the time sheet
