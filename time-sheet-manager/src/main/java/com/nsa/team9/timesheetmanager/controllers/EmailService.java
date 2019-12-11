@@ -16,7 +16,6 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
@@ -81,14 +80,6 @@ public class EmailService {
         MimeBodyPart messageBodyPart = new MimeBodyPart();
         messageBodyPart.setContent(emailMessage.getBody(), "text/html");
 
-        /*Multipart multipart = new MimeMultipart();
-        multipart.addBodyPart(messageBodyPart);
-        MimeBodyPart attachPart = new MimeBodyPart();
-
-        attachPart.attachFile("C:\\Users\\hp envy\\Downloads\\milky_way_mountain_by_yakub_nihat-wallpaper-3840x2160.jpg");
-
-        multipart.addBodyPart(attachPart);
-        message.setContent(multipart);*/
         // sends the email
         Transport.send(message);
     }

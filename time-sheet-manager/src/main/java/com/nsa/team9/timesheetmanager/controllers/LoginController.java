@@ -1,10 +1,14 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
 import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
+import com.nsa.team9.timesheetmanager.domain.ConfirmationToken;
+import com.nsa.team9.timesheetmanager.domain.EmailMessage;
 import com.nsa.team9.timesheetmanager.domain.Login;
+import com.nsa.team9.timesheetmanager.repositories.ConfirmationTokenRepository;
 import com.nsa.team9.timesheetmanager.services.LoginSearchImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,10 +20,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-
+import java.io.IOException;
+@SessionAttributes({"token", "emailAddress"})
 @Service
 @Controller
 public class LoginController {
@@ -27,12 +33,23 @@ public class LoginController {
     static final Logger LOG = LoggerFactory.getLogger(ContractorController.class);
     private final PasswordEncoder encoder;
     private LoginSearchImpl loginSearch;
+    private ConfirmationTokenRepository confirmationTokenRepository;
+    private final EmailService emailSenderService;
 
-
-    public LoginController(PasswordEncoder encoder, LoginSearchImpl loginSearch) {
+    public LoginController(PasswordEncoder encoder, LoginSearchImpl loginSearch, ConfirmationTokenRepository tokenRepository,
+                           EmailService emailSenderService) {
         this.encoder = encoder;
         this.loginSearch = loginSearch;
+        confirmationTokenRepository = tokenRepository;
+        this.emailSenderService = emailSenderService;
     }
+
+    @Value("${gmail.username}")
+    private String username;
+
+    @Value("${gmail.password}")
+    private String password;
+
 
     @GetMapping("/loginSuccess")
     public String successfulLogin(Authentication authentication) {
@@ -116,41 +133,89 @@ public class LoginController {
     }
 
     @GetMapping(value="/forgot-password")
-    public ModelAndView displayResetPassword(ModelAndView modelAndView, Login user) {
-        modelAndView.addObject("user", user);
-        modelAndView.setViewName("forgotPassword");
-        return modelAndView;
+    public String displayResetPassword(Model model) {
+        model.addAttribute("forgotPasswordF", new ForgotPasswordForm());
+        return "forgotPassword";
     }
 
     // Receive the address and send an email
-    /*@PostMapping(value="/forgot-password")
-    public ModelAndView forgotUserPassword(ModelAndView modelAndView, Login user) {
-        Login existingUser = loginSearch.getLoginByEmail(user.getEmail()).get();
-        if (existingUser != null) {
-            // Create token
-            ConfirmationToken confirmationToken = new ConfirmationToken(existingUser);
+    @PostMapping(value="/forgot-password")
+    public String forgotUserPassword(@ModelAttribute("forgotPasswordF") @Valid ForgotPasswordForm user, BindingResult bindingResult) throws IOException, MessagingException {
 
-            // Save it
-            confirmationTokenRepository.save(confirmationToken);
+        if (!loginSearch.getLoginByEmail(user.getEmailAddress()).isPresent()){
+            bindingResult.rejectValue("emailAddress", "error.ForgotPasswordForm", "The email address you entered doesn't exist in Admiral");
+        }
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult);
+            return "forgotPassword";
+        }
 
-            // Create the email
-            SimpleMailMessage mailMessage = new SimpleMailMessage();
-            mailMessage.setTo(existingUser.getEmailId());
-            mailMessage.setSubject("Complete Password Reset!");
-            mailMessage.setFrom("test-email@gmail.com");
-            mailMessage.setText("To complete the password reset process, please click here: "
-                    + "http://localhost:8082/confirm-reset?token="+confirmationToken.getConfirmationToken());
+        Login existingUser = loginSearch.getLoginByEmail(user.getEmailAddress()).get();
 
-            // Send the email
-            emailSenderService.sendEmail(mailMessage);
+        // Create token
+        ConfirmationToken confirmationToken = new ConfirmationToken(existingUser);
 
-            modelAndView.addObject("message", "Request to reset password received. Check your inbox for the reset link.");
-            modelAndView.setViewName("successForgotPassword");
+        // Save it
+        confirmationTokenRepository.save(confirmationToken);
 
+
+        // Create the email
+        EmailMessage mailMessage = new EmailMessage();
+        mailMessage.setTo_address(existingUser.getEmail());
+        mailMessage.setSubject("Complete Password Reset!");
+        mailMessage.setBody("A reset password for this account was requested, to complete the password reset process" + "<p> Please click here: "
+        + "\n<a href='http://localhost:8000/confirm-reset?token="+confirmationToken.getConfirmationToken() + "'>reset password"+"</a></p>"
+                + "<br>"+
+                "<p><b>If this wasn't you just ignore this email or delete the email</b></p>");
+
+        // Send the email
+        emailSenderService.sendEmail(mailMessage);
+        return "successForgotPassword";
+    }
+
+    // Endpoint to confirm the token
+    @GetMapping(value="/confirm-reset")
+    public ModelAndView validateResetToken(ModelAndView modelAndView, @RequestParam("token")String confirmationToken, Model model) {
+        ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+        model.addAttribute("resetpassword", new ResetPasswordForm());
+        model.addAttribute("token", confirmationToken);
+        if (token != null) {
+            Login user = loginSearch.getLoginByEmail(token.getUser().getEmail()).get();
+            modelAndView.addObject("user", user);
+            modelAndView.addObject("emailAddress", user.getEmail());
+            modelAndView.setViewName("resetPassword");
         } else {
-            modelAndView.addObject("message", "This email address does not exist!");
+                modelAndView.addObject("message", "The link is invalid or broken!");
             modelAndView.setViewName("error");
         }
         return modelAndView;
-    }*/
+    }
+
+    // Endpoint to update a user's password
+    @PostMapping(value = "/reset-password")
+    public String resetUserPassword(ModelAndView modelAndView, Login user, @ModelAttribute("resetpassword") @Valid ResetPasswordForm resetPasswordForm, BindingResult bindingResult, @SessionAttribute("token") String confirmationToken) {
+
+        if (!resetPasswordForm.getNewPassword().equals(resetPasswordForm.getConfirmPassword())){
+            bindingResult.rejectValue("confirmPassword", "error.ResetPasswordForm", "Confirm password did not match new password");
+        }
+
+        if (bindingResult.hasErrors()){
+            System.out.println(bindingResult);
+            return "resetPassword";
+        }
+
+        if (user.getEmail() != null) {
+            // Use email to find user
+            Login tokenUser = loginSearch.getLoginByEmail(user.getEmail()).get();
+            tokenUser.setPassword(encoder.encode(user.getPassword()));
+            loginSearch.createLogin(tokenUser);
+            System.out.println("login saved"+ tokenUser);
+            modelAndView.addObject("message", "Password successfully reset. You can now log in with the new credentials.");
+            modelAndView.setViewName("successResetPassword");
+        } else {
+            modelAndView.addObject("message","The link is invalid or broken!");
+            modelAndView.setViewName("error");
+        }
+        return "successResetPassword";
+    }
 }
