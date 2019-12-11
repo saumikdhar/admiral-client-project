@@ -20,7 +20,7 @@
         <div class="content hub">
             <div class="custom-margin">
                 <div class="center">
-                    <p class="messaging" th:text="${'The account information has account information has been emailed to ' +account.getEmailAddress()}">
+                    <p class="messaging" th:text="${'The account information has been emailed to ' +account.getEmailAddress()}">
                     </p>
                 </div>
         </div>
@@ -36,7 +36,7 @@
     $(document).ready(function () {
 
         var emailAddress =/*[[${account.emailAddress}]]*/ 'defaultanyvalue';
-        alert(emailAddress);
+        var password =/*[[${account.password}]]*/ 'defaultanyvalue';
         $.ajax({
             type: "POST",
             url: "http://localhost:8000/send",
@@ -47,7 +47,14 @@
                 //Subject needs to be generic timesheet receipt
                 "subject": "Your account information",
                 //body needs to return a generic thankyou and also a copy of the time sheet
-                "body": "Your account was created the details are below",
+                "body": "<p>Your account was created the details are below </p>" +
+                        "<br> <br>"+
+                    "<p><b>Login email: </b>"+ emailAddress + "</p>" +
+                    "<p><b>Login password: </b>" + password+ "</p>"+
+                        "<br>"+  "<br>"+
+                    "<div align='center'>"+
+                    "</p>Please reset your password by clicking on <a href='http://localhost:8000/user/change-password'>Change password</a></p>"+
+                "</div>"
 
                 // also need to trigger secondary email which sends to a manager a notification saying contractor has submitted time sheet
             })
