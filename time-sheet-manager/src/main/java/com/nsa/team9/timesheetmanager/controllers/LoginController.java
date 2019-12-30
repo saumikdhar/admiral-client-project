@@ -175,25 +175,24 @@ public class LoginController {
 
     // Endpoint to confirm the token
     @GetMapping(value="/confirm-reset")
-    public ModelAndView validateResetToken(ModelAndView modelAndView, @RequestParam("token")String confirmationToken, Model model) {
+    public ModelAndView validateResetToken(ModelAndView modelAndView, @RequestParam("token")String confirmationToken, Model model, BindingResult bindingResult) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
         model.addAttribute("resetpassword", new ResetPasswordForm());
         model.addAttribute("token", confirmationToken);
         if (token != null) {
             Login user = loginSearch.getLoginByEmail(token.getUser().getEmail()).get();
-            modelAndView.addObject("user", user);
-            modelAndView.addObject("emailAddress", user.getEmail());
+            model.addAttribute("user", user);
+            model.addAttribute("emailAddress", user.getEmail());
             modelAndView.setViewName("resetPassword");
         } else {
                 modelAndView.addObject("message", "The link is invalid or broken!");
-            modelAndView.setViewName("error");
-        }
+            modelAndView.setViewName("error"); }
         return modelAndView;
     }
 
     // Endpoint to update a user's password
     @PostMapping(value = "/reset-password")
-    public String resetUserPassword(ModelAndView modelAndView, @ModelAttribute("resetpassword") @Valid ResetPasswordForm resetPasswordForm, BindingResult bindingResult, @SessionAttribute("token") String confirmationToken, Login user ) {
+    public String resetUserPassword(ModelAndView modelAndView, @ModelAttribute("resetpassword") @Valid ResetPasswordForm resetPasswordForm, BindingResult bindingResult, @SessionAttribute("token") String confirmationToken) {
 
         if (!resetPasswordForm.getNewPassword().equals(resetPasswordForm.getConfirmPassword())){
             bindingResult.rejectValue("confirmPassword", "error.ResetPasswordForm", "Confirm password did not match new password");
