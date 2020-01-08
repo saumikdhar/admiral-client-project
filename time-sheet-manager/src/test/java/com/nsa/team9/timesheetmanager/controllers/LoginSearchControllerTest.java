@@ -41,21 +41,6 @@ public class LoginSearchControllerTest {
     @Autowired
     ConfirmationTokenRepository confirmationTokenRepository;
 
-
-    /*BAD PATH*/
-    @Test
-    public void invalidEmailForgotPassword() throws Exception {
-        mvc.perform(post("/forgot-password") // post to forgot password page
-                .param("emailAddress", "hbjb")) // invalid email input (without @, .com etc)
-                .andDo(print())
-                .andExpect(status().isOk())
-                //expected error messages
-                .andExpect(content().string(Matchers.containsString("Please provide a valid email address")))
-                .andExpect(content().string(Matchers.containsString("must be a well-formed email address")))
-                .andExpect(content().string(Matchers.containsString("The email address you entered doesn&#39;t exist in Admiral")));
-
-    }
-
     /*BAD PATH*/
     @Test
     public void invalidEmailForgotPasswordTwo() throws Exception {
