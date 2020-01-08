@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+</head>
+<head th:replace="fragments/header :: head">
+</head>
+<div th:replace="fragments/header :: navbar-admin"></div>
+<style> body{background-color:rgb(242,247,252);} .box{background-color:rgb(242,247,252); }
+</style>
+
+<body>
+<main role="main" class="box">
+
+    <div class="tab-group">
+
+        <div class="title">
+            Account Successfully created
+        </div>
+        <div class="content hub">
+            <div class="custom-margin">
+                <div class="center">
+                    <p class="messaging" th:text="${'The account information has been emailed to ' +account.getEmailAddress()}">
+                    </p>
+                </div>
+        </div>
+    </div>
+
+    </div>
+</main>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    $(document).ready(function () {
+
+        var emailAddress =/*[[${account.emailAddress}]]*/ 'defaultanyvalue';
+        var password =/*[[${account.password}]]*/ 'defaultanyvalue';
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/send",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                "to_address": emailAddress,
+                "subject": "Your account information",
+                "body": "<p>Your account was created the details are below </p>" +
+                        "<br> <br>"+
+                    "<p><b>Login email: </b>"+ emailAddress + "</p>" +
+                    "<p><b>Login password: </b>" + password+ "</p>"+
+                        "<br>"+  "<br>"+
+                    "<div align='center'>"+
+                    "</p>Please change your password by clicking on <a href='http://localhost:8000/user/change-password'>Change password</a></p>"+
+                "</div>"
+            })
+        });
+    });
+    </script>
+</html>

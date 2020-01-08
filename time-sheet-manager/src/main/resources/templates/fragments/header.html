@@ -44,7 +44,14 @@
         <ul class="menu">
             <li><a href="#" th:href="@{/manager}">Dashboard</a></li>
             <li><a href="#" th:href="@{/manager/history}">History</a></li>
-            <li><a href="#" th:href="@{/logout}">Logout</a></li>
+            <li><a href="">My Account</a>
+                <ul class="dropdown">
+                    <li>
+                        <a th:href="@{/user/change-password}">Change my password</a>
+                        <a href="#" th:href="@{/logout}">Logout</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </header>
 </div>
@@ -64,9 +71,8 @@
             <li><a href="">My Account</a>
               <ul class="dropdown">
                  <li>
-                     <a href="/admin/change-password">Change my password</a>
+                     <a th:href="@{/user/change-password}">Change my password</a>
                      <a href="#" th:href="@{/logout}">Logout</a>
-
                   </li>
               </ul>
             </li>
@@ -85,7 +91,14 @@
         <ul class="menu">
             <li><a href="#" th:href="@{/TimeSheetForm}">Create Timesheet</a></li>
             <li><a href="#" th:href="@{/previousTimesheets}">History</a></li>
-            <li><a href="#" th:href="@{/logout}">Logout</a></li>
+            <li><a href="">My Account</a>
+                <ul class="dropdown">
+                    <li>
+                        <a th:href="@{/user/change-password}">Change my password</a>
+                        <a href="#" th:href="@{/logout}">Logout</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </header>
 </div>

@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <title>Create account</title>
 </head>
-<head th:replace="fragments/header :: head">
-</head>
+<head th:replace="fragments/header :: head"></head>
 <div th:replace="fragments/header :: navbar-admin"></div>
-<style> body{background-color:rgb(242,247,252);} .box{background-color:rgb(242,247,252); }
-</style>
+<style> body{background-color:rgb(242,247,252);} .box{background-color:rgb(242,247,252); }</style>
 
 <body>
 <main role="main" class="box">
@@ -70,8 +68,9 @@
                     <select onchange="hideorshowcontracotrfeatures()" th:field="*{AccessLevel}" class="form-control mr-sm-2" id ="role" required>
                         <label>Select Account Type</label>
                         <option disabled selected value=""> -- select an option -- </option>
-                        <option th:value="1">Manager</option>
                         <option th:value="0">Contractor</option>
+                        <option th:value="1">Manager</option>
+<!--                        <option th:value="2">Admin</option>-->
                     </select>
                 </div>
 

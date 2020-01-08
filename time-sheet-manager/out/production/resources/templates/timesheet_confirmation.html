@@ -8,32 +8,34 @@
 </head>
 <body>
 <div th:replace="fragments/header :: navbar-contractor"></div>
+<main role="main" class="box">
 
 <div>
-    <div class="form-control" id=timehsheetConfirmationDays>
-        <h3>The days you selected are: </h3>
+    <div class="tab-group" id=timehsheetConfirmationDays>
+        <h3>TimeSheet Confirmation </h3>
         <!--        <p>Monday:</p>-->
-        <div th:text="${'Monday: ' + TimeSheet.monday_worked}"></div>
-        <!--        <p>Tuesday:</p>-->
-        <div th:text="${'Tuesday: ' + TimeSheet.tuesday_worked}"></div>
-        <!--        <p>Wednesday:</p>-->
-        <div th:text="${'Wednesday: ' + TimeSheet.wednesday_worked}"></div>
-        <!--        <p>Thursday:</p>-->
-        <div th:text="${'Thursday: ' + TimeSheet.thursday_worked}"></div>
-        <!--        <p>Friday:</p>-->
-        <div th:text="${'Friday: ' + TimeSheet.friday_worked}"></div>
-        <!--        <p>Saturday:</p>-->
-        <div th:text="${'Saturday: ' + TimeSheet.saturday_worked}"></div>
-        <!--        <p>Sunday:</p>-->
-        <div th:text="${'Sunday: ' + TimeSheet.sunday_worked}"></div>
-    </div>
 
-    <div class="form-control" id=timehsheetConfirmationOvertime>
-        <h3>The overtime you selected:</h3>
-        <div th:text="${TimeSheet.overtime}">0</div>
+        <div class="center">
+        <div class="form-control" th:text="${'Monday: ' + TimeSheet.monday_worked}"></div>
+        <!--        <p>Tuesday:</p>-->
+        <div class="form-control" th:text="${'Tuesday: ' + TimeSheet.tuesday_worked}"></div>
+        <!--        <p>Wednesday:</p>-->
+        <div class="form-control" th:text="${'Wednesday: ' + TimeSheet.wednesday_worked}"></div>
+        <!--        <p>Thursday:</p>-->
+        <div class="form-control" th:text="${'Thursday: ' + TimeSheet.thursday_worked}"></div>
+        <!--        <p>Friday:</p>-->
+        <div class="form-control" th:text="${'Friday: ' + TimeSheet.friday_worked}"></div>
+        <!--        <p>Saturday:</p>-->
+        <div class="form-control" th:text="${'Saturday: ' + TimeSheet.saturday_worked}"></div>
+        <!--        <p>Sunday:</p>-->
+        <div class="form-control" th:text="${'Sunday: ' + TimeSheet.sunday_worked}"></div>
+
+        <div class="form-control" th:text="${'Overtime: ' + TimeSheet.overtime}">0</div>
+        </div>
+    </div>
     </div>
 </div>
-
+</main>
 
 </body>
 <div th:replace="fragments/footer :: footer">
@@ -53,9 +55,11 @@
 
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
     //Post request which starts the emailing process once the time sheet confirmation page reloads
-
+    //EMAILS CONTRACTOR A NOTIFICATION THAT THEIR MANAGER HAS BEEN NOTIFIED
+    var contractorEmail = [[${emailContractor}]]
+    var managerEmail = [[${emailManager}]]
     $(document).ready(function () {
         $.ajax({
             type: "POST",
@@ -63,16 +67,17 @@
             contentType: "application/json;charset=UTF-8",
             data: JSON.stringify({
                 //To_addresss needs to be changed so that it takes in the contractors email
-                "to_address": "edge14031985@gmail.com",
+                "to_address": contractorEmail,
                 //Subject needs to be generic timesheet receipt
                 "subject": "Time sheet receipt - subject",
                 //body needs to return a generic thankyou and also a copy of the time sheet
-                "body": "Thankyou for submitting your time sheet - body"
+                "body": "Thank you for submitting your time sheet - body"
                 // also need to trigger secondary email which sends to a manager a notification saying contractor has submitted time sheet
             })
         });
     });
     //Post request which starts the emailing process once the time sheet confirmation page reloads
+    //EMAILS MANAGER A NOTIFICATION THAT A TIME SHEET IS SUBMITTED
     $(document).ready(function () {
         $.ajax({
             type: "POST",
@@ -80,7 +85,7 @@
             contentType: "application/json;charset=UTF-8",
             data: JSON.stringify({
                 //To_addresss needs to be changed so that it takes in the contractors email
-                "to_address": "edge14031985@gmail.com",
+                "to_address": managerEmail,
                 //Subject needs to be generic timesheet receipt
                 "subject": "Time sheet submitted - subject",
                 //body needs to return a generic thankyou and also a copy of the time sheet
