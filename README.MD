@@ -10,15 +10,18 @@ To Access teams link to you will need to ensure you have accepted the invite to 
 
 ### Admin 
 
-Email Address:
+Email Address: risus@tincidunt.net
+
 password: password
 
 ### Manager
 
-Email Address:
+Email Address: ac.risus.Morbi@seddictumeleifend.edu
+
 password: password
 
 ### Contractor
 
-Email Address:
+Email Address: sodales.elit@Nuncsedorci.org
+
 password: password
