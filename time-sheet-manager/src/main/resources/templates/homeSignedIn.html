@@ -1,37 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: head">
 </head>
-<div th:replace="fragments/header :: navbar-default"></div>
+<div sec:authorize="hasRole('ROLE_2')">
+    <div th:replace="fragments/header :: navbar-admin"></div>
+</div>
+
+<div sec:authorize="hasRole('ROLE_1')">
+    <div th:replace="fragments/header :: navbar"></div>
+</div>
+
+<div sec:authorize="hasRole('ROLE_0')">
+    <div th:replace="fragments/header :: navbar-contractor"></div>
+</div>
 <body>
         <article role="article">
             <div>
                 <div class="pcontainer">
 <!--                    <div class="heroBanner other-products-hub nopic d8-migrate-hero">-->
                     <div class="content hub">
-                        <h1>About Us</h1>
-                        <div>
-                            <p class="messaging">
-                                Admiral started out in 1993 with the aim of offering lower insurance prices to more people, without compromising on the quality of our service or products.
-                            </p>
-                            <p class="messaging">
-                                You may know us as a car & home insurer but we offer a lot more. We can cover your holidays, vans and now we offer Personal Loans and Car Finance. Admiral is there to make sure you're covered every step of the way.
-                            </p>
+                        <div class="custom-margin">
+                            <h1>Welcome Home,</h1>
+                            <h3 sec:authentication="name"></h3>
+                            <div>
+                                <p class="messaging">
+                                    Welcome to the Admiral homepage you can view your pages via the navbar which is simple and easy to use. If you want to logout you can simply hover over my account and select logout.
+                                </p>
+                                <p class="messaging">
+                                    If you have any useful feedback for the website please email admiral@developer.com.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
         </article>
-    </div>
         <div class="lightGreyWrapper">
-        <div class="pcontainer">
+            <div class="pcontainer">
             <!--                    <div class="heroBanner other-products-hub nopic d8-migrate-hero">-->
             <div class="content hub">
-                <h1>What we're all about</h1>
+                <h1>Troubleshooting</h1>
                 <div>
                     <p class="messaging">
-                        From humble beginnings in Cardiff - Admiral launched with just 57 staff members and no customers - to offices in seven countries and more than 7,000 staff and four million customers, it's fair to say Admiral has changed over the years.</p>
+                        Our developers are always working hard to ensure that all the services run smoothly so may experience some difficulties while accessing some pages while we update</p>
                     <p class="messaging">
                         But the one thing that hasn’t changed is our ethos: “People who like what they do, do it better.” Admiral’s founder, Henry Engelhard, said that, and we truly believe happy staff work harder, give better customer service and are happy to go above and beyond to do the best by our policyholders.
                     </p>

@@ -20,7 +20,9 @@
     margin: auto;
     text-align:center;
 }
-
+ .center{
+     text-align: center;
+ }
 
 .tab-group form{
     display: unset;

@@ -1,27 +1,21 @@
 package com.nsa.team9.timesheetmanager.controllers;
 
-import com.nsa.team9.timesheetmanager.config.security.MyUserPrincipal;
 import com.nsa.team9.timesheetmanager.controllers.util.DateContainer;
 import com.nsa.team9.timesheetmanager.domain.*;
 import com.nsa.team9.timesheetmanager.projections.ContractorProjection;
 import com.nsa.team9.timesheetmanager.services.*;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Locale;
 
 @Slf4j
 @Controller
@@ -50,6 +44,13 @@ public class AdminController {
         this.encoder = encoder;
     }
 
+    @Value("${gmail.username}")
+    private String username;
+
+    @Value("${gmail.password}")
+    private String password;
+
+
     /*Map to admin page*/
     @GetMapping("/timesheets")
     public String showtimesheets(Model model, DateContainer dateContainer) {
@@ -57,14 +58,6 @@ public class AdminController {
         model.addAttribute("timesheets", timesheets);
         return "adminshowtimesheets";
     }
-
-//    /*Map to timeSheetHistory page*/
-//    @GetMapping("/timesheets/history")
-//    public String showtimesheethistory(Model model, DateContainer dateContainer){
-//        List<TimeSheet> timesheets = adminSearch.getAllTimeSheets();
-//        model.addAttribute("timesheets", timesheets);
-//        return "timeSheetHistory";
-//    }
 
     /*map to admin page with date range filter*/
     @RequestMapping("/timesheets/date")
@@ -75,21 +68,11 @@ public class AdminController {
         return "adminshowtimesheets";
     }
 
-//    /*map to timeSheetHistory page with date range filter*/
-//    @RequestMapping("/timesheets/date")
-//    public String findTimeSheetHistoryByDate(Model model, DateContainer dateContainer){
-//        List<TimeSheet> timesheets = adminSearch.findTimeSheetsByDate(dateContainer.getDateFrom(), dateContainer.getDateTo());
-//        model.addAttribute("timesheets", timesheets);
-//        model.addAttribute("searchTerm", dateContainer);
-//        return "timeSheetHistory";
-//    }
-
 
     /*map to from admin page to assign manager page*/
     @GetMapping("/assign-manager")
     public String assignManagerToContractor(Model model, @ModelAttribute("managerId") Manager manager) {
         List<ContractorProjection> contractors = adminSearch.findAllContractorsAndManagersAssociated();
-        System.out.println(contractors);
         List<Manager> managers = managerSearch.findAllManagers();
         model.addAttribute("managers", managers);
         model.addAttribute("agencies", contractors);
@@ -160,37 +143,6 @@ public class AdminController {
             contractorSearch.createContractor(c);
             System.out.println("created Contractor");
         }
-        return "redirect:";
+        return "adminCreateAccountConfirmation";
     }
-
-    @GetMapping("/change-password")
-    public String showChangePasswordPage(Model model) {
-        model.addAttribute("changePassword", new ChangePasswordForm());
-
-        return "changePassword";
-    }
-
-    @PostMapping("change-password/confirm")
-    public String ChangePassword(Model model, @ModelAttribute("changePassword") @Valid ChangePasswordForm changePassword, BindingResult bindingResult , Authentication authentication) {
-
-        //Get the logged in user
-        MyUserPrincipal principal = (MyUserPrincipal) authentication.getPrincipal();
-        boolean result = encoder.matches(changePassword.getCurrentPassword(), principal.getUser().getPassword());
-
-        if (!result){
-            bindingResult.rejectValue("currentPassword", "error.ChangePasswordForm", "Current password did not match");
-        }
-
-        if (!changePassword.getNewPassword().equals(changePassword.getConfirmPassword())) {
-            bindingResult.rejectValue("confirmPassword", "error.ChangePasswordForm", "Confirm password did not match new password");
-        }
-
-        if (bindingResult.hasErrors()){
-            System.out.println(bindingResult);
-            return "changePassword";
-        }
-        loginSearch.updateUserPassword(principal.getUser().getId(), encoder.encode(changePassword.getNewPassword()));
-        return "passwordChangeConfirmation";
-    }
-
 }
