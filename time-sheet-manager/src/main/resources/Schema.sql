@@ -1,4 +1,4 @@
-DROP SCHEMA ManagingTimeSheets;
+DROP SCHEMA IF EXISTS ManagingTimeSheets;
 SHOW DATABASES;
 
 CREATE SCHEMA IF NOT EXISTS ManagingTimeSheets;
