@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class ResetPasswordForm {
 
-    @ValidPassword
+    @ValidPassword // custom validator name
     private String newPassword;
 
     @NotBlank(message = "Confirm password should not be blank")
