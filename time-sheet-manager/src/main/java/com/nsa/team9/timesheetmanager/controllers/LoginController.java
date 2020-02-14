@@ -170,7 +170,7 @@ public class LoginController {
 
         // Send the email
         emailSenderService.sendEmail(mailMessage);
-        return "successForgotPassword";
+        return "SuccessForgotPassword";
     }
 
     // Endpoint to confirm the token
@@ -210,7 +210,7 @@ public class LoginController {
             loginSearch.createLogin(tokenUser);
             System.out.println("login saved"+ tokenUser);
             modelAndView.addObject("message", "Password successfully reset. You can now log in with the new credentials.");
-            modelAndView.setViewName("successResetPassword");
-        return "successResetPassword";
+            modelAndView.setViewName("SuccessResetPassword");
+        return "SuccessResetPassword";
     }
 }
