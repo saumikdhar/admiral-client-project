@@ -13,7 +13,7 @@ import java.util.Queue;
 
 public interface LoginRepositoryJPA extends JpaRepository<Login, Long>, LoginRepository {
 
-    @Query(value = "select * from Logins where email = :email", nativeQuery = true)
+    @Query(value = "select * from logins where email = :email", nativeQuery = true)
     public Optional<Login> getLoginByEmail(@Param("email") String email);
 
     @Query(value = "select l.email from Login l where l.email = :email ")
