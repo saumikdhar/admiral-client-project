@@ -12,7 +12,7 @@ public class HomeController {
 
     @GetMapping("/")
     String index(Principal principal) {
-        return principal != null ? "/homeSignedIn" : "/homeNotSignedIn";
+        return principal != null ? "homeSignedIn" : "homeNotSignedIn";
     }
 
 //    @GetMapping("/")
