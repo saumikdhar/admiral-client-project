@@ -1,6 +1,6 @@
 SHOW DATABASES;
 
-USE managingtimesheets;
+USE ManagingTimeSheets;
 
 SHOW TABLES;
 

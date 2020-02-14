@@ -39,14 +39,12 @@ public class AdminSearchControllerTest {
                 .param("username", "urna@pedeultrices.co.uk") //admin's email address
                 .param("password", "password")) // admin's password
                 .andExpect(redirectedUrl("/loginSuccess")) //success url redirection
-                .andExpect(new ResultMatcher() {
-                    public void match(MvcResult mvcResult) throws Exception {
-                        HttpSession session = mvcResult.getRequest().getSession();
-                        assert session != null;
-                        SecurityContext securityContext = (SecurityContext) session.
-                                getAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY);
-                        assertEquals(securityContext.getAuthentication().getName(), "urna@pedeultrices.co.uk");
-                    }
+                .andExpect(mvcResult -> {
+                    HttpSession session = mvcResult.getRequest().getSession();
+                    assert session != null;
+                    SecurityContext securityContext = (SecurityContext) session.
+                            getAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY);
+                    assertEquals(securityContext.getAuthentication().getName(), "urna@pedeultrices.co.uk");
                 })
         ;
     }
