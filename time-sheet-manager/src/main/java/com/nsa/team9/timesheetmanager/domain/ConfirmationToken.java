@@ -19,8 +19,8 @@ public class ConfirmationToken {
     @Column(name="confirmation")
     private String confirmationToken;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
+     @Temporal(TemporalType.TIMESTAMP)
+     private Date createdDate;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "login_id")
