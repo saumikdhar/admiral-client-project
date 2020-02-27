@@ -12,13 +12,16 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountForm {
+    private static final int MIN_PASSWORD_LENGTH = 6;
+    private static final int MAX_PASSWORD_LENGTH = 12;
 
     @ExtendedEmailValidator
-    @UniqueEmail(message = "This Email is already taken")
+    @UniqueEmail(message = "This email is already taken")
     private String emailAddress;
 
     @NotBlank(message = "Password must not be blank")
-    @Size(min = 6, max = 12,message = "Password must be between 6 and 12 characters long")
+    @Size(min = MIN_PASSWORD_LENGTH, max = MAX_PASSWORD_LENGTH,
+            message = "Password must be between 6 and 12 characters long")
     private String password;
 
     private Integer accessLevel;

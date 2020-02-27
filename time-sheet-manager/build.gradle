@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.1.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+    id 'checkstyle'
 }
 
 group = 'com.nsa.team9.timesheetmanager'
@@ -43,4 +44,15 @@ dependencies {
  
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+checkstyleMain{
+    configFile = file("${configDir}/checkstyleMain.xml")
+    maxErrors=10
+}
+
+checkstyleTest{
+    configFile = file("${configDir}/checkstyleTest.xml")
+    ignoreFailures=true
+    maxErrors=50
 }

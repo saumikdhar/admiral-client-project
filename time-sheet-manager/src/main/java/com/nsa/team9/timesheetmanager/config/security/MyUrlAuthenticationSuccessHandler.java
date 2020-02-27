@@ -1,7 +1,6 @@
 package com.nsa.team9.timesheetmanager.config.security;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -15,15 +14,16 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Collection;
 
-public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-
-    protected Log logger = LogFactory.getLog(this.getClass());
+@Slf4j
+public class MyUrlAuthenticationSuccessHandler
+        implements AuthenticationSuccessHandler {
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
-                                        HttpServletResponse response, Authentication authentication)
+                                        HttpServletResponse response,
+                                        Authentication authentication)
             throws IOException {
 
         handle(request, response, authentication);
@@ -31,20 +31,10 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
     }
 
     protected void handle(HttpServletRequest request,
-                          HttpServletResponse response, Authentication authentication)
-            throws IOException {
+                          HttpServletResponse response,
+                          Authentication authentication) throws IOException {
 
         String targetUrl = determineTargetUrl(authentication);
-
-        if (response.isCommitted()) {
-            logger.debug(
-                    "Response has already been committed. Unable to redirect to "
-                            + targetUrl);
-            System.out.println("Response has already been committed. Unable to redirect to "
-                    + targetUrl);
-            return;
-        }
-
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
 
@@ -52,8 +42,8 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
         boolean isContractor = false;
         boolean isManager = false;
         boolean isAdmin = false;
-        Collection<? extends GrantedAuthority> authorities
-                = authentication.getAuthorities();
+        Collection<? extends GrantedAuthority> authorities = authentication
+                .getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals("ROLE_0")) {
                 isContractor = true;
@@ -72,7 +62,6 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
         } else if (isManager) {
             return "redirect:/loginSuccess";
         } else if (isAdmin) {
-
             return "redirect:/loginSuccess";
         } else {
             throw new IllegalStateException();
