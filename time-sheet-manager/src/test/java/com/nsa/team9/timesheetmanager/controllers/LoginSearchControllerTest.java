@@ -224,6 +224,6 @@ public class LoginSearchControllerTest {
                 .sessionAttr("token", confirmationToken.getConfirmationToken()))//session attribute
                 .andExpect(status().isOk())
                 .andDo(print())
-                .andExpect(content().string(Matchers.containsString("Password has been reset successfully")));;
+                .andExpect(content().string(Matchers.containsString("Password has been reset successfully")));
     }
 }
