@@ -49,3 +49,7 @@ checkstyle{
     toolVersion = 8.29
     ignoreFailures=true
 }
+
+test{
+    testLogging.showStandardStreams = true
+}
