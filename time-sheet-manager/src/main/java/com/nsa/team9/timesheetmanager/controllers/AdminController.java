@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@SessionAttributes({"agencies","managers"})
+@SessionAttributes({"agencies", "managers"})
 @RequestMapping("/admin")
 @Slf4j
 public class AdminController {
@@ -26,6 +26,10 @@ public class AdminController {
     private LoginSearchImpl loginSearch;
     private AgencySearchImpl agencySearch;
     private PasswordEncoder encoder;
+    @Value("${gmail.username}")
+    private String username;
+    @Value("${gmail.password}")
+    private String password;
 
     public AdminController(AdminSearchImpl aRepo, ContractorSearchImpl cRepo,
                            ManagerSearchImpl mRepo, LoginSearchImpl lRepo,
@@ -37,12 +41,6 @@ public class AdminController {
         this.agencySearch = agRepo;
         this.encoder = encoder;
     }
-
-    @Value("${gmail.username}")
-    private String username;
-
-    @Value("${gmail.password}")
-    private String password;
 
     /**
      * Map to admin page.
