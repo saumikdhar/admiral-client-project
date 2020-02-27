@@ -46,14 +46,7 @@ dependencies {
 //    testImplementation 'org.springframework.security:spring-security-test'
 }
 
-checkstyleMain{
-    configFile = file("${configDir}/checkstyleMain.xml")
+checkstyle{
     maxErrors=10
     ignoreFailures=true
-}
-
-checkstyleTest{
-    configFile = file("${configDir}/checkstyleTest.xml")
-    ignoreFailures=true
-    maxErrors=50
 }
