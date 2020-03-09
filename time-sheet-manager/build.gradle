@@ -45,10 +45,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-checkstyle {
-    //noinspection GroovyAccessibility
-    toolVersion = 8.29
-    ignoreFailures = true
+checkstyleMain{
+    configFile = file("${configDir}/checkstyleMain.xml")
+    ignoreFailures=true
+}
+
+checkstyleTest{
+    configFile = file("${configDir}/checkstyleTest.xml")
+    ignoreFailures=true
 }
 
 test {
