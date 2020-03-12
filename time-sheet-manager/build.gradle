@@ -3,6 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
     id 'checkstyle'
+    id 'base'
 }
 
 group = 'com.nsa.team9.timesheetmanager'
@@ -41,7 +42,7 @@ dependencies {
     compile group: 'org.passay', name: 'passay', version: '1.0'
     compile "com.google.guava:guava:16+"
     compile group: 'org.apache.velocity', name: 'velocity', version: '1.6.4'
- 
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
