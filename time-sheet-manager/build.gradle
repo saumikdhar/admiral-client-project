@@ -36,14 +36,14 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
     // https://mvnrepository.com/artifact/org.passay/passay
     compile group: 'org.passay', name: 'passay', version: '1.0'
     compile "com.google.guava:guava:16+"
     compile group: 'org.apache.velocity', name: 'velocity', version: '1.6.4'
-
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile 'org.springframework:spring-test'
 }
 
 checkstyleMain{
